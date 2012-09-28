@@ -13,18 +13,21 @@ import javax.servlet.http.HttpServletRequest;
 public class Encodingfilter implements Filter {
 
 	protected FilterConfig filterConfig;
-	private String targetEncoding="gb2312";
+	private String targetEncoding = "GBK";
+
 	public void destroy() {
-		this.filterConfig=null;
+		this.filterConfig = null;
 	}
+
 	public void doFilter(ServletRequest arg0, ServletResponse arg1,
-		FilterChain arg2) throws IOException, ServletException {
-		HttpServletRequest request=(HttpServletRequest)arg0;
+			FilterChain arg2) throws IOException, ServletException {
+		HttpServletRequest request = (HttpServletRequest) arg0;
 		request.setCharacterEncoding(targetEncoding);
 		arg2.doFilter(arg0, arg1);
 	}
+
 	public void init(FilterConfig arg0) throws ServletException {
-		this.filterConfig=arg0;
-		this.targetEncoding=arg0.getInitParameter("encoding");
+		this.filterConfig = arg0;
+		this.targetEncoding = arg0.getInitParameter("encoding");
 	}
 }
