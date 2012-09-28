@@ -66,11 +66,11 @@
   <div style="width:80%;height:320px ;border:10px solid #4169E1">
    <table width=60% style=padding-top:40px >
     <tr>
-     <td><input name=userid type=hidden value=${userid} /></td>
+     <td><input name=userid type=hidden value=${userid } /></td>
     </tr>
     <tr>
      <td>用户名称：</td>
-     <td><input name=name type=text value=${name} /></td>
+     <td><input name=name type=text value=${name } /></td>
     </tr>
     <tr>
      <td>用户性别：</td>
@@ -81,45 +81,46 @@
         <td><select name=sex><option value=男 >男</option>
         <option value=女 selected>女</option></select></td>
      <%} %>
-     <option value=女 >女</option></select></td>
     </tr>
     <tr>
      <td>用户年龄:</td>
-     <td><input name=age type=text value=${age} /></td>
+     <td><input name=age type=text value=${age } /></td>
     </tr>
     <tr>
      <td>用户电话:</td>
-     <td><input name=telphone type=text value=${telphone} /></td>
+     <td><input name=telphone type=text value=${telphone } /></td>
     </tr><tr>
      <td>用户住址:</td>
      <td><textarea name=address>${address}</textarea></td>
     </tr>
-    </tr><tr>
+    <tr>
      <td>用户权限:</td>
    <c:if test="${sessionScope.userid==1}">
      <c:if test="${power=='普通用户'}">
-     <td><input type=radio name=power value=${power} checked />普通用户<input type=radio name=power value=${"经理"} />经理</td>
+     <td><input type=radio name=power value=${power } checked />普通用户<input type=radio name=power value=${"经理"} />经理</td>
      </c:if>
       <c:if test="${power=='经理'}">
       <td><input type=radio name=power value=${"普通用户"} />普通用户<input type=radio name=power value=${"经理"} checked />经理</td>
       </c:if>
       <c:if test="${power=='管理员'}">
-      <td>${power}<input type=hidden name=power value=${power} /> </td>
+      <td>${power}<input type=hidden name=power value=${power } /> </td>
       </c:if>
     </c:if>
     <c:if test="${sessionScope.userid!=1}">
-     <td>${power}<input type=hidden name=power value=${power} /></td>
+     <td>${power}<input type=hidden name=power value=${power } /></td>
     </c:if>
    </tr>
    </table>
   </div>
-  <a href="usermanage.jsp"><input style=margin-left:80px;float:left; type="button" value=返回 /></a>
+  <p/>
+  <input onclick="window.open('usermanage.jsp','_self')" style="margin-left:80px;float:left;" type="button" value="返回" />
   <input style=margin-left:30px;float:left; type="submit" value=修改  />
  </form>
+ 
  <form action="usermanage.jsp?action=delete" method=post>
-  <input name=userid type=hidden value=${userid} />
+  <input name=userid type=hidden value=${userid } />
   <input style=margin-left:30px type="submit" value=删除 />
-  <a href="userpwdchange.jsp?userid=${userid}&name=${name}&password=${password}"><input style=margin-left:30px type="button" value=修改密码 /></a>
+  <input onclick="window.open('userpwdchange.jsp?userid=${userid}&name=${name}&password=${password}','_self')" style=margin-left:30px type="button" value=修改密码 />
  </form>
  
 </body>
