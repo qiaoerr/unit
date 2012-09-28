@@ -18,7 +18,7 @@
 </head>
 
   <%
-  request.setCharacterEncoding("gbk");
+  request.setCharacterEncoding("GBK");
   ArrayList<User> users=null;
  // System.out.println(session.getAttribute("userid").toString());
    if(request.getParameter("action")!=null){
@@ -109,8 +109,10 @@
 	  }
    }
      String name=request.getParameter("lookfor");
-  	 System.out.println(name);
-  	 
+  	// if(name!=null){
+  	 	// name=new String(name.getBytes("ISO-8859-1"),"GBK");
+  	 //}
+  
    ////////////·ÖÒ³
    {  int presentpage=0;
 	  if(request.getParameter("page_no")==null){
