@@ -339,7 +339,7 @@ public class DB_Operation {
 
 	public boolean userinsert(User user) {
 		getConnection();
-		String query = "insert into users values(user_seq.nextval,?,?,?,?,?,?,?)";
+		String query = "insert into users values(next value for user_seq,?,?,?,?,?,?,?)";
 		int i = 0;
 		try {
 			ps = conn.prepareStatement(query);
@@ -472,7 +472,7 @@ public class DB_Operation {
 	public boolean supplierinsert(Supplier supplier) {
 		getConnection();
 		boolean consequence = false;
-		String query = "insert into supplier values(supplier_seq.nextval,?,?,?,?,?)";
+		String query = "insert into supplier values(next value for supplier_seq,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setString(1, supplier.getSuppliername());
@@ -562,7 +562,7 @@ public class DB_Operation {
 	public boolean billinsert(Bill bill) {
 		getConnection();
 		boolean consequence = false;
-		String query = "insert into bill values(bill_seq.nextval,?,?,?,?,?,?,?)";
+		String query = "insert into bill values(next value for bill_seq,?,?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setString(1, bill.getGoodsname());

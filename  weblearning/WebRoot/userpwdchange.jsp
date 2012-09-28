@@ -112,7 +112,7 @@
     
   <tr>
   
-  <td><a href="usermanage.jsp"><input type="button" value="返回"></a></td>
+  <td><input onclick="window.open('usermanage.jsp','_self')" type="button" value="返回"></td>
   <td><input type="submit" name="提交" value="提交"></td>
   </tr>
   </table>

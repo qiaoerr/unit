@@ -102,7 +102,7 @@
      <tr><td>用户权限：</td><td><input name=power type="radio" value=普通用户 checked/>普通用户<input name=power type="radio" value=经理 />经理</td></tr>
     </table>
    </div> 
-   <input style=margin-left:100px;margin-top:20px; type="submit" value=数据提交 /><a href=usermanage.jsp><input style=margin-left:50px; type="button" value=返回 /></a>
+   <input style=margin-left:100px;margin-top:20px; type="submit" value=数据提交 /><input onclick="window.open('usermanage.jsp','_self')" style=margin-left:50px; type="button" value=返回 />
  </form>
 
 </body>
