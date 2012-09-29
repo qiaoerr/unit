@@ -10,7 +10,7 @@ public class BillOperation {
 	private void set_dbo() {
 		DB_Operation dbo = new DB_Operation();
 		dbo.setDriver("org.apache.derby.jdbc.EmbeddedDriver");
-		dbo.setUrl("jdbc:derby:D:\\tools\\db-derby-10.9.1.0-bin\\bin\\mydb");
+		dbo.setUrl("jdbc:derby:mydb");
 		dbo.setUsername("unit");
 		dbo.setPassword("java");
 		this.dbo = dbo;
