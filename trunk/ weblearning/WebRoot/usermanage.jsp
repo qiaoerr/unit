@@ -16,7 +16,14 @@
 <title>超市管理系统</title>
 <link href=css/unit2_c.css rel=stylesheet type=css/text/>
 </head>
-
+<% if( session.getAttribute("username")==null){
+	 out.println("<script type=\"text/javascript\">");
+     out.println("alert(\"您还没有登陆！请登陆！\");");
+	 out.println("open(\"index.jsp\",\"_parent\");");
+	 out.println("</script>");
+	 return;
+}
+%>
   <%
   request.setCharacterEncoding("GBK");
   ArrayList<User> users=null;

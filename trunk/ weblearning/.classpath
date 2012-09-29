@@ -2,14 +2,14 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_06"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/derby.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libForcat/ecj-3.7.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libForcat/tomcat-dbcp.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libForcat/tomcat-embed-core.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libForcat/tomcat-embed-jasper.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libForcat/tomcat-embed-logging-juli.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/libForcat/tomcat-embed-logging-log4j.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/derby.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

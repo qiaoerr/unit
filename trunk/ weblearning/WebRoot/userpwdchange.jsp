@@ -11,6 +11,14 @@
 <meta http-equiv="expires" content="0"/>   
 <title>更改密码</title>	
 </head> 
+<% if( session.getAttribute("username")==null){
+	 out.println("<script type=\"text/javascript\">");
+     out.println("alert(\"您还没有登陆！请登陆！\");");
+	 out.println("open(\"index.jsp\",\"_parent\");");
+	 out.println("</script>");
+	 return;
+}
+%>
  <script type="text/javascript">
   function check(){
      var opwd=document.getElementById("opwd").value;

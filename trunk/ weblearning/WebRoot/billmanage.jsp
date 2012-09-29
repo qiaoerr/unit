@@ -26,7 +26,7 @@
 }
 %>
 <%
-//request.setCharacterEncoding("GBK");//已在过滤器中进行了设置
+request.setCharacterEncoding("GBK");//在过滤器中进行了设置，但是不起作用
 String goodname="";
 String ispay="";
 goodname=request.getParameter("goodname");

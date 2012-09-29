@@ -16,7 +16,7 @@
  <div>欢迎访问超市管理系统</div>
   <embed src="picture\music.mp3" width=144 height=60 
    hidden=true starttime="00:30" volume=100
-    autostart=true loop=true  > 
+    autostart=true loop=true  type="audio/mpeg"> 
     
   </embed>
   <!--
