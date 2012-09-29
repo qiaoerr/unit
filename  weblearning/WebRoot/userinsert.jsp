@@ -42,7 +42,14 @@
  }
 </script>
 </head>
-
+<% if( session.getAttribute("username")==null){
+	 out.println("<script type=\"text/javascript\">");
+     out.println("alert(\"Äú»¹Ã»ÓÐµÇÂ½£¡ÇëµÇÂ½£¡\");");
+	 out.println("open(\"index.jsp\",\"_parent\");");
+	 out.println("</script>");
+	 return;
+}
+%>
 <%
  request.setCharacterEncoding("gbk");
  if(request.getParameter("userinsert")!=null){

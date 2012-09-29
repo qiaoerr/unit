@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 
 import org.apache.catalina.LifecycleException;
+import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 
 public class StartWeb {
@@ -16,8 +17,9 @@ public class StartWeb {
 		String currentDir = new File(".").getCanonicalPath();
 		String tomcatDir = currentDir + File.separatorChar + "tomcat";
 		String webRoot = currentDir + File.separatorChar + "WebRoot";
-
 		Tomcat tomcat = new Tomcat();
+		Connector connector = tomcat.getConnector();
+		connector.setURIEncoding("GBK");
 		tomcat.setBaseDir(tomcatDir);
 		tomcat.setPort(8080);
 		tomcat.addWebapp("/unit", webRoot);
