@@ -26,11 +26,18 @@
 }
 %>
 <%
-request.setCharacterEncoding("GBK");
+//request.setCharacterEncoding("GBK");//已在过滤器中进行了设置
 String goodname="";
 String ispay="";
 goodname=request.getParameter("goodname");
 ispay=request.getParameter("ispay");
+if(goodname==null){
+   goodname="";
+}
+if(ispay==null){
+   ispay="";
+}
+
 
 
 ////////////分页

@@ -25,7 +25,7 @@
      out.println("alert(\"您无权进行此操作\");");
 	 out.println("open(\"welcome.jsp\",\"_self\");");
 	 out.println("</script>");
-	 return;
+	 return;//return语句必须要有，否则会顺序一直往下执行
  }
  String suppliername="";
  String supplierdescription="";
@@ -33,7 +33,13 @@
 //request.setCharacterEncoding("GBK");////////////////////////
  suppliername=request.getParameter("suppliername");
  supplierdescription=request.getParameter("supplierdescription");
- //System.out.println(suppliername+" dddd "+supplierdescription);
+ if(suppliername==null){
+     suppliername="";
+ }
+  if(supplierdescription==null){
+     supplierdescription="";
+ }
+ System.out.println(suppliername+" dddd "+supplierdescription);
 
  ////////////分页
  {  int presentpage=0;

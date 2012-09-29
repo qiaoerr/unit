@@ -238,7 +238,7 @@ public class DB_Operation {
 	public boolean userdelete(User user) {
 		getConnection();
 		int i = 0;
-		String query = "delete users where userid=?";
+		String query = "delete from users where userid=?";
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setLong(1, user.getUserid());
@@ -455,7 +455,7 @@ public class DB_Operation {
 	public boolean supplierdelete(Supplier supplier) {
 		getConnection();
 		boolean consequence = false;
-		String query = "delete supplier where supplierid=?";
+		String query = "delete from supplier where supplierid=?";
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setLong(1, supplier.getSupplierid());
@@ -610,7 +610,7 @@ public class DB_Operation {
 	public boolean billdelete(Bill bill) {
 		getConnection();
 		boolean consequence = false;
-		String query = "delete bill where billid=?";
+		String query = "delete from bill where billid=?";
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setLong(1, bill.getBillid());
@@ -627,7 +627,7 @@ public class DB_Operation {
 	public boolean billdelete1(long supplierid) {
 		getConnection();
 		boolean consequence = false;
-		String query = "delete bill where suppliername=?";
+		String query = "delete from bill where suppliername=?";
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setLong(1, supplierid);
