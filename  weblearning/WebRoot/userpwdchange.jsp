@@ -94,7 +94,7 @@
   <table>
   <tr><td><input type="hidden" name="action" value=""></td>
   <td> <input type="hidden" name="userid" value="${pageScope.userid}">
-  <input id="password" type="hidden"  value="${pageScope.password}">
+  <input name="password" type="hidden"  value="${pageScope.password}">
   <input type="hidden" name="name" value="${pageScope.name}"></td>
   </tr>
   <tr><td>╬ицэбК</td>
