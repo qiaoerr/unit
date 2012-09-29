@@ -107,13 +107,14 @@
    <table>
      <tr><td><pre> </pre></td><td><input name=supplierid type="hidden" value=${supplierid} /></td></tr>
      <tr><td>供应商名称:</td><td><input name=suppliername type="text" value=${suppliername} /></td></tr>
-    <tr><td>供应商描述:</td><td><textarea name=supplierdescription>${supplierdescription}</textarea></td></tr>
+    
+<tr><td>供应商描述:</td><td><textarea name=supplierdescription>${supplierdescription}</textarea></td></tr>
      <tr><td>联系人:</td><td><input name=linkedman type="text" value=${linkedman} /></td></tr>
      <tr><td>电话:</td><td><input name=telphone type="text" value=${telphone} /></td></tr>
      <tr><td>地址:</td><td><textarea name=address >${address}</textarea></td></tr>
    </table>
   </div>
-  <a href=suppliermanage.jsp><input type="button" value=返回 /></a><input type="submit" value=修改数据  /><a href=supplierdelete.jsp?supplierid=${supplierid}><input type=button value=删除 /></a>
+  <input onclick="window.open('suppliermanage.jsp','_self')" type="button" value=返回 /><input type="submit" value=修改数据  /><input onclick="window.open('supplierdelete.jsp?supplierid=${supplierid}','_self')" type=button value=删除 />
 </form>
 </body>
 </html>

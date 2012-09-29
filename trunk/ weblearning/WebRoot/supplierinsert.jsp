@@ -89,7 +89,7 @@
      <tr><td>地址：</td><td><input name=address type="text" size=30/><font color=red>*</font></td></tr>
     </table>
    </div> 
-   <input style=margin-left:100px;margin-top:20px; type="submit" value=数据提交 /><a href=suppliermanage.jsp><input style=margin-left:50px; type="button" value=返回 /></a>
+   <input style=margin-left:100px;margin-top:20px; type="submit" value=数据提交 /><input onclick="window.open('suppliermanage.jsp','_self')" style=margin-left:50px; type="button" value=返回 />
  </form>
 </body>
 </html>

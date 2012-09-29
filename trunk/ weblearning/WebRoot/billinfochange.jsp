@@ -183,7 +183,7 @@ if(request.getParameter("delete")==null){
      <tr><td>账单时间:</td><td><input type=text name=billtime value=${billtime } /></td></tr>
    </table>
   </div>
-  <a href=billmanage.jsp><input type="button" value=返回 /></a><input type="submit" value=修改数据  /><a href=billinfochange.jsp?billid=${billid}&delete=${1}&><input type=button value=删除 /></a>
+  <input onclick="window.open('billmanage.jsp','_self')" type="button" value=返回 /><input type="submit" value=修改数据  /><input onclick="window.open('billinfochange.jsp?billid=${billid}&delete=${1}&','_self')" type=button value=删除 />
 </form>
 </body>
 </html>
