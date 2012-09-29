@@ -90,30 +90,30 @@
     pageContext.setAttribute("password",password);
   %>
   <body> 
-  <form action="userpwdchange.jsp" onSubmit="return check();">
+  <form action="userpwdchange.jsp" method=get onSubmit="return check();">
   <table>
-  <tr><td><input type="hidden" name="action" value=""></td>
-  <td> <input type="hidden" name="userid" value="${pageScope.userid}">
-  <input id="password" type="hidden"  value="${pageScope.password}">
-  <input type="hidden" name="name" value="${pageScope.name}"></td>
+  <tr><td><input type="hidden" name="action" value=""/></td>
+  <td> <input type="hidden" name="userid" value="${pageScope.userid}"/>
+  <input name="password" type="hidden"  value="${pageScope.password}"/>
+  <input type="hidden" name="name" value="${pageScope.name}"/></td>
   </tr>
   <tr><td>旧密码</td>
-  <td><input id="opwd" type="password" name="oldPassWord" ></td>
+  <td><input id="opwd" type="password" name="oldPassWord" /></td>
 
   </tr>
    
   <tr><td>新密码</td>
-  <td><input id="pwd" type="password" name="passWord" ></td>
+  <td><input id="pwd" type="password" name="passWord" /></td>
   </tr>
 
   <tr><td>确认密码</td>
-  <td><input id="rpwd" type="password" name="NewPassWord" ></td>
+  <td><input id="rpwd" type="password" name="NewPassWord" /></td>
   </tr>
     
   <tr>
   
-  <td><input onclick="window.open('usermanage.jsp','_self')" type="button" value="返回"></td>
-  <td><input type="submit" name="提交" value="提交"></td>
+  <td><input onclick="window.open('usermanage.jsp','_self')" type="button" value="返回" /></td>
+  <td><input type="submit" name="提交" value="提交" /></td>
   </tr>
   </table>
   </form>  

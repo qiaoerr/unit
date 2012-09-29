@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Sat Sep 29 12:54:54 CST 2012:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013a-1060-8d5b-0000004a6868 
-on database directory F:\workspace\embedded\mydb  with class loader sun.misc.Launcher$AppClassLoader@1f7be7b 
-Loaded from file:/F:/workspace/embedded/WebRoot/WEB-INF/lib/derby.jar
+Sat Sep 29 13:18:55 CST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013a-1076-8cd2-000000447f28 
+on database directory D:\Workspaces\MyEclipse 8.6\embedded\mydb  with class loader sun.misc.Launcher$AppClassLoader@1fa8988 
+Loaded from file:/D:/Workspaces/MyEclipse%208.6/embedded/WebRoot/WEB-INF/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_06-b24
-user.dir=F:\workspace\embedded
+user.dir=D:\Workspaces\MyEclipse 8.6\embedded
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
