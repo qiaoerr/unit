@@ -39,7 +39,6 @@
   if(supplierdescription==null){
      supplierdescription="";
  }
- System.out.println(suppliername+" dddd "+supplierdescription);
 
  ////////////·ÖÒ³
  {  int presentpage=0;
