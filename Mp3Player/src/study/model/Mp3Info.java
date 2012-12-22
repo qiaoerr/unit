@@ -1,6 +1,12 @@
 package study.model;
 
-public class Mp3Info {
+import java.io.Serializable;
+
+public class Mp3Info implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String id = null;
 	private String mp3Name = null;
 	private String mp3Size = null;
