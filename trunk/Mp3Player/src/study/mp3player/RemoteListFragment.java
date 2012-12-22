@@ -15,7 +15,9 @@ import org.xml.sax.XMLReader;
 
 import study.download.HttpDownLoader;
 import study.model.Mp3Info;
+import study.mp3player.service.DownloadService;
 import study.xml.MP3ListContentHandler;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ListFragment;
@@ -32,7 +34,7 @@ import android.widget.Toast;
 public class RemoteListFragment extends ListFragment {
 	private static final int UPDATE = 1;
 	private static final int ABOUT = 2;
-	private List<Mp3Info> mp3Infos = null;
+	private List<Mp3Info> mp3Infos = new ArrayList<Mp3Info>();
 	private String[] remoteMusicList = null;
 	private Handler handler = new Handler();
 
@@ -45,8 +47,13 @@ public class RemoteListFragment extends ListFragment {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		System.out.println("position:" + position + "   id:" + id);
 		super.onListItemClick(l, v, position, id);
+		Mp3Info mp3Info = mp3Infos.get(position);
+		Intent intent = new Intent(getActivity(), DownloadService.class);
+		// Bundle bundle = new Bundle();
+		// bundle.putSerializable("mp3info", mp3Info);
+		intent.putExtra("mp3info", mp3Info);
+		getActivity().startService(intent);
 	}
 
 	@Override
@@ -95,7 +102,6 @@ public class RemoteListFragment extends ListFragment {
 					String xml = downXml.downLoader();
 					SAXParserFactory factory = SAXParserFactory.newInstance();
 					XMLReader xmlReader = factory.newSAXParser().getXMLReader();
-					mp3Infos = new ArrayList<Mp3Info>();
 					xmlReader.setContentHandler(new MP3ListContentHandler(
 							mp3Infos));
 					xmlReader.parse(new InputSource(new StringReader(xml)));

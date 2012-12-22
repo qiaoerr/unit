@@ -8,6 +8,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import study.mp3player.AppConstant;
+
 public class HttpDownLoader {
 	private String path = null;
 	private BufferedReader br = null;
@@ -40,5 +42,10 @@ public class HttpDownLoader {
 			}
 		}
 		return sb.toString();
+	}
+
+	public int downLoad() {
+
+		return AppConstant.SUCCESS;
 	}
 }
