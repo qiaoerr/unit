@@ -1,6 +1,7 @@
 package study.download;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +18,10 @@ public class HttpDownLoader {
 
 	public HttpDownLoader(String path) {
 		this.path = path;
+	}
+
+	public HttpDownLoader() {
+
 	}
 
 	public String downLoader() {
@@ -44,8 +49,33 @@ public class HttpDownLoader {
 		return sb.toString();
 	}
 
-	public int downLoad() {
-
-		return AppConstant.SUCCESS;
+	public int downLoad(String url, String path, String fileName) {
+		FileUtils fileUtils = new FileUtils();
+		File file = null;
+		if (fileUtils.isFileExist(fileName, path)) {
+			return AppConstant.EXIST;
+		} else {
+			InputStream input = getInputStream(url);
+			file = fileUtils.write2SDFromInput(path, fileName, input);
+		}
+		if (file == null) {
+			return AppConstant.FAILED;
+		} else {
+			return AppConstant.SUCCESS;
+		}
 	}
+
+	private InputStream getInputStream(String urlparam) {
+		InputStream input = null;
+		try {
+			URL url = new URL(urlparam);
+			input = ((HttpURLConnection) url.openConnection()).getInputStream();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return input;
+	}
+
 }

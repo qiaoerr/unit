@@ -2,7 +2,10 @@
     package="study.mp3player"
     android:versionCode="1"
     android:versionName="1.0" >
-<uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="16" />
@@ -19,10 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Mp3ListActivity"
-            android:label="@string/title_activity_mp3_list" >
-        </activity>
+        <service android:name=".service.DownloadService"/>
     </application>
 
 </manifest>

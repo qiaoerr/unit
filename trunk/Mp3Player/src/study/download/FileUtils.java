@@ -1,14 +1,9 @@
 package study.download;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import study.model.Mp3Info;
@@ -86,27 +81,51 @@ public class FileUtils {
 	public File write2SDFromInput(String path, String fileName,
 			InputStream input) {
 		File file = null;
-		OutputStream output = null;
+		FileOutputStream fos = null;
 		try {
 			creatSDDir(path);
-			file = creatFileInSDCard(fileName, path);
-			output = new FileOutputStream(file);
-			byte buffer[] = new byte[4 * 1024];
-			int temp;
+			creatFileInSDCard(fileName, path);
+			file = new File(SDCardRoot + path + File.separator + fileName);
+			fos = new FileOutputStream(file);
+			byte[] buffer = new byte[1024];
+			int temp = -1;
 			while ((temp = input.read(buffer)) != -1) {
-				output.write(buffer, 0, temp);
+				fos.write(buffer, 0, temp);
 			}
-			output.flush();
-		} catch (Exception e) {
+			fos.flush();
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				output.close();
-			} catch (Exception e) {
+				fos.close();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+
 		return file;
+		// File file = null;
+		// OutputStream output = null;
+		// try {
+		// creatSDDir(path);
+		// file = creatFileInSDCard(fileName, path);
+		// output = new FileOutputStream(file);
+		// byte buffer[] = new byte[4 * 1024];
+		// int temp;
+		// while ((temp = input.read(buffer)) != -1) {
+		// output.write(buffer, 0, temp);
+		// }
+		// output.flush();
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// } finally {
+		// try {
+		// output.close();
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
+		// }
+		// return file;
 	}
 
 	/**
@@ -119,27 +138,28 @@ public class FileUtils {
 	 * @throws IOException
 	 */
 	public void saveToFile(String destUrl, String fileName) throws IOException {
-		FileOutputStream fos = null;
-		BufferedInputStream bis = null;
-		HttpURLConnection httpconn = null;
-		URL url = null;
-		byte[] buf = new byte[6048];
-		int size = 0;
-		// 建立链接
-		url = new URL(destUrl);
-		httpconn = (HttpURLConnection) url.openConnection();
-		// 连接指定的资源
-		httpconn.connect();
-		// 获取网络输入流
-		bis = new BufferedInputStream(httpconn.getInputStream());
-		// 建立文件
-		fos = new FileOutputStream(fileName);
-		// 保存文件
-		while ((size = bis.read(buf)) != -1)
-			fos.write(buf, 0, size);
-		fos.close();
-		bis.close();
-		httpconn.disconnect();
+
+		// FileOutputStream fos = null;
+		// BufferedInputStream bis = null;
+		// HttpURLConnection httpconn = null;
+		// URL url = null;
+		// byte[] buf = new byte[6048];
+		// int size = 0;
+		// // 建立链接
+		// url = new URL(destUrl);
+		// httpconn = (HttpURLConnection) url.openConnection();
+		// // 连接指定的资源
+		// httpconn.connect();
+		// // 获取网络输入流
+		// bis = new BufferedInputStream(httpconn.getInputStream());
+		// // 建立文件
+		// fos = new FileOutputStream(fileName);
+		// // 保存文件
+		// while ((size = bis.read(buf)) != -1)
+		// fos.write(buf, 0, size);
+		// fos.close();
+		// bis.close();
+		// httpconn.disconnect();
 	}
 
 	/**
@@ -150,22 +170,24 @@ public class FileUtils {
 	 * @return
 	 */
 	public List<Mp3Info> getMp3Files(String path) {
-		List<Mp3Info> mp3infos = new ArrayList<Mp3Info>();
-		File file = new File(SDCardRoot + path + File.separator);
-		File[] files = file.listFiles();
-		for (int i = 0; i < files.length; i++) {
+		return null;
 
-			if (files[i].getName().endsWith("mp3")) {
-				Mp3Info mp3info = new Mp3Info();
-				mp3info.setMp3Name(files[i].getName());
-				mp3info.setMp3Size(files[i].length() + "");
-				mp3info.setLrcName(files[i].getName().substring(0,
-						files[i].getName().lastIndexOf("."))
-						+ ".lrc");
-				mp3infos.add(mp3info);
-			}
-		}
-		return mp3infos;
+		// List<Mp3Info> mp3infos = new ArrayList<Mp3Info>();
+		// File file = new File(SDCardRoot + path + File.separator);
+		// File[] files = file.listFiles();
+		// for (int i = 0; i < files.length; i++) {
+		//
+		// if (files[i].getName().endsWith("mp3")) {
+		// Mp3Info mp3info = new Mp3Info();
+		// mp3info.setMp3Name(files[i].getName());
+		// mp3info.setMp3Size(files[i].length() + "");
+		// mp3info.setLrcName(files[i].getName().substring(0,
+		// files[i].getName().lastIndexOf("."))
+		// + ".lrc");
+		// mp3infos.add(mp3info);
+		// }
+		// }
+		// return mp3infos;
 	}
 
 }

@@ -97,8 +97,10 @@ public class RemoteListFragment extends ListFragment {
 			@Override
 			public void run() {
 				try {
-					HttpDownLoader downXml = new HttpDownLoader(
-							"http://10.31.1.30:8080/mp3/resources.xml");
+					String ip = getActivity().getResources().getString(
+							R.string.server_ip);
+					HttpDownLoader downXml = new HttpDownLoader("http://" + ip
+							+ ":8080/mp3/resources.xml");
 					String xml = downXml.downLoader();
 					SAXParserFactory factory = SAXParserFactory.newInstance();
 					XMLReader xmlReader = factory.newSAXParser().getXMLReader();
