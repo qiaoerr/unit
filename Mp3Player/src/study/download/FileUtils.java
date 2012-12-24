@@ -169,7 +169,12 @@ public class FileUtils {
 	 *            Ŀ¼
 	 * @return
 	 */
-	public List<Mp3Info> getMp3Files(String path) {
+	public List<Mp3Info> getMp3Files(String para) {
+		String path = SDCardRoot + para;
+		File file = new File(path);
+		if (file.isDirectory()) {
+
+		}
 		return null;
 
 		// List<Mp3Info> mp3infos = new ArrayList<Mp3Info>();
