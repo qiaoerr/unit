@@ -2,6 +2,7 @@ package study.mp3player;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends FragmentActivity {
 	private TabHost tabHost = null;
 	private ViewPager viewPager = null;
 	private ArrayList<study.mp3player.MainActivity.PaperAdaper.Tabinfo> arrayList = new ArrayList<MainActivity.PaperAdaper.Tabinfo>();
+	private boolean boo = true;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -81,13 +83,11 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		public void onPageScrollStateChanged(int arg0) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
-			// TODO Auto-generated method stub
 
 		}
 
@@ -103,6 +103,10 @@ public class MainActivity extends FragmentActivity {
 		public void onTabChanged(String tabId) {
 			int item = tabHost.getCurrentTab();
 			viewPager.setCurrentItem(item);
+			System.out.println(item);
+			if (item == 1) {
+				sendBroadcast(new Intent("updtateLocalList"));
+			}
 		}
 
 		@Override

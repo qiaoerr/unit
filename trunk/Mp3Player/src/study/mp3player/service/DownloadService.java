@@ -8,10 +8,11 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 public class DownloadService extends Service {
+	private Handler handler = new Handler();
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -41,8 +42,12 @@ public class DownloadService extends Service {
 			String url = "http://" + ip + ":8080/mp3/" + mp3Info.getMp3Name();
 			final int result = httpDownLoader.downLoad(url, "mp3",
 					mp3Info.getMp3Name());
-			Handler mHandler = null;
-			Looper.prepare();
+			Log.i("System.test",
+					mp3Info.getMp3Name() + Integer.toString(result));
+			// Ä¬ÈÏÏÂÔØlrc¸è´Ê
+			String url_lrc = "http://" + ip + ":8080/mp3/"
+					+ mp3Info.getLrcName();
+			httpDownLoader.downLoad(url_lrc, "mp3", mp3Info.getLrcName());
 			Runnable runnable = new Runnable() {
 
 				@Override
@@ -60,12 +65,9 @@ public class DownloadService extends Service {
 								mp3Info.getMp3Name() + "download failed",
 								Toast.LENGTH_SHORT).show();
 					}
-					Looper.myLooper().quit();
 				}
 			};
-			mHandler = new Handler();
-			mHandler.postDelayed(runnable, 1000);
-			Looper.loop();
+			handler.post(runnable);
 		}
 	}
 }
