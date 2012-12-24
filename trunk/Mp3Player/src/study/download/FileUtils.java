@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import study.model.Mp3Info;
@@ -170,12 +171,23 @@ public class FileUtils {
 	 * @return
 	 */
 	public List<Mp3Info> getMp3Files(String para) {
+		ArrayList<Mp3Info> mp3infos = new ArrayList<Mp3Info>();
 		String path = SDCardRoot + para;
 		File file = new File(path);
-		if (file.isDirectory()) {
-
+		File[] files = file.listFiles();
+		for (int i = 0; i < files.length; i++) {
+			if (files[i].getName().toLowerCase().endsWith("mp3")
+					|| files[i].getName().toLowerCase().endsWith("wma")) {
+				Mp3Info info = new Mp3Info();
+				info.setMp3Name(files[i].getName());
+				info.setMp3Size(files[i].length() + "");
+				info.setLrcName(files[i].getName().substring(0,
+						files[i].getName().lastIndexOf(".") + 1)
+						+ "lrc");
+				mp3infos.add(info);
+			}
 		}
-		return null;
+		return mp3infos;
 
 		// List<Mp3Info> mp3infos = new ArrayList<Mp3Info>();
 		// File file = new File(SDCardRoot + path + File.separator);
@@ -194,5 +206,4 @@ public class FileUtils {
 		// }
 		// return mp3infos;
 	}
-
 }
