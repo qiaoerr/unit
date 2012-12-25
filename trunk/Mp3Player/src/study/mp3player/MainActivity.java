@@ -32,17 +32,18 @@ public class MainActivity extends FragmentActivity {
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		PaperAdaper paperAdaper = new PaperAdaper(getSupportFragmentManager());
 		paperAdaper.addTabs(
-				tabHost.newTabSpec("local").setIndicator(
-						"local",
-						getResources().getDrawable(
-								android.R.drawable.stat_sys_download)),
-				RemoteListFragment.class);
-		paperAdaper.addTabs(
-				tabHost.newTabSpec("remote").setIndicator(
-						"remote",
+				tabHost.newTabSpec("Remote").setIndicator(
+						"Remote",
 						getResources().getDrawable(
 								android.R.drawable.stat_sys_upload)),
+				RemoteListFragment.class);
+		paperAdaper.addTabs(
+				tabHost.newTabSpec("Local").setIndicator(
+						"Local",
+						getResources().getDrawable(
+								android.R.drawable.stat_sys_download)),
 				LocalListFragment.class);
+
 	}
 
 	class PaperAdaper extends FragmentPagerAdapter implements
