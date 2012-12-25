@@ -14,21 +14,30 @@
     <LinearLayout 
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal|center">
-    <ImageButton 
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/begin"
-        android:contentDescription="@string/start"/>
+
     <ImageButton 
         android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/pause"
         android:contentDescription="@string/pause"/>
+    <View 
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+    <ImageButton 
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/begin"
+        android:contentDescription="@string/start"/>
+    <View 
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
     <ImageButton 
         android:id="@+id/stop"
         android:layout_width="wrap_content"
@@ -40,20 +49,24 @@
       android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_gravity="bottom"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:gravity="center_horizontal|bottom">
      <ImageButton 
         android:id="@+id/last"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/stop"
+        android:src="@drawable/last"
         android:contentDescription="@string/last"/>
+     <View 
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
         
      <ImageButton 
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/stop"
+        android:src="@drawable/next"
         android:contentDescription="@string/next"/>
   </LinearLayout>
 </LinearLayout>
