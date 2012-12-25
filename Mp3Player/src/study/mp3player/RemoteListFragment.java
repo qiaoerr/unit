@@ -42,6 +42,7 @@ public class RemoteListFragment extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		setHasOptionsMenu(true);
+		updateMp3List();
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 

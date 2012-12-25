@@ -5,4 +5,9 @@
     <string name="update">更新列表</string>
     <string name="about">关于</string>
     <string name="server_ip">10.31.1.30</string>
+    <string name="start">start</string>
+    <string name="pause">pause</string>
+    <string name="stop">stop</string>
+    <string name="last">last</string>
+    <string name="next">next</string>
 </resources>

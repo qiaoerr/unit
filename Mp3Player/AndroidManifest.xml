@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PlayerActivity"/>
         <service android:name=".service.DownloadService"/>
+        <service android:name=".service.PlayerService"/>
         
     </application>
 
