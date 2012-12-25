@@ -42,7 +42,6 @@ public class RemoteListFragment extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		setHasOptionsMenu(true);
-		updateMp3List();
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 
@@ -59,9 +58,10 @@ public class RemoteListFragment extends ListFragment {
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		setListAdapter(new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1,
-				new String[] { "Please update the remote music list" }));
+		// setListAdapter(new ArrayAdapter<String>(getActivity(),
+		// android.R.layout.simple_list_item_1,
+		// new String[] { "Please update the remote music list" }));
+		updateMp3List();
 		super.onActivityCreated(savedInstanceState);
 	}
 

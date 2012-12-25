@@ -14,6 +14,8 @@ import android.os.IBinder;
 public class PlayerService extends Service {
 	private MediaPlayer mediaPlayer = null;
 
+	// private boolean isPlaying = false;
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -30,39 +32,69 @@ public class PlayerService extends Service {
 		} else if (msg.endsWith(AppConstant.STOP)) {
 			stop();
 		} else if (msg.endsWith(AppConstant.NEXT)) {
-			next();
+			Mp3Info mp3Info = (Mp3Info) intent.getSerializableExtra("mp3Info");
+			next(mp3Info);
 		} else if (msg.endsWith(AppConstant.LAST)) {
-			last();
+			Mp3Info mp3Info = (Mp3Info) intent.getSerializableExtra("mp3Info");
+			last(mp3Info);
 		}
 		return super.onStartCommand(intent, flags, startId);
 	}
 
-	private void last() {
-		// TODO Auto-generated method stub
-
+	private void last(Mp3Info mp3Info) {
+		if (mediaPlayer != null) {
+			mediaPlayer.release();
+			mediaPlayer = null;
+		}
+		String musicPath = getMusicPath(mp3Info);
+		mediaPlayer = MediaPlayer.create(getApplicationContext(),
+				Uri.parse(musicPath));
+		mediaPlayer.start();
 	}
 
-	private void next() {
-		// TODO Auto-generated method stub
-
+	private void next(Mp3Info mp3Info) {
+		if (mediaPlayer != null) {
+			mediaPlayer.release();
+			mediaPlayer = null;
+		}
+		String musicPath = getMusicPath(mp3Info);
+		mediaPlayer = MediaPlayer.create(getApplicationContext(),
+				Uri.parse(musicPath));
+		mediaPlayer.start();
 	}
 
 	private void stop() {
-		// TODO Auto-generated method stub
+		if (mediaPlayer != null) {
+			mediaPlayer.stop();
+			mediaPlayer.release();
+			mediaPlayer = null;
+		}
 
 	}
 
 	private void pause() {
-		// TODO Auto-generated method stub
+		if (mediaPlayer != null) {
+			if (mediaPlayer.isPlaying()) {
+				mediaPlayer.pause();
+			} else {
+				mediaPlayer.start();
+			}
+		}
 
 	}
 
 	private void play(Mp3Info mp3Info) {
 		String musicPath = getMusicPath(mp3Info);
-		mediaPlayer = MediaPlayer.create(getApplicationContext(),
-				Uri.parse(musicPath));
-		mediaPlayer.setLooping(true);
-		mediaPlayer.start();
+		if (mediaPlayer == null) {
+			mediaPlayer = MediaPlayer.create(getApplicationContext(),
+					Uri.parse(musicPath));
+			mediaPlayer.setLooping(true);
+			mediaPlayer.start();
+		} else {
+			if (!mediaPlayer.isPlaying()) {
+				mediaPlayer.start();
+			}
+		}
 
 	}
 

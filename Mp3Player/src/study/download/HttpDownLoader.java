@@ -28,6 +28,12 @@ public class HttpDownLoader {
 		try {
 			URL url = new URL(path);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			try {
+				conn.connect();
+			} catch (Exception e) {
+				return "";
+			}
+
 			InputStream in = conn.getInputStream();
 			br = new BufferedReader(new InputStreamReader(in));
 			sb = new StringBuffer();
@@ -35,16 +41,11 @@ public class HttpDownLoader {
 			while ((temp = br.readLine()) != null) {
 				sb.append(temp);
 			}
+			br.close();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 		return sb.toString();
 	}

@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,21 +18,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class LocalListFragment extends ListFragment {
-	List<Mp3Info> mp3Infos = null;
-	MyBroadCastReceiver receiver = null;
-	Handler myHandler = new Handler();
-	Runnable runnable = new Runnable() {
+	private static List<Mp3Info> mp3Infos = null;
+	private MyBroadCastReceiver receiver = null;
 
-		@Override
-		public void run() {
-
-		}
-	};
+	/**
+	 * @return the mp3Infos
+	 */
+	public static List<Mp3Info> getMp3Infos() {
+		return mp3Infos;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		System.out.println("onCreateView");
+		// System.out.println("onCreateView");
 		// 更新本地音乐列表
 		updateLocalMusicList();
 		return super.onCreateView(inflater, container, savedInstanceState);
@@ -42,9 +40,8 @@ public class LocalListFragment extends ListFragment {
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Mp3Info mp3Info = mp3Infos.get(position);
 		Intent intent = new Intent(getActivity(), PlayerActivity.class);
-		intent.putExtra("mp3Info", mp3Info);
+		intent.putExtra("index", position);
 		getActivity().startActivity(intent);
 	}
 
@@ -74,6 +71,11 @@ public class LocalListFragment extends ListFragment {
 	private void updateLocalMusicList() {
 		String path = "mp3";
 		mp3Infos = new FileUtils().getMp3Files(path);
+		if (mp3Infos.size() == 0) {
+			setListAdapter(new ArrayAdapter<String>(getActivity(),
+					android.R.layout.simple_list_item_1));
+			return;
+		}
 		Iterator<Mp3Info> iterator = mp3Infos.iterator();
 		StringBuffer sb = new StringBuffer();
 		while (iterator.hasNext()) {

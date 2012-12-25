@@ -175,6 +175,9 @@ public class FileUtils {
 		String path = SDCardRoot + para;
 		File file = new File(path);
 		File[] files = file.listFiles();
+		if (files == null) {
+			return null;
+		}
 		for (int i = 0; i < files.length; i++) {
 			if (files[i].getName().toLowerCase().endsWith("mp3")
 					|| files[i].getName().toLowerCase().endsWith("wma")) {
