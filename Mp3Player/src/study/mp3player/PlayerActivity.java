@@ -5,7 +5,10 @@ import java.util.List;
 import study.model.Mp3Info;
 import study.mp3player.service.PlayerService;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +23,8 @@ public class PlayerActivity extends Activity {
 	private ImageButton stop = null;
 	private ImageButton last = null;
 	private ImageButton next = null;
+	private BroadcastReceiver receiver = null;
+	private IntentFilter intentFilter = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,22 @@ public class PlayerActivity extends Activity {
 		stop.setOnClickListener(new StopListener());
 		last.setOnClickListener(new LastListener());
 		next.setOnClickListener(new NextListener());
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (intentFilter == null) {
+			intentFilter = new IntentFilter("updateLrc");
+		}
+		receiver = new LrcReceiver();
+		registerReceiver(receiver, intentFilter);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		unregisterReceiver(receiver);
 	}
 
 	class NextListener implements OnClickListener {
@@ -120,6 +141,15 @@ public class PlayerActivity extends Activity {
 			intent.putExtra("msg", AppConstant.START);
 			intent.setClass(getApplicationContext(), PlayerService.class);
 			startService(intent);
+		}
+
+	}
+
+	class LrcReceiver extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			textView.setText("");
 		}
 
 	}

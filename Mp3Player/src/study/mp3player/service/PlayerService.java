@@ -1,6 +1,8 @@
 package study.mp3player.service;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Queue;
 
 import study.model.Mp3Info;
 import study.mp3player.AppConstant;
@@ -13,8 +15,7 @@ import android.os.IBinder;
 
 public class PlayerService extends Service {
 	private MediaPlayer mediaPlayer = null;
-
-	// private boolean isPlaying = false;
+	private long startTime = 0;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -69,7 +70,6 @@ public class PlayerService extends Service {
 			mediaPlayer.release();
 			mediaPlayer = null;
 		}
-
 	}
 
 	private void pause() {
@@ -80,7 +80,6 @@ public class PlayerService extends Service {
 				mediaPlayer.start();
 			}
 		}
-
 	}
 
 	private void play(Mp3Info mp3Info) {
@@ -91,11 +90,12 @@ public class PlayerService extends Service {
 			mediaPlayer.setLooping(true);
 			mediaPlayer.start();
 		} else {
-			if (!mediaPlayer.isPlaying()) {
-				mediaPlayer.start();
-			}
+			mediaPlayer.release();
+			mediaPlayer = MediaPlayer.create(getApplicationContext(),
+					Uri.parse(musicPath));
+			mediaPlayer.setLooping(true);
+			mediaPlayer.start();
 		}
-
 	}
 
 	private String getMusicPath(Mp3Info mp3Info) {
@@ -105,4 +105,12 @@ public class PlayerService extends Service {
 		return musicPath;
 	}
 
+	private class LrcThread extends Thread {
+		@SuppressWarnings("rawtypes")
+		ArrayList<Queue> timeLyric = null;
+
+		public void run() {
+
+		};
+	}
 }
