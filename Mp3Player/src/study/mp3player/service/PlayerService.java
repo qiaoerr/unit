@@ -19,6 +19,8 @@ public class PlayerService extends Service {
 	private MediaPlayer mediaPlayer = null;
 	private long startTime = 0;
 	private Long standardTime = null;
+	private long startPauseTime = 0;
+	private long stopPauseTime = 0;
 	private Handler handler = new Handler();
 	private ArrayList<Queue<?>> timeLyric = null;
 	private Queue<?> times = null;
@@ -58,6 +60,9 @@ public class PlayerService extends Service {
 		mediaPlayer = MediaPlayer.create(getApplicationContext(),
 				Uri.parse(musicPath));
 		mediaPlayer.start();
+		handler.removeCallbacks(runnable);
+		startTime = System.currentTimeMillis();
+		new LrcThread(mp3Info).start();
 	}
 
 	private void next(Mp3Info mp3Info) {
@@ -69,6 +74,9 @@ public class PlayerService extends Service {
 		mediaPlayer = MediaPlayer.create(getApplicationContext(),
 				Uri.parse(musicPath));
 		mediaPlayer.start();
+		handler.removeCallbacks(runnable);
+		startTime = System.currentTimeMillis();
+		new LrcThread(mp3Info).start();
 	}
 
 	private void stop() {
@@ -76,15 +84,21 @@ public class PlayerService extends Service {
 			mediaPlayer.stop();
 			mediaPlayer.release();
 			mediaPlayer = null;
+			handler.removeCallbacks(runnable);
 		}
 	}
 
 	private void pause() {
 		if (mediaPlayer != null) {
 			if (mediaPlayer.isPlaying()) {
+				startPauseTime = System.currentTimeMillis();
 				mediaPlayer.pause();
+				handler.removeCallbacks(runnable);
 			} else {
+				stopPauseTime = System.currentTimeMillis();
+				startTime += stopPauseTime - startPauseTime;
 				mediaPlayer.start();
+				handler.post(runnable);
 			}
 		}
 	}
@@ -104,6 +118,9 @@ public class PlayerService extends Service {
 					Uri.parse(musicPath));
 			mediaPlayer.setLooping(true);
 			mediaPlayer.start();
+			handler.removeCallbacks(runnable);
+			startTime = System.currentTimeMillis();
+			new LrcThread(mp3Info).start();
 		}
 	}
 
@@ -124,12 +141,14 @@ public class PlayerService extends Service {
 				standardTime = (Long) times.poll();
 				if (standardTime == null) {
 					handler.removeCallbacks(runnable);
+					return;
 				}
 				Intent intent = new Intent(AppConstant.LRC_INTENT_ACTION);
 				intent.putExtra("lyric", lyric);
 				sendBroadcast(intent);
-				System.out.println("lyricsend");
-				handler.postDelayed(runnable, 10);
+				handler.postDelayed(runnable, 20);
+			} else {
+				handler.postDelayed(runnable, 20);
 			}
 		}
 	};
@@ -146,7 +165,6 @@ public class PlayerService extends Service {
 			times = timeLyric.get(0);
 			lyrics = timeLyric.get(1);
 			standardTime = (Long) times.poll();
-			System.out.println("run");
 			handler.post(runnable);
 		};
 	}
