@@ -150,7 +150,6 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			String lyric = intent.getStringExtra("lyric");
-			System.out.println("lyricreceivered");
 			textView.setText(lyric);
 		}
 
