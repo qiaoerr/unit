@@ -9,5 +9,6 @@ public class AppConstant {
 	public static final String STOP = "STOP";
 	public static final String LAST = "LAST";
 	public static final String NEXT = "NEXT";
+	public static final String LRC_INTENT_ACTION = "updateLrc";
 
 }
