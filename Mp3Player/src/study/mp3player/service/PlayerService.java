@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Queue;
 
+import study.lrc.LrcProcessor;
 import study.model.Mp3Info;
 import study.mp3player.AppConstant;
 import android.app.Service;
@@ -11,11 +12,17 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.IBinder;
 
 public class PlayerService extends Service {
 	private MediaPlayer mediaPlayer = null;
 	private long startTime = 0;
+	private Long standardTime = null;
+	private Handler handler = new Handler();
+	private ArrayList<Queue<?>> timeLyric = null;
+	private Queue<?> times = null;
+	private Queue<?> lyrics = null;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -89,6 +96,8 @@ public class PlayerService extends Service {
 					Uri.parse(musicPath));
 			mediaPlayer.setLooping(true);
 			mediaPlayer.start();
+			startTime = System.currentTimeMillis();
+			new LrcThread(mp3Info).start();
 		} else {
 			mediaPlayer.release();
 			mediaPlayer = MediaPlayer.create(getApplicationContext(),
@@ -105,12 +114,40 @@ public class PlayerService extends Service {
 		return musicPath;
 	}
 
+	private Runnable runnable = new Runnable() {
+
+		@Override
+		public void run() {
+			long currentTime = System.currentTimeMillis();
+			if (currentTime - startTime >= standardTime) {
+				String lyric = (String) lyrics.poll();
+				standardTime = (Long) times.poll();
+				if (standardTime == null) {
+					handler.removeCallbacks(runnable);
+				}
+				Intent intent = new Intent(AppConstant.LRC_INTENT_ACTION);
+				intent.putExtra("lyric", lyric);
+				sendBroadcast(intent);
+				System.out.println("lyricsend");
+				handler.postDelayed(runnable, 10);
+			}
+		}
+	};
+
 	private class LrcThread extends Thread {
-		@SuppressWarnings("rawtypes")
-		ArrayList<Queue> timeLyric = null;
+		private Mp3Info mp3Info = null;
+
+		public LrcThread(Mp3Info mp3Info) {
+			this.mp3Info = mp3Info;
+		}
 
 		public void run() {
-
+			timeLyric = new LrcProcessor().process(mp3Info);
+			times = timeLyric.get(0);
+			lyrics = timeLyric.get(1);
+			standardTime = (Long) times.poll();
+			System.out.println("run");
+			handler.post(runnable);
 		};
 	}
 }

@@ -47,7 +47,7 @@ public class PlayerActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		if (intentFilter == null) {
-			intentFilter = new IntentFilter("updateLrc");
+			intentFilter = new IntentFilter(AppConstant.LRC_INTENT_ACTION);
 		}
 		receiver = new LrcReceiver();
 		registerReceiver(receiver, intentFilter);
@@ -149,7 +149,9 @@ public class PlayerActivity extends Activity {
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			textView.setText("");
+			String lyric = intent.getStringExtra("lyric");
+			System.out.println("lyricreceivered");
+			textView.setText(lyric);
 		}
 
 	}
