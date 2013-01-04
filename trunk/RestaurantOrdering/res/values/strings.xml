@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">RestaurantOrdering</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main_interface">MainInterface</string>
+    <string name="btn">语音输入</string>
+</resources>
