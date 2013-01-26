@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout  
+ xmlns:android="http://schemas.android.com/apk/res/android" 
+ xmlns:test="http://schemas.android.com/apk/res/com.study"
+    android:orientation="vertical" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"> 
+ <com.study.MyView1
+     android:layout_width="fill_parent"  
+     android:layout_height="fill_parent"
+     
+     test:title="wo shi text"
+     test:textSize="10dp" 
+     test:textColor="#00aa00" 
+     test:qing="I love you"
+  
+     />
+</LinearLayout>
