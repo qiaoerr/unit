@@ -26,22 +26,22 @@ import android.widget.Button;
  * 
  */
 
-public class CustomView extends Button {
+public class CustomViewA extends Button {
 	private boolean bool;
 
-	public CustomView(Context context) {
+	public CustomViewA(Context context) {
 		super(context);
 
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomView(Context context, AttributeSet attrs) {
+	public CustomViewA(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				System.out.println("onclick===onclick===onclick");
+				System.out.println("onclick===CustomViewA===onclick");
 			}
 		});
 
@@ -49,7 +49,7 @@ public class CustomView extends Button {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				System.out.println("onTouch===onTouch===onTouch");
+				System.out.println("onTouch===CustomViewA===onTouch");
 				return false;
 			}
 		});
@@ -63,18 +63,18 @@ public class CustomView extends Button {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
-		System.out.println("Button-----dispatchTouchEvent  ");
+		System.out.println("CustomViewA-----dispatchTouchEvent  ");
 		bool = super.dispatchTouchEvent(event);
-		System.out.println("Button-----dispatchTouchEvent  " + bool);
+		System.out.println("CustomViewA-----dispatchTouchEvent  " + bool);
 		return bool;
 
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		System.out.println("Button-----onTouchEvent  ");
+		System.out.println("CustomViewA-----onTouchEvent  ");
 		bool = super.onTouchEvent(event);
-		System.out.println("Button-----onTouchEvent  " + bool);
+		System.out.println("CustomViewA-----onTouchEvent  " + bool);
 		return bool;
 	}
 

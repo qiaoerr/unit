@@ -25,14 +25,14 @@ import android.widget.RelativeLayout;
  * 
  */
 
-public class CustomViewGroup extends RelativeLayout {
+public class CustomViewGroupA extends RelativeLayout {
 	private boolean bool;
 
-	public CustomViewGroup(Context context) {
+	public CustomViewGroupA(Context context) {
 		super(context);
 	}
 
-	public CustomViewGroup(Context context, AttributeSet attrs) {
+	public CustomViewGroupA(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
@@ -41,26 +41,26 @@ public class CustomViewGroup extends RelativeLayout {
 	就是当dispatchTouchEvent在进行事件分发的时候，只有前一个action返回true，才会触发后一个action。*/
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		System.out.println("RelativeLayout-----dispatchTouchEvent  ");
+		System.out.println("CustomViewGroupA-----dispatchTouchEvent  ");
 		bool = super.dispatchTouchEvent(ev);
-		System.out.println("RelativeLayout-----dispatchTouchEvent  " + bool);
+		System.out.println("CustomViewGroupA-----dispatchTouchEvent  " + bool);
 		return bool;
 	}
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		System.out.println("RelativeLayout-----onInterceptTouchEvent  ");
+		System.out.println("CustomViewGroupA-----onInterceptTouchEvent  ");
 		// bool = super.onInterceptTouchEvent(ev);
-		// System.out.println("RelativeLayout-----onInterceptTouchEvent  " +
+		// System.out.println("CustomViewGroupA-----onInterceptTouchEvent  " +
 		// bool);
 		return false;
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		System.out.println("RelativeLayout-----onTouchEvent  ");
+		System.out.println("CustomViewGroupA-----onTouchEvent  ");
 		bool = super.onTouchEvent(event);
-		System.out.println("RelativeLayout-----onTouchEvent  " + bool);
+		System.out.println("CustomViewGroupA-----onTouchEvent  " + bool);
 		return bool;
 	}
 
