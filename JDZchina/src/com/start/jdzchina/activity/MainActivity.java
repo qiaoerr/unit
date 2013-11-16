@@ -84,6 +84,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private void closeAnim() {
 		animation = new TranslateAnimation(0, 0, 0, -(int) (factor * 40));
 		menu1.setEnabled(false);
+		// switch_img.setEnabled(true);
 		isExpand = false;
 		animation.setFillAfter(true);
 		animation.setDuration(800);
@@ -93,6 +94,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private void openAnim() {
 		animation = new TranslateAnimation(0, 0, -(int) (factor * 40), 0);
 		menu1.setEnabled(true);
+		// switch_img.setEnabled(false);
 		isExpand = true;
 		animation.setFillAfter(true);
 		animation.setDuration(800);
