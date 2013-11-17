@@ -105,9 +105,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 	private void initView() {
 		viewPager = new ViewPager(context);
 		viewPager.setOnPageChangeListener(this);
-		// viewPager.setOnTouchListener(this);
-		this.requestDisallowInterceptTouchEvent(false);
-		this.setOnTouchListener(this);
+		viewPager.setOnTouchListener(this);
 		this.addView(viewPager);
 		viewGroup = new LinearLayout(context);
 		params = new LayoutParams(-2, -2);
@@ -120,6 +118,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 		// viewGroup
 		for (int i = 0; i < views.size(); i++) {
 			RelativeLayout out = new RelativeLayout(context);
+			// out.getHitRect(outRect)
 			indexs[i] = out;
 			TextView index = new TextView(context);
 			index.setTextColor(Color.WHITE);
@@ -190,12 +189,10 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			System.out.println("hhhhhhhhhhhhhhhhhhhhhh");
 		case MotionEvent.ACTION_MOVE:
 			isContinue = false;
 			break;
 		case MotionEvent.ACTION_UP:
-			System.out.println("ffffffffffffffffffffffffff");
 			isContinue = true;
 			break;
 
@@ -215,6 +212,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub
 		return super.onInterceptTouchEvent(ev);
+		// return true;
 	}
 
 	@Override
