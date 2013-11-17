@@ -202,20 +202,16 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
 		return super.dispatchTouchEvent(ev);
 	}
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
 		return super.onInterceptTouchEvent(ev);
-		// return true;
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		// TODO Auto-generated method stub
 		return super.onTouchEvent(event);
 	}
 }
