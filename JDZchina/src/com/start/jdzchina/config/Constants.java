@@ -37,4 +37,9 @@ public class Constants {
 			+ File.separator;
 	// 广播action
 	public static final String HOME = "com.tixa.express.home";
+
+	// 百度地图相关
+	public static final boolean openBDmap = true;
+	public static final String Key_baidu_map = "AB39EEB5B8081625224CB1A366F8DBDF10E5CEC2";
+	public static final boolean EnterLocation = true;// 进入就定位
 }
