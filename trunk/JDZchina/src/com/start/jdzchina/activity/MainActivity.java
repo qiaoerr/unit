@@ -35,12 +35,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mainlayout);
+		context = this;
 		initData();
 		initView();
 	}
 
 	private void initData() {
-		context = this;
 		fm = getSupportFragmentManager();
 		factor = getResources().getDisplayMetrics().density;
 
