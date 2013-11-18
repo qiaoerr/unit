@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg5PG" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" >
+    </com.tixa.industry.widgetCustom.TopBar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="总体评价" />
+
+            <RatingBar
+                android:id="@+id/goodsRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:maxHeight="20dp"
+                android:minHeight="20dp"
+                android:numStars="5"
+                android:progressDrawable="@drawable/ratingbar_drawable"
+                android:rating="0"
+                android:stepSize="1" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/average_consume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/text_back"
+            android:gravity="center_vertical"
+            android:hint="人均（选填）￥"
+            android:inputType="number"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/goods_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/text_back"
+            android:gravity="left|top"
+            android:hint="请输入你的点评内容"
+            android:maxLength="300"
+            android:minLines="4"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/remain_words"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingRight="20dp"
+            android:text="300/300" />
+
+        <Button
+            android:id="@+id/commit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"
+            android:text="提交"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="#aabfbfbf" >
+
+            <ProgressBar
+                android:id="@+id/myprogress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myprogress"
+                android:gravity="center_horizontal"
+                android:text="提交中..."
+                android:textColor="@color/blackzi" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" >
+    </com.tixa.industry.widgetCustom.TopBar>
+
+    <LinearLayout
+        android:id="@+id/mid_linear"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/topbar"
+        android:background="@drawable/classbg"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center"
+                android:text="500米"
+                android:textColor="#888" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/line" />
+
+        <RelativeLayout
+            android:id="@+id/two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="#888" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/line" />
+
+        <RelativeLayout
+            android:id="@+id/three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/sort"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center"
+                android:text="默认排序"
+                android:textColor="#888" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/mylistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mid_linear"
+        android:background="@color/white"
+        android:divider="#663333"
+        android:dividerHeight="0.5dp" >
+    </ListView>
+
+    <com.tixa.industry.widgetCustom.LoadView
+        android:id="@+id/loadview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mid_linear"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/dark_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mid_linear" />
+
+    <RelativeLayout
+        android:id="@+id/checkPannel_distance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00444444"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="87dp"
+            android:background="@drawable/one"
+            android:onClick="func" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/line2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <CheckBox
+                        android:id="@+id/checkBox_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/distance"
+                        android:button="@null"
+                        android:checked="false"
+                        android:clickable="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkBox_one"
+                        android:gravity="center"
+                        android:text="500m"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <CheckBox
+                        android:id="@+id/checkBox_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/distance"
+                        android:button="@null"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkBox_two"
+                        android:gravity="center"
+                        android:text="1km"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <CheckBox
+                        android:id="@+id/checkBox_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/distance"
+                        android:button="@null"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkBox_three"
+                        android:gravity="center"
+                        android:text="2km"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <CheckBox
+                        android:id="@+id/checkBox_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/distance"
+                        android:button="@null"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkBox_four"
+                        android:gravity="center"
+                        android:text="5km"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <CheckBox
+                        android:id="@+id/checkBox_five"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/distance"
+                        android:button="@null"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkBox_five"
+                        android:gravity="center"
+                        android:text="全部"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkPannel_category"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00444444"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/two"
+            android:orientation="horizontal" >
+
+            <ListView
+                android:id="@+id/listview_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:divider="#999999"
+                android:dividerHeight="0.5dp"
+                android:scrollbars="none"
+                android:scrollingCache="false" >
+            </ListView>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:layout_weight="1" >
+
+                <ListView
+                    android:id="@+id/listview_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:background="#eeeeee"
+                    android:divider="@color/transparent"
+                    android:scrollbars="none"
+                    android:scrollingCache="false" >
+                </ListView>
+
+                <RelativeLayout
+                    android:id="@+id/progressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:visibility="gone" >
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/progress"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="数据加载中..." />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkPannel_sort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#00444444"
+        android:visibility="gone" >
+
+        <ListView
+            android:id="@+id/list_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/three"
+            android:choiceMode="singleChoice"
+            android:divider="#aaa"
+            android:dividerHeight="0.5dp"
+            android:focusableInTouchMode="true"
+            android:listSelector="@color/transparent"
+            android:scrollingCache="false" >
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

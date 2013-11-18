@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg5PG" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" >
+    </com.tixa.industry.widgetCustom.TopBar>
+
+    <ScrollView
+        android:id="@+id/myscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/topbar"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" >
+
+                <TextView
+                    android:id="@+id/goodsname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="testData"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/goodsImg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/goodsname"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="fitXY" />
+
+                <RatingBar
+                    android:id="@+id/goodsRating"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/goodsImg"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/goodsImg"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:maxHeight="20dp"
+                    android:minHeight="20dp"
+                    android:numStars="5"
+                    android:progressDrawable="@drawable/ratingbar_drawable"
+                    android:rating="4"
+                    android:stepSize="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goodsRating"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/goodsImg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人均："
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/goodsPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#666633" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/map"
+                android:gravity="center_vertical"
+                android:text="testData"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#666633" />
+
+            <TextView
+                android:id="@+id/telphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:autoLink="phone"
+                android:drawableLeft="@drawable/phone"
+                android:gravity="center_vertical"
+                android:text="testData  010-475423759"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#666633" />
+
+            <Gallery
+                android:id="@+id/picGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <HorizontalScrollView
+                android:id="@+id/pic_skim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:id="@+id/pic_skim_linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#666633" />
+
+            <TextView
+                android:id="@+id/introduce_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:text="简介" />
+
+            <TextView
+                android:id="@+id/introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="1dp"
+                android:maxLines="4"
+                android:textColor="@color/black" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/more_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="2dp"
+                    android:onClick="ExpandIntroduce"
+                    android:src="@drawable/text_down" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#666633" />
+
+            <TextView
+                android:id="@+id/goodsComment_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:text="点评"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/goodsComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="#666633"
+                android:dividerHeight="0.5dp"
+                android:scrollingCache="false" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.tixa.industry.widgetCustom.BottomBar
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible" >
+    </com.tixa.industry.widgetCustom.BottomBar>
+
+    <RelativeLayout
+        android:id="@+id/fullScreenPic_out"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_bg"
+        android:visibility="gone" >
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/fullScreenPic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</RelativeLayout>

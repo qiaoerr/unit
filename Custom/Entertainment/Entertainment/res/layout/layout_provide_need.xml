@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg5PG"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp" >
+
+        <ImageView
+            android:id="@+id/goodsImg"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:id="@+id/mulinear"
+            android:layout_toLeftOf="@+id/triangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/goodsImg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/goodsName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="testData"
+                android:textColor="@color/black" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <RatingBar
+                    android:id="@+id/goodsRating"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:maxHeight="20dp"
+                    android:minHeight="20dp"
+                    android:numStars="5"
+                    android:progressDrawable="@drawable/ratingbar_drawable"
+                    android:rating="4"
+                    android:stepSize="1" />
+
+                <TextView
+                    android:id="@+id/goodsPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/goodsRating"
+                    android:text="text"
+                    android:textColor="#666" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="testaddress"
+                android:textColor="#666" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/triangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/triangle" />
+    </RelativeLayout>
+
+</LinearLayout>

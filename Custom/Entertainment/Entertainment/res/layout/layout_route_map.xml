@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" >
+    </com.tixa.industry.widgetCustom.TopBar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar" >
+
+        <com.tixa.industry.widgetCustom.MyRouteMapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <LinearLayout
+            android:id="@+id/bus_search_result_detail_linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:layout_marginBottom="60dp" >
+
+            <ImageButton
+                android:id="@+id/pre"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_route_pre" />
+
+            <ImageButton
+                android:id="@+id/next"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_route_next" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

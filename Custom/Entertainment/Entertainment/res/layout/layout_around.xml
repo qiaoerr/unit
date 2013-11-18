@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" >
+    </com.tixa.industry.widgetCustom.TopBar>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar"
+        android:clickable="true" />
+
+    <RelativeLayout
+        android:id="@+id/input_context_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar"
+        android:background="@drawable/bg_login_edit"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/input_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_toLeftOf="@+id/search"
+            android:background="@null"
+            android:drawableLeft="@drawable/sousuo"
+            android:gravity="center_vertical"
+            android:hint="请先输入搜寻内容"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/search" />
+    </RelativeLayout>
+
+    <com.tixa.industry.widgetCustom.LoadView
+        android:id="@+id/loadview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar"
+        android:visibility="gone" />
+
+</RelativeLayout>

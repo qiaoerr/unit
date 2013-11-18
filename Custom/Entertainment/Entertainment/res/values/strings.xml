@@ -1,0 +1,51 @@
+<resources>
+
+    <string name="app_name">休闲娱乐</string>
+    <string name="enterpriseid">1</string>
+    <string name="appid">127</string>
+    <string name="templateid">1</string>
+    <string name="data_loading">正在加载数据，请稍候……</string>
+    <string name="nonetwork">网络故障,请检查您的网络连接</string>
+    <string name="otherContact">其他账号登录</string>
+    <string name="authlog"><u>如已有帐号，点击可以绑定</u></string>
+    <string name="weibo_success">我刚刚加入了#联系多多#，它可以让你和朋友们分享照片，建立属于自己的组织，找到志同道合的朋友！ http://www.lianxi.com （来自@联系多多官方微博）</string>
+    <string name="forget">忘记密码 ?</string>
+    <string name="account_sina_weibo">新浪微博帐号</string>
+    <string name="account_qq_weibo">QQ帐号</string>
+    <string name="waiting">请稍候</string>
+    <string name="waiting_1">请稍候...</string>
+    <string name="requestwaiting">请求中,请稍候...</string>
+    <string name="processing">正在处理</string>
+    <string name="processing_1">正在处理...</string>
+    <string name="process_sending">正在发送...</string>
+    <string name="login_toast_error">用户名或者密码不能为空</string>
+    <string name="net_error">网络异常</string>
+    <string name="auth_sina_error">新浪微博认证失败，请重试</string>
+    <string name="login">登录</string>
+    <string name="qqlogin">QQ登录</string>
+    <string name="login_success">登录成功</string>
+    <string name="send_success">发送成功</string>
+    <string name="login_faile">登录失败</string>
+    <string name="reg">注册</string>
+    <!-- 下拉刷新 -->
+    <string name="pull_refresh">下拉刷新</string>
+    <string name="old_refresh">上次更新</string>
+
+    <string-array name="sortArray">
+        <item>默认排序</item>
+        <item>距离最近</item>
+        <item>人气排序</item>
+        <item>评价数排序</item>
+        <item>价格高到低排序</item>
+        <item>价格低到高排序</item>
+    </string-array>
+    <string-array name="sortArray_1">
+        <item>默认排序</item>
+        <item>距离排序</item>
+        <item>人气排序</item>
+        <item>评价数排序</item>
+        <item>价格高到低</item>
+        <item>价格低到高</item>
+    </string-array>
+
+</resources>

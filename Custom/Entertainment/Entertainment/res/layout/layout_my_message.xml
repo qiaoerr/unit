@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg5PG" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" >
+    </com.tixa.industry.widgetCustom.TopBar>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar"
+        android:divider="@drawable/listview_diviver_line"
+        android:dividerHeight="2px"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:visibility="visible" >
+    </ListView>
+
+    <com.tixa.industry.widgetCustom.LoadView
+        android:id="@+id/loadview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar" />
+
+</RelativeLayout>

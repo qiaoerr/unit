@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tixa.industry.widgetCustom.TopBar
+        android:id="@+id/topbar1"
+        style="@style/topbar" />
+
+    <WebView
+        android:id="@+id/myWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar1" >
+    </WebView>
+
+    <com.tixa.industry.widgetCustom.LoadView
+        android:id="@+id/loadView"
+        style="@style/loadView"
+        android:layout_below="@+id/topbar1" />
+
+</RelativeLayout>

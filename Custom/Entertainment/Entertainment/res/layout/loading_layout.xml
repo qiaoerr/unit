@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_loading"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <ProgressBar
+        android:id="@+id/load_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dip" />
+
+    <ImageView
+        android:id="@+id/load_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/load" />
+
+    <ImageView
+        android:id="@+id/load_image_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dip"
+        android:background="@drawable/load_no"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/load_no_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dip"
+        android:background="@drawable/no_network"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_right"
+        android:text="重试"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+</LinearLayout>
