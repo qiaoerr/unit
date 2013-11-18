@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- 新闻背景颜色 -->
+    <color name="news_violet">#8e1dc3</color>
+    <color name="news_green">#11b430</color>
+    <color name="news_orange">#ff5a00</color>
+    <color name="news_blue">#009cff</color>
+    <color name="news_yellow">#f7ac19</color>
+    
+</resources>
