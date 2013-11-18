@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/search_wrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_contact_search_edittext_2" >
+
+        <EditText
+            android:id="@+id/EditText_Search"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@color/transparent"
+            android:focusable="true"
+            android:gravity="left|center_vertical"
+            android:hint="搜索联系人"
+            android:paddingBottom="10dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:textColor="#ff7d7d7d"
+            android:textColorHint="@color/text_hint"
+            android:textSize="16.0sp" >
+        </EditText>
+
+        <ImageView
+            android:id="@+id/btn_del_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/btn_del_search"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

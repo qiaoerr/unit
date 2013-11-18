@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@color/bg5PG">
+<com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"
+        android:layout_alignParentTop="true" />
+
+            <RadioGroup
+                android:background="@drawable/radio_back"
+                android:id="@+id/radioGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="45dip"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" 
+                android:layout_below="@+id/topbar"
+                android:paddingTop="5dp" 
+                android:paddingBottom="5dp"
+			    android:paddingRight="10dp"   
+			    android:visibility="visible">
+
+                <RadioButton
+                    android:layout_marginLeft="10dip"
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:checked="true"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:background="@drawable/radio"
+                    android:button="@null"
+                    android:text="供应信息" />
+   
+      
+                <RadioButton
+                    android:layout_marginLeft="10dip"
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:background="@drawable/radio"
+                    android:button="@null"
+                    android:text="求购信息"  />
+                  
+            </RadioGroup>
+      
+     <com.tixa.industry.widget.PushListView
+        android:id="@+id/list"
+        style="@style/listDefault"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup" />
+
+ 	<TextView
+        android:id="@+id/dialogText"
+        style="@style/dialogText"
+        android:layout_below="@+id/radioGroup" />
+	
+	<com.tixa.industry.widget.LoadView 
+         android:id="@+id/loadView"
+         style="@style/loadView"
+         android:layout_below="@+id/radioGroup"
+    />
+</RelativeLayout>

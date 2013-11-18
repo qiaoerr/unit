@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg5PG" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"
+        android:layout_alignParentTop="true" />
+
+    <com.tixa.industry.widget.PushListView
+        android:id="@+id/list"
+        style="@style/listDefault"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar" />
+	
+	<TextView
+        android:id="@+id/dialogText"
+        style="@style/dialogText"
+        android:layout_below="@+id/topbar" />
+	
+	<com.tixa.industry.widget.LoadView 
+         android:id="@+id/loadView"
+         style="@style/loadView"
+         android:layout_below="@+id/topbar"
+    />
+</RelativeLayout>

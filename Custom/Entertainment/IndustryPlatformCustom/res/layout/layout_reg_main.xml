@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginDlgLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:gravity="center_horizontal|top"
+    android:orientation="vertical" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"
+        android:layout_alignParentTop="true" >
+    </com.tixa.industry.widget.TopBar>
+
+    <LinearLayout
+        android:id="@+id/middle"
+        android:layout_width="fill_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/topbar"
+        android:background="@drawable/btn_secondary"
+        android:gravity="center" >
+
+        <RadioGroup
+            android:id="@+id/segment_control"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/button1"
+                style="@style/segmentRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingLeft="27dp"
+                android:paddingRight="29dp"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/button2"
+                style="@style/segmentRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="28dp"
+                android:paddingRight="29dp"
+                android:textSize="18sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Icusor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/middle"
+        android:background="@drawable/bg_slide" >
+
+        <ImageView
+            android:id="@+id/bg_cursor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="matrix" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fregmentFrame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/Icusor"
+        android:background="@color/transparent" >
+    </LinearLayout>
+
+</RelativeLayout>

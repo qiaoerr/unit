@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 栏目id与类型 配置文件 -->
+<Modulars>
+    
+    <modular>      <!-- 分类 -->
+        <id>1</id> <!-- 此栏目的id -->
+        <type>Sort</type> <!-- 此栏目的类型 -->
+        <login>0</login>  <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 文章资讯 -->
+        <id>2</id> <!-- 此栏目的id -->
+        <type>News</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+      <modular>      <!-- 供应 -->
+        <id>3</id> <!-- 此栏目的id -->
+        <type>Provide</type> <!-- 此栏目的类型 -->
+        <login>0</login>             <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 求购 -->
+        <id>4</id> <!-- 此栏目的id -->
+        <type>Demand</type> <!-- 此栏目的类型 -->
+        <login>0</login>    <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 展会 -->
+        <id>5</id> <!-- 此栏目的id -->
+        <type>Trade</type> <!-- 此栏目的类型 -->
+        <login>0</login>    <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 人才 -->
+        <id>6</id> <!-- 此栏目的id -->
+        <type>Job</type>  <!-- 此栏目的类型 -->
+        <login>0</login>  <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 黄页 -->
+        <id>7</id> <!-- 此栏目的id -->
+        <type>Company</type> <!-- 此栏目的类型 -->
+        <login>0</login>    <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 搜索查找 -->
+        <id>8</id> <!-- 此栏目的id -->
+        <type>Search</type> <!-- 此栏目的类型 -->
+        <login>0</login>  <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>      <!-- 我的 -->
+        <id>9</id> <!-- 此栏目的id -->
+        <type>Mine</type> <!-- 此栏目的类型 -->
+        <login>1</login>  <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 行情 -->
+        <id>10</id> <!-- 此栏目的id -->
+        <type>Market</type> <!-- 此栏目的类型 -->
+        <login>0</login>   <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 供求 -->
+        <id>11</id> <!-- 此栏目的id -->
+        <type>SupplyAndDemand</type> <!-- 此栏目的类型 -->
+        <login>0</login>   <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 首页 -->
+        <id>12</id> <!-- 此栏目的id -->
+        <type>Home</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 更多 -->
+        <id>13</id> <!-- 此栏目的id -->
+        <type>More</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 客服 -->
+        <id>14</id> <!-- 此栏目的id -->
+        <type>Service</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+      <modular>       <!-- 订单 -->
+        <id>15</id> <!-- 此栏目的id -->
+        <type>Order</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 快报 -->
+        <id>16</id> <!-- 此栏目的id -->
+        <type>Bulletin</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 品牌 -->
+        <id>17</id> <!-- 此栏目的id -->
+        <type>Brand</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 产品分组（橱窗） -->
+        <id>18</id> <!-- 此栏目的id -->
+        <type>Supply</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 排行 -->
+        <id>19</id> <!-- 此栏目的id -->
+        <type>Rank</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 团购 -->
+        <id>20</id> <!-- 此栏目的id -->
+        <type>GroupBuy</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 摇一摇 -->
+        <id>21</id> <!-- 此栏目的id -->
+        <type>Shark</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 购物车 -->
+        <id>22</id> <!-- 此栏目的id -->
+        <type>ShoppingCart</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 扫一扫 -->
+        <id>23</id> <!-- 此栏目的id -->
+        <type>Sweep</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+	
+     <modular>       <!-- 淘宝品牌折扣 -->
+        <id>24</id> <!-- 此栏目的id -->
+        <type>BrandDiscount</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+     <modular>       <!-- 淘宝折扣 -->
+        <id>25</id> <!-- 此栏目的id -->
+        <type>TaoBaoDiscount</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!--设置 -->
+        <id>26</id> <!-- 此栏目的id -->
+        <type>More</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- 资讯分类 -->
+        <id>27</id> <!-- 此栏目的id -->
+        <type>NewsCata</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+    <modular>       <!-- WebView -->
+        <id>28</id> <!-- 此栏目的id -->
+        <type>WebView</type> <!-- 此栏目的类型 -->
+        <login>0</login>     <!-- 此栏目是否需要登录 0-不需要 -->
+    </modular>
+    
+</Modulars>

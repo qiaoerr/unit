@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/topbar"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="10dip"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/interviewDetails_Images"
+                    android:layout_width="150dip"
+                    android:layout_height="150dip"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="10dip"
+                android:layout_marginLeft="23dip"
+                android:layout_marginRight="23dip"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/interviewDetails_SmallTextId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:lineSpacingExtra="1.5dip"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    
+	<com.tixa.industry.widget.LoadView 
+         android:id="@+id/loadView"
+         style="@style/loadView"
+         android:layout_below="@+id/topbar"
+    />
+</RelativeLayout>

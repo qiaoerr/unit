@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_back_down" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:paddingRight="30dp" >
+
+        <ListView
+            android:id="@+id/left_list"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@drawable/transparent"
+            android:dividerHeight="10dp" >
+        </ListView>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <ListView
+            android:id="@+id/right_list"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@drawable/transparent"
+            android:dividerHeight="10dp" >
+        </ListView>
+    </LinearLayout>
+
+</RelativeLayout>

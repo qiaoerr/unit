@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:orientation="vertical" >
+ <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/bg5PG" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/companyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="将影视九市工具有限公司vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:layout_marginTop="5dip"
+                    android:text="2013-05-17"
+                    android:textColor="@color/shout_info_around"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/company_hangye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="公司行业：仪表仪器"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/company_zhiwei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/company_hangye"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="职位：XXX"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/company_xinzi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/company_zhiwei"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="薪资：面议"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/company_jieshao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/company_xinzi"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="详细信息："
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/company_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/company_jieshao"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:text="一朋友和他同事出差，飞机快要起飞的时候，同事还没来，却打了一个电话过来：你看到那条新闻没？就是有人摸了空姐的屁股，结果耽搁了航班好几个小时。
+朋友大怒：你还不赶紧过来，居然关心这种烂事儿。
+同事：我堵车了，来不及赶到机场，所以拜托你去摸一下空姐的屁股。一老和尚来家里面喝茶。我对和尚说：“我放不下一些人，放不下一些事。”
+他说：“没有什么东西是放不下的。”
+说罢开始往我茶杯里面倒热水，一直倒到热水不停的溢出来我都没有松手。
+和尚说：“哎，你怎么不一样？别人一烫就放手了。”
+我说：“茶杯贵。”4、一天晚上打车回家遇到一个非常有意思的司机师傅。我俩聊天，他跟我说考公务员的题都让人理解不了，一道题是“西游记里有多少种妖怪”。他让我猜，我也不知道啊。
+司机师傅揭晓谜底了：“有三种，一种是要吃唐僧的；一种是想嫁给唐僧的；最后一种是惦记唐僧袈裟的。”一只乌鸦口渴了，到处找水喝。乌鸦看见一个瓶子，可是瓶子里只有半瓶水，喝不到，怎么办呢？
+这时乌鸦看见小溪边有许多小石子，它把石子一个一个地叼进瓶子里。瓶子里的水位渐渐升高，眼看就要喝到了，它突然想到。。。
+2、在医院一哥们药吊完了逐叫护士说：护士我完了。
+护士姐姐微微一笑道：不是你完了，是你药完了...
+3、小表弟在得知地球一直在转之后就开始感觉头晕，各种解释各种开导都没用。直到他爸揍了他一顿。。
+4、夜里，一个人在酒吧开心地喝酒厮混，这时他一哥们儿跑了进来，问道：“哎，这个时间，你怎么不在家陪你那漂亮丰满的老婆啊？”
+他反问道：“那你怎么不陪呢？”
+那哥们儿说：“因为我不知道你会在这儿啊！”"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

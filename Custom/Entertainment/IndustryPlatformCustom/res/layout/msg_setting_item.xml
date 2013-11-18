@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="65dp" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/msgMenuImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/msgAdMenuId"
+              android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/msgMenuImage"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp" >
+
+            <ImageView
+                android:id="@+id/msgAdMenuImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:layout_toLeftOf="@+id/msgCheckBox" />
+
+            <CheckBox
+                android:id="@+id/msgCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:clickable="false"
+                android:focusable="false"
+                android:background="@drawable/msg_check"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

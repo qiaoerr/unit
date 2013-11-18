@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/triangle" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="将影视九市工具有限公司vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textDetail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_below="@+id/linearLayout1"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/triangle"    
+        android:maxLines="3"
+        android:text="一朋友和他同事出差，飞机快要起飞的时候，同事还没来，却打了一个电话过来：你看到那条新闻没？就是有人摸了空姐的屁股，结果耽搁了航班好几个小时。
+朋友大怒：你还不赶紧过来，居然关心这种烂事儿。
+同事：我堵车了，来不及赶到机场，所以拜托你去摸一下空姐的屁股。一老和尚来家里面喝茶。我对和尚说：“我放不下一些人，放不下一些事。”
+他说：“没有什么东西是放不下的。”
+说罢开始往我茶杯里面倒热水，一直倒到热水不停的溢出来我都没有松手。
+和尚说：“哎，你怎么不一样？别人一烫就放手了。”
+我说：“茶杯贵。”"
+        android:textColor="@color/shout_info_around"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/lineartime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDetail"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/triangle"
+        android:paddingBottom="10dp" >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:singleLine="true"
+            android:text="2013/5/17"
+            android:textColor="@color/shout_info_around"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/triangle" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2.0px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/listview_diviver_line" />
+
+</RelativeLayout>

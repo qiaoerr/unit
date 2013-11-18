@@ -1,0 +1,240 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/topbar"
+        android:fadingEdge="none" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/bg5PG" >
+
+            <ImageView
+                android:id="@+id/imageDetail"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/load" />
+
+            <TextView
+                android:id="@+id/companyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageDetail"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/imageDetail"
+                android:singleLine="true"
+                android:text="将影视九市工具有限公司vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/biaojia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/companyName"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/imageDetail"
+                android:singleLine="true"
+                android:text="售价："
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/companyName"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/biaojia"
+                android:singleLine="true"
+                android:text="￥423"
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/divider_line"
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_below="@+id/imageDetail"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/listview_diviver_line"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/companyposition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_line"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/position"
+                android:drawablePadding="10dp"
+                android:singleLine="true"
+                android:text="地址在地震"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/companytelephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/companyposition"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/telephone"
+                android:drawablePadding="10dp"
+                android:singleLine="true"
+                android:text="9098909890"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/divider_line1"
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_below="@+id/companytelephone"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/listview_diviver_line"
+                android:visibility="gone" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/divider_line1"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fadingEdge="none"
+                android:scrollbars="none"
+                android:visibility="gone" >
+            </HorizontalScrollView>
+
+            <View
+                android:id="@+id/divider_line2"
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_below="@+id/horizontalScrollView"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/listview_diviver_line" />
+
+            <TextView
+                android:id="@+id/companyjieshao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_line2"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:singleLine="true"
+                android:text="简介"
+                android:textColor="@color/shout_info_around"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:id="@+id/textDetail_loyout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/companyjieshao" >
+
+                <TextView
+                    android:id="@+id/textDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="5"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/img_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textDetail"
+                    android:layout_marginTop="4dp"
+                    android:layout_toLeftOf="@+id/status"
+                    android:background="@drawable/open"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textDetail"
+                    android:layout_marginRight="10dp"
+                    android:text="展开" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider_line3"
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_below="@+id/textDetail_loyout"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/listview_diviver_line" />
+
+            <ListView
+                android:id="@+id/comment_list"
+                style="@style/listDefault"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_line3"
+                android:layout_marginTop="10dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_bottom"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/collect" />
+
+        <Button
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/share" />
+
+        <Button
+            android:id="@+id/comment_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/comment" />
+    </RelativeLayout>
+
+</RelativeLayout>

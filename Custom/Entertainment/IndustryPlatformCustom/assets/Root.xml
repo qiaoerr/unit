@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?> <!-- ROOT配置文件 -->
+<root>
+    
+    <type>0</type> <!--类型：0-默认TabBar(无参数) 1-左右滑动IIBar(有参数) -->
+    
+    <param_1> <!-- 类型1-左右滑动IIBar 相关配置参数 -->
+        <leftModular>9</leftModular>   <!--左视图 栏目ID-->
+        <rightModular>8</rightModular> <!--右视图 栏目ID-->
+        <leftLedge>100.0</leftLedge>    <!--左宽度-->
+        <rightLedge>260.0</rightLedge>  <!--右宽度-->
+    </param_1>
+    
+</root>
+

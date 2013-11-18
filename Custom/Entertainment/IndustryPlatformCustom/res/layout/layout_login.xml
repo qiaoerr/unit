@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginDlgLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:gravity="center_horizontal|top"
+    android:orientation="vertical" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"
+        android:layout_alignParentTop="true" >
+    </com.tixa.industry.widget.TopBar>
+
+    <ScrollView
+        android:id="@+id/loginFrame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar"
+        android:layout_centerHorizontal="true"
+        android:fadingEdge="none"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="20dip" >
+
+            <RelativeLayout
+                android:id="@+id/editFrame"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topbar"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_login_edit"
+                android:padding="10dp" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/username"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:background="@color/transparent"
+                    android:dropDownAnchor="@id/username"
+                    android:dropDownHeight="100dip"
+                    android:dropDownWidth="wrap_content"
+                    android:hint="请输入邮箱/手机号"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hint_info_around" />
+
+                <ImageView
+                    android:id="@+id/div_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/username"
+                    android:layout_below="@id/username"
+                    android:background="@drawable/div_long" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:layout_alignLeft="@+id/div_view"
+                    android:layout_below="@+id/div_view"
+                    android:background="@color/transparent"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hint_info_around" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editFrame"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/btn_login"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="5dp"
+                android:text="登   录"
+                android:textColor="@color/white"
+                android:textSize="22dip" />
+
+            <TextView
+                android:id="@+id/forgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/login"
+                android:layout_below="@+id/login"
+                android:layout_marginTop="5dip"
+                android:text="忘记密码？"
+                android:textColor="@color/white"
+                android:textSize="15sp" >
+            </TextView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginFrame"
+        android:layout_margin="10dp" 
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/authContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="3dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/otherContact"
+            android:textColor="@color/white"
+            android:textSize="19sp" 
+            />
+
+        <ListView
+            android:id="@+id/list1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authContact"
+            android:background="@drawable/bg_other_login"
+            android:cacheColorHint="@null"
+            android:divider="@drawable/div_long"
+            android:listSelector="@color/transparent"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

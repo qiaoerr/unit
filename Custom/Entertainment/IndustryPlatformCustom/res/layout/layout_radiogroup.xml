@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:orientation="vertical" >
+    
+ <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider_line1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:fadingEdge="none"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" 
+                android:gravity="center_vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                      android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                      android:textSize="16sp"
+                      android:singleLine="true"
+                      android:gravity="center"
+                      android:background="@drawable/radio"
+                      android:button="@null"
+                    android:text="全部" />
+   
+      
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                      android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                      android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                      android:textSize="16sp"
+                      android:singleLine="true"
+                      android:gravity="center"
+                      android:background="@drawable/radio"
+                      android:button="@null"
+                    android:text="行业1"  />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                      android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                      android:textSize="16sp"
+                      android:singleLine="true"
+                     android:gravity="center"
+                      android:background="@drawable/radio"
+                      android:button="@null"
+                    android:text="行业2"  />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                       android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                      android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                      android:textSize="16sp"
+                      android:singleLine="true"
+                      android:gravity="center"
+                      android:background="@drawable/radio"
+                      android:button="@null"
+                    android:text="行业3" />
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                      android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                      android:textSize="16sp"
+                      android:singleLine="true"
+                       android:gravity="center"
+                      android:background="@drawable/radio"
+                      android:button="@null"
+                    android:text="行业4"  />
+
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                      android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                      android:textSize="16sp"
+                      android:singleLine="true"
+                      android:gravity="center"
+                      android:background="@drawable/radio"
+                      android:button="@null"
+                    android:text="行业5" />
+            </RadioGroup>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

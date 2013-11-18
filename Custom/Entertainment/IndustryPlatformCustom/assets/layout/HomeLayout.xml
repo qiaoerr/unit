@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?> <!-- 首页配置文件 -->
+<layout>
+    
+    <web> <!-- 页面是否使用web显示 -->
+        <type>0</type> <!-- 0-不使用 1-使用 -->
+        <url>http://www.lianxi.com</url> <!-- web显示的URL地址 -->
+    </web>
+    
+    <navi> <!-- 导航栏 -->
+        <show>1</show> <!-- 0-不显示 否则显示 -->
+        <type>1</type> <!-- 0-自定义 1-默认 2-携带搜索栏 ... -->
+        <backItem>0</backItem> <!-- 0-无 1-文字 2-图片 -->
+    </navi>
+    
+    <search> <!-- 搜索栏 -->
+        <show>0</show> <!-- 0-不显示 否则显示 -->
+        <type>1</type> <!-- 0-自定义 ... -->
+    </search>
+    
+    <ad> <!-- 广告栏 -->
+        <show>1</show> <!-- 0-不显示 否则显示 -->
+        <type>1</type> <!-- 0-自定义 1-默认 2-有边框 3-有标题 ... -->
+    </ad>
+    
+    <tabBar> <!-- tabBar -->
+        <show>1</show> <!-- 0-不显示 否则显示 -->
+        <type>0</type> <!-- 0-自定义 ... -->
+    </tabBar>
+    
+    <blocks> <!-- 布局块 -->
+        <secmenu> <!-- 二级菜单 -->
+            <show>0</show> <!-- 0-不显示 否则显示 -->
+            <type>1</type> <!-- 0-自定义 1-... -->
+        </secmenu>
+        
+        <table>
+            <type>2</type> <!-- 0-自定义 1-列表形式 2-九宫格形式... -->
+        </table> <!-- 布局块类型 各页面自定义 -->
+
+    </blocks>
+    
+</layout>
+

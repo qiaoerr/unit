@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cloud_top_line"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginBottom="2dp"
+    android:orientation="horizontal" >
+
+    <!-- 左button -->
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp" >
+
+     
+
+        <Button
+            android:id="@+id/cloud_top_left_botton1"
+            style="@style/btn_style_default"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/button_image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:maxHeight="50dp"
+            android:maxWidth="50dp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/cloud_top_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="50dp" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/newMessageCount"
+                android:layout_width="20dip"
+                android:layout_height="15dip"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/searchText" >
+
+        <Button
+            android:id="@+id/cloud_top_left_second_botton"
+            style="@style/btn_style_default"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/button_image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:maxHeight="50dp"
+            android:maxWidth="50dp" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="200dip"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/r_f"
+        android:layout_toRightOf="@+id/searchText"
+        android:background="@drawable/top_search"
+        android:drawableLeft="@drawable/search"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="5dip"
+        android:singleLine="true"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/r_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" >
+			
+            <ProgressBar
+            android:id="@+id/cloud_top_right_progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:visibility="gone" />
+            
+            <Button
+                android:id="@+id/cloud_top_right_botton1"
+                style="@style/btn_style_default"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/button_image3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:maxHeight="50dp"
+                android:maxWidth="50dp" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/searchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dip"
+        android:layout_toRightOf="@+id/frameLayout1"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</RelativeLayout>

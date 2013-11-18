@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG" >
+
+    <ImageView
+        android:id="@+id/imageDetail"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="10dip"
+        android:src="@drawable/default_ad" />
+
+    <RelativeLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageDetail"
+        android:layout_toLeftOf="@+id/triangle"
+        android:layout_toRightOf="@+id/imageDetail" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="将影视九市"           
+            android:textColor="@color/black"
+            android:layout_toLeftOf="@+id/price"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/price"
+            android:visibility="gone"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_alignParentRight="true"
+            android:text="￥8000左右"
+            android:textColor="@color/red"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/triangle"
+        android:layout_toRightOf="@+id/imageDetail"
+        android:maxLines="2"
+        android:text="一朋友和他同事出差，飞机快要起飞的时候，同事还没来，却打了一个电话过来：你看到那条新闻没？就是有人摸了空姐的屁股，结果耽搁了航班好几个小时。
+朋友大怒：你还不赶紧过来，居然关心这种烂事儿。
+同事：我堵车了，来不及赶到机场，所以拜托你去摸一下空姐的屁股。一老和尚来家里面喝茶。我对和尚说：“我放不下一些人，放不下一些事。”
+他说：“没有什么东西是放不下的。”
+说罢开始往我茶杯里面倒热水，一直倒到热水不停的溢出来我都没有松手。
+和尚说：“哎，你怎么不一样？别人一烫就放手了。”
+我说：“茶杯贵。”"
+        android:textColor="@color/shout_info_around"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/textDetail"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/triangle" />
+
+    <ImageView
+        android:id="@+id/triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/triangle" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2.0px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/listview_diviver_line" />
+
+</RelativeLayout>

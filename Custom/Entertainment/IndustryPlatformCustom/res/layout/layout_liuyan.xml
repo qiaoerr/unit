@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginDlgLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:gravity="center_horizontal|top"
+    android:orientation="vertical" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"
+        android:layout_alignParentTop="true" />
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/topbar"
+        android:fadingEdge="none">
+        <LinearLayout
+    android:id="@+id/loginDlgLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="如果你对我们的产品或服务有任何的咨询和问题，请在此直接提交给总经理解答"
+            android:textColor="@color/blackzi"
+            android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="姓名"
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ly_name"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请输入姓名"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+	<LinearLayout
+	    android:id="@+id/sexlayout"
+    	android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="性别"
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ly_sex"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请选择性别"
+            android:focusable="false"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="手机"
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ly_tel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请输入手机号码"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="留言"
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ly_context"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请输入内容"
+          
+            android:paddingLeft="15dp"
+           
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+	    <LinearLayout
+	    android:id="@+id/addlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="地址"
+            
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请输入地址"
+          
+            android:paddingLeft="15dp"
+           
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/emaillayout"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="邮箱"
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ly_email"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请输入邮箱"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/qqlayout"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/new_plan_left"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text=" QQ "
+            android:textColor="@color/blackzi"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ly_qq"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/new_plan_right"
+            android:gravity="center_vertical"
+            android:hint="请输入QQ"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blue2"
+            android:textColorHint="@color/hint_info_around" />
+    </LinearLayout>
+    
+
+    <Button
+        android:id="@+id/userButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/btn_login"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="22dip" />
+
+</LinearLayout>
+    </ScrollView>
+
+  
+
+</RelativeLayout>
+

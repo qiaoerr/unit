@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    android:background="@drawable/cata_bg" >	
+    <TextView
+         android:layout_centerVertical="true"
+         android:id="@+id/title"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:singleLine="true"
+         android:text="将九市工具"
+         android:layout_marginLeft="20dip"
+         android:layout_toLeftOf="@+id/triangle"
+         android:textColor="@color/black"
+         android:textSize="22sp" />
+    <ImageView
+        android:id="@+id/triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/triangle" />
+</RelativeLayout>

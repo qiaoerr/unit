@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:padding="0dp" >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/myViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="0dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/module8" />
+
+        <TextView
+            android:id="@+id/mytext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/module1"
+            android:gravity="center_horizontal"
+            android:paddingTop="50dp"
+            android:text="testData"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mytext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/mytext1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-40dp"
+            android:background="@drawable/module2"
+            android:gravity="center_horizontal"
+            android:paddingTop="50dp"
+            android:text="testData"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mytext3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/mytext1"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-40dp"
+            android:background="@drawable/module3"
+            android:gravity="center_horizontal"
+            android:paddingTop="50dp"
+            android:text="testData"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mytext4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/mytext2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/module4"
+            android:gravity="center_horizontal"
+            android:paddingTop="40dp"
+            android:text="testData"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mytext5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/mytext2"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/module5"
+            android:gravity="center_horizontal"
+            android:paddingTop="40dp"
+            android:text="testData"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mytext6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mytext5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-50dp"
+            android:background="@drawable/module6"
+            android:gravity="center_horizontal"
+            android:paddingTop="60dp"
+            android:text="testData"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mytext7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/module7"
+            android:paddingTop="0dp"
+            android:text="testData"
+            android:textColor="#333000"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

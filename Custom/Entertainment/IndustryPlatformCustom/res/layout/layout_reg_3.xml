@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginDlgLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="left"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text="设置昵称："
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/fav_name"
+        android:layout_width="fill_parent"
+        android:layout_height="55dip"
+        android:background="@drawable/ic_preference_one"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="6.5dp"
+        android:hint="请输入您的常用昵称"
+         android:textColorHint="@color/hint_info_around"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="left"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text="设置密码"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="fill_parent"
+        android:layout_height="55dip"
+        android:background="@drawable/ic_preference_one"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="6.5dp"
+        android:hint="请输入密码"
+         android:textColorHint="@color/hint_info_around"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/regComplete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/btn_login"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="确   认"
+        android:textColor="@color/white"
+        android:textSize="22dip" />
+
+</LinearLayout>

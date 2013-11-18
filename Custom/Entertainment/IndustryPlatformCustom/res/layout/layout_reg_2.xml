@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginDlgLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip" >
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="left"
+        android:textSize="18sp"
+        android:text="输入您收到的短信验证码"
+        android:textColor="@color/gray"
+        android:padding="5dp"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/userRegCode"
+        android:layout_width="fill_parent"
+        android:layout_height="55dip"
+        android:paddingLeft="15dp"
+        android:background="@drawable/ic_preference_one"
+        android:inputType="number"
+        android:singleLine="true" 
+        android:layout_marginBottom="6.5dp"/>
+
+    <Button
+        android:id="@+id/regComplete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/btn_login"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="确   认"
+        android:textColor="@color/white"
+        android:textSize="22dip" />
+
+    <Button
+        android:id="@+id/getRegCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="重新获取"
+        android:textColor="@color/black"
+        android:textSize="18dip" />
+</LinearLayout>

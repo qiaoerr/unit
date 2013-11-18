@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG"
+    android:orientation="vertical" >
+
+    <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none" >
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/bg5PG" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/companyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="将影视九市工具有限公司vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/company_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/linearLayout1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="一朋友和他同事出差，飞机快要起飞的时候，同事还没来，却打了一个电话过来：你看到那条新闻没？就是有人摸了空姐的屁股，结果耽搁了航班好几个小时。
+朋友大怒：你还不赶紧过来，居然关心这种烂事儿。
+同事：我堵车了，来不及赶到机场，所以拜托你去摸一下空姐的屁股。一老和尚来家里面喝茶。我对和尚说：“我放不下一些人，放不下一些事。”
+他说：“没有什么东西是放不下的。”
+说罢开始往我茶杯里面倒热水，一直倒到热水不停的溢出来我都没有松手。
+和尚说：“哎，你怎么不一样？别人一烫就放手了。”
+
+那哥们儿说：“因为我不知道你会在这儿啊！”"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/contact_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/company_detail"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="联系人：女士"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/contact_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/contact_people"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="联系电话：1999999999"
+                android:textColor="@color/shout_info_around"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

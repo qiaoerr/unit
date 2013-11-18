@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg5PG" >
+     <com.tixa.industry.widget.TopBar
+        android:id="@+id/topbar"
+        style="@style/topbar"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none" 
+        android:layout_below="@+id/topbar">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg5PG" >                
+			<RelativeLayout
+			    android:id="@+id/member"
+			    android:layout_marginTop="10dip"  
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/ic_preference_one_normal"
+			    android:paddingLeft="10dip"
+			    android:paddingRight="10dip"
+			    >
+			    <FrameLayout
+			        android:layout_marginTop="10dip"
+        	    	android:id="@+id/image"
+        	    	android:layout_marginLeft="10dip"
+        	    	android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/photo_bg"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/imageDetail"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"                                       
+                    android:src="@drawable/load" />
+	           </FrameLayout>    
+			   <ImageView
+			        android:id="@+id/photo"
+	               	android:layout_toRightOf="@+id/image"
+	                android:layout_width="30dp"
+	                android:layout_height="30dp"
+	                android:scaleType="fitXY" 
+	                android:layout_marginLeft="-20dip"
+	                android:layout_marginTop="1dip"                                      
+	                android:src="@drawable/user_photo" />  
+	          	<LinearLayout 
+	                 android:id="@+id/data"
+	                 android:layout_marginTop="10dip"  
+	                 android:layout_toRightOf="@+id/photo" 
+	                 android:layout_width="fill_parent" 
+	                 android:layout_height="85dip"  
+	                 android:orientation="vertical" 
+	                 android:layout_marginLeft="5dip"  
+	                 >
+	               <LinearLayout 
+	                   android:layout_height="0dip"
+	                   android:layout_width="fill_parent"
+	                   android:layout_weight="1"
+	                   android:orientation="horizontal"
+	                   >
+	                   <TextView 
+	                       android:text="会员ID:"
+	                       android:layout_height="wrap_content"
+	                       android:layout_width="0dip"
+	                       android:layout_weight="1"
+	                       android:textSize="16sp"
+	                       android:textColor="@color/gray"
+	                       />	                   
+	                   <TextView
+	                       android:id="@+id/member" 
+	                       android:text="北京吃货"
+	                       android:singleLine="true"
+	                       android:textColor="@color/black"
+	                       android:layout_height="wrap_content"
+	                       android:layout_width="0dip"
+	                       android:layout_weight="1.5"
+	                       android:textSize="16sp"
+	                       />	                   
+	               </LinearLayout>
+	          	    
+	          	    <LinearLayout 
+	                   android:layout_height="0dip"
+	                   android:layout_width="fill_parent"
+	                   android:layout_weight="1"
+	                   android:orientation="horizontal"
+	                   >
+	                   <TextView 
+	                       android:text="会员级别:"
+	                       android:layout_height="wrap_content"
+	                       android:layout_width="0dip"
+	                       android:layout_weight="1"
+	                       android:textSize="16sp"
+	                       android:textColor="@color/gray"
+	                       />	                   
+	                   <TextView
+	                       android:id="@+id/grade" 
+	                       android:text="普通企业会员"
+	                       android:singleLine="true"
+	                       android:textColor="@color/black"
+	                       android:layout_height="wrap_content"
+	                       android:layout_width="0dip"
+	                       android:layout_weight="1.5"
+	                       android:textSize="16sp"
+	                       />	                   
+	               </LinearLayout>
+	               
+	          	    <LinearLayout 
+	                   android:layout_height="0dip"
+	                   android:layout_width="fill_parent"
+	                   android:layout_weight="1"
+	                   android:orientation="horizontal"
+	                   >
+	                   <TextView 
+	                       android:text="到期时间:"
+	                       android:layout_height="wrap_content"
+	                       android:layout_width="0dip"
+	                       android:layout_weight="1"
+	                       android:textSize="16sp"
+	                       android:textColor="@color/gray"
+	                       />	                   
+	                   <TextView
+	                       android:id="@+id/time" 
+	                       android:text="2014-08-10"
+	                       android:singleLine="true"
+	                       android:textColor="@color/black"
+	                       android:layout_height="wrap_content"
+	                       android:layout_width="0dip"
+	                       android:layout_weight="1.5"
+	                       android:textSize="16sp"
+	                       />	                   
+	               </LinearLayout>
+	               
+	               
+	           </LinearLayout>
+
+			
+			</RelativeLayout>
+						  
+			    <LinearLayout  
+			        android:layout_below="@+id/member" 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"        
+			        >
+			        <com.tixa.industry.widget.NoScrollListView 
+			            android:id="@+id/list"
+			         	style="@style/list_style_noDivider_transparent" 
+			         	android:fadingEdge="none"
+					    android:fastScrollEnabled="false"
+					    android:listSelector="@color/transparent"
+					    android:scrollbars="none" 	
+			   		/>
+			    </LinearLayout>
+			
+			
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
