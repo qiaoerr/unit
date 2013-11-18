@@ -17,7 +17,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 	private static UncaughtExceptionHandler defaultUncaughtExceptionHandler;
 
 	/**
-	 * 创建�?��新的实例 CrashHandler.
+	 * 创建新的实例 CrashHandler.
 	 */
 
 	public CrashHandler(RapidApplication application) {
