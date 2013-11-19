@@ -62,7 +62,7 @@ public class RapidApplication extends Application {
 			Toast.makeText(expressApplication, "BMapManager  初始化错误!",
 					Toast.LENGTH_LONG).show();
 		} else {
-			mBMapManager.start();
+			// mBMapManager.start();
 		}
 
 	}
