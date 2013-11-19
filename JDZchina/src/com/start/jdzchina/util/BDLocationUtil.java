@@ -86,7 +86,7 @@ public class BDLocationUtil {
 			}
 			bdLocation = location;
 			locationSuccess.dealWithLocationData(location);
-			// System.out.println(sb.toString());
+			System.out.println(sb.toString());
 			mLocationClient.stop();
 		}
 

@@ -1,7 +1,7 @@
 package com.start.jdzchina.activity;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,24 +10,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
+import com.baidu.mapapi.map.MKMapViewListener;
 import com.baidu.mapapi.map.MapController;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.PopupClickListener;
 import com.baidu.mapapi.map.PopupOverlay;
 import com.baidu.mapapi.map.RouteOverlay;
 import com.baidu.mapapi.map.TransitOverlay;
+import com.baidu.mapapi.search.MKAddrInfo;
+import com.baidu.mapapi.search.MKBusLineResult;
 import com.baidu.mapapi.search.MKDrivingRouteResult;
+import com.baidu.mapapi.search.MKPlanNode;
+import com.baidu.mapapi.search.MKPoiResult;
 import com.baidu.mapapi.search.MKRoute;
+import com.baidu.mapapi.search.MKSearch;
+import com.baidu.mapapi.search.MKSearchListener;
+import com.baidu.mapapi.search.MKSuggestionResult;
 import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.start.jdzchina.R;
+import com.start.jdzchina.RapidApplication;
 import com.start.jdzchina.util.BDLocationUtil;
 import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
 import com.start.jdzchina.util.BMapUtil;
+import com.start.jdzchina.widget.LXProgressDialog;
 import com.start.jdzchina.widget.MyRouteMapView;
 
 public class MapFragment extends Fragment implements OnClickListener {
@@ -40,14 +55,14 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private View view;
 	private View loadingView;
 	private MyRouteMapView mMapView;
-	private ProgressDialog progressDialog;
+	private LXProgressDialog progressDialog;
 	private MapController mMapController;
 	private BDLocation bdLocation;
 	private ImageButton mBtnPre;
 	private ImageButton mBtnNext;
 	private TextView popupText;
 	private PopupOverlay pop;
-	private int position;
+	private int position = 0;// 表示第一个方案
 	private View viewCache;
 	private String type;
 	private TransitOverlay transitOverlay;
@@ -57,6 +72,20 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private MKDrivingRouteResult drivingRouteResult;
 	private MKWalkingRouteResult walkingRouteResult;
 	private MKTransitRouteResult transitRouteResult;
+	private MKMapViewListener mapViewListener;
+	private ImageView bbus;
+	private ImageView bwalk;
+	private ImageView bcar;
+	private ImageView navigate_style;
+	private Animation animation_bbus_show;
+	private Animation animation_bcar_show;
+	private Animation animation_bwalk_show;
+	private Animation animation_bbus_hide;
+	private Animation animation_bcar_hide;
+	private Animation animation_bwalk_hide;
+	private MKSearch mkSearch;
+	private MKPlanNode start;
+	private MKPlanNode end;
 
 	/*private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -69,13 +98,80 @@ public class MapFragment extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.map_layout, null);
 		initData();
+		initAnim();
 		initView();
 		return view;
 	}
 
 	private void initData() {
 		context = getActivity();
-		progressDialog = ProgressDialog.show(context, "", "定位中...", true, true);
+		mkSearch = new MKSearch();
+		mkSearch.init(RapidApplication.getInstance().getmBMapManager(),
+				new MKSearchListener() {
+					@Override
+					public void onGetWalkingRouteResult(
+							MKWalkingRouteResult arg0, int arg1) {
+						progressDialog.dismiss();
+						if (arg1 == 0) {
+							walkingRouteResult = arg0;
+							initOverlay();
+						} else {
+							Toast.makeText(context, "步行路线查询失败",
+									Toast.LENGTH_SHORT).show();
+						}
+					}
+
+					@Override
+					public void onGetTransitRouteResult(
+							MKTransitRouteResult arg0, int arg1) {
+						progressDialog.dismiss();
+						if (arg1 == 0) {
+							transitRouteResult = arg0;
+							initOverlay();
+						} else {
+							Toast.makeText(context, "公交路线查询失败",
+									Toast.LENGTH_SHORT).show();
+						}
+					}
+
+					@Override
+					public void onGetDrivingRouteResult(
+							MKDrivingRouteResult arg0, int arg1) {
+						progressDialog.dismiss();
+						if (arg1 == 0) {
+							drivingRouteResult = arg0;
+							initOverlay();
+						} else {
+							Toast.makeText(context, "自驾路线查询失败",
+									Toast.LENGTH_SHORT).show();
+						}
+					}
+
+					@Override
+					public void onGetSuggestionResult(MKSuggestionResult arg0,
+							int arg1) {
+					}
+
+					@Override
+					public void onGetPoiResult(MKPoiResult arg0, int arg1,
+							int arg2) {
+					}
+
+					@Override
+					public void onGetPoiDetailSearchResult(int arg0, int arg1) {
+					}
+
+					@Override
+					public void onGetBusDetailResult(MKBusLineResult arg0,
+							int arg1) {
+					}
+
+					@Override
+					public void onGetAddrResult(MKAddrInfo arg0, int arg1) {
+					}
+				});
+		progressDialog = new LXProgressDialog(context, "定位中...");
+		progressDialog.show();
 		BDLocationUtil.getLocation(context, new LocationSuccessListener() {
 
 			@Override
@@ -91,6 +187,44 @@ public class MapFragment extends Fragment implements OnClickListener {
 				}
 			}
 		});
+		mapViewListener = new MKMapViewListener() {
+
+			@Override
+			public void onMapMoveFinish() {
+				/**
+				 * 地图完成带动画的操作（如: animationTo()）后，此回调被触发
+				 */
+			}
+
+			@Override
+			public void onMapAnimationFinish() {
+
+			}
+
+			@Override
+			public void onGetCurrentMap(Bitmap arg0) {
+				/**
+				 * 当调用过 mMapView.getCurrentMap()后，此回调会被触发 可在此保存截图至存储设备
+				 */
+			}
+
+			@Override
+			public void onClickMapPoi(MapPoi mapPoiInfo) {
+				/**
+				 * 在此处理底图poi点击事件 显示底图poi名称并移动至该点 设置过：
+				 * mMapController.enableClick(true); 时，此回调才能被触发
+				 * 
+				 */
+				String title = "";
+				if (mapPoiInfo != null) {
+					title = mapPoiInfo.strText;
+					Toast.makeText(context, title, Toast.LENGTH_SHORT).show();
+					mMapController.animateTo(mapPoiInfo.geoPt);
+				}
+			}
+		};
+		// mMapView.regMapViewListener(RapidApplication.getInstance()
+		// .getmBMapManager(), mapViewListener);
 	}
 
 	private void initView() {
@@ -99,18 +233,141 @@ public class MapFragment extends Fragment implements OnClickListener {
 		mMapController = mMapView.getController();
 		mMapController.enableClick(true);
 		mMapController.setZoom(12);
-		// handler.sendEmptyMessageDelayed(1, 200);
+		if (bdLocation != null) {
+			// mMapController.setCenter(new GeoPoint((int) (bdLocation
+			// .getLatitude() * 1e6),
+			// (int) (bdLocation.getLongitude() * 1e6)));
+			mMapController.animateTo(new GeoPoint((int) (bdLocation
+					.getLatitude() * 1e6),
+					(int) (bdLocation.getLongitude() * 1e6)));
+		}
 		mBtnPre = (ImageButton) view.findViewById(R.id.pre);
 		mBtnNext = (ImageButton) view.findViewById(R.id.next);
 		mBtnPre.setOnClickListener(this);
 		mBtnNext.setOnClickListener(this);
-		// createPaopao();
-
+		navigate_style = (ImageView) view.findViewById(R.id.navigate_style);
+		bbus = (ImageView) view.findViewById(R.id.bbus);
+		bcar = (ImageView) view.findViewById(R.id.bcar);
+		bwalk = (ImageView) view.findViewById(R.id.bwalk);
+		navigate_style.setOnClickListener(this);
+		bbus.setOnClickListener(this);
+		bcar.setOnClickListener(this);
+		bwalk.setOnClickListener(this);
+		// 隐藏
+		startAnim_hide();
+		createPaopao();
 	}
 
 	@Override
 	public void onClick(View v) {
-		// nodeClick(v);
+		switch (v.getId()) {
+		case R.id.pre:
+		case R.id.next:
+			nodeClick(v);
+			break;
+		case R.id.navigate_style:
+			startAnim_show();
+			break;
+		case R.id.bbus:
+			type = BUS;
+			startMKsearch(BUS);
+			startAnim_hide();
+			break;
+		case R.id.bcar:
+			type = DRIVER;
+			startMKsearch(DRIVER);
+			startAnim_hide();
+			break;
+		case R.id.bwalk:
+			type = WALK;
+			startMKsearch(WALK);
+			startAnim_hide();
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	private void startMKsearch(String type) {
+		if (bdLocation == null) {
+			BDLocation temp = RapidApplication.getInstance().getBdLocation();
+			if (temp == null) {
+				Toast.makeText(context, "无法获取当前位置，请检查手机网络设置",
+						Toast.LENGTH_SHORT).show();
+				return;
+			} else {
+				bdLocation = temp;
+			}
+		}
+		start = new MKPlanNode();
+		start.pt = new GeoPoint((int) (bdLocation.getLatitude() * 1e6),
+				(int) (bdLocation.getLongitude() * 1e6));
+		end = new MKPlanNode();
+		end.pt = new GeoPoint((int) (40.056885 * 1e6), (int) (116.30815 * 1e6));
+		if (type.equals(BUS)) {
+			mkSearch.transitSearch(bdLocation.getCity(), start, end);
+		} else if (type.equals(DRIVER)) {
+			mkSearch.drivingSearch("", start, "", end);
+		} else if (type.equals(WALK)) {
+			mkSearch.walkingSearch("", start, "", end);
+		}
+		progressDialog = new LXProgressDialog(context, "搜索中...");
+		progressDialog.show();
+	}
+
+	private void startAnim_show() {
+		bbus.startAnimation(animation_bbus_show);
+		bcar.startAnimation(animation_bcar_show);
+		bwalk.startAnimation(animation_bwalk_show);
+	}
+
+	private void startAnim_hide() {
+		bbus.startAnimation(animation_bbus_hide);
+		bcar.startAnimation(animation_bcar_hide);
+		bwalk.startAnimation(animation_bwalk_hide);
+	}
+
+	private void initAnim() {
+		// show
+		animation_bbus_show = new TranslateAnimation(
+				Animation.RELATIVE_TO_SELF, 1, Animation.RELATIVE_TO_SELF, 0,
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
+		animation_bbus_show.setFillAfter(true);
+		animation_bbus_show.setDuration(600);
+		animation_bbus_show.setStartOffset(0);
+		animation_bcar_show = new TranslateAnimation(
+				Animation.RELATIVE_TO_SELF, 1, Animation.RELATIVE_TO_SELF, 0,
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
+		animation_bcar_show.setFillAfter(true);
+		animation_bcar_show.setDuration(600);
+		animation_bcar_show.setStartOffset(300);
+		animation_bwalk_show = new TranslateAnimation(
+				Animation.RELATIVE_TO_SELF, 1, Animation.RELATIVE_TO_SELF, 0,
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
+		animation_bwalk_show.setFillAfter(true);
+		animation_bwalk_show.setDuration(600);
+		animation_bwalk_show.setStartOffset(600);
+		// hide
+		animation_bbus_hide = new TranslateAnimation(
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
+		animation_bbus_hide.setFillAfter(true);
+		animation_bbus_hide.setDuration(600);
+		animation_bbus_hide.setStartOffset(0);
+		animation_bcar_hide = new TranslateAnimation(
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
+		animation_bcar_hide.setFillAfter(true);
+		animation_bcar_hide.setDuration(600);
+		animation_bcar_hide.setStartOffset(300);
+		animation_bwalk_hide = new TranslateAnimation(
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
+				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
+		animation_bwalk_hide.setFillAfter(true);
+		animation_bwalk_hide.setDuration(600);
+		animation_bwalk_hide.setStartOffset(600);
+
 	}
 
 	public void createPaopao() {
@@ -247,7 +504,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onDestroy() {
 		// mMapView.destroy();
-		mMapView = null;
+		// mMapView = null;
 		super.onDestroy();
 	}
 
@@ -259,21 +516,20 @@ public class MapFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onDetach() {
 		super.onDetach();
+		mMapView.onPause();
+		mMapView.destroy();
+		mMapView = null;
 	}
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		mMapView.onSaveInstanceState(outState);
-
 	}
 
-	@Override
-	public void onViewStateRestored(Bundle savedInstanceState) {
-		if (mMapView != null && savedInstanceState != null) {
-			mMapView.onRestoreInstanceState(savedInstanceState);
-		}
-		super.onViewStateRestored(savedInstanceState);
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onSaveInstanceState(savedInstanceState);
+		mMapView.onRestoreInstanceState(savedInstanceState);
 	}
 
 }
