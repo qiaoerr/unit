@@ -46,14 +46,11 @@ import com.start.jdzchina.widget.LXProgressDialog;
 import com.start.jdzchina.widget.MyRouteMapView;
 
 public class MapFragment extends Fragment implements OnClickListener {
-	private static final int showMapView = 1;
-	private static final int hideMapView = 2;
 	public static final String BUS = "bus";
 	public static final String DRIVER = "driver";
 	public static final String WALK = "walk";
 	private FragmentActivity context;
 	private View view;
-	private View loadingView;
 	private MyRouteMapView mMapView;
 	private LXProgressDialog progressDialog;
 	private MapController mMapController;
@@ -228,7 +225,6 @@ public class MapFragment extends Fragment implements OnClickListener {
 	}
 
 	private void initView() {
-		loadingView = view.findViewById(R.id.loadingView);
 		mMapView = (MyRouteMapView) view.findViewById(R.id.mapView);
 		mMapController = mMapView.getController();
 		mMapController.enableClick(true);
