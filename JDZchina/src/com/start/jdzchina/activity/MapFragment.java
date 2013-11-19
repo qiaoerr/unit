@@ -514,6 +514,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 			}
 
 		}
+		nodeIndex = 0;
 		search_result_detail_linearlayout.setVisibility(View.VISIBLE);
 	}
 
