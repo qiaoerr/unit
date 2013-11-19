@@ -14,13 +14,16 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
+import com.baidu.mapapi.map.LocationData;
 import com.baidu.mapapi.map.MKMapViewListener;
 import com.baidu.mapapi.map.MapController;
 import com.baidu.mapapi.map.MapPoi;
+import com.baidu.mapapi.map.MyLocationOverlay;
 import com.baidu.mapapi.map.PopupClickListener;
 import com.baidu.mapapi.map.PopupOverlay;
 import com.baidu.mapapi.map.RouteOverlay;
@@ -83,6 +86,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private MKSearch mkSearch;
 	private MKPlanNode start;
 	private MKPlanNode end;
+	private LinearLayout search_result_detail_linearlayout;
 
 	/*private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -181,6 +185,18 @@ public class MapFragment extends Fragment implements OnClickListener {
 							.show();
 				} else {
 					bdLocation = location;
+					MyLocationOverlay locationOverlay = new MyLocationOverlay(
+							mMapView);
+					LocationData locationData = new LocationData();
+					locationData.latitude = location.getLatitude();
+					locationData.longitude = location.getLongitude();
+					locationOverlay.setData(locationData);
+					locationOverlay.enableCompass();
+					mMapView.getOverlays().add(locationOverlay);
+					mMapView.refresh();
+					mMapController.animateTo(new GeoPoint((int) (bdLocation
+							.getLatitude() * 1e6), (int) (bdLocation
+							.getLongitude() * 1e6)));
 				}
 			}
 		});
@@ -216,7 +232,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 				if (mapPoiInfo != null) {
 					title = mapPoiInfo.strText;
 					Toast.makeText(context, title, Toast.LENGTH_SHORT).show();
-					mMapController.animateTo(mapPoiInfo.geoPt);
+					if (mMapController != null) {
+						mMapController.animateTo(mapPoiInfo.geoPt);
+					}
 				}
 			}
 		};
@@ -225,6 +243,8 @@ public class MapFragment extends Fragment implements OnClickListener {
 	}
 
 	private void initView() {
+		search_result_detail_linearlayout = (LinearLayout) view
+				.findViewById(R.id.search_result_detail_linearlayout);
 		mMapView = (MyRouteMapView) view.findViewById(R.id.mapView);
 		mMapController = mMapView.getController();
 		mMapController.enableClick(true);
@@ -470,6 +490,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 			mMapView.getOverlays().clear();
 			mMapView.getOverlays().add(transitOverlay);
 			mMapView.refresh();
+			mMapController.zoomToSpan(transitOverlay.getLatSpanE6(),
+					transitOverlay.getLonSpanE6());
+			mMapController.animateTo(transitRouteResult.getStart().pt);
 		} else {
 			routeOverlay = new RouteOverlay(context, mMapView);
 			if (type.equals(DRIVER)) {
@@ -482,7 +505,16 @@ public class MapFragment extends Fragment implements OnClickListener {
 			mMapView.getOverlays().clear();
 			mMapView.getOverlays().add(routeOverlay);
 			mMapView.refresh();
+			mMapController.zoomToSpan(routeOverlay.getLatSpanE6(),
+					routeOverlay.getLonSpanE6());
+			if (drivingRouteResult != null) {
+				mMapController.animateTo(drivingRouteResult.getStart().pt);
+			} else {
+				mMapController.animateTo(walkingRouteResult.getStart().pt);
+			}
+
 		}
+		search_result_detail_linearlayout.setVisibility(View.VISIBLE);
 	}
 
 	@Override
