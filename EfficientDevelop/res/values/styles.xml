@@ -4,4 +4,9 @@
 
     <style name="AppTheme" parent="AppBaseTheme"></style>
 
+    <style name="AlertDialog" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/popup_bg</item>
+    </style>
+
 </resources>
