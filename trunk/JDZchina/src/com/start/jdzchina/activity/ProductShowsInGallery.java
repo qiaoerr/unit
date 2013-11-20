@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.start.jdzchina.R;
 import com.start.jdzchina.adapter.ProductGalleryAdapter;
+import com.start.jdzchina.widget.MyImageView;
 
 public class ProductShowsInGallery extends Fragment {
 
@@ -22,6 +23,7 @@ public class ProductShowsInGallery extends Fragment {
 	private Gallery mygallery;
 	private int[] imgs;
 	private BaseAdapter galleryAdapter;
+	private MyImageView myImageView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +51,8 @@ public class ProductShowsInGallery extends Fragment {
 				getFragmentManager().popBackStack();
 			}
 		});
+		myImageView = (MyImageView) view.findViewById(R.id.myImageView);
+		myImageView.setImgs(imgs);
 		mygallery = (Gallery) view.findViewById(R.id.mygallery);
 		galleryAdapter = new ProductGalleryAdapter(imgs, context);
 		mygallery.setAdapter(galleryAdapter);

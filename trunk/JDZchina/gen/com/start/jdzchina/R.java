@@ -75,10 +75,10 @@ public final class R {
         public static final int actContainer=0x7f070000;
         public static final int bbus=0x7f070014;
         public static final int bcar=0x7f070015;
-        public static final int btn_close=0x7f07001e;
+        public static final int btn_close=0x7f07001f;
         public static final int bwalk=0x7f070016;
         public static final int container=0x7f070006;
-        public static final int dialog_text=0x7f070021;
+        public static final int dialog_text=0x7f070022;
         public static final int four=0x7f07001c;
         public static final int load_prompt=0x7f070017;
         public static final int mapView=0x7f07000e;
@@ -87,6 +87,7 @@ public final class R {
         public static final int menu3=0x7f07000a;
         public static final int menu4=0x7f07000b;
         public static final int menu5=0x7f07000c;
+        public static final int myImageView=0x7f07001e;
         public static final int mygallery=0x7f07001d;
         public static final int navigate_style=0x7f070013;
         public static final int navigate_style_list=0x7f070012;
@@ -98,8 +99,8 @@ public final class R {
         public static final int popright=0x7f070005;
         public static final int pre=0x7f070010;
         public static final int productShow=0x7f070018;
-        public static final int progressbar=0x7f070020;
-        public static final int result_info=0x7f07001f;
+        public static final int progressbar=0x7f070021;
+        public static final int result_info=0x7f070020;
         public static final int search_result_detail_linearlayout=0x7f07000f;
         public static final int switch_img=0x7f07000d;
         public static final int textcache=0x7f070003;
