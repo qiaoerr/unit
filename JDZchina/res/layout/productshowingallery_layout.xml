@@ -11,6 +11,7 @@
         android:visibility="gone" />
 
     <com.start.jdzchina.widget.MyImageView
+        android:id="@+id/myImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/pic01" />
