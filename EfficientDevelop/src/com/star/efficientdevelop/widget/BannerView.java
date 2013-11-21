@@ -26,6 +26,14 @@ import com.star.efficientdevelop.adapter.ViewPagerAdapter;
 import com.star.efficientdevelop.model.BannerModel;
 import com.star.efficientdevelop.util.CommonUtil;
 
+/**
+ * 
+ * @ClassName: BannerView
+ * @Description: 图片横幅展示类
+ * @author Comsys-Administrator
+ * @date 2013-11-21 上午10:28:35
+ * 
+ */
 public class BannerView extends RelativeLayout implements OnPageChangeListener,
 		OnTouchListener {
 	private Context context;
