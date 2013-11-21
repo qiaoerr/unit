@@ -11,6 +11,7 @@ import com.baidu.mapapi.map.MKEvent;
 import com.start.jdzchina.config.Constants;
 import com.start.jdzchina.util.BDLocationUtil;
 import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
+import com.start.jdzchina.widget.MyRouteMapView;
 
 /**
  * @ClassName: ExpressApplication
@@ -25,6 +26,7 @@ public class RapidApplication extends Application {
 	public boolean m_bKeyRight = true;
 	BMapManager mBMapManager = null;
 	private BDLocation bdLocation = null;
+	private MyRouteMapView mapView;
 
 	public static RapidApplication getInstance() {
 		return expressApplication;
@@ -63,6 +65,7 @@ public class RapidApplication extends Application {
 					Toast.LENGTH_LONG).show();
 		} else {
 			// mBMapManager.start();
+			// mapView = new MyRouteMapView(expressApplication);
 		}
 
 	}
@@ -100,6 +103,14 @@ public class RapidApplication extends Application {
 
 	public BMapManager getmBMapManager() {
 		return mBMapManager;
+	}
+
+	public MyRouteMapView getMapView() {
+		return mapView;
+	}
+
+	public void setMapView(MyRouteMapView mapView) {
+		this.mapView = mapView;
 	}
 
 }

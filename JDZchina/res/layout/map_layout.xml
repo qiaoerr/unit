@@ -3,13 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <RelativeLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </RelativeLayout>
+
     <com.start.jdzchina.widget.MyRouteMapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:clickable="true"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <FrameLayout
         android:layout_width="match_parent"

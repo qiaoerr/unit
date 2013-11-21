@@ -15,6 +15,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -87,12 +88,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private MKPlanNode start;
 	private MKPlanNode end;
 	private LinearLayout search_result_detail_linearlayout;
-
-	/*private Handler handler = new Handler() {
-		public void handleMessage(android.os.Message msg) {
-			// loadingView.setVisibility(View.GONE);
-		};
-	};*/
+	private RelativeLayout mapContainer;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,6 +102,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	private void initData() {
 		context = getActivity();
+		mMapView = RapidApplication.getInstance().getMapView();
 		mkSearch = new MKSearch();
 		mkSearch.init(RapidApplication.getInstance().getmBMapManager(),
 				new MKSearchListener() {
@@ -243,20 +240,17 @@ public class MapFragment extends Fragment implements OnClickListener {
 	}
 
 	private void initView() {
+		mapContainer = (RelativeLayout) view.findViewById(R.id.mapContainer);
 		search_result_detail_linearlayout = (LinearLayout) view
 				.findViewById(R.id.search_result_detail_linearlayout);
-		mMapView = (MyRouteMapView) view.findViewById(R.id.mapView);
+		if (mMapView == null) {
+			mMapView = new MyRouteMapView(context);
+			RapidApplication.getInstance().setMapView(mMapView);
+		}
+		mapContainer.addView(mMapView);
 		mMapController = mMapView.getController();
 		mMapController.enableClick(true);
 		mMapController.setZoom(12);
-		if (bdLocation != null) {
-			// mMapController.setCenter(new GeoPoint((int) (bdLocation
-			// .getLatitude() * 1e6),
-			// (int) (bdLocation.getLongitude() * 1e6)));
-			mMapController.animateTo(new GeoPoint((int) (bdLocation
-					.getLatitude() * 1e6),
-					(int) (bdLocation.getLongitude() * 1e6)));
-		}
 		mBtnPre = (ImageButton) view.findViewById(R.id.pre);
 		mBtnNext = (ImageButton) view.findViewById(R.id.next);
 		mBtnPre.setOnClickListener(this);
@@ -526,7 +520,8 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onPause() {
-		// mMapView.onPause();
+		mapContainer.removeView(mMapView);
+		mMapView.onPause();
 		super.onPause();
 	}
 
@@ -545,20 +540,20 @@ public class MapFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		mMapView.onPause();
-		mMapView.destroy();
-		mMapView = null;
+		// mMapView.onPause();
+		// mMapView.destroy();
+		// mMapView = null;
 	}
 
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		mMapView.onSaveInstanceState(outState);
-	}
-
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onSaveInstanceState(savedInstanceState);
-		mMapView.onRestoreInstanceState(savedInstanceState);
-	}
+	// @Override
+	// public void onSaveInstanceState(Bundle outState) {
+	// super.onSaveInstanceState(outState);
+	// mMapView.onSaveInstanceState(outState);
+	// }
+	//
+	// protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	// super.onSaveInstanceState(savedInstanceState);
+	// mMapView.onRestoreInstanceState(savedInstanceState);
+	// }
 
 }

@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.start.jdzchina.R;
+import com.start.jdzchina.RapidApplication;
+import com.start.jdzchina.widget.MyRouteMapView;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 	private Context context;
@@ -164,5 +166,60 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		transaction = fm.beginTransaction();
 		transaction.replace(R.id.container, fragment);
 		transaction.commitAllowingStateLoss();
+	}
+
+	@Override
+	protected void onPause() {
+		/**
+		 * MapView的生命周期与Activity同步，当activity挂起时需调用MapView.onPause()
+		 */
+		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		if (mMapView != null) {
+			mMapView.onPause();
+		}
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		/**
+		 * MapView的生命周期与Activity同步，当activity恢复时需调用MapView.onResume()
+		 */
+		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		if (mMapView != null) {
+			mMapView.onResume();
+		}
+		super.onResume();
+	}
+
+	@Override
+	protected void onDestroy() {
+		/**
+		 * MapView的生命周期与Activity同步，当activity销毁时需调用MapView.destroy()
+		 */
+		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		if (mMapView != null) {
+			mMapView.destroy();
+		}
+		RapidApplication.getInstance().setMapView(null);
+		super.onDestroy();
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		if (mMapView != null) {
+			mMapView.onSaveInstanceState(outState);
+		}
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		if (mMapView != null && savedInstanceState != null) {
+			mMapView.onRestoreInstanceState(savedInstanceState);
+		}
 	}
 }
