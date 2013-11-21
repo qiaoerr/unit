@@ -56,7 +56,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		switch_img = (ImageView) findViewById(R.id.switch_img);
 		switch_img.setOnClickListener(this);
 		menu1 = (RelativeLayout) findViewById(R.id.menu1);
-		menu1.setEnabled(false);
+		menu2 = (RelativeLayout) findViewById(R.id.menu2);
+		menu3 = (RelativeLayout) findViewById(R.id.menu3);
+		menu4 = (RelativeLayout) findViewById(R.id.menu4);
+		menu5 = (RelativeLayout) findViewById(R.id.menu5);
+		disableMenu();
 		//
 		transaction = fm.beginTransaction();
 		ActivityFragment fragment = new ActivityFragment();
@@ -83,7 +87,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	private void closeAnim() {
 		animation = new TranslateAnimation(0, 0, 0, -(int) (factor * 40));
-		menu1.setEnabled(false);
+		disableMenu();
 		// switch_img.setEnabled(true);
 		isExpand = false;
 		animation.setFillAfter(true);
@@ -93,12 +97,28 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	private void openAnim() {
 		animation = new TranslateAnimation(0, 0, -(int) (factor * 40), 0);
-		menu1.setEnabled(true);
+		enableMenu();
 		// switch_img.setEnabled(false);
 		isExpand = true;
 		animation.setFillAfter(true);
 		animation.setDuration(800);
 		topMenuBar.startAnimation(animation);
+	}
+
+	private void disableMenu() {
+		menu1.setEnabled(false);
+		menu2.setEnabled(false);
+		menu3.setEnabled(false);
+		menu4.setEnabled(false);
+		menu5.setEnabled(false);
+	}
+
+	private void enableMenu() {
+		menu1.setEnabled(true);
+		menu2.setEnabled(true);
+		menu3.setEnabled(true);
+		menu4.setEnabled(true);
+		menu5.setEnabled(true);
 	}
 
 	public void menuClick(View v) {

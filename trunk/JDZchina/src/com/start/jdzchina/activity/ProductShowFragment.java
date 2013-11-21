@@ -54,7 +54,7 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.one:
 			FragmentTransaction transaction = fm.beginTransaction();
-			fragment = new ProductShowsInGallery();
+			fragment = new ProductShowsIn360();
 			transaction.add(R.id.container, fragment);
 			transaction.addToBackStack(null);
 			transaction.commitAllowingStateLoss();
