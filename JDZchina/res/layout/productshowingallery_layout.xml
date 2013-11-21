@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Gallery
-        android:id="@+id/mygallery"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-
     <com.start.jdzchina.widget.MyImageView
         android:id="@+id/myImageView"
         android:layout_width="match_parent"
@@ -18,11 +12,11 @@
 
     <ImageView
         android:id="@+id/btn_close"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:padding="25dp"
         android:src="@drawable/btn_close" />
 
 </RelativeLayout>
