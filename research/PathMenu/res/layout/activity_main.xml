@@ -10,7 +10,8 @@
         android:id="@+id/myViewLT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:background="#00aa00" />
 
     <RelativeLayout
         android:id="@+id/relLayLT"
@@ -32,14 +33,16 @@
         android:id="@+id/myViewRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:visibility="visible" />
 
     <RelativeLayout
         android:id="@+id/relLayRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:background="@drawable/composer_button" >
+        android:background="@drawable/composer_button"
+        android:visibility="visible" >
 
         <ImageView
             android:id="@+id/imgPlusRT"

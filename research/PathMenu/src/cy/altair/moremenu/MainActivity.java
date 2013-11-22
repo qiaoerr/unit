@@ -1,60 +1,59 @@
 package cy.altair.moremenu;
 
-
-import cy.altair.view.MenuItemView;
-import cy.altair.view.MyAnimations;
-import cy.altair.view.OnItemClickListener;
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import cy.altair.view.MenuItemView;
+import cy.altair.view.MyAnimations;
+import cy.altair.view.OnItemClickListener;
 
-public class MainActivity extends Activity implements OnItemClickListener, OnClickListener{
+public class MainActivity extends Activity implements OnItemClickListener,
+		OnClickListener {
 	private MenuItemView myViewLT;
 	private ImageView imgPlusLT;
-	
+
 	private MenuItemView myViewRT;
 	private ImageView imgPlusRT;
-	
+
 	private MenuItemView myViewLB;
 	private ImageView imgPlusLB;
-	
+
 	private MenuItemView myViewRB;
 	private ImageView imgPlusRB;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.activity_main);
-		
+
 		findViewById(R.id.relLayLT).setOnClickListener(this);
 		findViewById(R.id.relLayRT).setOnClickListener(this);
 		findViewById(R.id.relLayLB).setOnClickListener(this);
 		findViewById(R.id.relLayRB).setOnClickListener(this);
-		
-		//获得对象
+
+		// 获得对象
 		myViewLT = (MenuItemView) findViewById(R.id.myViewLT);
-		//设置位置
+		// 设置位置
 		myViewLT.setPosition(MenuItemView.POSITION_LEFT_TOP);
-		//设置半径
+		// 设置半径
 		myViewLT.setRadius(130);
 		imgPlusLT = (ImageView) findViewById(R.id.imgPlusLT);
-		
+
 		myViewRT = (MenuItemView) findViewById(R.id.myViewRT);
 		myViewRT.setPosition(MenuItemView.POSITION_RIGHT_TOP);
 		myViewRT.setRadius(70);
 		imgPlusRT = (ImageView) findViewById(R.id.imgPlusRT);
-		
+
 		myViewLB = (MenuItemView) findViewById(R.id.myViewLB);
 		myViewLB.setPosition(MenuItemView.POSITION_LEFT_BOTTOM);
 		myViewLB.setRadius(70);
 		imgPlusLB = (ImageView) findViewById(R.id.imgPlusLB);
-		
+
 		myViewRB = (MenuItemView) findViewById(R.id.myViewRB);
 		myViewRB.setPosition(MenuItemView.POSITION_RIGHT_BOTTOM);
 		myViewRB.setRadius(150);
@@ -62,10 +61,9 @@ public class MainActivity extends Activity implements OnItemClickListener, OnCli
 		imgPlusRT = (ImageView) findViewById(R.id.imgPlusRT);
 		imgPlusLB = (ImageView) findViewById(R.id.imgPlusLB);
 		imgPlusRB = (ImageView) findViewById(R.id.imgPlusRB);
-		
+
 		setMenuItemView();
 	}
-
 
 	private void setMenuItemView() {
 		ImageView img1 = new ImageView(this);
@@ -106,15 +104,19 @@ public class MainActivity extends Activity implements OnItemClickListener, OnCli
 		myViewLT.addView(imgBtn2);
 		myViewLT.addView(imgBtn3);
 		myViewLT.addView(imgBtn4);
-		
-		myViewRT.addView(imgBtn5);
-		myViewRT.addView(imgBtn6);
-		myViewRT.addView(imgBtn7);
-		
-		myViewLB.addView(imgBtn8);
+		myViewLT.addView(imgBtn5);
+		myViewLT.addView(imgBtn6);
+		myViewLT.addView(imgBtn7);
+		myViewLT.addView(imgBtn8);
+
+		// myViewRT.addView(imgBtn5);
+		// myViewRT.addView(imgBtn6);
+		// myViewRT.addView(imgBtn7);
+		//
+		// myViewLB.addView(imgBtn8);
 		myViewLB.addView(imgBtn9);
 		myViewLB.addView(imgBtn10);
-		
+
 		myViewRB.addView(imgBtn11);
 		myViewRB.addView(imgBtn12);
 		myViewRB.addView(imgBtn13);
@@ -123,13 +125,11 @@ public class MainActivity extends Activity implements OnItemClickListener, OnCli
 		myViewRB.addView(imgBtn16);
 		myViewRB.addView(imgBtn17);
 	}
-	
 
 	@Override
 	public void onclick(int item) {
-		Toast.makeText(MainActivity.this, ""+item, 1).show();
+		Toast.makeText(MainActivity.this, "" + item, 1).show();
 	}
-
 
 	@Override
 	public void onClick(View v) {
@@ -153,6 +153,5 @@ public class MainActivity extends Activity implements OnItemClickListener, OnCli
 			break;
 		}
 	}
-
 
 }
