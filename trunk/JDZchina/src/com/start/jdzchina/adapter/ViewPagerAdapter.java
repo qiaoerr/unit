@@ -39,6 +39,11 @@ public class ViewPagerAdapter extends PagerAdapter {
 				System.out.println("position" + position);
 			}
 		});*/
+		// System.out.println("views.get(position).getLayoutParams().width"
+		// + views.get(position).getLayoutParams().width);
+		// System.out.println("views.get(position).getLayoutParams().height"
+		// + views.get(position).getLayoutParams().height);
+		// viewpagerAdapter返回给viewPager的view的layoutparams默认为-1，-1
 		return views.get(position);
 	}
 

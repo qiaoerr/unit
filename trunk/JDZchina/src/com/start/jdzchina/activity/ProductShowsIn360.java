@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.start.jdzchina.R;
+import com.start.jdzchina.RapidApplication;
 import com.start.jdzchina.widget.MyImageView;
 
 public class ProductShowsIn360 extends Fragment {
@@ -19,6 +20,7 @@ public class ProductShowsIn360 extends Fragment {
 	private ImageView close;
 	private int[] imgs;
 	private MyImageView myImageView;
+	private String res_prefix;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,12 +32,13 @@ public class ProductShowsIn360 extends Fragment {
 	}
 
 	private void initData() {
+		res_prefix = RapidApplication.getInstance().getRes_prefix();
 		context = getActivity();
-		imgs = new int[] { R.drawable.pic01, R.drawable.pic02,
-				R.drawable.pic03, R.drawable.pic04, R.drawable.pic05,
-				R.drawable.pic06, R.drawable.pic07, R.drawable.pic08,
-				R.drawable.pic09, R.drawable.pic10, R.drawable.pic11,
-				R.drawable.pic12 };
+		imgs = new int[] { getResId("pic01"), getResId("pic02"),
+				getResId("pic03"), getResId("pic04"), getResId("pic05"),
+				getResId("pic06"), getResId("pic07"), getResId("pic08"),
+				getResId("pic09"), getResId("pic10"), getResId("pic11"),
+				getResId("pic12") };
 	}
 
 	private void initView() {
@@ -47,8 +50,14 @@ public class ProductShowsIn360 extends Fragment {
 			}
 		});
 		myImageView = (MyImageView) view.findViewById(R.id.myImageView);
+		myImageView.setBackgroundResource(imgs[0]);
 		myImageView.setImgs(imgs);
 
+	}
+
+	private int getResId(String resname) {
+		return getResources().getIdentifier(res_prefix + resname, "drawable",
+				context.getPackageName());
 	}
 
 }

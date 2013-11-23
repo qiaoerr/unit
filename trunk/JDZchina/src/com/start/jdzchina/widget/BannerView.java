@@ -104,9 +104,12 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 
 	private void initView() {
 		viewPager = new ViewPager(context);
+		params = new LayoutParams(bannerWidth, bannerHight);
+		viewPager.setLayoutParams(params);
 		viewPager.setOnPageChangeListener(this);
 		viewPager.setOnTouchListener(this);
 		this.addView(viewPager);
+		// viewPager.getLayoutParams();
 		viewGroup = new LinearLayout(context);
 		params = new LayoutParams(-2, -2);
 		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);

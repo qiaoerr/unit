@@ -2,14 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff" >
+    android:background="@color/grey"
+    android:paddingBottom="15dp"
+    android:paddingTop="30dp" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="售后服务"
-        android:textColor="#FF0000"
-        android:textSize="34sp" />
+    <ListView
+        android:id="@+id/news_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/circle_coner_bg"
+        android:scrollbars="none"
+        android:scrollingCache="false" >
+    </ListView>
 
 </RelativeLayout>
