@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 帧布局，所以子控件均显示在屏幕的左上角，层叠式排列。
+此布局无法控制子控件的大小与位置，但是子控件自身可以控制
+其位置大小 -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+	<ImageView
+	    android:id="@+id/big_imageview"
+	    android:layout_width="0dp"
+		android:layout_height="0dp"
+	    android:scaleType="fitXY"/>
+	
+	<ImageView
+		android:id="@+id/small_imageview"
+		android:src="@drawable/like_btn"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+	<TextView 
+	    android:id="@+id/likeNum"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"/>
+	<View 
+	    android:id="@+id/panel"
+	    android:layout_width="0dp"
+	    android:layout_height="0dp"
+	    android:background="#ffffff"/>
+	<Button 
+	    android:id="@+id/btn"
+	    android:layout_width="40dp"
+	    android:layout_height="26dp"
+	    style="@android:style/Widget.Button.Small"
+	    android:textSize="10dp"
+	    android:text="订餐"/>
+	<TextView 
+	    android:id="@+id/dishName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="20dp"/>
+	<TextView 
+	    android:id="@+id/restaurantName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="10dp"
+	    android:textColor="#c0c0c0"/>
+	<TextView 
+	    android:id="@+id/price"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"/>
+	<TextView
+	    android:id="@+id/scanNum" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="10dp"
+	    android:textColor="#c0c0c0"/>
+
+</FrameLayout>

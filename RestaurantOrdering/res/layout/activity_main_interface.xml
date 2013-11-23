@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/background">
+    <FrameLayout 
+        android:id="@+id/mainframe"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="3"
+        />
+    <FrameLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+      <ImageButton
+         android:id="@+id/btn"	
+         android:src="@drawable/btn_voice_input"
+         android:padding="0dip"
+         android:contentDescription="@string/btn"
+         android:layout_gravity="center_vertical|center_horizontal"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"/>
+      
+    </FrameLayout>
+</LinearLayout>
