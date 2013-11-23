@@ -44,9 +44,8 @@ public class ActivityFragment extends Fragment {
 	private void initView() {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
 		BannerView bannerView = new BannerView(context, bannerModels,
-				CommonUtil.getHeightPx(context), CommonUtil.getWidthPx(context));
+				CommonUtil.getWidthPx(context), CommonUtil.getHeightPx(context));
 		actContainer.addView(bannerView);
-
 	}
 
 }

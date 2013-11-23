@@ -60,6 +60,13 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.DialogEnter0neActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.MyDialogActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/MyDialogStyle" />
         <!-- 百度地图定位服务 -->
         <service
             android:name="com.baidu.location.f"

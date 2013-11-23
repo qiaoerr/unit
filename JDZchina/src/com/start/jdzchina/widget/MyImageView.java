@@ -18,7 +18,7 @@ public class MyImageView extends ImageView {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		System.out.println("event.getX():" + event.getX());
+		// System.out.println("event.getX():" + event.getX());
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			coordinationX_start = event.getX();
 		} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
