@@ -1,7 +1,0 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <style name="AppTheme" parent="android:Theme.Light" />
-    <style name="titlebarstyle" parent="android:Theme.Light">
-    </style>
-       <!-- <item name="android:windowTitleSize">46dp</item> --> 
-</resources>
