@@ -1,38 +1,3 @@
-/*
- * A modified version of the Android GridView that can be configured to
- * scroll vertically or horizontally
- *
- * Copyright 2012 Jess Anders
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/*
- * Copyright (C) 2006 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.jess.ui;
 
 import android.content.Context;
@@ -53,8 +18,28 @@ import com.jess.demo.R;
 /**
  * A view that shows items in two-dimensional scrolling grid. The items in the
  * grid come from the {@link ListAdapter} associated with this view.
- * 
  */
+// usage
+/*<?xml version="1.0" encoding="utf-8"?>
+<com.jess.ui.TwoWayGridView
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E8E8E8"
+    android:id="@+id/gridview"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    app:cacheColorHint="#E8E8E8"
+    app:columnWidth="80dp"
+    app:rowHeight="80dp"
+    app:numColumns="auto_fit"
+    app:numRows="auto_fit"
+    app:verticalSpacing="16dp"
+    app:horizontalSpacing="16dp"
+    app:stretchMode="spacingWidthUniform"
+    app:scrollDirectionPortrait="vertical"
+    app:scrollDirectionLandscape="horizontal"
+    app:gravity="center"/>*/
+
 public class TwoWayGridView extends TwoWayAbsListView {
 	public static final int NO_STRETCH = 0;
 	public static final int STRETCH_SPACING = 1;
