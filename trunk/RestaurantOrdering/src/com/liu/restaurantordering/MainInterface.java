@@ -106,7 +106,13 @@ public class MainInterface extends FragmentActivity {
 			if (input.equals("。")) {
 				return;
 			}
-			queryFromParse(input);
+			int tem = input.indexOf("。");
+			if (tem == -1) {
+				return;
+			}
+			// System.out.println("aaaaaaaaaaaaaa: " + input);
+			// System.out.println("bbbbbbbbbbbbbb: " + input.substring(0, tem));
+			queryFromParse(input.substring(0, tem).trim());
 			showWaitingAnim();
 
 		}
@@ -133,7 +139,7 @@ public class MainInterface extends FragmentActivity {
 						intent.setClass(getApplicationContext(),
 								WebBrowser.class);
 						startActivity(intent);
-						Log.i("System.out", "没有相关内容");
+						Log.i("System.out", "没有相关饭店内容");
 						mDialog.dismiss();
 						return;
 					}
@@ -191,7 +197,7 @@ public class MainInterface extends FragmentActivity {
 						intent.setClass(getApplicationContext(),
 								WebBrowser.class);
 						startActivity(intent);
-						Log.i("System.out", "没有相关内容");
+						Log.i("System.out", "没有相关食品内容");
 						mDialog.dismiss();
 						return;
 					}
