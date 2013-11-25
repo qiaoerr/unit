@@ -9,29 +9,260 @@ package com.start.jdzchina;
 
 public final class R {
     public static final class attr {
+        /**  Indicates that this list will always be drawn on top of solid, single-color
+             opaque background. This allows the list to optimize drawing. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cacheColorHint=0x7f010007;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int columnWidth=0x7f01000e;
+        /**  When set to true, the selector will be drawn over the selected item.
+             Otherwise the selector is drawn behind the selected item. The default
+             value is false. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int drawSelectorOnTop=0x7f010003;
+        /**  Specifies how to place the content of an object, both
+         on the x- and y-axis, within the object itself. 
+         <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>top</code></td><td>0x30</td><td> Push object to the top of its container, not changing its size. </td></tr>
+<tr><td><code>bottom</code></td><td>0x50</td><td> Push object to the bottom of its container, not changing its size. </td></tr>
+<tr><td><code>left</code></td><td>0x03</td><td> Push object to the left of its container, not changing its size. </td></tr>
+<tr><td><code>right</code></td><td>0x05</td><td> Push object to the right of its container, not changing its size. </td></tr>
+<tr><td><code>center_vertical</code></td><td>0x10</td><td> Place object in the vertical center of its container, not changing its size. </td></tr>
+<tr><td><code>fill_vertical</code></td><td>0x70</td><td> Grow the vertical size of the object if needed so it completely fills its container. </td></tr>
+<tr><td><code>center_horizontal</code></td><td>0x01</td><td> Place object in the horizontal center of its container, not changing its size. </td></tr>
+<tr><td><code>fill_horizontal</code></td><td>0x07</td><td> Grow the horizontal size of the object if needed so it completely fills its container. </td></tr>
+<tr><td><code>center</code></td><td>0x11</td><td> Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. </td></tr>
+<tr><td><code>fill</code></td><td>0x77</td><td> Grow the horizontal and vertical size of the object if needed so it completely fills its container. </td></tr>
+<tr><td><code>clip_vertical</code></td><td>0x80</td><td> Additional option that can be set to have the top and/or bottom edges of
+             the child clipped to its container's bounds.
+             The clip will be based on the vertical gravity: a top gravity will clip the bottom
+             edge, a bottom gravity will clip the top edge, and neither will clip both edges. </td></tr>
+<tr><td><code>clip_horizontal</code></td><td>0x08</td><td> Additional option that can be set to have the left and/or right edges of
+             the child clipped to its container's bounds.
+             The clip will be based on the horizontal gravity: a left gravity will clip the right
+             edge, a right gravity will clip the left edge, and neither will clip both edges. </td></tr>
+</table>
+         */
+        public static final int gravity=0x7f010000;
+        /**  Default GridView style. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int gridViewStyle=0x7f010001;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int horizontalSpacing=0x7f01000b;
+        /**  Drawable used to indicate the currently selected item in the list. 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int listSelector=0x7f010002;
+        /** <p>May be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>auto_fit</code></td><td>-1</td><td></td></tr>
+</table>
+         */
+        public static final int numColumns=0x7f010010;
+        /** <p>May be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>auto_fit</code></td><td>-1</td><td></td></tr>
+</table>
+         */
+        public static final int numRows=0x7f010011;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rowHeight=0x7f01000f;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>vertical</code></td><td>0</td><td> Scroll up vertically. This is the default value. </td></tr>
+<tr><td><code>horizontal</code></td><td>1</td><td> Scroll horizontally. </td></tr>
+</table>
+         */
+        public static final int scrollDirectionLandscape=0x7f01000a;
+        /**  Use this attribute to control which direction the GridView scrolls when in
+             portrait orientation 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>vertical</code></td><td>0</td><td> Scroll up vertically. This is the default value. </td></tr>
+<tr><td><code>horizontal</code></td><td>1</td><td> Scroll horizontally. </td></tr>
+</table>
+         */
+        public static final int scrollDirectionPortrait=0x7f010009;
+        /**  When set to true, the list uses a drawing cache during scrolling.
+             This makes the rendering faster but uses more memory. The default
+             value is true. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scrollingCache=0x7f010005;
+        /**  Enables the fast scroll thumb that can be dragged to quickly scroll through
+             the list. 
+ <attr name="fastScrollEnabled" format="boolean" /> 
+ When set to true, the list will use a more refined calculation
+             method based on the pixels height of the items visible on screen. This
+             property is set to true by default but should be set to false if your adapter
+             will display items of varying heights. When this property is set to true and
+             your adapter displays items of varying heights, the scrollbar thumb will
+             change size as the user scrolls through the list. When set to fale, the list
+             will use only the number of items in the adapter and the number of items visible
+             on screen to determine the scrollbar's properties. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int smoothScrollbar=0x7f010008;
+        /**  Used by ListView and GridView to stack their content from the bottom. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int stackFromBottom=0x7f010004;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>spacingWidth</code></td><td>1</td><td></td></tr>
+<tr><td><code>columnWidth</code></td><td>2</td><td></td></tr>
+<tr><td><code>spacingWidthUniform</code></td><td>3</td><td></td></tr>
+</table>
+         */
+        public static final int stretchMode=0x7f01000d;
+        /**  When set to true, the list will filter results as the user types. The
+             List's adapter must support the Filterable interface for this to work. 
+ <attr name="textFilterEnabled" format="boolean" /> 
+ Sets the transcript mode for the list. In transcript mode, the list
+             scrolls to the bottom to make new items visible when they are added. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>disabled</code></td><td>0</td><td> Disables transcript mode. This is the default value. </td></tr>
+<tr><td><code>normal</code></td><td>1</td><td> The list will automatically scroll to the bottom when
+                 a data set change notification is received and only if the last item is
+                 already visible on screen. </td></tr>
+<tr><td><code>alwaysScroll</code></td><td>2</td><td> The list will automatically scroll to the bottom, no matter what items
+                 are currently visible. </td></tr>
+</table>
+         */
+        public static final int transcriptMode=0x7f010006;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int verticalSpacing=0x7f01000c;
     }
     public static final class color {
-        public static final int base_end_color_pressed=0x7f040011;
+        public static final int base_end_color_pressed=0x7f050011;
         /**  ITEM BACKGROUND COLOR - STATE - PRESSED 
          */
-        public static final int base_start_color_pressed=0x7f040010;
-        public static final int bg5PG=0x7f040000;
-        public static final int black=0x7f040003;
-        public static final int blackzi=0x7f04000e;
-        public static final int blue=0x7f040006;
-        public static final int green=0x7f040007;
-        public static final int green_dark=0x7f040009;
-        public static final int grey=0x7f04000a;
-        public static final int grey_one=0x7f04000b;
-        public static final int head_tips=0x7f04000d;
-        public static final int red=0x7f040004;
-        public static final int red_light=0x7f040005;
-        public static final int sortList=0x7f040001;
-        public static final int space_text_color=0x7f040012;
-        public static final int text_hint=0x7f04000f;
-        public static final int transparent=0x7f04000c;
-        public static final int white=0x7f040002;
-        public static final int yellow=0x7f040008;
+        public static final int base_start_color_pressed=0x7f050010;
+        public static final int bg5PG=0x7f050000;
+        public static final int black=0x7f050003;
+        public static final int blackzi=0x7f05000e;
+        public static final int blue=0x7f050006;
+        public static final int green=0x7f050007;
+        public static final int green_dark=0x7f050009;
+        public static final int grey=0x7f05000a;
+        public static final int grey_one=0x7f05000b;
+        public static final int head_tips=0x7f05000d;
+        public static final int red=0x7f050004;
+        public static final int red_light=0x7f050005;
+        public static final int sortList=0x7f050001;
+        public static final int space_text_color=0x7f050012;
+        public static final int text_hint=0x7f05000f;
+        public static final int transparent=0x7f05000c;
+        public static final int white=0x7f050002;
+        public static final int yellow=0x7f050008;
     }
     public static final class dimen {
         /** 
@@ -39,7 +270,7 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_horizontal_margin=0x7f060000;
     }
     public static final class drawable {
         public static final int bbus=0x7f020000;
@@ -151,78 +382,101 @@ public final class R {
         public static final int triangle=0x7f02006a;
     }
     public static final class id {
-        public static final int actContainer=0x7f080000;
-        public static final int bbus=0x7f08001f;
-        public static final int bcar=0x7f080020;
-        public static final int btn_close=0x7f080003;
-        public static final int btn_spec_0=0x7f08000b;
-        public static final int btn_spec_1=0x7f08000c;
-        public static final int btn_spec_2=0x7f08000d;
-        public static final int bwalk=0x7f080021;
-        public static final int change_product=0x7f08002e;
-        public static final int change_product_d=0x7f080002;
-        public static final int container=0x7f080010;
-        public static final int create_time=0x7f080025;
-        public static final int dialog_text=0x7f080032;
-        public static final int four=0x7f08002d;
-        public static final int goods_img0=0x7f080004;
-        public static final int goods_img1=0x7f080005;
-        public static final int load_prompt=0x7f080028;
-        public static final int mapContainer=0x7f080018;
-        public static final int mapView=0x7f080019;
-        public static final int menu1=0x7f080012;
-        public static final int menu2=0x7f080013;
-        public static final int menu3=0x7f080014;
-        public static final int menu4=0x7f080015;
-        public static final int menu5=0x7f080016;
-        public static final int myImageView=0x7f08002f;
-        public static final int navigate_style=0x7f08001e;
-        public static final int navigate_style_list=0x7f08001d;
-        public static final int news_list=0x7f080001;
-        public static final int news_title=0x7f080024;
-        public static final int next=0x7f08001c;
-        public static final int one=0x7f08002a;
-        public static final int picStoreContainer=0x7f080027;
-        public static final int picStoreViewpager=0x7f080026;
-        public static final int popdown=0x7f080009;
-        public static final int popinfo=0x7f080007;
-        public static final int popleft=0x7f080006;
-        public static final int popright=0x7f08000a;
-        public static final int pre=0x7f08001b;
-        public static final int productShow=0x7f080029;
-        public static final int product_img=0x7f080022;
-        public static final int progressbar=0x7f080031;
-        public static final int result_info=0x7f080030;
-        public static final int search_result_detail_linearlayout=0x7f08001a;
-        public static final int switch_img=0x7f080017;
-        public static final int textcache=0x7f080008;
-        public static final int three=0x7f08002c;
-        public static final int title_dia=0x7f08000f;
-        public static final int title_rel=0x7f08000e;
-        public static final int topMenuBar=0x7f080011;
-        public static final int triangle=0x7f080023;
-        public static final int two=0x7f08002b;
+        public static final int actContainer=0x7f040016;
+        public static final int alwaysScroll=0x7f04000e;
+        public static final int auto_fit=0x7f040015;
+        public static final int bbus=0x7f040036;
+        public static final int bcar=0x7f040037;
+        public static final int bigPic=0x7f040018;
+        public static final int bottom=0x7f040001;
+        public static final int btn_close=0x7f040019;
+        public static final int btn_spec_0=0x7f040022;
+        public static final int btn_spec_1=0x7f040023;
+        public static final int btn_spec_2=0x7f040024;
+        public static final int bwalk=0x7f040038;
+        public static final int center=0x7f040008;
+        public static final int center_horizontal=0x7f040006;
+        public static final int center_vertical=0x7f040004;
+        public static final int change_product=0x7f040044;
+        public static final int change_product_d=0x7f04001a;
+        public static final int clip_horizontal=0x7f04000b;
+        public static final int clip_vertical=0x7f04000a;
+        public static final int columnWidth=0x7f040013;
+        public static final int container=0x7f040027;
+        public static final int create_time=0x7f04003c;
+        public static final int dialog_text=0x7f040048;
+        public static final int disabled=0x7f04000c;
+        public static final int fill=0x7f040009;
+        public static final int fill_horizontal=0x7f040007;
+        public static final int fill_vertical=0x7f040005;
+        public static final int four=0x7f040043;
+        public static final int goods_img0=0x7f04001b;
+        public static final int goods_img1=0x7f04001c;
+        public static final int horizontal=0x7f040010;
+        public static final int left=0x7f040002;
+        public static final int load_prompt=0x7f04003e;
+        public static final int mapContainer=0x7f04002f;
+        public static final int mapView=0x7f040030;
+        public static final int menu1=0x7f040029;
+        public static final int menu2=0x7f04002a;
+        public static final int menu3=0x7f04002b;
+        public static final int menu4=0x7f04002c;
+        public static final int menu5=0x7f04002d;
+        public static final int myImageView=0x7f040045;
+        public static final int navigate_style=0x7f040035;
+        public static final int navigate_style_list=0x7f040034;
+        public static final int news_list=0x7f040017;
+        public static final int news_title=0x7f04003b;
+        public static final int next=0x7f040033;
+        public static final int none=0x7f040011;
+        public static final int normal=0x7f04000d;
+        public static final int one=0x7f040040;
+        public static final int picStoreContainer=0x7f04003d;
+        public static final int popdown=0x7f040020;
+        public static final int popinfo=0x7f04001e;
+        public static final int popleft=0x7f04001d;
+        public static final int popright=0x7f040021;
+        public static final int pre=0x7f040032;
+        public static final int productShow=0x7f04003f;
+        public static final int product_img=0x7f040039;
+        public static final int progressbar=0x7f040047;
+        public static final int result_info=0x7f040046;
+        public static final int right=0x7f040003;
+        public static final int search_result_detail_linearlayout=0x7f040031;
+        public static final int spacingWidth=0x7f040012;
+        public static final int spacingWidthUniform=0x7f040014;
+        public static final int switch_img=0x7f04002e;
+        public static final int textcache=0x7f04001f;
+        public static final int three=0x7f040042;
+        public static final int title_dia=0x7f040026;
+        public static final int title_rel=0x7f040025;
+        public static final int top=0x7f040000;
+        public static final int topMenuBar=0x7f040028;
+        public static final int triangle=0x7f04003a;
+        public static final int two=0x7f040041;
+        public static final int vertical=0x7f04000f;
     }
     public static final class layout {
         public static final int about_layout=0x7f030000;
         public static final int activity_layout=0x7f030001;
         public static final int aftersale_layout=0x7f030002;
-        public static final int changeproduct_layout=0x7f030003;
-        public static final int custom_text_view=0x7f030004;
-        public static final int dialog_layout=0x7f030005;
-        public static final int dialogener0nelayout=0x7f030006;
-        public static final int mainlayout=0x7f030007;
-        public static final int map_layout=0x7f030008;
-        public static final int newsdetail_layout=0x7f030009;
-        public static final int newslist_item=0x7f03000a;
-        public static final int picturestore_layout=0x7f03000b;
-        public static final int preloading=0x7f03000c;
-        public static final int productshow_layout=0x7f03000d;
-        public static final int productshowingallery_layout=0x7f03000e;
-        public static final int widget_progressdialog=0x7f03000f;
+        public static final int bigpicture_layout=0x7f030003;
+        public static final int changeproduct_layout=0x7f030004;
+        public static final int custom_text_view=0x7f030005;
+        public static final int dialog_layout=0x7f030006;
+        public static final int dialogener0nelayout=0x7f030007;
+        public static final int mainlayout=0x7f030008;
+        public static final int map_layout=0x7f030009;
+        public static final int newsdetail_layout=0x7f03000a;
+        public static final int newslist_item=0x7f03000b;
+        public static final int picturestore_layout=0x7f03000c;
+        public static final int preloading=0x7f03000d;
+        public static final int productshow_layout=0x7f03000e;
+        public static final int productshowingallery_layout=0x7f03000f;
+        public static final int widget_progressdialog=0x7f030010;
     }
     public static final class string {
-        public static final int app_name=0x7f060000;
+        public static final int app_name=0x7f070000;
     }
     public static final class style {
         /** 
@@ -237,7 +491,409 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070001;
-        public static final int MyDialogStyle=0x7f070000;
+        public static final int AppBaseTheme=0x7f080001;
+        public static final int MyDialogStyle=0x7f080000;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a TwoWayAbsListView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_cacheColorHint com.start.jdzchina:cacheColorHint}</code></td><td> Indicates that this list will always be drawn on top of solid, single-color
+             opaque background.</td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_drawSelectorOnTop com.start.jdzchina:drawSelectorOnTop}</code></td><td> When set to true, the selector will be drawn over the selected item.</td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_listSelector com.start.jdzchina:listSelector}</code></td><td> Drawable used to indicate the currently selected item in the list.</td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_scrollDirectionLandscape com.start.jdzchina:scrollDirectionLandscape}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_scrollDirectionPortrait com.start.jdzchina:scrollDirectionPortrait}</code></td><td> Use this attribute to control which direction the GridView scrolls when in
+             portrait orientation </td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_scrollingCache com.start.jdzchina:scrollingCache}</code></td><td> When set to true, the list uses a drawing cache during scrolling.</td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_smoothScrollbar com.start.jdzchina:smoothScrollbar}</code></td><td> Enables the fast scroll thumb that can be dragged to quickly scroll through
+             the list.</td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_stackFromBottom com.start.jdzchina:stackFromBottom}</code></td><td> Used by ListView and GridView to stack their content from the bottom.</td></tr>
+           <tr><td><code>{@link #TwoWayAbsListView_transcriptMode com.start.jdzchina:transcriptMode}</code></td><td> When set to true, the list will filter results as the user types.</td></tr>
+           </table>
+           @see #TwoWayAbsListView_cacheColorHint
+           @see #TwoWayAbsListView_drawSelectorOnTop
+           @see #TwoWayAbsListView_listSelector
+           @see #TwoWayAbsListView_scrollDirectionLandscape
+           @see #TwoWayAbsListView_scrollDirectionPortrait
+           @see #TwoWayAbsListView_scrollingCache
+           @see #TwoWayAbsListView_smoothScrollbar
+           @see #TwoWayAbsListView_stackFromBottom
+           @see #TwoWayAbsListView_transcriptMode
+         */
+        public static final int[] TwoWayAbsListView = {
+            0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005,
+            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009,
+            0x7f01000a
+        };
+        /**
+          <p>
+          @attr description
+           Indicates that this list will always be drawn on top of solid, single-color
+             opaque background. This allows the list to optimize drawing. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:cacheColorHint
+        */
+        public static final int TwoWayAbsListView_cacheColorHint = 5;
+        /**
+          <p>
+          @attr description
+           When set to true, the selector will be drawn over the selected item.
+             Otherwise the selector is drawn behind the selected item. The default
+             value is false. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:drawSelectorOnTop
+        */
+        public static final int TwoWayAbsListView_drawSelectorOnTop = 1;
+        /**
+          <p>
+          @attr description
+           Drawable used to indicate the currently selected item in the list. 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:listSelector
+        */
+        public static final int TwoWayAbsListView_listSelector = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#scrollDirectionLandscape}
+          attribute's value can be found in the {@link #TwoWayAbsListView} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>vertical</code></td><td>0</td><td> Scroll up vertically. This is the default value. </td></tr>
+<tr><td><code>horizontal</code></td><td>1</td><td> Scroll horizontally. </td></tr>
+</table>
+          @attr name com.start.jdzchina:scrollDirectionLandscape
+        */
+        public static final int TwoWayAbsListView_scrollDirectionLandscape = 8;
+        /**
+          <p>
+          @attr description
+           Use this attribute to control which direction the GridView scrolls when in
+             portrait orientation 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>vertical</code></td><td>0</td><td> Scroll up vertically. This is the default value. </td></tr>
+<tr><td><code>horizontal</code></td><td>1</td><td> Scroll horizontally. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:scrollDirectionPortrait
+        */
+        public static final int TwoWayAbsListView_scrollDirectionPortrait = 7;
+        /**
+          <p>
+          @attr description
+           When set to true, the list uses a drawing cache during scrolling.
+             This makes the rendering faster but uses more memory. The default
+             value is true. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:scrollingCache
+        */
+        public static final int TwoWayAbsListView_scrollingCache = 3;
+        /**
+          <p>
+          @attr description
+           Enables the fast scroll thumb that can be dragged to quickly scroll through
+             the list. 
+ <attr name="fastScrollEnabled" format="boolean" /> 
+ When set to true, the list will use a more refined calculation
+             method based on the pixels height of the items visible on screen. This
+             property is set to true by default but should be set to false if your adapter
+             will display items of varying heights. When this property is set to true and
+             your adapter displays items of varying heights, the scrollbar thumb will
+             change size as the user scrolls through the list. When set to fale, the list
+             will use only the number of items in the adapter and the number of items visible
+             on screen to determine the scrollbar's properties. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:smoothScrollbar
+        */
+        public static final int TwoWayAbsListView_smoothScrollbar = 6;
+        /**
+          <p>
+          @attr description
+           Used by ListView and GridView to stack their content from the bottom. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:stackFromBottom
+        */
+        public static final int TwoWayAbsListView_stackFromBottom = 2;
+        /**
+          <p>
+          @attr description
+           When set to true, the list will filter results as the user types. The
+             List's adapter must support the Filterable interface for this to work. 
+ <attr name="textFilterEnabled" format="boolean" /> 
+ Sets the transcript mode for the list. In transcript mode, the list
+             scrolls to the bottom to make new items visible when they are added. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>disabled</code></td><td>0</td><td> Disables transcript mode. This is the default value. </td></tr>
+<tr><td><code>normal</code></td><td>1</td><td> The list will automatically scroll to the bottom when
+                 a data set change notification is received and only if the last item is
+                 already visible on screen. </td></tr>
+<tr><td><code>alwaysScroll</code></td><td>2</td><td> The list will automatically scroll to the bottom, no matter what items
+                 are currently visible. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:transcriptMode
+        */
+        public static final int TwoWayAbsListView_transcriptMode = 4;
+        /** Attributes that can be used with a TwoWayGridView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TwoWayGridView_columnWidth com.start.jdzchina:columnWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayGridView_gravity com.start.jdzchina:gravity}</code></td><td> Specifies how to place the content of an object, both
+         on the x- and y-axis, within the object itself.</td></tr>
+           <tr><td><code>{@link #TwoWayGridView_horizontalSpacing com.start.jdzchina:horizontalSpacing}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayGridView_numColumns com.start.jdzchina:numColumns}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayGridView_numRows com.start.jdzchina:numRows}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayGridView_rowHeight com.start.jdzchina:rowHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayGridView_stretchMode com.start.jdzchina:stretchMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #TwoWayGridView_verticalSpacing com.start.jdzchina:verticalSpacing}</code></td><td></td></tr>
+           </table>
+           @see #TwoWayGridView_columnWidth
+           @see #TwoWayGridView_gravity
+           @see #TwoWayGridView_horizontalSpacing
+           @see #TwoWayGridView_numColumns
+           @see #TwoWayGridView_numRows
+           @see #TwoWayGridView_rowHeight
+           @see #TwoWayGridView_stretchMode
+           @see #TwoWayGridView_verticalSpacing
+         */
+        public static final int[] TwoWayGridView = {
+            0x7f010000, 0x7f01000b, 0x7f01000c, 0x7f01000d,
+            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#columnWidth}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.start.jdzchina:columnWidth
+        */
+        public static final int TwoWayGridView_columnWidth = 4;
+        /**
+          <p>
+          @attr description
+           Specifies how to place the content of an object, both
+         on the x- and y-axis, within the object itself. 
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>top</code></td><td>0x30</td><td> Push object to the top of its container, not changing its size. </td></tr>
+<tr><td><code>bottom</code></td><td>0x50</td><td> Push object to the bottom of its container, not changing its size. </td></tr>
+<tr><td><code>left</code></td><td>0x03</td><td> Push object to the left of its container, not changing its size. </td></tr>
+<tr><td><code>right</code></td><td>0x05</td><td> Push object to the right of its container, not changing its size. </td></tr>
+<tr><td><code>center_vertical</code></td><td>0x10</td><td> Place object in the vertical center of its container, not changing its size. </td></tr>
+<tr><td><code>fill_vertical</code></td><td>0x70</td><td> Grow the vertical size of the object if needed so it completely fills its container. </td></tr>
+<tr><td><code>center_horizontal</code></td><td>0x01</td><td> Place object in the horizontal center of its container, not changing its size. </td></tr>
+<tr><td><code>fill_horizontal</code></td><td>0x07</td><td> Grow the horizontal size of the object if needed so it completely fills its container. </td></tr>
+<tr><td><code>center</code></td><td>0x11</td><td> Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. </td></tr>
+<tr><td><code>fill</code></td><td>0x77</td><td> Grow the horizontal and vertical size of the object if needed so it completely fills its container. </td></tr>
+<tr><td><code>clip_vertical</code></td><td>0x80</td><td> Additional option that can be set to have the top and/or bottom edges of
+             the child clipped to its container's bounds.
+             The clip will be based on the vertical gravity: a top gravity will clip the bottom
+             edge, a bottom gravity will clip the top edge, and neither will clip both edges. </td></tr>
+<tr><td><code>clip_horizontal</code></td><td>0x08</td><td> Additional option that can be set to have the left and/or right edges of
+             the child clipped to its container's bounds.
+             The clip will be based on the horizontal gravity: a left gravity will clip the right
+             edge, a right gravity will clip the left edge, and neither will clip both edges. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.start.jdzchina:gravity
+        */
+        public static final int TwoWayGridView_gravity = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#horizontalSpacing}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.start.jdzchina:horizontalSpacing
+        */
+        public static final int TwoWayGridView_horizontalSpacing = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#numColumns}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>May be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>auto_fit</code></td><td>-1</td><td></td></tr>
+</table>
+          @attr name com.start.jdzchina:numColumns
+        */
+        public static final int TwoWayGridView_numColumns = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#numRows}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>May be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>auto_fit</code></td><td>-1</td><td></td></tr>
+</table>
+          @attr name com.start.jdzchina:numRows
+        */
+        public static final int TwoWayGridView_numRows = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#rowHeight}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.start.jdzchina:rowHeight
+        */
+        public static final int TwoWayGridView_rowHeight = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#stretchMode}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>spacingWidth</code></td><td>1</td><td></td></tr>
+<tr><td><code>columnWidth</code></td><td>2</td><td></td></tr>
+<tr><td><code>spacingWidthUniform</code></td><td>3</td><td></td></tr>
+</table>
+          @attr name com.start.jdzchina:stretchMode
+        */
+        public static final int TwoWayGridView_stretchMode = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.start.jdzchina.R.attr#verticalSpacing}
+          attribute's value can be found in the {@link #TwoWayGridView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.start.jdzchina:verticalSpacing
+        */
+        public static final int TwoWayGridView_verticalSpacing = 2;
+    };
 }
