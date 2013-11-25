@@ -67,6 +67,9 @@
             android:name=".activity.BigPicTureActivity"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".activity.NewsDetaiActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".activity.MyDialogActivity"
             android:screenOrientation="landscape"
             android:theme="@style/MyDialogStyle" />

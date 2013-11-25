@@ -426,7 +426,7 @@ containing a value of this type.
         public static final int navigate_style=0x7f040035;
         public static final int navigate_style_list=0x7f040034;
         public static final int news_list=0x7f040017;
-        public static final int news_title=0x7f04003b;
+        public static final int news_title=0x7f040039;
         public static final int next=0x7f040033;
         public static final int none=0x7f040011;
         public static final int normal=0x7f04000d;
@@ -438,7 +438,7 @@ containing a value of this type.
         public static final int popright=0x7f040021;
         public static final int pre=0x7f040032;
         public static final int productShow=0x7f04003f;
-        public static final int product_img=0x7f040039;
+        public static final int product_img=0x7f04003a;
         public static final int progressbar=0x7f040047;
         public static final int result_info=0x7f040046;
         public static final int right=0x7f040003;
@@ -452,7 +452,7 @@ containing a value of this type.
         public static final int title_rel=0x7f040025;
         public static final int top=0x7f040000;
         public static final int topMenuBar=0x7f040028;
-        public static final int triangle=0x7f04003a;
+        public static final int triangle=0x7f04003b;
         public static final int two=0x7f040041;
         public static final int vertical=0x7f04000f;
     }
