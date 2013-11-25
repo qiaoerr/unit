@@ -3,10 +3,9 @@ package com.start.jdzchina.activity;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,12 +68,18 @@ public class NewsListFragment extends Fragment implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		FragmentManager manager = getFragmentManager();
-		FragmentTransaction transaction = manager.beginTransaction();
-		Fragment fragment = new NewsDtailFragment();
-		transaction.addToBackStack(null);
-		transaction.add(R.id.container, fragment);
-		transaction.commitAllowingStateLoss();
+		// FragmentManager manager = getFragmentManager();
+		// FragmentTransaction transaction = manager.beginTransaction();
+		// Fragment fragment = new NewsDtailFragment();
+		// Bundle args = new Bundle();
+		// args.putSerializable("news", newsList.get(position));
+		// fragment.setArguments(args);
+		// transaction.addToBackStack(null);
+		// transaction.add(R.id.container, fragment);
+		// transaction.commitAllowingStateLoss();
+		Intent intent = new Intent(context, NewsDetaiActivity.class);
+		intent.putExtra("news", newsList.get(position));
+		startActivity(intent);
 	}
 
 }
