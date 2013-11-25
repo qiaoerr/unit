@@ -18,7 +18,7 @@ import com.start.jdzchina.R;
 import com.start.jdzchina.adapter.NewsAdapter;
 import com.start.jdzchina.model.NewsDataModel;
 
-public class AfterSaleFragment extends Fragment implements OnItemClickListener {
+public class NewsListFragment extends Fragment implements OnItemClickListener {
 	private Context context;
 	private View view;
 	private ListView listView;
