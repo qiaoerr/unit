@@ -89,6 +89,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private MKPlanNode end;
 	private LinearLayout search_result_detail_linearlayout;
 	private RelativeLayout mapContainer;
+	private boolean isShow = false;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -276,7 +277,13 @@ public class MapFragment extends Fragment implements OnClickListener {
 			nodeClick(v);
 			break;
 		case R.id.navigate_style:
-			startAnim_show();
+			if (isShow) {
+				startAnim_hide();
+				isShow = false;
+			} else {
+				startAnim_show();
+				isShow = true;
+			}
 			break;
 		case R.id.bbus:
 			type = BUS;
@@ -344,39 +351,39 @@ public class MapFragment extends Fragment implements OnClickListener {
 				Animation.RELATIVE_TO_SELF, 1, Animation.RELATIVE_TO_SELF, 0,
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
 		animation_bbus_show.setFillAfter(true);
-		animation_bbus_show.setDuration(600);
+		animation_bbus_show.setDuration(400);
 		animation_bbus_show.setStartOffset(0);
 		animation_bcar_show = new TranslateAnimation(
 				Animation.RELATIVE_TO_SELF, 1, Animation.RELATIVE_TO_SELF, 0,
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
 		animation_bcar_show.setFillAfter(true);
-		animation_bcar_show.setDuration(600);
-		animation_bcar_show.setStartOffset(300);
+		animation_bcar_show.setDuration(400);
+		animation_bcar_show.setStartOffset(200);
 		animation_bwalk_show = new TranslateAnimation(
 				Animation.RELATIVE_TO_SELF, 1, Animation.RELATIVE_TO_SELF, 0,
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
 		animation_bwalk_show.setFillAfter(true);
-		animation_bwalk_show.setDuration(600);
-		animation_bwalk_show.setStartOffset(600);
+		animation_bwalk_show.setDuration(400);
+		animation_bwalk_show.setStartOffset(400);
 		// hide
 		animation_bbus_hide = new TranslateAnimation(
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
 		animation_bbus_hide.setFillAfter(true);
-		animation_bbus_hide.setDuration(600);
+		animation_bbus_hide.setDuration(400);
 		animation_bbus_hide.setStartOffset(0);
 		animation_bcar_hide = new TranslateAnimation(
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
 		animation_bcar_hide.setFillAfter(true);
-		animation_bcar_hide.setDuration(600);
-		animation_bcar_hide.setStartOffset(300);
+		animation_bcar_hide.setDuration(400);
+		animation_bcar_hide.setStartOffset(200);
 		animation_bwalk_hide = new TranslateAnimation(
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
 				Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
 		animation_bwalk_hide.setFillAfter(true);
-		animation_bwalk_hide.setDuration(600);
-		animation_bwalk_hide.setStartOffset(600);
+		animation_bwalk_hide.setDuration(400);
+		animation_bwalk_hide.setStartOffset(400);
 
 	}
 
