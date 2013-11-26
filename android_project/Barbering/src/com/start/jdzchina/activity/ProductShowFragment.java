@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 import com.start.jdzchina.R;
-import com.start.jdzchina.RapidApplication;
 
 public class ProductShowFragment extends Fragment implements OnClickListener {
 	private Context context;
@@ -21,11 +21,9 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 	private ImageView one;
 	private ImageView two;
 	private ImageView three;
-	private Fragment fragment;
 	private FragmentManager fm;
-	public static RelativeLayout productShow;
-	private String res_prefix;
-	private Bundle args;
+	public static LinearLayout productShow;
+	private ViewPager myViewPager;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,14 +37,12 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 	private void initData() {
 		context = getActivity();
 		fm = getFragmentManager();
-		res_prefix = RapidApplication.getInstance().getRes_prefix();
 	}
 
 	private void initView() {
-		productShow = (RelativeLayout) view.findViewById(R.id.productShow);
-		int res_id = getResources().getIdentifier(res_prefix + "car",
-				"drawable", context.getPackageName());
-		productShow.setBackgroundResource(res_id);
+		productShow = (LinearLayout) view.findViewById(R.id.productShow);
+		productShow.setBackgroundResource(R.drawable.default_car);
+		myViewPager = (ViewPager) view.findViewById(R.id.myViewPager);
 		one = (ImageView) view.findViewById(R.id.one);
 		two = (ImageView) view.findViewById(R.id.two);
 		three = (ImageView) view.findViewById(R.id.three);

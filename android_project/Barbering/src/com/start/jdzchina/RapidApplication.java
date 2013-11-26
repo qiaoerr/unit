@@ -27,7 +27,6 @@ public class RapidApplication extends Application {
 	BMapManager mBMapManager = null;
 	private BDLocation bdLocation = null;
 	private MyRouteMapView mapView;
-	private String res_prefix = "default_";
 
 	public static RapidApplication getInstance() {
 		return expressApplication;
@@ -112,14 +111,6 @@ public class RapidApplication extends Application {
 
 	public void setMapView(MyRouteMapView mapView) {
 		this.mapView = mapView;
-	}
-
-	public String getRes_prefix() {
-		return res_prefix;
-	}
-
-	public void setRes_prefix(String res_prefix) {
-		this.res_prefix = res_prefix;
 	}
 
 }
