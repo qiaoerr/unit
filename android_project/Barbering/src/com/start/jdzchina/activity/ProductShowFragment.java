@@ -1,10 +1,13 @@
 package com.start.jdzchina.activity;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +27,7 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 	private FragmentManager fm;
 	public static LinearLayout productShow;
 	private ViewPager myViewPager;
+	private ArrayList<Fragment> fragments;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,12 +41,22 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 	private void initData() {
 		context = getActivity();
 		fm = getFragmentManager();
+		fragments = new ArrayList<Fragment>();
+		OneFragment one = new OneFragment();
+		TwoFragment two = new TwoFragment();
+		ThreeFragment three = new ThreeFragment();
+		fragments.add(one);
+		fragments.add(two);
+		fragments.add(three);
 	}
 
 	private void initView() {
 		productShow = (LinearLayout) view.findViewById(R.id.productShow);
 		productShow.setBackgroundResource(R.drawable.default_car);
 		myViewPager = (ViewPager) view.findViewById(R.id.myViewPager);
+		PagerAdapter adapter = new com.start.jdzchina.adapter.PagerAdapter(fm,
+				fragments);
+		myViewPager.setAdapter(adapter);
 		one = (ImageView) view.findViewById(R.id.one);
 		two = (ImageView) view.findViewById(R.id.two);
 		three = (ImageView) view.findViewById(R.id.three);
