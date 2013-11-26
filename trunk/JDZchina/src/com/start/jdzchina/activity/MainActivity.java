@@ -1,17 +1,22 @@
 package com.start.jdzchina.activity;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.start.jdzchina.R;
 import com.start.jdzchina.RapidApplication;
@@ -32,6 +37,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private RelativeLayout menu4;
 	private RelativeLayout menu5;
 	private Animation animation = null;
+	private long exitTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +172,47 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		transaction = fm.beginTransaction();
 		transaction.replace(R.id.container, fragment);
 		transaction.commitAllowingStateLoss();
+	}
+
+	@Override
+	public void onBackPressed() {
+		boolean result = fm.popBackStackImmediate();
+		if (!result) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				// Toast.makeText(context, "再按一次退出程序",
+				// Toast.LENGTH_SHORT).show();
+				Toast toast = new Toast(context);
+				toast.setDuration(Toast.LENGTH_SHORT);
+				TextView textView = new TextView(context);
+				textView.setPadding(8, 6, 8, 6);
+				textView.setText("再按一次退出程序");
+				textView.setBackgroundColor(getResources().getColor(
+						R.color.black));
+				textView.setTextColor(getResources().getColor(R.color.white));
+				toast.setView(textView);
+				toast.setGravity(Gravity.BOTTOM, 0, 30);
+				toast.show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+			}
+		}
+		return;
+	}
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+			Rect rect = new Rect();
+			topMenuBar.getHitRect(rect);
+			if (!rect.contains((int) ev.getX(), (int) ev.getY())) {
+				if (isExpand) {
+					closeAnim();
+					isExpand = false;
+				}
+			}
+		}
+		return super.dispatchTouchEvent(ev);
 	}
 
 	@Override
