@@ -33,7 +33,10 @@ public class MyRouteMapView extends MapView {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (!super.onTouchEvent(event)) {
+		boolean b = super.onTouchEvent(event);
+		// System.out.println("super.onTouchEvent(event):" + b + "==="
+		// + event.getAction());
+		if (!b) {
 			// 消隐泡泡
 			if (pop != null && event.getAction() == MotionEvent.ACTION_UP)
 				pop.hidePop();

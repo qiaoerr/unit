@@ -521,6 +521,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onPause() {
 		mapContainer.removeView(mMapView);
+		if (pop != null) {
+			pop.hidePop();
+		}
 		mMapView.onPause();
 		super.onPause();
 	}
