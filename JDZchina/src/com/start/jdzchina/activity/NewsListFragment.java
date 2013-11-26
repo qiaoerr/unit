@@ -43,16 +43,22 @@ public class NewsListFragment extends Fragment implements OnItemClickListener {
 			newsDataModel
 					.setImgUrl("http://b.hiphotos.baidu.com/pic/w%3D230/sign=1198de96faf2b211e42e824dfa816511/a6efce1b9d16fdfaaef17e0bb58f8c5495ee7bb1.jpg");
 			newsDataModel.setCreateTime(System.currentTimeMillis());
-			// int m = new Random().nextInt(4);
-			// if (m == 0) {
-			// newsDataModel.setImgUrls(new String[] {});
-			// } else if (m == 1) {
-			// newsDataModel.setImgUrls(new String[] { "" });
-			// } else if (m == 2) {
-			// newsDataModel.setImgUrls(new String[] { "", "" });
-			// } else {
-			// newsDataModel.setImgUrls(new String[] { "", "", "" });
-			// }
+			if (i == 0) {
+				newsDataModel.setImgUrls(new String[] {});
+			} else if (i == 1) {
+				newsDataModel.setImgUrls(new String[] { "" });
+			} else if (i == 2) {
+				newsDataModel.setImgUrls(new String[] { "", "" });
+			} else if (i == 3) {
+				newsDataModel.setImgUrls(new String[] { "", "", "" });
+			} else if (i == 4) {
+				newsDataModel.setImgUrls(new String[] { "", "", "", "" });
+			} else if (i == 5) {
+				newsDataModel.setImgUrls(new String[] { "", "", "", "", "" });
+			} else {
+				newsDataModel
+						.setImgUrls(new String[] { "", "", "", "", "", "" });
+			}
 			newsList.add(newsDataModel);
 		}
 
