@@ -143,12 +143,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			break;
 		case R.id.menu3:
 			closeAnim();
-			fragment = new MapFragment();
+			fragment = new NewsListFragment();
 			ClearBackStackAndReplace(fragment);
 			break;
 		case R.id.menu4:
 			closeAnim();
-			fragment = new NewsListFragment();
+			fragment = new MapFragment();
 			ClearBackStackAndReplace(fragment);
 			break;
 		case R.id.menu5:

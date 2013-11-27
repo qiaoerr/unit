@@ -88,27 +88,49 @@
         android:background="#80000000"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/start_point"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:drawableLeft="@drawable/start_point"
-            android:drawablePadding="5dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/grey_one"
-            android:textSize="12sp" />
+            android:layout_marginLeft="5dp" >
 
-        <TextView
-            android:id="@+id/end_point"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/point_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/start_point" />
+
+            <TextView
+                android:id="@+id/start_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/point_img"
+                android:gravity="center_vertical"
+                android:textColor="@color/grey_one"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:drawableLeft="@drawable/end_point"
-            android:drawablePadding="5dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/grey_one"
-            android:textSize="12sp" />
+            android:layout_marginLeft="5dp" >
+
+            <ImageView
+                android:id="@+id/point_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/end_point" />
+
+            <TextView
+                android:id="@+id/end_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/point_img"
+                android:gravity="center_vertical"
+                android:textColor="@color/grey_one"
+                android:textSize="12sp" />
+        </RelativeLayout>
     </LinearLayout>
 
     <ImageView
