@@ -113,4 +113,14 @@ public class CommonUtil {
 		return screenHeight;
 	}
 
+	/**
+	 * 取得scale fact
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static float getScale(Context context) {
+		return context.getResources().getDisplayMetrics().density;
+	}
+
 }

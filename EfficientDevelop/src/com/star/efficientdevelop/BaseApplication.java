@@ -75,4 +75,9 @@ public class BaseApplication extends Application {
 			}
 		}
 	}
+
+	public BMapManager getmBMapManager() {
+		return mBMapManager;
+	}
+
 }

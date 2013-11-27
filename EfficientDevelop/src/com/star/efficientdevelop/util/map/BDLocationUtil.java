@@ -3,14 +3,13 @@
   @Package com.start.jdzchina.util
   @Description: TODO
   Copyright: Copyright (c) 2011 
-  Company:北京天下互联科技有限公司
   
   @author Comsys-Administrator
   @date 2013-11-18 上午11:42:08
   @version V1.0
  */
 
-package com.star.efficientdevelop.util;
+package com.star.efficientdevelop.util.map;
 
 import android.content.Context;
 
