@@ -98,8 +98,21 @@ public class ProductShowFragment extends Fragment implements OnClickListener,
 
 	@Override
 	public void onPageSelected(int arg0) {
-		System.out.println("onPageSelected(int arg0):" + arg0);
-
+		for (int i = 0; i < 3; i++) {
+			if (i == 0) {
+				one.setSelected(true);
+				two.setSelected(false);
+				three.setSelected(false);
+			} else if (i == 1) {
+				one.setSelected(false);
+				two.setSelected(true);
+				three.setSelected(false);
+			} else if (i == 2) {
+				one.setSelected(false);
+				two.setSelected(false);
+				three.setSelected(true);
+			}
+		}
 	}
 
 }

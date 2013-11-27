@@ -43,6 +43,7 @@ import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.start.jdzchina.R;
 import com.start.jdzchina.RapidApplication;
+import com.start.jdzchina.model.BaseInforModel;
 import com.start.jdzchina.util.BDLocationUtil;
 import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
 import com.start.jdzchina.util.BMapUtil;
@@ -65,7 +66,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private PopupOverlay pop;
 	private int position = 0;// 表示第一个方案
 	private View viewCache;
-	private String type;
+	private String type = "";
 	private TransitOverlay transitOverlay;
 	private RouteOverlay routeOverlay;
 	MKRoute route = null;// 保存驾车/步行路线数据的变量，供浏览节点时使用
@@ -90,11 +91,15 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private LinearLayout search_result_detail_linearlayout;
 	private RelativeLayout mapContainer;
 	private boolean isShow = false;
+	private TextView start_point;
+	private TextView end_point;
+	private BaseInforModel baseInfor;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.map_layout, null);
+		start_point = (TextView) view.findViewById(R.id.start_point);
 		initData();
 		initAnim();
 		initView();
@@ -103,7 +108,38 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	private void initData() {
 		context = getActivity();
+		baseInfor = RapidApplication.getInstance().getBaseInfor();
 		mMapView = RapidApplication.getInstance().getMapView();
+		progressDialog = new LXProgressDialog(context, "定位中...");
+		progressDialog.show();
+		BDLocationUtil.getLocation(context, new LocationSuccessListener() {
+
+			@Override
+			public void dealWithLocationData(BDLocation location) {
+				if (progressDialog != null) {
+					progressDialog.dismiss();
+				}
+				if (location == null) {
+					Toast.makeText(context, "定位失败...", Toast.LENGTH_SHORT)
+							.show();
+				} else {
+					bdLocation = location;
+					start_point.setText(location.getAddrStr());
+					MyLocationOverlay locationOverlay = new MyLocationOverlay(
+							mMapView);
+					LocationData locationData = new LocationData();
+					locationData.latitude = location.getLatitude();
+					locationData.longitude = location.getLongitude();
+					locationOverlay.setData(locationData);
+					locationOverlay.enableCompass();
+					mMapView.getOverlays().add(locationOverlay);
+					mMapView.refresh();
+					mMapController.animateTo(new GeoPoint((int) (bdLocation
+							.getLatitude() * 1e6), (int) (bdLocation
+							.getLongitude() * 1e6)));
+				}
+			}
+		});
 		mkSearch = new MKSearch();
 		mkSearch.init(RapidApplication.getInstance().getmBMapManager(),
 				new MKSearchListener() {
@@ -169,35 +205,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 					public void onGetAddrResult(MKAddrInfo arg0, int arg1) {
 					}
 				});
-		progressDialog = new LXProgressDialog(context, "定位中...");
-		progressDialog.show();
-		BDLocationUtil.getLocation(context, new LocationSuccessListener() {
 
-			@Override
-			public void dealWithLocationData(BDLocation location) {
-				if (progressDialog != null) {
-					progressDialog.dismiss();
-				}
-				if (location == null) {
-					Toast.makeText(context, "定位失败...", Toast.LENGTH_SHORT)
-							.show();
-				} else {
-					bdLocation = location;
-					MyLocationOverlay locationOverlay = new MyLocationOverlay(
-							mMapView);
-					LocationData locationData = new LocationData();
-					locationData.latitude = location.getLatitude();
-					locationData.longitude = location.getLongitude();
-					locationOverlay.setData(locationData);
-					locationOverlay.enableCompass();
-					mMapView.getOverlays().add(locationOverlay);
-					mMapView.refresh();
-					mMapController.animateTo(new GeoPoint((int) (bdLocation
-							.getLatitude() * 1e6), (int) (bdLocation
-							.getLongitude() * 1e6)));
-				}
-			}
-		});
 		mapViewListener = new MKMapViewListener() {
 
 			@Override
@@ -241,6 +249,8 @@ public class MapFragment extends Fragment implements OnClickListener {
 	}
 
 	private void initView() {
+		end_point = (TextView) view.findViewById(R.id.end_point);
+		end_point.setText(baseInfor.getAddress());
 		mapContainer = (RelativeLayout) view.findViewById(R.id.mapContainer);
 		search_result_detail_linearlayout = (LinearLayout) view
 				.findViewById(R.id.search_result_detail_linearlayout);
@@ -321,7 +331,8 @@ public class MapFragment extends Fragment implements OnClickListener {
 		start.pt = new GeoPoint((int) (bdLocation.getLatitude() * 1e6),
 				(int) (bdLocation.getLongitude() * 1e6));
 		end = new MKPlanNode();
-		end.pt = new GeoPoint((int) (40.056885 * 1e6), (int) (116.30815 * 1e6));
+		end.pt = new GeoPoint((int) (baseInfor.getLatitude() * 1e6),
+				(int) (baseInfor.getLongitude() * 1e6));
 		if (type.equals(BUS)) {
 			mkSearch.transitSearch(bdLocation.getCity(), start, end);
 		} else if (type.equals(DRIVER)) {

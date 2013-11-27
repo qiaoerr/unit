@@ -38,32 +38,37 @@ import com.start.jdzchina.util.CommonUtil;
 public class MyExpandableAdapter extends BaseExpandableListAdapter {
 	private Context context;
 	private LayoutParams params;
+	private String[] generalsTypes;
+	private String[][] generals;
+	private int[] logos;
+	private int[][] generallogos;
 
 	public MyExpandableAdapter(Context context) {
 		super();
 		this.context = context;
+		initData();
 	}
 
-	// 设置组视图的图片
-	int[] logos = new int[] { R.drawable.new_2, R.drawable.new_2,
-			R.drawable.new_2 };
-	// 设置组视图的显示文字
-	private String[] generalsTypes = new String[] { "one", "two", "three" };
-	// 子视图显示文字
-	private String[][] generals = new String[][] {
-			{ "夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修" },
-			{ "马超", "张飞", "刘备", "诸葛亮", "黄月英", "赵云" },
-			{ "吕蒙", "陆逊", "孙权", "周瑜", "孙尚香" }
-
-	};
-	// 子视图图片
-	public int[][] generallogos = new int[][] {
-			{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
-					R.drawable.icon, R.drawable.icon, R.drawable.icon },
-			{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
-					R.drawable.icon, R.drawable.icon, R.drawable.icon },
-			{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
-					R.drawable.icon, R.drawable.icon } };
+	private void initData() {
+		// 设置组视图的图片
+		logos = new int[] { R.drawable.new_2, R.drawable.new_2,
+				R.drawable.new_2 };
+		// 设置组视图的显示文字
+		generalsTypes = context.getResources().getStringArray(R.array.level);
+		// 子视图显示文字
+		generals = new String[][] {
+				context.getResources().getStringArray(R.array.one_item),
+				context.getResources().getStringArray(R.array.two_item),
+				context.getResources().getStringArray(R.array.three_item) };
+		// 子视图图片
+		generallogos = new int[][] {
+				{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
+						R.drawable.icon, R.drawable.icon, R.drawable.icon },
+				{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
+						R.drawable.icon, R.drawable.icon, R.drawable.icon },
+				{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
+						R.drawable.icon, R.drawable.icon } };
+	}
 
 	private TextView getTextView() {
 		AbsListView.LayoutParams lp = new AbsListView.LayoutParams(

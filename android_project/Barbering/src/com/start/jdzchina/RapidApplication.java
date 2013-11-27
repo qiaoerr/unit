@@ -9,6 +9,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
 import com.baidu.mapapi.map.MKEvent;
 import com.start.jdzchina.config.Constants;
+import com.start.jdzchina.model.BaseInforModel;
 import com.start.jdzchina.util.BDLocationUtil;
 import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
 import com.start.jdzchina.widget.MyRouteMapView;
@@ -27,6 +28,7 @@ public class RapidApplication extends Application {
 	BMapManager mBMapManager = null;
 	private BDLocation bdLocation = null;
 	private MyRouteMapView mapView;
+	private BaseInforModel baseInfor;
 
 	public static RapidApplication getInstance() {
 		return expressApplication;
@@ -52,6 +54,15 @@ public class RapidApplication extends Application {
 						}
 					});
 		}
+		// init baseinfor
+		initBaseInfor();
+	}
+
+	private void initBaseInfor() {
+		baseInfor = new BaseInforModel();
+		baseInfor.setAddress("北京市海淀区上地十街十号");
+		baseInfor.setLatitude(40.056885f);
+		baseInfor.setLongitude(116.30815f);
 	}
 
 	public void initEngineManager(Context context) {
@@ -111,6 +122,10 @@ public class RapidApplication extends Application {
 
 	public void setMapView(MyRouteMapView mapView) {
 		this.mapView = mapView;
+	}
+
+	public BaseInforModel getBaseInfor() {
+		return baseInfor;
 	}
 
 }
