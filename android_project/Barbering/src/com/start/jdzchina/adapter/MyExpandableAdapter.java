@@ -51,8 +51,8 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
 
 	private void initData() {
 		// 设置组视图的图片
-		logos = new int[] { R.drawable.new_2, R.drawable.new_2,
-				R.drawable.new_2 };
+		logos = new int[] { R.drawable.temp4, R.drawable.temp4,
+				R.drawable.temp4 };
 		// 设置组视图的显示文字
 		generalsTypes = context.getResources().getStringArray(R.array.level);
 		// 子视图显示文字
@@ -62,12 +62,12 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
 				context.getResources().getStringArray(R.array.three_item) };
 		// 子视图图片
 		generallogos = new int[][] {
-				{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
-						R.drawable.icon, R.drawable.icon, R.drawable.icon },
-				{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
-						R.drawable.icon, R.drawable.icon, R.drawable.icon },
-				{ R.drawable.icon, R.drawable.icon, R.drawable.icon,
-						R.drawable.icon, R.drawable.icon } };
+				{ R.drawable.temp5, R.drawable.temp5, R.drawable.temp5,
+						R.drawable.temp5, R.drawable.temp5, R.drawable.temp5 },
+				{ R.drawable.temp5, R.drawable.temp5, R.drawable.temp5,
+						R.drawable.temp5, R.drawable.temp5, R.drawable.temp5 },
+				{ R.drawable.temp5, R.drawable.temp5, R.drawable.temp5,
+						R.drawable.temp5, R.drawable.temp5 } };
 	}
 
 	private TextView getTextView() {
