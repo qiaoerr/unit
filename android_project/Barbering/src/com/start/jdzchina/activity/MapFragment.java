@@ -124,7 +124,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 							.show();
 				} else {
 					bdLocation = location;
-					start_point.setText(location.getAddrStr());
+					start_point.setText("我的位置: " + location.getAddrStr());
 					MyLocationOverlay locationOverlay = new MyLocationOverlay(
 							mMapView);
 					LocationData locationData = new LocationData();
@@ -250,7 +250,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	private void initView() {
 		end_point = (TextView) view.findViewById(R.id.end_point);
-		end_point.setText(baseInfor.getAddress());
+		end_point.setText("商家位置: " + baseInfor.getAddress());
 		mapContainer = (RelativeLayout) view.findViewById(R.id.mapContainer);
 		search_result_detail_linearlayout = (LinearLayout) view
 				.findViewById(R.id.search_result_detail_linearlayout);

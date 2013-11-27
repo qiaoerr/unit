@@ -88,14 +88,16 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 		gridView.setOnItemClickListener(this);
 		gridViewContainer.addView(gridView);
 		params = new LayoutParams(containerWidth, -2);
+		params.setMargins((int) (20 * scale), (int) (20 * scale),
+				(int) (0 * scale), (int) (20 * scale));
 		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		gridView.setLayoutParams(params);
 		gridView.setGravity(Gravity.CENTER_HORIZONTAL);
-		gridView.setNumColumns(3);
-		gridView.setHorizontalSpacing((int) (5 * scale));
-		gridView.setVerticalSpacing((int) (5 * scale));
+		gridView.setNumColumns(2);
+		gridView.setHorizontalSpacing((int) (10 * scale));
+		gridView.setVerticalSpacing((int) (10 * scale));
 		adapter = new GridViewAdapter(context,
-				(int) (containerWidth - 10 * scale) / 3, dataList);
+				(int) (containerWidth - 50 * scale) / 2, dataList);
 		gridView.setAdapter(adapter);
 	}
 

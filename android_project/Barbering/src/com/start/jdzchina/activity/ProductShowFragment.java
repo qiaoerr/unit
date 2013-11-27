@@ -53,7 +53,7 @@ public class ProductShowFragment extends Fragment implements OnClickListener,
 
 	private void initView() {
 		productShow = (LinearLayout) view.findViewById(R.id.productShow);
-		productShow.setBackgroundResource(R.drawable.default_car);
+		// productShow.setBackgroundResource(R.drawable.default_car);
 		myViewPager = (ViewPager) view.findViewById(R.id.myViewPager);
 		myViewPager.setOnPageChangeListener(this);
 		PagerAdapter adapter = new PagerAdapter(fm, fragments);

@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/navigate_style"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="0dp"
         android:orientation="vertical" >
 
         <ImageView
@@ -67,7 +68,7 @@
             android:id="@+id/bcar"
             android:layout_width="75dp"
             android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/bcar" />
 
@@ -76,7 +77,7 @@
             android:layout_width="75dp"
             android:layout_height="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/bwalk" />
     </LinearLayout>
@@ -85,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:background="#80000000"
+        android:background="#c0000000"
         android:orientation="vertical" >
 
         <RelativeLayout
@@ -106,7 +107,8 @@
                 android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@+id/point_img"
                 android:gravity="center_vertical"
-                android:textColor="@color/grey_one"
+                android:text="我的位置: 定位中..."
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </RelativeLayout>
 
@@ -128,7 +130,7 @@
                 android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@+id/point_img"
                 android:gravity="center_vertical"
-                android:textColor="@color/grey_one"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </RelativeLayout>
     </LinearLayout>
@@ -140,7 +142,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="0dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:scaleType="fitXY"
         android:src="@drawable/navigate_style" />
 

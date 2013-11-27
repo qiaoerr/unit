@@ -48,8 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/topBar"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+       android:layout_margin="10dp"
         android:background="@drawable/circle_coner_bg"
         android:scrollbars="none"
         android:visibility="visible" >
@@ -62,6 +61,7 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:fillViewport="true"
                 android:scrollbars="none"
                 android:visibility="visible" >
@@ -79,16 +79,17 @@
                 android:id="@+id/horizontal_line"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/grey" />
 
             <TextView
                 android:id="@+id/news_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:text="       骆宾王（约619—约687年）字观光，汉族，婺州义乌人（今浙江义乌）。唐初诗人，与王勃、杨炯、卢照邻合称“初唐四杰”。又与富嘉谟并称“富骆”。高宗永徽中为道王李元庆府属，历武功、长安主簿，仪凤三年，入为侍御史，因事下狱，次年遇赦，调露二年除临海丞，不得志，辞官。有集。骆宾王于武则天光宅元年，为起兵扬州反武则天的徐敬业作《代李敬业传檄天下文》，敬业败，亡命不知所之，或云被杀，或云为僧。 骆宾王（约619—约687年）字观光，汉族，婺州义乌人（今浙江义乌）。唐初诗人，与王勃、杨炯、卢照邻合称“初唐四杰”。又与富嘉谟并称“富骆”。高宗永徽中为道王李元庆府属，历武功、长安主簿，仪凤三年，入为侍御史，因事下狱，次年遇赦，调露二年除临海丞，不得志，辞官。有集。骆宾王于武则天光宅元年，为起兵扬州反武则天的徐敬业作《代李敬业传檄天下文》，敬业败，亡命不知所之，或云被杀，或云为僧。 骆宾王（约619—约687年）字观光，汉族，婺州义乌人（今浙江义乌）。唐初诗人，与王勃、杨炯、卢照邻合称“初唐四杰”。又与富嘉谟并称“富骆”。高宗永徽中为道王李元庆府属，历武功、长安主簿，仪凤三年，入为侍御史，因事下狱，次年遇赦，调露二年除临海丞，不得志，辞官。有集。骆宾王于武则天光宅元年，为起兵扬州反武则天的徐敬业作《代李敬业传檄天下文》，敬业败，亡命不知所之，或云被杀，或云为僧。 骆宾王（约619—约687年）字观光，汉族，婺州义乌人（今浙江义乌）。唐初诗人，与王勃、杨炯、卢照邻合称“初唐四杰”。又与富嘉谟并称“富骆”。高宗永徽中为道王李元庆府属，历武功、长安主簿，仪凤三年，入为侍御史，因事下狱，次年遇赦，调露二年除临海丞，不得志，辞官。有集。骆宾王于武则天光宅元年，为起兵扬州反武则天的徐敬业作《代李敬业传檄天下文》，敬业败，亡命不知所之，或云被杀，或云为僧。"
-                android:textColor="@color/grey_one"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>
