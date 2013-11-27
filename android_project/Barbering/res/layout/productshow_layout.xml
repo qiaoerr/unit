@@ -33,7 +33,7 @@
                 android:layout_width="39dp"
                 android:layout_height="52dp"
                 android:background="@drawable/btn_show_main_360"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/two"
@@ -41,34 +41,11 @@
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_show_main_gallery"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/three"
                 android:layout_width="44dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_show_main_spec"
-                android:visibility="gone" />
-
-            <ImageView
-                android:id="@+id/one"
-                android:layout_width="wrap_content"
-                android:layout_height="52dp"
-                android:background="@drawable/btn_show_main_360"
-                android:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/two"
-                android:layout_width="wrap_content"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_show_main_gallery"
-                android:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/three"
-                android:layout_width="wrap_content"
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_show_main_spec"

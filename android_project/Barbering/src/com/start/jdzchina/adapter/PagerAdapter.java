@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 
 /**
  * @ClassName: PagerAdapter
@@ -26,12 +26,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  * 
  */
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class PagerAdapter extends FragmentPagerAdapter {
 	private ArrayList<Fragment> fragments;
 
 	public PagerAdapter(FragmentManager fm) {
 		super(fm);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
@@ -42,11 +41,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 	@Override
 	public Fragment getItem(int arg0) {
 		return fragments.get(arg0);
+
 	}
 
 	@Override
 	public int getCount() {
 		return fragments.size();
 	}
-
 }

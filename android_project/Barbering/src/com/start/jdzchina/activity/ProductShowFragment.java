@@ -6,9 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,8 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.start.jdzchina.R;
+import com.start.jdzchina.adapter.PagerAdapter;
 
-public class ProductShowFragment extends Fragment implements OnClickListener {
+public class ProductShowFragment extends Fragment implements OnClickListener,
+		OnPageChangeListener {
 	private Context context;
 	private View view;
 	private ImageView one;
@@ -54,8 +55,8 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 		productShow = (LinearLayout) view.findViewById(R.id.productShow);
 		productShow.setBackgroundResource(R.drawable.default_car);
 		myViewPager = (ViewPager) view.findViewById(R.id.myViewPager);
-		PagerAdapter adapter = new com.start.jdzchina.adapter.PagerAdapter(fm,
-				fragments);
+		myViewPager.setOnPageChangeListener(this);
+		PagerAdapter adapter = new PagerAdapter(fm, fragments);
 		myViewPager.setAdapter(adapter);
 		one = (ImageView) view.findViewById(R.id.one);
 		two = (ImageView) view.findViewById(R.id.two);
@@ -70,10 +71,13 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.one:
+			myViewPager.setCurrentItem(0);
 			break;
 		case R.id.two:
+			myViewPager.setCurrentItem(1);
 			break;
 		case R.id.three:
+			myViewPager.setCurrentItem(2);
 			break;
 
 		default:
@@ -82,11 +86,20 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 
 	}
 
-	private void jumpToFragment(Fragment fragment) {
-		FragmentTransaction transaction = fm.beginTransaction();
-		transaction.add(R.id.container, fragment);
-		transaction.addToBackStack(null);
-		transaction.commitAllowingStateLoss();
+	@Override
+	public void onPageScrollStateChanged(int arg0) {
+
+	}
+
+	@Override
+	public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+	}
+
+	@Override
+	public void onPageSelected(int arg0) {
+		System.out.println("onPageSelected(int arg0):" + arg0);
+
 	}
 
 }
