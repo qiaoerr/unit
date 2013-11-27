@@ -9,6 +9,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
 import com.baidu.mapapi.map.MKEvent;
 import com.start.jdzchina.config.Constants;
+import com.start.jdzchina.model.BaseInforModel;
 import com.start.jdzchina.util.BDLocationUtil;
 import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
 import com.start.jdzchina.widget.MyRouteMapView;
@@ -28,6 +29,7 @@ public class RapidApplication extends Application {
 	private BDLocation bdLocation = null;
 	private MyRouteMapView mapView;
 	private String res_prefix = "default_";
+	private BaseInforModel baseInfor;
 
 	public static RapidApplication getInstance() {
 		return expressApplication;
@@ -53,6 +55,14 @@ public class RapidApplication extends Application {
 						}
 					});
 		}
+		initBaseInfor();
+	}
+
+	private void initBaseInfor() {
+		baseInfor = new BaseInforModel();
+		baseInfor.setAddress("北京市海淀区上地十街十号");
+		baseInfor.setLatitude(40.056885f);
+		baseInfor.setLongitude(116.30815f);
 	}
 
 	public void initEngineManager(Context context) {
@@ -120,6 +130,10 @@ public class RapidApplication extends Application {
 
 	public void setRes_prefix(String res_prefix) {
 		this.res_prefix = res_prefix;
+	}
+
+	public BaseInforModel getBaseInfor() {
+		return baseInfor;
 	}
 
 }
