@@ -62,6 +62,7 @@ public class ProductShowFragment extends Fragment implements OnClickListener,
 		two = (ImageView) view.findViewById(R.id.two);
 		three = (ImageView) view.findViewById(R.id.three);
 		one.setOnClickListener(this);
+		one.setSelected(true);
 		two.setOnClickListener(this);
 		three.setOnClickListener(this);
 
@@ -99,15 +100,15 @@ public class ProductShowFragment extends Fragment implements OnClickListener,
 	@Override
 	public void onPageSelected(int arg0) {
 		for (int i = 0; i < 3; i++) {
-			if (i == 0) {
+			if (arg0 == 0) {
 				one.setSelected(true);
 				two.setSelected(false);
 				three.setSelected(false);
-			} else if (i == 1) {
+			} else if (arg0 == 1) {
 				one.setSelected(false);
 				two.setSelected(true);
 				three.setSelected(false);
-			} else if (i == 2) {
+			} else if (arg0 == 2) {
 				one.setSelected(false);
 				two.setSelected(false);
 				three.setSelected(true);

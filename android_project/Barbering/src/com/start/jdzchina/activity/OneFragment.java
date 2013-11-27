@@ -66,7 +66,7 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 		// test
 		for (int i = 0; i < 6; i++) {
 			ShowModel show = new ShowModel();
-			show.setImgResID(R.drawable.default_car);
+			show.setImgResID(R.drawable.vh_distribute + i);
 			dataList.add(show);
 		}
 	}
@@ -79,13 +79,14 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 		gridView.setOnItemClickListener(this);
 		gridViewContainer.addView(gridView);
 		params = new LayoutParams(containerWidth, -2);
+		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		gridView.setLayoutParams(params);
 		gridView.setGravity(Gravity.CENTER_HORIZONTAL);
 		gridView.setNumColumns(3);
 		gridView.setHorizontalSpacing((int) (5 * scale));
 		gridView.setVerticalSpacing((int) (5 * scale));
 		adapter = new GridViewAdapter(context,
-				(int) (containerWidth - 20 * scale) / 3, dataList);
+				(int) (containerWidth - 10 * scale) / 3, dataList);
 		gridView.setAdapter(adapter);
 	}
 

@@ -43,5 +43,5 @@ public class Constants {
 	public static final String Key_baidu_map = "AB39EEB5B8081625224CB1A366F8DBDF10E5CEC2";
 	public static final boolean EnterLocation = true;// 进入就定位
 	// 长宽比例配置
-	public static final float ratio_gridView = 2f / 3;
+	public static final float ratio_gridView = 159f / 287;
 }

@@ -65,9 +65,17 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 		containerWidth = (int) (CommonUtil.getWidthPx(context) - 80 * scale);
 		dataList = new ArrayList<ShowModel>();
 		// test
-		for (int i = 0; i < 18; i++) {
+		int m = 0;
+		for (int i = 0; i < 18; i++, m++) {
+			m = i;
+			if (m >= 6 && m <= 11) {
+				m -= 6;
+			}
+			if (m >= 12) {
+				m -= 12;
+			}
 			ShowModel show = new ShowModel();
-			show.setImgResID(R.drawable.temp2);
+			show.setImgResID(R.drawable.vh_distribute + m);
 			dataList.add(show);
 		}
 	}
@@ -80,13 +88,14 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 		gridView.setOnItemClickListener(this);
 		gridViewContainer.addView(gridView);
 		params = new LayoutParams(containerWidth, -2);
+		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		gridView.setLayoutParams(params);
 		gridView.setGravity(Gravity.CENTER_HORIZONTAL);
 		gridView.setNumColumns(3);
 		gridView.setHorizontalSpacing((int) (5 * scale));
 		gridView.setVerticalSpacing((int) (5 * scale));
 		adapter = new GridViewAdapter(context,
-				(int) (containerWidth - 20 * scale) / 3, dataList);
+				(int) (containerWidth - 10 * scale) / 3, dataList);
 		gridView.setAdapter(adapter);
 	}
 
