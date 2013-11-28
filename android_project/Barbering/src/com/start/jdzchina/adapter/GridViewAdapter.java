@@ -22,8 +22,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
+import com.start.jdzchina.R;
 import com.start.jdzchina.config.Constants;
 import com.start.jdzchina.model.ShowModel;
+import com.start.jdzchina.util.AsyncImageLoader;
+import com.start.jdzchina.util.FileUtil;
+import com.start.jdzchina.util.RoundCornerImageUtil;
 
 /**
  * @ClassName: GridViewAdapter
@@ -71,8 +75,11 @@ public class GridViewAdapter extends BaseAdapter {
 		ImageView img = new ImageView(context);
 		img.setScaleType(ScaleType.FIT_XY);
 		img.setLayoutParams(params);
-		img.setImageResource(dataList.get(position).getImgResID());
-		img.setBackgroundColor(Color.BLUE);
+		img.setImageBitmap(RoundCornerImageUtil.getRoundCornerImage(context,
+				dataList.get(position).getImgResID(), 50));
+		// img.setImageResource(dataList.get(position).getImgResID());
+		FileUtil.setImage(img, "", new AsyncImageLoader(), R.drawable.vh_long);
+		img.setBackgroundColor(Color.rgb(255, 204, 204));
 		return img;
 	}
 
