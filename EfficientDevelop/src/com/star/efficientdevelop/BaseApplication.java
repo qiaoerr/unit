@@ -30,11 +30,19 @@ public class BaseApplication extends Application {
 	public void onCreate() {
 		baseApplication = this;
 		super.onCreate();
+		showScreenInfor();
 		// CrashHandler.init(this);
 		// 判断是否开启百度地图
 		if (Constants.openBDmap) {
 			initEngineManager(baseApplication);
 		}
+	}
+
+	private void showScreenInfor() {
+		System.out.println(this.getResources().getDisplayMetrics().densityDpi);
+		System.out.println(this.getResources().getDisplayMetrics().widthPixels);
+		System.out
+				.println(this.getResources().getDisplayMetrics().heightPixels);
 	}
 
 	public void initEngineManager(Context context) {
