@@ -86,18 +86,6 @@ public class MenuItemView extends ViewGroup {
 						|| positon == POSITION_RIGHT_BOTTOM ? (getMeasuredHeight()
 						- y - height)
 						: y;
-				// int x = positon == POSITION_LEFT_TOP ? getMeasuredWidth()
-				// / 2
-				// - (int) (MyAnimations.dip2px(context, radius) * Math
-				// .cos(Math.toRadians(i * (360 / count)))) : 0;
-				// int y = positon == POSITION_LEFT_TOP ? getMeasuredWidth()
-				// / 2
-				// - (int) (MyAnimations.dip2px(context, radius) * Math
-				// .sin(Math.toRadians(i * (360 / count)))) : 0;
-				//
-				// childView.layout(x - 25, y + 85, x + width - 25, y + height
-				// + 85);
-
 				childView.layout(x + dx, y + dy, x + width + dx, y + height
 						+ dy);
 			}
