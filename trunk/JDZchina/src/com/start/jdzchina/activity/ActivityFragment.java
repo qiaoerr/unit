@@ -20,6 +20,7 @@ public class ActivityFragment extends Fragment {
 	private View view;
 	private RelativeLayout actContainer;
 	private ArrayList<BannerModel> bannerModels;
+	private static BannerView bannerView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,9 +44,18 @@ public class ActivityFragment extends Fragment {
 
 	private void initView() {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
-		BannerView bannerView = new BannerView(context, bannerModels,
-				CommonUtil.getWidthPx(context), CommonUtil.getHeightPx(context));
+		if (bannerView == null) {
+			bannerView = new BannerView(context, bannerModels,
+					CommonUtil.getWidthPx(context),
+					CommonUtil.getHeightPx(context));
+		}
 		actContainer.addView(bannerView);
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		actContainer.removeView(bannerView);
 	}
 
 }
