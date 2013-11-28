@@ -1,4 +1,4 @@
-package com.star.efficientdevelop.util;
+package com.star.efficientdevelop.util.image;
 
 import android.content.Context;
 import android.graphics.Canvas;
