@@ -289,10 +289,8 @@ public class MapFragment extends Fragment implements OnClickListener {
 		case R.id.navigate_style:
 			if (isShow) {
 				startAnim_hide();
-				isShow = false;
 			} else {
 				startAnim_show();
-				isShow = true;
 			}
 			break;
 		case R.id.bbus:
@@ -345,12 +343,14 @@ public class MapFragment extends Fragment implements OnClickListener {
 	}
 
 	private void startAnim_show() {
+		isShow = true;
 		bbus.startAnimation(animation_bbus_show);
 		bcar.startAnimation(animation_bcar_show);
 		bwalk.startAnimation(animation_bwalk_show);
 	}
 
 	private void startAnim_hide() {
+		isShow = false;
 		bbus.startAnimation(animation_bbus_hide);
 		bcar.startAnimation(animation_bcar_hide);
 		bwalk.startAnimation(animation_bwalk_hide);
