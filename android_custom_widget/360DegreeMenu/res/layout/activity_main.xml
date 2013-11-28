@@ -5,8 +5,8 @@
 
     <cy.altair.view.MenuItemView
         android:id="@+id/myViewLT"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="#0000aa" />
 
