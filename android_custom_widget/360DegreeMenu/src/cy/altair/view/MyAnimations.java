@@ -68,7 +68,6 @@ public class MyAnimations {
 			animation.setFillAfter(true);
 			animation.setDuration(durationMillis);
 			animation.setStartOffset((i * 100) / (-1 + view.getChildCount()));
-
 			RotateAnimation rotate = new RotateAnimation(0, 720,
 					Animation.RELATIVE_TO_SELF, 0.5f,
 					Animation.RELATIVE_TO_SELF, 0.5f);

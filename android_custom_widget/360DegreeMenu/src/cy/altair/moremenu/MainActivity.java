@@ -77,14 +77,14 @@ public class MainActivity extends Activity implements OnItemClickListener,
 		myViewLT.addView(imgBtn7);
 		myViewLT.addView(imgBtn8);
 		myViewLT.addView(imgBtn9);
-		myViewLT.addView(imgBtn10);
-		myViewLT.addView(imgBtn11);
-		myViewLT.addView(imgBtn12);
-		myViewLT.addView(imgBtn13);
-		myViewLT.addView(imgBtn14);
-		myViewLT.addView(imgBtn15);
-		myViewLT.addView(imgBtn16);
-		myViewLT.addView(imgBtn17);
+		// myViewLT.addView(imgBtn10);
+		// myViewLT.addView(imgBtn11);
+		// myViewLT.addView(imgBtn12);
+		// myViewLT.addView(imgBtn13);
+		// myViewLT.addView(imgBtn14);
+		// myViewLT.addView(imgBtn15);
+		// myViewLT.addView(imgBtn16);
+		// myViewLT.addView(imgBtn17);
 
 	}
 

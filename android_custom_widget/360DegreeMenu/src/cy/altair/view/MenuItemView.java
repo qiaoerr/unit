@@ -19,12 +19,12 @@ public class MenuItemView extends ViewGroup {
 
 	public MenuItemView(Context context) {
 		super(context);
+		init(context);
 	}
 
 	private void init(Context context) {
 		this.context = context;
 		this.status = STATUS_CLOSE;
-
 	}
 
 	@Override
@@ -43,7 +43,6 @@ public class MenuItemView extends ViewGroup {
 		if (radius == 0)
 			throw new RuntimeException(
 					"RadiusUnknow!Use method setRadiusByDP to set the radius first!");
-
 		if (changed) {
 			int count = getChildCount();
 			for (int i = 0; i < count; i++) {
@@ -61,6 +60,11 @@ public class MenuItemView extends ViewGroup {
 								.sin(Math.toRadians(i * (360 / count))));
 				childView.layout(x - width / 2, y - height / 2, x + width / 2,
 						y + height / 2);
+				if (i == 0) {
+					System.out.println("x: " + x);
+				}
+				System.out.println(getMeasuredWidth() + "  "
+						+ getMeasuredHeight());
 			}
 		}
 	}
