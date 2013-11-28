@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 /**
  * 
- * ͼƬ�ӱ߿�
+ *
  */
 public class ImageUtil extends ImageView {
 
@@ -26,9 +26,7 @@ public class ImageUtil extends ImageView {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
-
 		super.onDraw(canvas);
-		// ���߿�
 		Rect rec = canvas.getClipBounds();
 		rec.bottom--;
 		rec.right--;
