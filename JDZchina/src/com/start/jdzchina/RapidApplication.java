@@ -39,6 +39,7 @@ public class RapidApplication extends Application {
 	public void onCreate() {
 		expressApplication = this;
 		super.onCreate();
+		showScreenInfor();
 		// CrashHandler.init(this);
 		// 判断是否开启百度地图
 		if (Constants.openBDmap) {
@@ -56,6 +57,15 @@ public class RapidApplication extends Application {
 					});
 		}
 		initBaseInfor();
+	}
+
+	private void showScreenInfor() {
+		System.out.println("densityDpi: "
+				+ this.getResources().getDisplayMetrics().densityDpi);
+		System.out.println("widthPixels: "
+				+ this.getResources().getDisplayMetrics().widthPixels);
+		System.out.println("heightPixels: "
+				+ this.getResources().getDisplayMetrics().heightPixels);
 	}
 
 	private void initBaseInfor() {
