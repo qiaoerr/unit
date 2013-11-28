@@ -73,7 +73,7 @@ public class GridViewAdapter extends BaseAdapter {
 		img.setScaleType(ScaleType.FIT_XY);
 		img.setLayoutParams(params);
 		img.setImageBitmap(RoundCornerImageUtil.getRoundCornerImage(context,
-				dataList.get(position).getImgResID(), 50));
+				dataList.get(position).getImgResID(), 20));
 		// img.setImageResource(dataList.get(position).getImgResID());
 		img.setBackgroundColor(Color.rgb(255, 204, 204));
 		return img;

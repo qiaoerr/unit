@@ -161,7 +161,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 				}
 			}
 		};
-		timer.schedule(task, 5000, speed * 1000);
+		timer.schedule(task, 3000, speed * 1000);
 	}
 
 	@Override

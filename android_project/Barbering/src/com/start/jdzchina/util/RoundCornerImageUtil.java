@@ -59,6 +59,6 @@ public class RoundCornerImageUtil {
 		Drawable drawable = context.getResources().getDrawable(resId);
 		BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
 		Bitmap bitmap = bitmapDrawable.getBitmap();
-		return toRoundCorner(bitmap, 30);
+		return toRoundCorner(bitmap, pixels);
 	}
 }

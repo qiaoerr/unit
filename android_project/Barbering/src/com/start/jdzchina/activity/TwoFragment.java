@@ -99,8 +99,13 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 		gridView.setNumColumns(2);
 		gridView.setHorizontalSpacing((int) (10 * scale));
 		gridView.setVerticalSpacing((int) (10 * scale));
-		adapter = new GridViewAdapter(context,
-				(int) (containerWidth - 30 * scale) / 2, dataList);
+		if (getSdkVersion() > 15) {
+			adapter = new GridViewAdapter(context,
+					(int) (containerWidth - 40 * scale) / 2, dataList);
+		} else {
+			adapter = new GridViewAdapter(context,
+					(int) (containerWidth - 30 * scale) / 2, dataList);
+		}
 		gridView.setAdapter(adapter);
 	}
 
@@ -108,5 +113,9 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 
+	}
+
+	private int getSdkVersion() {
+		return android.os.Build.VERSION.SDK_INT;
 	}
 }

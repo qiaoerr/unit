@@ -14,7 +14,6 @@ package com.start.jdzchina.activity;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -78,7 +77,7 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 		gridViewContainer.setPadding(0, 0, 0, 0);
 		GridView gridView = new GridView(context);
 		gridView.setPadding(0, 0, 0, 0);
-		gridView.setBackgroundColor(Color.BLUE);// ///
+		// gridView.setBackgroundColor(Color.BLUE);// ///
 		gridView.setVerticalScrollBarEnabled(false);
 		gridView.setOnItemClickListener(this);
 		params = new LayoutParams(containerWidth, -2);
@@ -90,10 +89,17 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 
 		gridView.setGravity(Gravity.CENTER_HORIZONTAL);
 		gridView.setNumColumns(2);
+		// 在4.0.4之前的版本中水平间距是一个和另一个之间的间距，在4.1.2及其以后的版本是一个item两边的间距之和
 		gridView.setHorizontalSpacing((int) (10 * scale));
 		gridView.setVerticalSpacing((int) (10 * scale));
-		adapter = new GridViewAdapter(context,
-				(int) (containerWidth - 30 * scale) / 2, dataList);
+		if (getSdkVersion() > 15) {
+			adapter = new GridViewAdapter(context,
+					(int) (containerWidth - 40 * scale) / 2, dataList);
+		} else {
+			adapter = new GridViewAdapter(context,
+					(int) (containerWidth - 30 * scale) / 2, dataList);
+		}
+
 		gridView.setAdapter(adapter);
 	}
 
@@ -101,5 +107,9 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 
+	}
+
+	private int getSdkVersion() {
+		return android.os.Build.VERSION.SDK_INT;
 	}
 }
