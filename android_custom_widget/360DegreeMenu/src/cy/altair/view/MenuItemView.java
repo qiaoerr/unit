@@ -63,8 +63,6 @@ public class MenuItemView extends ViewGroup {
 				if (i == 0) {
 					System.out.println("x: " + x);
 				}
-				System.out.println(getMeasuredWidth() + "  "
-						+ getMeasuredHeight());
 			}
 		}
 	}
