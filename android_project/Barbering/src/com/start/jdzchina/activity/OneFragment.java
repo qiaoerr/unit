@@ -14,6 +14,7 @@ package com.start.jdzchina.activity;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -74,21 +75,25 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 	private void initView() {
 		gridViewContainer = (RelativeLayout) view
 				.findViewById(R.id.gridViewContainer);
+		gridViewContainer.setPadding(0, 0, 0, 0);
 		GridView gridView = new GridView(context);
+		gridView.setPadding(0, 0, 0, 0);
+		gridView.setBackgroundColor(Color.BLUE);// ///
 		gridView.setVerticalScrollBarEnabled(false);
 		gridView.setOnItemClickListener(this);
-		gridViewContainer.addView(gridView);
 		params = new LayoutParams(containerWidth, -2);
 		params.setMargins((int) (20 * scale), (int) (20 * scale),
 				(int) (0 * scale), (int) (20 * scale));
 		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		gridView.setLayoutParams(params);
+		gridViewContainer.addView(gridView);
+
 		gridView.setGravity(Gravity.CENTER_HORIZONTAL);
 		gridView.setNumColumns(2);
 		gridView.setHorizontalSpacing((int) (10 * scale));
 		gridView.setVerticalSpacing((int) (10 * scale));
 		adapter = new GridViewAdapter(context,
-				(int) (containerWidth - 50 * scale) / 2, dataList);
+				(int) (containerWidth - 30 * scale) / 2, dataList);
 		gridView.setAdapter(adapter);
 	}
 

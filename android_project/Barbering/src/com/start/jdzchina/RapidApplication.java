@@ -3,6 +3,7 @@ package com.start.jdzchina;
 import android.app.Application;
 import android.content.Context;
 import android.widget.Toast;
+import cn.jpush.android.api.JPushInterface;
 
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.BMapManager;
@@ -38,6 +39,10 @@ public class RapidApplication extends Application {
 	public void onCreate() {
 		expressApplication = this;
 		super.onCreate();
+		showScreenInfor();
+		// 初始化极光推送
+		JPushInterface.setDebugMode(true);
+		JPushInterface.init(this);
 		// CrashHandler.init(this);
 		// 判断是否开启百度地图
 		if (Constants.openBDmap) {
@@ -56,6 +61,33 @@ public class RapidApplication extends Application {
 		}
 		// init baseinfor
 		initBaseInfor();
+	}
+
+	private void showScreenInfor() {
+		System.out.println("densityDpi: "
+				+ this.getResources().getDisplayMetrics().densityDpi);
+		System.out.println("widthPixels: "
+				+ this.getResources().getDisplayMetrics().widthPixels);
+		System.out.println("heightPixels: "
+				+ this.getResources().getDisplayMetrics().heightPixels);
+		String phoneInfo = "Product: " + android.os.Build.PRODUCT;
+		phoneInfo += ", CPU_ABI: " + android.os.Build.CPU_ABI;
+		phoneInfo += ", TAGS: " + android.os.Build.TAGS;
+		phoneInfo += ", VERSION_CODES.BASE: "
+				+ android.os.Build.VERSION_CODES.BASE;
+		phoneInfo += ", MODEL: " + android.os.Build.MODEL;
+		phoneInfo += ", SDK: " + android.os.Build.VERSION.SDK_INT;
+		phoneInfo += ", VERSION.RELEASE: " + android.os.Build.VERSION.RELEASE;
+		phoneInfo += ", DEVICE: " + android.os.Build.DEVICE;
+		phoneInfo += ", DISPLAY: " + android.os.Build.DISPLAY;
+		phoneInfo += ", BRAND: " + android.os.Build.BRAND;
+		phoneInfo += ", BOARD: " + android.os.Build.BOARD;
+		phoneInfo += ", FINGERPRINT: " + android.os.Build.FINGERPRINT;
+		phoneInfo += ", ID: " + android.os.Build.ID;
+		phoneInfo += ", MANUFACTURER: " + android.os.Build.MANUFACTURER;
+		phoneInfo += ", USER: " + android.os.Build.USER;
+		System.out.println("phoneInfor:  " + phoneInfo);
+
 	}
 
 	private void initBaseInfor() {

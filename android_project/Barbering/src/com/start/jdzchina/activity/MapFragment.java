@@ -256,7 +256,8 @@ public class MapFragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.search_result_detail_linearlayout);
 		if (mMapView == null) {
 			mMapView = new MyRouteMapView(context);
-			RapidApplication.getInstance().setMapView(mMapView);
+			// 在低版本上有问题
+			// RapidApplication.getInstance().setMapView(mMapView);
 		}
 		mapContainer.addView(mMapView);
 		mMapController = mMapView.getController();
