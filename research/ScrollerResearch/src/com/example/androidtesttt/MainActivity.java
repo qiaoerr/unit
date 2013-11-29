@@ -55,10 +55,10 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (open) {
-					mScroller.startScroll(-80, -80, 80, 80, 5000);
+					mScroller.startScroll(-80, -80, 80, 80, 15000);
 					open = false;
 				} else {
-					mScroller.startScroll(0, 0, -80, -80, 5000);
+					mScroller.startScroll(0, 0, -80, -80, 15000);
 					open = true;
 				}
 			}
@@ -66,12 +66,13 @@ public class MainActivity extends Activity {
 		btn2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// mScroller2.startScroll(0, 0, -90, -30, 5000);
+				mScroller.startScroll(0, 0, -90, -30, 5000);
 
 			}
 		});
 		lay1.addView(btn1);
 		lay2.addView(btn2);
+		// mScroller.startScroll(0, 0, -80, -80, 10000);
 	}
 
 	// MyButton
@@ -102,42 +103,15 @@ public class MainActivity extends Activity {
 		 */
 		public void computeScroll() {
 			System.out.println("enter0000000000000000000000000000000");
-			mScroller.timePassed();
 			// 检测mScroller是否还在有效时间内（mScroller.timePassed()获取elapsed time）
 			if (mScroller.computeScrollOffset()) {
-				// 因为调用computeScroll函数的是MyLinearLayout实例，
+				// 因为调用computeScroll函数的是MyLinearLayout实例的，
 				// 所以调用scrollTo移动的将是该实例的孩子，也就是MyButton实例
 				scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
 				System.out.println("getCurrX = " + mScroller.getCurrX());
-				// 继续让系统重绘
+				// 继续让系统重绘(才会有有连续动画)
 				getChildAt(0).invalidate();
 			}
-			// if (getChildAt(0).getId() == 11) {
-			// if (mScroller.computeScrollOffset())//
-			// 如果mScroller没有调用startScroll，这里将会返回false。
-			// {
-			// // 因为调用computeScroll函数的是MyLinearLayout实例，
-			// // 所以调用scrollTo移动的将是该实例的孩子，也就是MyButton实例
-			// scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-			// Log.d(TAG, "getCurrX = " + mScroller.getCurrX());
-			// System.out.println("getCurrX = " + mScroller.getCurrX());
-			// // 继续让系统重绘
-			// getChildAt(0).invalidate();
-			// }
-			// }
-			// if (getChildAt(0).getId() == 22) {
-			// if (mScroller2.computeScrollOffset())//
-			// 如果mScroller没有调用startScroll，这里将会返回false。
-			// {
-			// // 因为调用computeScroll函数的是MyLinearLayout实例，
-			// // 所以调用scrollTo移动的将是该实例的孩子，也就是MyButton实例
-			// scrollTo(mScroller2.getCurrX(), mScroller2.getCurrY());
-			// Log.d(TAG, "getCurrX = " + mScroller.getCurrX());
-			// System.out.println("getCurrX = " + mScroller2.getCurrX());
-			// // 继续让系统重绘
-			// getChildAt(0).invalidate();
-			// }
-			// }
 
 		}
 
