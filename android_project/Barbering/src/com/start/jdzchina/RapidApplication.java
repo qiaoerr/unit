@@ -37,8 +37,8 @@ public class RapidApplication extends Application {
 
 	@Override
 	public void onCreate() {
-		expressApplication = this;
 		super.onCreate();
+		expressApplication = this;
 		showScreenInfor();
 		// 初始化极光推送
 		JPushInterface.setDebugMode(true);
