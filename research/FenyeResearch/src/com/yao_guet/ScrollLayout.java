@@ -17,7 +17,7 @@ import android.widget.Scroller;
  */
 public class ScrollLayout extends ViewGroup {
 
-	private static final String TAG = "System.out";
+	private static final String TAG = "Syswwwtem.eee";
 	private Scroller mScroller;
 	private VelocityTracker mVelocityTracker;
 
@@ -96,7 +96,8 @@ public class ScrollLayout extends ViewGroup {
 
 	/**
 	 * According to the position of current layout scroll to the destination
-	 * page.
+	 * 
+	 * page. getScrollx()向左滚动的距离
 	 */
 	public void snapToDestination() {
 		final int screenWidth = getWidth();
@@ -154,7 +155,6 @@ public class ScrollLayout extends ViewGroup {
 
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
-			Log.e(TAG, "event down!");
 			if (!mScroller.isFinished()) {
 				mScroller.abortAnimation();
 			}
@@ -164,37 +164,30 @@ public class ScrollLayout extends ViewGroup {
 		case MotionEvent.ACTION_MOVE:
 			int deltaX = (int) (mLastMotionX - x);
 			mLastMotionX = x;
-
 			scrollBy(deltaX, 0);
 			break;
 
 		case MotionEvent.ACTION_UP:
-			Log.e(TAG, "event : up");
-			// if (mTouchState == TOUCH_STATE_SCROLLING) {
 			final VelocityTracker velocityTracker = mVelocityTracker;
 			velocityTracker.computeCurrentVelocity(1000);
 			int velocityX = (int) velocityTracker.getXVelocity();
-
-			Log.e(TAG, "velocityX:" + velocityX);
-
+			System.out.println("velocityX: " + velocityX);
 			if (velocityX > SNAP_VELOCITY && mCurScreen > 0) {
 				// Fling enough to move left
-				Log.e(TAG, "snap left");
 				snapToScreen(mCurScreen - 1);
+				System.out.println("move left ");
 			} else if (velocityX < -SNAP_VELOCITY
 					&& mCurScreen < getChildCount() - 1) {
 				// Fling enough to move right
-				Log.e(TAG, "snap right");
 				snapToScreen(mCurScreen + 1);
+				System.out.println("move right");
 			} else {
 				snapToDestination();
 			}
-
 			if (mVelocityTracker != null) {
 				mVelocityTracker.recycle();
 				mVelocityTracker = null;
 			}
-			// }
 			mTouchState = TOUCH_STATE_REST;
 			break;
 		case MotionEvent.ACTION_CANCEL:
@@ -208,7 +201,7 @@ public class ScrollLayout extends ViewGroup {
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub
-		Log.e(TAG, "onInterceptTouchEvent-slop:" + mTouchSlop);
+		System.out.println("onInterceptTouchEvent" + mTouchState);
 
 		final int action = ev.getAction();
 		if ((action == MotionEvent.ACTION_MOVE)
@@ -220,13 +213,6 @@ public class ScrollLayout extends ViewGroup {
 		final float y = ev.getY();
 
 		switch (action) {
-		case MotionEvent.ACTION_MOVE:
-			final int xDiff = (int) Math.abs(mLastMotionX - x);
-			if (xDiff > mTouchSlop) {
-				mTouchState = TOUCH_STATE_SCROLLING;
-
-			}
-			break;
 
 		case MotionEvent.ACTION_DOWN:
 			mLastMotionX = x;
@@ -234,13 +220,17 @@ public class ScrollLayout extends ViewGroup {
 			mTouchState = mScroller.isFinished() ? TOUCH_STATE_REST
 					: TOUCH_STATE_SCROLLING;
 			break;
-
+		case MotionEvent.ACTION_MOVE:
+			final int xDiff = (int) Math.abs(mLastMotionX - x);
+			if (xDiff > mTouchSlop) {
+				mTouchState = TOUCH_STATE_SCROLLING;
+			}
+			break;
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
 			mTouchState = TOUCH_STATE_REST;
 			break;
 		}
-
 		return mTouchState != TOUCH_STATE_REST;
 	}
 
