@@ -124,7 +124,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 							.show();
 				} else {
 					bdLocation = location;
-					start_point.setText("我的位置: " + location.getAddrStr());
+					start_point.setText("我的位置: "
+							+ (location.getAddrStr() == null ? "定位失败"
+									: location.getAddrStr()));
 					MyLocationOverlay locationOverlay = new MyLocationOverlay(
 							mMapView);
 					LocationData locationData = new LocationData();
