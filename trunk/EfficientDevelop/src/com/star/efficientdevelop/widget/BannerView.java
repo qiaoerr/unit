@@ -14,7 +14,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
@@ -34,8 +33,7 @@ import com.star.efficientdevelop.util.CommonUtil;
  * @date 2013-11-21 上午10:28:35
  * 
  */
-public class BannerView extends RelativeLayout implements OnPageChangeListener,
-		OnTouchListener {
+public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	private Context context;
 	private LayoutParams params;
 	private ArrayList<View> views;
@@ -113,7 +111,6 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 		params = new LayoutParams(bannerWidth, bannerHight);
 		viewPager.setLayoutParams(params);
 		viewPager.setOnPageChangeListener(this);
-		viewPager.setOnTouchListener(this);
 		this.addView(viewPager);
 		viewGroup = new LinearLayout(context);
 		params = new LayoutParams(-2, -2);
@@ -194,8 +191,8 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 	}
 
 	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		switch (event.getAction()) {
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
 			isContinue = false;
@@ -207,11 +204,6 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener,
 		default:
 			break;
 		}
-		return false;
-	}
-
-	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
 		return super.dispatchTouchEvent(ev);
 	}
 
