@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 public class ViewPagerAdapter extends PagerAdapter {
@@ -32,13 +33,12 @@ public class ViewPagerAdapter extends PagerAdapter {
 	@Override
 	public Object instantiateItem(ViewGroup container, final int position) {
 		container.addView(views.get(position));
-		/*views.get(position).setOnClickListener(new OnClickListener() {
-
+		views.get(position).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				System.out.println("position" + position);
 			}
-		});*/
+		});
 		// System.out.println("views.get(position).getLayoutParams().width"
 		// + views.get(position).getLayoutParams().width);
 		// System.out.println("views.get(position).getLayoutParams().height"
