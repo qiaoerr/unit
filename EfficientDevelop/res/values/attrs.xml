@@ -26,6 +26,7 @@
         <attr name="selectorDrawable" format="reference" />
     </declare-styleable>
     <!--
+       twoWaysGridView_Start
        Specifies how to place the content of an object, both
          on the x- and y-axis, within the object itself.
     -->
@@ -172,5 +173,6 @@
         </attr>
         <attr name="gravity" />
     </declare-styleable>
+    <!-- twoWaysGridView_End -->
 
 </resources>
