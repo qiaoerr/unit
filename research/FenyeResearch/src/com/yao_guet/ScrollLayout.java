@@ -2,7 +2,6 @@ package com.yao_guet;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.widget.Scroller;
  */
 public class ScrollLayout extends ViewGroup {
 
-	private static final String TAG = "Syswwwtem.eee";
 	private Scroller mScroller;
 	private VelocityTracker mVelocityTracker;
 
@@ -36,12 +34,10 @@ public class ScrollLayout extends ViewGroup {
 
 	public ScrollLayout(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
-		// TODO Auto-generated constructor stub
 	}
 
 	public ScrollLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 		mScroller = new Scroller(context);
 		mCurScreen = mDefaultScreen;
 		mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
@@ -49,9 +45,9 @@ public class ScrollLayout extends ViewGroup {
 
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-		// TODO Auto-generated method stub
-		Log.e(TAG, "onLayout");
+		System.out.println("onLayout_out");
 		if (changed) {
+			System.out.println("onLayout_in");
 			int childLeft = 0;
 			final int childCount = getChildCount();
 
@@ -69,28 +65,25 @@ public class ScrollLayout extends ViewGroup {
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		Log.e(TAG, "onMeasure");
+		System.out.println("onMeasure");
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
 		final int width = MeasureSpec.getSize(widthMeasureSpec);
-		final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-		if (widthMode != MeasureSpec.EXACTLY) {
-			throw new IllegalStateException(
-					"ScrollLayout only canmCurScreen run at EXACTLY mode!");
-		}
-
-		final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-		if (heightMode != MeasureSpec.EXACTLY) {
-			throw new IllegalStateException(
-					"ScrollLayout only can run at EXACTLY mode!");
-		}
-
+		// final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+		// if (widthMode != MeasureSpec.EXACTLY) {
+		// throw new IllegalStateException(
+		// "ScrollLayout only canmCurScreen run at EXACTLY mode!");
+		// }
+		// final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+		// if (heightMode != MeasureSpec.EXACTLY) {
+		// throw new IllegalStateException(
+		// "ScrollLayout only can run at EXACTLY mode!");
+		// }
 		// The children are given the same width and height as the scrollLayout
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {
 			getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
 		}
-		Log.e(TAG, "moving to screen " + mCurScreen);
+		System.out.println("moving to screen :" + mCurScreen);
 		scrollTo(mCurScreen * width, 0);
 	}
 
@@ -103,9 +96,9 @@ public class ScrollLayout extends ViewGroup {
 		final int screenWidth = getWidth();
 		final int destScreen = (getScrollX() + screenWidth / 2) / screenWidth;
 		snapToScreen(destScreen);
-		System.out.println("screenWidth: " + screenWidth);
-		System.out.println("getScrollX(): " + getScrollX());
-		System.out.println("destScreen: " + destScreen);
+		// System.out.println("screenWidth: " + screenWidth);
+		// System.out.println("getScrollX(): " + getScrollX());
+		// System.out.println("destScreen: " + destScreen);
 	}
 
 	public void snapToScreen(int whichScreen) {
@@ -117,7 +110,8 @@ public class ScrollLayout extends ViewGroup {
 			mScroller.startScroll(getScrollX(), 0, delta, 0,
 					Math.abs(delta) * 2);
 			mCurScreen = whichScreen;
-			invalidate(); // Redraw the layout
+			// invalidate(); // Redraw the layout
+			computeScroll();
 		}
 	}
 
@@ -133,10 +127,9 @@ public class ScrollLayout extends ViewGroup {
 
 	@Override
 	public void computeScroll() {
-		// TODO Auto-generated method stub
 		if (mScroller.computeScrollOffset()) {
 			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-			postInvalidate();
+			postInvalidate();// 会导致computeScroll()被调用
 		}
 	}
 
@@ -168,9 +161,8 @@ public class ScrollLayout extends ViewGroup {
 			break;
 
 		case MotionEvent.ACTION_UP:
-			final VelocityTracker velocityTracker = mVelocityTracker;
-			velocityTracker.computeCurrentVelocity(1000);
-			int velocityX = (int) velocityTracker.getXVelocity();
+			mVelocityTracker.computeCurrentVelocity(1000);
+			int velocityX = (int) mVelocityTracker.getXVelocity();
 			System.out.println("velocityX: " + velocityX);
 			if (velocityX > SNAP_VELOCITY && mCurScreen > 0) {
 				// Fling enough to move left
@@ -201,17 +193,13 @@ public class ScrollLayout extends ViewGroup {
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		// System.out.println("onInterceptTouchEvent" + mTouchState);
-
 		final int action = ev.getAction();
 		if ((mTouchState != TOUCH_STATE_REST)) {
 			return true;
 		}
-
 		final float x = ev.getX();
 		final float y = ev.getY();
-
 		switch (action) {
-
 		case MotionEvent.ACTION_DOWN:
 			mLastMotionX = x;
 			mLastMotionY = y;
@@ -224,10 +212,10 @@ public class ScrollLayout extends ViewGroup {
 				mTouchState = TOUCH_STATE_SCROLLING;
 			}
 			break;
-		case MotionEvent.ACTION_CANCEL:
-		case MotionEvent.ACTION_UP:
-			mTouchState = TOUCH_STATE_REST;
-			break;
+		// case MotionEvent.ACTION_CANCEL:
+		// case MotionEvent.ACTION_UP:
+		// mTouchState = TOUCH_STATE_REST;
+		// break;
 		}
 		return mTouchState != TOUCH_STATE_REST;
 	}
