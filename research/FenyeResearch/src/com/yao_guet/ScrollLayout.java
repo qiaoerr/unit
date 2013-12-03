@@ -97,7 +97,7 @@ public class ScrollLayout extends ViewGroup {
 	/**
 	 * According to the position of current layout scroll to the destination
 	 * 
-	 * page. getScrollx()向左滚动的距离
+	 * page.getScrollx() 表示view的左边向左移出的距离为正,向右移出的距离为负。
 	 */
 	public void snapToDestination() {
 		final int screenWidth = getWidth();
@@ -143,7 +143,6 @@ public class ScrollLayout extends ViewGroup {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-
 		if (mVelocityTracker == null) {
 			mVelocityTracker = VelocityTracker.obtain();
 		}
@@ -162,6 +161,7 @@ public class ScrollLayout extends ViewGroup {
 			break;
 
 		case MotionEvent.ACTION_MOVE:
+			// deltaX 的值用之前的坐标值减去现在的坐标值
 			int deltaX = (int) (mLastMotionX - x);
 			mLastMotionX = x;
 			scrollBy(deltaX, 0);
@@ -200,12 +200,10 @@ public class ScrollLayout extends ViewGroup {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
-		System.out.println("onInterceptTouchEvent" + mTouchState);
+		// System.out.println("onInterceptTouchEvent" + mTouchState);
 
 		final int action = ev.getAction();
-		if ((action == MotionEvent.ACTION_MOVE)
-				&& (mTouchState != TOUCH_STATE_REST)) {
+		if ((mTouchState != TOUCH_STATE_REST)) {
 			return true;
 		}
 
