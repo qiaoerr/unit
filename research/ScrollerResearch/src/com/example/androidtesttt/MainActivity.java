@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 				LinearLayout.LayoutParams.MATCH_PARENT);
 		p2.weight = 1;
 		lay0.addView(lay2, p2);
-		MyButton btn1 = new MyButton(this);
+		final MyButton btn1 = new MyButton(this);
 		btn1.setId(11);
 		MyButton btn2 = new MyButton(this);
 		btn2.setId(22);
