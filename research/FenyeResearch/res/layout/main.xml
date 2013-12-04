@@ -6,10 +6,9 @@
 
     <com.yao_guet.ScrollLayout
         android:id="@+id/ScrollLayoutTest"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:background="#aa0000" >
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true" >
     </com.yao_guet.ScrollLayout>
 
 </RelativeLayout>
