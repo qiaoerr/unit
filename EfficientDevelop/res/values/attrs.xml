@@ -174,5 +174,11 @@
         <attr name="gravity" />
     </declare-styleable>
     <!-- twoWaysGridView_End -->
+    <declare-styleable name="PagingViewGroup">
+        <attr name="oriention" format="integer">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
 
 </resources>
