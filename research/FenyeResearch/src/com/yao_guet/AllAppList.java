@@ -25,7 +25,7 @@ import android.widget.Toast;
  */
 public class AllAppList extends Activity {
 	private static final String TAG = "ScrollLayoutTest";
-	private ScrollLayout mScrollLayout;
+	private PagingViewGroup mScrollLayout;
 	private static final float APP_PAGE_SIZE = 16.0f;
 	private Context mContext;
 
@@ -38,7 +38,7 @@ public class AllAppList extends Activity {
 		mContext = this;
 		setContentView(R.layout.main);
 
-		mScrollLayout = (ScrollLayout) findViewById(R.id.ScrollLayoutTest);
+		mScrollLayout = (PagingViewGroup) findViewById(R.id.ScrollLayoutTest);
 
 		initViews();
 	}

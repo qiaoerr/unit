@@ -14,6 +14,7 @@ import android.widget.Scroller;
  * 
  * @author Yao.GUET blog: http://blog.csdn.net/Yao_GUET date: 2011-05-04
  */
+
 public class ScrollLayout extends ViewGroup {
 
 	private Scroller mScroller;
@@ -92,6 +93,7 @@ public class ScrollLayout extends ViewGroup {
 	 * 
 	 * page.getScrollx() 表示view的左边向左移出的距离为正,向右移出的距离为负。
 	 */
+
 	public void snapToDestination() {
 		final int screenWidth = getWidth();
 		final int destScreen = (getScrollX() + screenWidth / 2) / screenWidth;
