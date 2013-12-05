@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +28,10 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.start.jdzchina.R;
 import com.start.jdzchina.adapter.GridViewAdapter;
+import com.start.jdzchina.config.Constants;
 import com.start.jdzchina.model.ShowModel;
 import com.start.jdzchina.util.CommonUtil;
+import com.start.jdzchina.widget.PagingViewGroup;
 
 /**
  * @ClassName: OneFragment
@@ -49,6 +50,14 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 	private float scale;
 	private GridViewAdapter adapter;
 	private ArrayList<ShowModel> dataList;
+	private int rightBarWidth = 80;// ProductShowFragment的布局文件的right_tab的宽度
+	private int column_space = 10;// gridView行和列的间距
+	private int column = 2;// gridView的列数
+	private int cellWidth;// gridview中每一个元素的宽度
+	private int cellHight;// gridview中每一个元素的高度
+	private int perPager;// 每页显示的个数
+	private int margin = 20;
+	private int pagingGroupHight;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,9 +69,30 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 	}
 
 	private void initData() {
+
 		context = getActivity();
 		scale = CommonUtil.getScale(context);
-		containerWidth = (int) (CommonUtil.getWidthPx(context) - 80 * scale);
+		containerWidth = (int) (CommonUtil.getWidthPx(context) - rightBarWidth
+				* scale);
+		// 在4.0.4之前的版本中水平间距是一个和另一个之间的间距，在4.1.2及其以后的版本是一个item两边的间距之和
+		if (getSdkVersion() > 15) {
+			cellWidth = (int) (containerWidth - (column * column_space + margin)
+					* scale)
+					/ column;
+			cellHight = (int) (cellWidth * Constants.ratio_gridView);
+			perPager = getPerPager();
+			pagingGroupHight = (perPager / column)
+					* (cellHight + (int) (column_space * scale));
+		} else {
+			cellWidth = (int) (containerWidth - ((column - 1) * column_space + margin)
+					* scale)
+					/ column;
+			cellHight = (int) (cellWidth * Constants.ratio_gridView);
+			perPager = getPerPager();
+			pagingGroupHight = (int) ((perPager / column) * cellHight + column_space
+					* ((perPager / column) - 1) * scale);
+		}
+
 		dataList = new ArrayList<ShowModel>();
 		// test
 		int m = 0;
@@ -80,33 +110,41 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 		}
 	}
 
+	private int getPerPager() {
+		return column
+				* (int) ((CommonUtil.getHeightPx(context) - 2 * margin * scale) / (cellHight + column_space
+						* scale));
+	}
+
 	private void initView() {
 		gridViewContainer = (RelativeLayout) view
 				.findViewById(R.id.gridViewContainer);
-		gridViewContainer.setPadding(0, 0, 0, 0);
-		GridView gridView = new GridView(context);
-		gridView.setPadding(0, 0, 0, 0);
-		gridView.setVerticalScrollBarEnabled(false);
-		gridView.setOnItemClickListener(this);
-		params = new LayoutParams(containerWidth, -2);
-		params.setMargins((int) (20 * scale), (int) (20 * scale),
-				(int) (0 * scale), (int) (20 * scale));
+		PagingViewGroup pagingViewGroup = new PagingViewGroup(context,
+				PagingViewGroup.VERTICAL);
+		params = new LayoutParams(-2, pagingGroupHight);
+		params.setMargins((int) (margin * scale), (int) (margin * scale),
+				(int) (0 * scale), (int) (margin * scale));
 		params.addRule(RelativeLayout.CENTER_VERTICAL);
-		gridView.setLayoutParams(params);
-		gridViewContainer.addView(gridView);
-
-		gridView.setGravity(Gravity.CENTER_HORIZONTAL);
-		gridView.setNumColumns(2);
-		gridView.setHorizontalSpacing((int) (10 * scale));
-		gridView.setVerticalSpacing((int) (10 * scale));
-		if (getSdkVersion() > 15) {
-			adapter = new GridViewAdapter(context,
-					(int) (containerWidth - 40 * scale) / 2, dataList);
-		} else {
-			adapter = new GridViewAdapter(context,
-					(int) (containerWidth - 30 * scale) / 2, dataList);
+		pagingViewGroup.setLayoutParams(params);
+		gridViewContainer.addView(pagingViewGroup);
+		int pagerNumber = (int) Math.ceil(dataList.size() / (double) perPager);
+		for (int i = 0; i < pagerNumber; i++) {
+			ArrayList<ShowModel> temp = new ArrayList<ShowModel>();
+			for (int j = 0; j < perPager; j++) {
+				try {
+					temp.add(dataList.get(j + i * perPager));
+				} catch (Exception e) {
+					break;
+				}
+			}
+			GridView gridView = new GridView(context);
+			gridView.setNumColumns(column);
+			gridView.setHorizontalSpacing((int) (column_space * scale));
+			gridView.setVerticalSpacing((int) (column_space * scale));
+			adapter = new GridViewAdapter(context, cellWidth, cellHight, temp);
+			gridView.setAdapter(adapter);
+			pagingViewGroup.addView(gridView);
 		}
-		gridView.setAdapter(adapter);
 	}
 
 	@Override

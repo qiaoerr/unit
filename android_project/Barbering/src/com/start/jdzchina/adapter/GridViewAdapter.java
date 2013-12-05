@@ -22,7 +22,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-import com.start.jdzchina.config.Constants;
 import com.start.jdzchina.model.ShowModel;
 import com.start.jdzchina.util.RoundCornerImageUtil;
 
@@ -36,19 +35,20 @@ import com.start.jdzchina.util.RoundCornerImageUtil;
 
 public class GridViewAdapter extends BaseAdapter {
 	private Context context;
-	private int sizeBase;
+	private int height;
+	private int width;
 	LayoutParams params;
 	private ArrayList<ShowModel> dataList;
 
-	public GridViewAdapter(Context context, int sizeBase,
+	public GridViewAdapter(Context context, int width, int heihgt,
 			ArrayList<ShowModel> dataList) {
 		super();
 		this.context = context;
-		this.sizeBase = sizeBase;
+		this.height = heihgt;
+		this.width = width;
 		this.dataList = dataList;
 		// 设置gridView里的图片的长宽比例
-		params = new LayoutParams(sizeBase,
-				(int) (sizeBase * Constants.ratio_gridView));
+		params = new LayoutParams(width, heihgt);
 
 	}
 
