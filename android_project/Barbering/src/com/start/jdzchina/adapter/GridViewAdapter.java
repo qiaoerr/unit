@@ -14,7 +14,6 @@ package com.start.jdzchina.adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
@@ -73,9 +72,9 @@ public class GridViewAdapter extends BaseAdapter {
 		img.setScaleType(ScaleType.FIT_XY);
 		img.setLayoutParams(params);
 		img.setImageBitmap(RoundCornerImageUtil.getRoundCornerImage(context,
-				dataList.get(position).getImgResID(), 20));
+				dataList.get(position).getImgResID(), 15));
 		// img.setImageResource(dataList.get(position).getImgResID());
-		img.setBackgroundColor(Color.rgb(255, 204, 204));
+		// img.setBackgroundColor(Color.rgb(255, 204, 204));
 		return img;
 	}
 

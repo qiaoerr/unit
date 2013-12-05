@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">景德镇瓷器</string>
+    <string name="app_name">Astar</string>
 
     <string-array name="level">
         <item>理发师总监</item>

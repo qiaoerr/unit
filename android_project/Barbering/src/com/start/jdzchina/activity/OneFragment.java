@@ -95,7 +95,7 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 		// test
 		for (int i = 0; i < 6; i++) {
 			ShowModel show = new ShowModel();
-			show.setImgResID(R.drawable.vh_distribute + i);
+			show.setImgResID(R.drawable.model_1 + i);
 			dataList.add(show);
 		}
 	}

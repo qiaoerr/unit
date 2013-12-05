@@ -105,7 +105,7 @@ public class TwoFragment extends Fragment implements OnItemClickListener {
 				m -= 12;
 			}
 			ShowModel show = new ShowModel();
-			show.setImgResID(R.drawable.vh_distribute + m);
+			show.setImgResID(R.drawable.model_1 + m);
 			dataList.add(show);
 		}
 	}
