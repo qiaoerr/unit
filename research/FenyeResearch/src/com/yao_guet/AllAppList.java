@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -61,6 +62,7 @@ public class AllAppList extends Activity {
 		Log.e(TAG, "size:" + apps.size() + " page:" + PageCount);
 		for (int i = 0; i < PageCount; i++) {
 			GridView appPage = new GridView(this);
+			appPage.setBackgroundColor(Color.BLUE);
 			// get the "i" page data
 			appPage.setAdapter(new AppAdapter(this, apps, i));
 
