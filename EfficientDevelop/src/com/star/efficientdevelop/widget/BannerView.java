@@ -23,7 +23,9 @@ import android.widget.TextView;
 import com.star.efficientdevelop.R;
 import com.star.efficientdevelop.adapter.ViewPagerAdapter;
 import com.star.efficientdevelop.model.BannerModel;
+import com.star.efficientdevelop.util.AsyncImageLoader;
 import com.star.efficientdevelop.util.CommonUtil;
+import com.star.efficientdevelop.util.FileUtil;
 
 /**
  * 
@@ -96,8 +98,8 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 			img.setScaleType(ScaleType.CENTER_CROP);
 			// img.setScaleType(ScaleType.FIT_XY);
 			if (teModel.getType() == BannerModel.TYPE_NET) {
-				// FileUtil.setImage(img, teModel.getImgUrl(),
-				// new AsyncImageLoader(), R.drawable.default_loading);
+				FileUtil.setImage(img, teModel.getImgUrl(),
+						new AsyncImageLoader(), R.drawable.default_loading);
 			} else {
 				img.setImageResource(teModel.getImgResourceId());
 			}
