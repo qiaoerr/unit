@@ -20,14 +20,14 @@ public class DateUtil {
 		dateStr = sd.format(date);
 		return dateStr;
 	}
-	
-	//格式化展会显示时间格式为 10.13 - 10.15
-	public static String formatTradeData(String openTime,String closeTime) {
-		String open = dateFormat(new Date(openTime),"MM.dd");
-		String close = dateFormat(new Date(closeTime),"MM.dd");
-		if(StrUtil.isNotEmpty(open)) {
-			return open+"-"+close;
-		}else if(StrUtil.isNotEmpty(close)) {
+
+	// 格式化展会显示时间格式为 10.13 - 10.15
+	public static String formatTradeData(String openTime, String closeTime) {
+		String open = dateFormat(new Date(openTime), "MM.dd");
+		String close = dateFormat(new Date(closeTime), "MM.dd");
+		if (StrUtil.isNotEmpty(open)) {
+			return open + "-" + close;
+		} else if (StrUtil.isNotEmpty(close)) {
 			return close;
 		}
 		return "";
@@ -434,41 +434,42 @@ public class DateUtil {
 		SimpleDateFormat fomat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return fomat.format(date);
 	}
-	
+
 	/**
 	 * 
-	 *  根据出生日期得到年龄
-	  * getAgeFromBirthday(这里用一句话描述这个方法的作用)
-	  * @Title: getAgeFromBirthday
-	  * @Description: TODO
-	  * @param @param data
-	  * @param @return    设定文件
-	  * @return String    返回类型
-	  * @throws
+	 * 根据出生日期得到年龄 getAgeFromBirthday(这里用一句话描述这个方法的作用)
+	 * 
+	 * @Title: getAgeFromBirthday
+	 * @Description: TODO
+	 * @param @param data
+	 * @param @return 设定文件
+	 * @return String 返回类型
+	 * @throws
 	 */
 	public static String getAgeFromBirthday(String data) throws ParseException {
 		SimpleDateFormat myDataFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		Date beDate = myDataFormat.parse(data);
-		Date edDate = myDataFormat.parse(getTimeStr(date, "yyyy-MM-dd"));	
-		if(edDate.getTime() < beDate.getTime()) {
+		Date edDate = myDataFormat.parse(getTimeStr(date, "yyyy-MM-dd"));
+		if (edDate.getTime() < beDate.getTime()) {
 			return "未知";
 		}
-		long day = (edDate.getTime()-beDate.getTime())/(24*60*60*1000)+1 ;
-		String year = new DecimalFormat("#.00").format(day/365f);	
-		if(year.startsWith(".")) {
-			year = "0"+year;
+		long day = (edDate.getTime() - beDate.getTime())
+				/ (24 * 60 * 60 * 1000) + 1;
+		String year = new DecimalFormat("#.00").format(day / 365f);
+		if (year.startsWith(".")) {
+			year = "0" + year;
 		}
 		String age[] = year.split("\\.");
-		if(year.contains(".")) {
+		if (year.contains(".")) {
 			return age[0];
-		}else{
+		} else {
 			return "";
 		}
-		
+
 	}
-	
-	public static String getTimeStr(Date date ,String format) {
+
+	public static String getTimeStr(Date date, String format) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
 		return simpleDateFormat.format(date);
 	}
