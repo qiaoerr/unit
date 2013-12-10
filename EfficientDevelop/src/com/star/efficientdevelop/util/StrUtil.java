@@ -48,6 +48,9 @@ public class StrUtil {
 		}
 	}
 
+	/**
+	 * 未添加
+	 */
 	public static String lineHight(String str) {
 		SpannableString s = new SpannableString(str);
 		Pattern p = Pattern.compile("abc", 0);
