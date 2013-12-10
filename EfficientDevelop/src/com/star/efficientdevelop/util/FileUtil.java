@@ -29,7 +29,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Handler;
 import android.widget.ImageView;
 
 import com.star.efficientdevelop.util.AsyncImageLoader.ImageCallback;
@@ -73,10 +72,9 @@ public class FileUtil {
 			{ ".tgz", "application/x-compressed" }, { ".txt", "text/plain" },
 			{ ".wav", "audio/x-wav" }, { ".wma", "audio/x-ms-wma" },
 			{ ".wmv", "audio/x-ms-wmv" },
-			{ ".wps", "application/vnd.ms-works" },
-			// {".xml", "text/xml"},
-			{ ".xml", "text/plain" }, { ".z", "application/x-compress" },
-			{ ".zip", "application/zip" }, { "", "*/*" } };
+			{ ".wps", "application/vnd.ms-works" }, { ".xml", "text/plain" },
+			{ ".z", "application/x-compress" }, { ".zip", "application/zip" },
+			{ "", "*/*" } };
 
 	/**
 	 * 手机能否打开这个文件
@@ -165,8 +163,6 @@ public class FileUtil {
 
 	/**
 	 * 根据文件后缀名获得对应的MIME类型。
-	 * 
-	 * @param file
 	 */
 	public static String getMIMEType(String fName) {
 		String type = "*/*";
@@ -189,8 +185,6 @@ public class FileUtil {
 
 	/**
 	 * 根据文件后缀名获得对应的MIME类型。
-	 * 
-	 * @param file
 	 */
 	public static String getMIMEType(File file) {
 		String fName = file.getName();
@@ -214,9 +208,6 @@ public class FileUtil {
 
 	/**
 	 * 获取文件后缀
-	 * 
-	 * @param filePath
-	 * @return
 	 */
 	public static String getSuffix(String filePath) {
 		if (StrUtil.isEmpty(filePath)) {
@@ -230,8 +221,6 @@ public class FileUtil {
 
 	/**
 	 * 打开文件
-	 * 
-	 * @param file
 	 */
 	public static void openFile(File file, Context context) {
 		Intent intent = new Intent();
@@ -313,9 +302,7 @@ public class FileUtil {
 			while ((c = fosfrom.read(bt)) > 0) {
 
 				fosto.write(bt, 0, c); // 将内容写到新文件当中
-
 			}
-
 			fosfrom.close();
 
 			fosto.close();
@@ -394,12 +381,6 @@ public class FileUtil {
 
 	/**
 	 * 上传图片到服务器
-	 * 
-	 * @param actionUrl
-	 * @param accountId
-	 * @param fileName
-	 * @param uploadContent
-	 * @return
 	 */
 	public static String uploadFile(String actionUrl, String fileName,
 			byte[] uploadContent) {
@@ -456,13 +437,6 @@ public class FileUtil {
 
 	/**
 	 * 上传图片到服务器
-	 * 
-	 * @param actionUrl
-	 * @param accountId
-	 * @param fileType
-	 * @param fileName
-	 * @param uploadContent
-	 * @return
 	 */
 	public static String uploadFile(String actionUrl, int fileType,
 			String fileName, byte[] uploadContent) {
@@ -478,10 +452,6 @@ public class FileUtil {
 
 	/**
 	 * 获取文件转换为输出流
-	 * 
-	 * @param filename
-	 * @return
-	 * @throws Exception
 	 */
 	public static byte[] readFile(String filename) {
 		try {
@@ -503,10 +473,8 @@ public class FileUtil {
 			inStream.close();
 			return data;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -514,9 +482,6 @@ public class FileUtil {
 
 	/**
 	 * 将bitmap转成byte数组
-	 * 
-	 * @param bitmap
-	 * @return
 	 */
 	public static byte[] bitmapToByteArray(Bitmap bitmap) {
 		if (bitmap != null) {
@@ -586,37 +551,6 @@ public class FileUtil {
 		}
 	}
 
-	// 图片缓存
-	public static void setImage(ImageView view, String url,
-			AsyncImageLoader loader, final int defaultLogo,
-			final Handler mhandler) {
-		if (StrUtil.isEmpty(url)) {
-			view.setImageResource(defaultLogo);
-			mhandler.sendEmptyMessage(Data.SUCCESS);
-		} else {
-			Drawable cachedImage = loader.loadDrawable(url, view,
-					new ImageCallback() {
-
-						@Override
-						public void imageLoaded(Drawable imageDrawable,
-								ImageView imageView, String imageUrl) {
-							if (imageDrawable != null) {
-								imageView.setImageDrawable(imageDrawable);
-							} else {
-								imageView.setImageResource(defaultLogo);
-							}
-						}
-
-					});
-			if (cachedImage == null) {
-				view.setImageResource(defaultLogo);
-			} else {
-				view.setImageDrawable(cachedImage);
-				mhandler.sendEmptyMessage(Data.SUCCESS);
-			}
-		}
-	}
-
 	/**
 	 * 设置圆角图片
 	 * 
@@ -660,15 +594,10 @@ public class FileUtil {
 	}
 
 	/**
-	 * 
 	 * 把图片变成圆角
 	 * 
-	 * @param bitmap
-	 *            需要修改的图片
-	 * 
-	 * @param pixels
-	 *            圆角的弧度
-	 * 
+	 * @param bitmap需要修改的图片
+	 * @param pixels圆角的弧度
 	 * @return 圆角图片
 	 */
 
