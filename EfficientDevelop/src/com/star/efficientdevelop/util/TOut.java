@@ -7,6 +7,13 @@ import android.os.Message;
 import android.os.MessageQueue.IdleHandler;
 import android.widget.Toast;
 
+/**
+ * @ClassName: TOut
+ * @非UI线程中使用Toast的工具类
+ * @author Comsys-Administrator
+ * @date 2013-11-18 上午11:42:08
+ * 
+ */
 public class TOut {
 	private int count;
 	private Handler handler;

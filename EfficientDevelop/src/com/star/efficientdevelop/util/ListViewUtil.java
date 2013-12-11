@@ -10,7 +10,6 @@ public class ListViewUtil {
 		// 获取ListView对应的Adapter
 		ListAdapter listAdapter = listView.getAdapter();
 		if (listAdapter == null) {
-			// pre-condition
 			return;
 		}
 
@@ -20,7 +19,6 @@ public class ListViewUtil {
 			listItem.measure(0, 0); // 计算子项View 的宽高
 			totalHeight += listItem.getMeasuredHeight(); // 统计所有子项的总高度
 		}
-
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
 		params.height = totalHeight
 				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1))
