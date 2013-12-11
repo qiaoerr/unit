@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import com.start.jdzchina.R;
+import com.star.middleframework.R;
 
 public class BigPicTureActivity extends Activity {
 	private ImageView bigPic;

@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.model.BannerModel;
-import com.start.jdzchina.util.CommonUtil;
-import com.start.jdzchina.widget.BannerView;
+import com.star.baseFramework.model.BannerModel;
+import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.widget.BannerView;
+import com.star.middleframework.R;
 
 public class ActivityFragment extends Fragment {
 	private Context context;
@@ -46,8 +46,8 @@ public class ActivityFragment extends Fragment {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
 		if (bannerView == null) {
 			bannerView = new BannerView(context, bannerModels,
-					CommonUtil.getWidthPx(context),
-					CommonUtil.getHeightPx(context));
+					CommonUtil.getScreenWidth(context),
+					CommonUtil.getScreenHeight(context));
 		}
 		actContainer.addView(bannerView);
 	}
