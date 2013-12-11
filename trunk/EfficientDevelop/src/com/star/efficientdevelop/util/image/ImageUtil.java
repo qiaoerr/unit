@@ -9,8 +9,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
- * 
- *
+ * 为图片画边框的Imageview
  */
 public class ImageUtil extends ImageView {
 
