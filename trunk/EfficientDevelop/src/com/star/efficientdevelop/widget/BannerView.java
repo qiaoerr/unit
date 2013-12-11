@@ -86,7 +86,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	private void initData() {
 		atomicInteger = new AtomicInteger(0);
 		if (bannerWidth == 0) {
-			bannerWidth = CommonUtil.getWidthPx(context);
+			bannerWidth = CommonUtil.getScreenWidth(context);
 		}
 		if (bannerHight == 0) {
 			bannerHight = bannerWidth / 2;

@@ -11,8 +11,6 @@ public class CommonUtil {
 
 	/**
 	 * 检测sdcard是否可用
-	 * 
-	 * @return true为可用，否则为不可用
 	 */
 	public static boolean sdCardIsAvailable() {
 		String status = Environment.getExternalStorageState();
@@ -23,12 +21,6 @@ public class CommonUtil {
 
 	/**
 	 * Checks if there is enough Space on SDCard
-	 * 
-	 * @param updateSize
-	 *            Size to Check
-	 * @return True if the Update will fit on SDCard, false if not enough space
-	 *         on SDCard Will also return false, if the SDCard is not mounted as
-	 *         read/write
 	 */
 	public static boolean enoughSpaceOnSdCard(long updateSize) {
 		String status = Environment.getExternalStorageState();
@@ -51,7 +43,6 @@ public class CommonUtil {
 
 	/**
 	 * Checks if there is enough Space on phone self
-	 * 
 	 */
 	public static boolean enoughSpaceOnPhone(long updateSize) {
 		return getRealSizeOnPhone() > updateSize;
@@ -71,10 +62,6 @@ public class CommonUtil {
 
 	/**
 	 * 根据手机分辨率从dp转成px
-	 * 
-	 * @param context
-	 * @param dpValue
-	 * @return
 	 */
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
@@ -86,38 +73,29 @@ public class CommonUtil {
 	 */
 	public static int px2dip(Context context, float pxValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
-		return (int) (pxValue / scale + 0.5f) - 15;
+		return (int) (pxValue / scale + 0.5f);
 	}
 
 	/**
 	 * 取得手机的高度像素
-	 * 
-	 * @param context
-	 * @return
 	 */
-	public static int getHeightPx(Context context) {
+	public static int getScreenHeight(Context context) {
 		DisplayMetrics dm = context.getResources().getDisplayMetrics();
 		int screenHeight = dm.heightPixels;
 		return screenHeight;
 	}
 
 	/**
-	 * 取得手机的高度像素
-	 * 
-	 * @param context
-	 * @return
+	 * 取得手机的宽度像素
 	 */
-	public static int getWidthPx(Context context) {
+	public static int getScreenWidth(Context context) {
 		DisplayMetrics dm = context.getResources().getDisplayMetrics();
-		int screenHeight = dm.widthPixels;
-		return screenHeight;
+		int screenWidth = dm.widthPixels;
+		return screenWidth;
 	}
 
 	/**
-	 * 取得scale fact
-	 * 
-	 * @param context
-	 * @return
+	 * 取得scale factor
 	 */
 	public static float getScale(Context context) {
 		return context.getResources().getDisplayMetrics().density;

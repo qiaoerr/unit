@@ -104,61 +104,15 @@ public class FileUtil {
 	public static boolean canOpenFile(File file) {
 		// 获取后缀名前的分隔符"."在fName中的位置。
 		String fName = file.getName();
-		int dotIndex = fName.lastIndexOf(".");
-		if (dotIndex < 0) {
-			return false;
-		}
-		/* 获取文件的后缀名 */
-		String end = fName.substring(dotIndex, fName.length()).toLowerCase();
-		if (end == "")
-			return false;
-		// 在MIME和文件类型的匹配表中找到对应的MIME类型。
-		for (int i = 0; i < MIME_MapTable.length; i++) {
-			if (end.equals(MIME_MapTable[i][0])) {
-				return true;
-			}
-		}
-		return false;
+		return canOpenFile(fName);
 	}
 
 	/**
-	 * 获取文件类型
-	 * 
-	 * @param file
-	 * @return
+	 * 根据文件后缀名获得对应的MIME类型。
 	 */
-	public static int getFileType(File file) {
-		String mime = getMIMEType(file);
-		if (mime.indexOf("image") >= 0) {
-			return 1;
-		} else if (mime.indexOf("audio") >= 0) {
-			return 3;
-		} else if (mime.indexOf("video") >= 0) {
-			return 4;
-		} else if (mime.indexOf("application") >= 0) {
-			return 10;
-		} else if (mime.indexOf("text") >= 0) {
-			return 11;
-		} else {
-			return 0;
-		}
-	}
-
-	public static int getFileType(String fName) {
-		String mime = getMIMEType(fName);
-		if (mime.indexOf("image") >= 0) {
-			return 1;
-		} else if (mime.indexOf("audio") >= 0) {
-			return 3;
-		} else if (mime.indexOf("video") >= 0) {
-			return 4;
-		} else if (mime.indexOf("application") >= 0) {
-			return 10;
-		} else if (mime.indexOf("text") >= 0) {
-			return 11;
-		} else {
-			return 0;
-		}
+	public static String getMIMEType(File file) {
+		String fName = file.getName();
+		return getMIMEType(fName);
 	}
 
 	/**
@@ -184,42 +138,6 @@ public class FileUtil {
 	}
 
 	/**
-	 * 根据文件后缀名获得对应的MIME类型。
-	 */
-	public static String getMIMEType(File file) {
-		String fName = file.getName();
-		String type = "*/*";
-		// 获取后缀名前的分隔符"."在fName中的位置。
-		int dotIndex = fName.lastIndexOf(".");
-		if (dotIndex < 0) {
-			return type;
-		}
-		/* 获取文件的后缀名 */
-		String end = fName.substring(dotIndex, fName.length()).toLowerCase();
-		if (end == "")
-			return type;
-		// 在MIME和文件类型的匹配表中找到对应的MIME类型。
-		for (int i = 0; i < MIME_MapTable.length; i++) {
-			if (end.equals(MIME_MapTable[i][0]))
-				type = MIME_MapTable[i][1];
-		}
-		return type;
-	}
-
-	/**
-	 * 获取文件后缀
-	 */
-	public static String getSuffix(String filePath) {
-		if (StrUtil.isEmpty(filePath)) {
-			return "";
-		} else if (filePath.lastIndexOf(".") <= -1) {
-			return "";
-		} else {
-			return filePath.substring(filePath.lastIndexOf("."));
-		}
-	}
-
-	/**
 	 * 打开文件
 	 */
 	public static void openFile(File file, Context context) {
@@ -235,6 +153,9 @@ public class FileUtil {
 		context.startActivity(intent);
 	}
 
+	/**
+	 * 序列化对象
+	 */
 	public static void saveFile(String dic, String fileName, Object obj)
 			throws Exception {
 		L.d("file", "saveFile path = " + dic + fileName);
@@ -253,6 +174,9 @@ public class FileUtil {
 		oos.close();
 	}
 
+	/**
+	 * 反序列化对象
+	 */
 	public static Object getFile(String fileName) {
 		L.d("file", "getFile path = " + fileName);
 		try {
@@ -262,7 +186,6 @@ public class FileUtil {
 						new FileInputStream(file));
 				Object obj = ois.readObject();
 				ois.close();
-				// Log.v("file", "getFile obj = " + obj);
 				return obj;
 			} else {
 				return null;
@@ -289,30 +212,21 @@ public class FileUtil {
 			toFile.delete();
 		}
 		try {
-
 			java.io.FileInputStream fosfrom = new java.io.FileInputStream(
 					fromFile);
-
 			java.io.FileOutputStream fosto = new FileOutputStream(toFile);
-
 			byte bt[] = new byte[1024];
-
 			int c;
-
 			while ((c = fosfrom.read(bt)) > 0) {
-
 				fosto.write(bt, 0, c); // 将内容写到新文件当中
 			}
 			fosfrom.close();
-
 			fosto.close();
 			return 1;
 		} catch (Exception ex) {
 			L.e("file", "错误", ex);
 			return -4;
-
 		}
-
 	}
 
 	public static void delloading(String folderPath) {
@@ -350,8 +264,7 @@ public class FileUtil {
 	/**
 	 * 删除文件夹里面的所有文件
 	 * 
-	 * @param path
-	 *            String 文件夹路径 如 c:/fqf
+	 * String 文件夹路径 如 c:/fqf
 	 */
 	public static void delAllFile(String path) {
 		File file = new File(path);
@@ -410,7 +323,6 @@ public class FileUtil {
 			ds.writeBytes(end);
 			ds.writeBytes(twoHyphens + boundary + twoHyphens + end);
 			ds.flush();
-
 			InputStream is = con.getInputStream();
 			int ch;
 			ByteArrayOutputStream content = new ByteArrayOutputStream();
