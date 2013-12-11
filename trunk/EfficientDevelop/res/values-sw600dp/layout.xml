@@ -2,7 +2,6 @@
 <resources>
 
     <item name="main_layout" type="layout">@layout/slidingmenumain</item>
-
-    <bool name="has_two_panes">false</bool>
+    <bool name="has_two_panes">false</bool>
 
 </resources>
