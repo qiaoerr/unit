@@ -3,6 +3,7 @@
 
     <color name="transparent">#00000000</color>
     <color name="black">#000000</color>
+    <!-- 支付宝start -->
     <color name="TextColorBlack">#FF000000</color>
     <color name="TextColorWhite">#FFFFFFFF</color>
     <color name="TextColorGray">#FF505050</color>
@@ -18,5 +19,6 @@
     <color name="downLoadBackFocus">#FF6698E7</color>
     <color name="downLoadBackPressed">#FF3366CC</color>
     <color name="dialog_tiltle_blue">#2277BB</color>
+    <!-- 支付宝end -->
 
 </resources>
