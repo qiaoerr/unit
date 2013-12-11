@@ -48,6 +48,9 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	private boolean isContinue = true;
 	private AtomicInteger atomicInteger = null;
 	private int speed = 3;
+	private final static int left_bottom = 0;
+	private final static int middle_bottom = 1;
+	private int possition = 0;
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			int item = msg.what;
@@ -68,6 +71,17 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 		this.bannerModels = bannerModels;
 		this.bannerWidth = bannerWidth;
 		this.bannerHight = bannerHight;
+		init();
+	}
+
+	public BannerView(Context context, ArrayList<BannerModel> bannerModels,
+			int bannerWidth, int bannerHight, int possition) {
+		super(context);
+		this.context = context;
+		this.bannerModels = bannerModels;
+		this.bannerWidth = bannerWidth;
+		this.bannerHight = bannerHight;
+		this.possition = possition;
 		init();
 	}
 
@@ -116,7 +130,15 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 		this.addView(viewPager);
 		viewGroup = new LinearLayout(context);
 		params = new LayoutParams(-2, -2);
-		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		// viewGroup的位置
+		if (possition == left_bottom) {
+			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		} else if (possition == middle_bottom) {
+			params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+			params.setMargins(0, 0, 0, 15);
+		}
+
 		viewGroup.setLayoutParams(params);
 		this.addView(viewGroup);
 		// viewpager
@@ -124,8 +146,8 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 		viewPager.setAdapter(adapter);
 		// viewGroup
 		for (int i = 0; i < views.size(); i++) {
+			// out(RelativeLayout)里面放置一个textView作为引索index
 			RelativeLayout out = new RelativeLayout(context);
-			// out.getHitRect(outRect)
 			indexs[i] = out;
 			TextView index = new TextView(context);
 			index.setTextColor(Color.WHITE);
