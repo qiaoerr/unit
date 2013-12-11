@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg5PG">#fbfbfb</color>
+    <color name="sortList">#006600</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#CC0000</color>
+    <color name="red_light">#FF3333</color>
+    <color name="blue">#33CCFF</color>
+    <color name="green">#009900</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green_dark">#003300</color>
+    <color name="grey">#999999</color>
+    <color name="grey_one">#bfbfbf</color>
+    <color name="transparent">#00000000</color>
+    <color name="head_tips">#444444</color>
+    <color name="blackzi">#222222</color>
+    <color name="text_hint">#dddddd</color>
+    <!-- ITEM BACKGROUND COLOR - STATE - PRESSED -->
+    <color name="base_start_color_pressed">#999999</color>
+    <color name="base_end_color_pressed">#999999</color>
+    <color name="space_text_color">#407eda</color>
+
+</resources>
