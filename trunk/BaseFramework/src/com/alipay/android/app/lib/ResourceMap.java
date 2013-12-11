@@ -3,7 +3,7 @@
  */
 package com.alipay.android.app.lib;
 
-import com.star.efficientdevelop.R;
+import com.star.baseFramework.R;
 
 /**
  * @author 0ki
