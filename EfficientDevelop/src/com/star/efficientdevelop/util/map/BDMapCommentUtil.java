@@ -28,7 +28,7 @@ import com.star.efficientdevelop.BaseApplication;
 
 /**
  * @ClassName: BDMapCommentUtil
- * @Description: TODO
+ * @百度地图地理编码与反地理编码工具类
  * @author Comsys-Administrator
  * @date 2013-11-27 下午04:59:39
  * 

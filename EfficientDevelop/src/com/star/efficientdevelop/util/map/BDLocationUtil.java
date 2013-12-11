@@ -20,7 +20,7 @@ import com.baidu.location.LocationClientOption;
 
 /**
  * @ClassName: BDLocationUtil
- * @Description: TODO
+ * @百度地图定位工具类
  * @author Comsys-Administrator
  * @date 2013-11-18 上午11:42:08
  * 
