@@ -9,27 +9,19 @@ import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.view.Display;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 public class AndroidUtil {
 	/**
-	 * whether the mobile phone network is Connecting
-	 * 
-	 * @param context
-	 * @return
+	 * 检测网络链接
 	 */
 	public static boolean isConnectInternet(Context context) {
 
@@ -42,6 +34,9 @@ public class AndroidUtil {
 		return false;
 	}
 
+	/**
+	 * 获取唯一设备id
+	 */
 	public static String getDiviceId(Context context) {
 		TelephonyManager tm = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
@@ -49,18 +44,8 @@ public class AndroidUtil {
 	}
 
 	/**
-	 * Create shortcut
-	 * 
-	 * @param context
-	 * @param sourceId
+	 * 为本app添加到桌面快捷方式
 	 */
-	public static void addShortcut(Context context, int nameSourceId,
-			int iconRecourceId) {
-		String appName = context.getApplicationContext().getResources()
-				.getString(nameSourceId);
-		addShortcut(context, appName, iconRecourceId);
-	}
-
 	public static void addShortcut(Context context, String shortName,
 			int iconRecourceId) {
 		Intent shortcut = new Intent(
@@ -68,10 +53,10 @@ public class AndroidUtil {
 		// SHORTCUT_NAME
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, shortName);
 		shortcut.putExtra("duplicate", false); // not allow Repeat
-		// current Activity shortcuts to launch objects:such as
-		// //com.everest.video.VideoPlayer
-		// Note: the ComponentName second parameters must be coupled with a dot
-		// (. ), or a shortcut to start the corresponding procedures
+		/* current Activity shortcuts to launch objects:such as
+		com.everest.video.VideoPlayer
+		Note: the ComponentName second parameters must be coupled with a dot
+		(. ), or a shortcut to start the corresponding procedures*/
 		ComponentName comp = new ComponentName(context.getPackageName(),
 				".ui.MainAct");
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, new Intent(
@@ -83,6 +68,9 @@ public class AndroidUtil {
 		context.sendBroadcast(shortcut);
 	}
 
+	/**
+	 * 为targetClassName的app添加到桌面快捷方式
+	 */
 	public static void addShortcut(Context context, String appName,
 			int appLogoId, String targetClassName) {
 		try {
@@ -101,14 +89,16 @@ public class AndroidUtil {
 		}
 	}
 
-	// add someone's shortcut
+	/**
+	 * 将某人的电话号码添加到桌面快捷方式
+	 */
 	public static void addShortcut(Context context, String name, String mobile,
 			int iconRecourceId) {
 		Intent shortcut = new Intent(
 				"com.android.launcher.action.INSTALL_SHORTCUT");
 		// SHORTCUT_NAME
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);
-		shortcut.putExtra("duplicate", false);
+		shortcut.putExtra("duplicate", false); // not allow Repeat
 		Intent extraIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel://"
 				+ mobile));
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, extraIntent);
@@ -119,14 +109,15 @@ public class AndroidUtil {
 		context.sendBroadcast(shortcut);
 	}
 
+	/**
+	 * 获取用户终端设备信息
+	 */
 	public static String getUserAgent() {
 		String user_agent = "";
 		try {
 			String model = Build.MODEL;
-			String sdkNum = Build.VERSION.SDK;
+			int sdkNum = Build.VERSION.SDK_INT;
 			String frameNum = Build.VERSION.RELEASE;
-			// user_agent = "android_" + Build.MODEL + "_" + frameNum + "_"
-			// + versonNum + ",SDKNum ";
 			user_agent = "Mobile Model-->" + model + "\n SDK Model-->" + sdkNum
 					+ "\n System Model-->" + frameNum
 					+ "\n Version information-->0.5";
@@ -148,150 +139,69 @@ public class AndroidUtil {
 		return has;
 	}
 
+	/**
+	 * 获取屏幕方向横屏还是竖屏
+	 */
 	public static int ScreenOrient(Activity activity) {
 		int orient = activity.getRequestedOrientation();
 		if (orient != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 				&& orient != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
-			WindowManager wm = activity.getWindowManager();
-			Display display = wm.getDefaultDisplay();
-			int screenWidth = display.getWidth();
-			int screenHeight = display.getHeight();
-			// height>width ? Vertical screen 锟斤拷Horizontal screen
+			DisplayMetrics displayMetrics = activity.getResources()
+					.getDisplayMetrics();
+			int screenWidth = displayMetrics.widthPixels;
+			int screenHeight = displayMetrics.heightPixels;
 			orient = screenWidth < screenHeight ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 					: ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 		}
 		return orient;
 	}
 
+	/**
+	 * 根据屏幕方向设置背景
+	 */
 	public static void AutoBackGround(Activity activity, View view,
 			int backGround_v, int backGround_h) {
 		int orient = ScreenOrient(activity);
-		if (orient == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {// Vertical
+		if /*Vertical*/(orient == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
 			view.setBackgroundResource(backGround_v);
-		} else {// Horizontal
+		} /* Horizontal*/else {
 			view.setBackgroundResource(backGround_h);
 		}
 	}
 
+	/**
+	 * 获取SDK的版本号
+	 */
 	public static int getSDKVersionNumber() {
-		int sdkVersion = 0;
-		try {
 
-			sdkVersion = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
-
-		} catch (NumberFormatException e) {
-
-			sdkVersion = 0;
-		}
-		return sdkVersion;
-	}
-
-	public static void setListViewHeightBasedOnChildren(ListView listView) {
-		// get ListView's Adapter
-		if (listView == null) {
-			return;
-		}
-		ListAdapter listAdapter = listView.getAdapter();
-		if (listAdapter == null) {
-			return;
-		}
-
-		int totalHeight = 0;
-		for (int i = 0, len = listAdapter.getCount(); i < len; i++) { // listAdapter.getCount()锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷�?
-			View listItem = listAdapter.getView(i, null, listView);
-			listItem.measure(0, 0); // Calculate childView's height and width
-			totalHeight += listItem.getMeasuredHeight(); // Calculate all
-															// childView's
-															// height
-		}
-
-		ViewGroup.LayoutParams params = listView.getLayoutParams();
-		params.height = totalHeight
-				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-		// listView.getDividerHeight() get divder's height
-		// params.height get the final height that ListView can show completely
-		listView.setLayoutParams(params);
+		return android.os.Build.VERSION.SDK_INT;
 	}
 
 	/**
-	 * collapseSoftInput
-	 * 
-	 * @param context
-	 * @param view
+	 * 收起软键盘
 	 */
-	public static void collapseSoftInputMethod(Context context, View view) {
+	public static void collapseSoftInputMethod(Context context) {
 		InputMethodManager imm = (InputMethodManager) context
 				.getSystemService(Context.INPUT_METHOD_SERVICE);
-
-		/*
-		 * if(imm.isActive(view)) {
-		 * imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,
-		 * InputMethodManager.HIDE_NOT_ALWAYS); }
-		 */
 		try {
 			imm.hideSoftInputFromWindow(((Activity) context).getCurrentFocus()
 					.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 		} catch (Exception e) {
 			e.toString();
 		}
-		/*
-		 * imm.hideSoftInputFromWindow(view.getWindowToken(),
-		 * InputMethodManager.HIDE_IMPLICIT_ONLY);
-		 */
 	}
 
 	/**
-	 * getVersion
-	 * 
-	 */
-	public static String getVersion(Context context) {
-		String version = "0.0.0";
-
-		PackageManager packageManager = context.getPackageManager();
-		try {
-			PackageInfo packageInfo = packageManager.getPackageInfo(
-					context.getPackageName(), 0);
-			version = packageInfo.versionName;
-		} catch (NameNotFoundException e) {
-		}
-		return version;
-	}
-
-	/**
-	 * 获取包信
-	 * 
-	 * @param context
-	 * @return
+	 * 获取包名
 	 */
 	public static String getPakageName(Context context) {
 		try {
 			PackageInfo info = context.getPackageManager().getPackageInfo(
 					context.getPackageName(), 0);
-			// int versionCode = info.versionCode;
-			// String versionName = info.versionName;
+			/* int versionCode = info.versionCode;
+			 String versionName = info.versionName;*/
 			String packageName = info.packageName;
 			return packageName;
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-			return "获取包名失败";
-		}
-	}
-
-	/**
-	 * 获取包信�?
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static String getPakageInfo(Context context) {
-		try {
-			PackageInfo info = context.getPackageManager().getPackageInfo(
-					context.getPackageName(), 0);
-			int versionCode = info.versionCode;
-			String versionName = info.versionName;
-			String packageName = info.packageName;
-			return "程序包名:" + packageName + ",程序版本�?" + versionCode
-					+ ",程序版本名称:" + versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 			return "获取包名失败";
