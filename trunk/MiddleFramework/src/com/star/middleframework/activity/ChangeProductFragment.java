@@ -9,9 +9,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.RapidApplication;
-
 public class ChangeProductFragment extends Fragment implements OnClickListener {
 
 	private Context context;
