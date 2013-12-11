@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+/*用于BannerView*/
 public class ViewPagerAdapter extends PagerAdapter {
 	private ArrayList<View> views;
 
