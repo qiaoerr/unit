@@ -72,6 +72,7 @@ public class L {
 				Log.e(TAG, text);
 				break;
 			}
+			// 如果是开发人员，则在System.out中也打印日志
 			if (Constants.ISCODER) {
 				System.out.println(text);
 			}
