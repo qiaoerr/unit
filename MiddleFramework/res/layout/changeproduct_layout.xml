@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.start.jdzchina.widget.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.star.middleframework.widget.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -76,4 +76,4 @@
         android:layout_marginLeft="20dp"
         android:src="@drawable/btn_show_main_carstyle" />
 
-</com.start.jdzchina.widget.MyRelativeLayout>
+</com.star.middleframework.widget.MyRelativeLayout>

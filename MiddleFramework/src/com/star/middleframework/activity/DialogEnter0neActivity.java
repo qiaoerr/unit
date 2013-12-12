@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.start.jdzchina.R;
+import com.star.middleframework.R;
 
 public class DialogEnter0neActivity extends Activity {
 	private TextView title_dia;

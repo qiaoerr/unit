@@ -13,9 +13,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.adapter.NewsAdapter;
-import com.start.jdzchina.model.NewsDataModel;
+import com.star.middleframework.R;
+import com.star.middleframework.adapter.NewsAdapter;
+import com.star.middleframework.model.NewsDataModel;
 
 public class NewsListFragment extends Fragment implements OnItemClickListener {
 	private Context context;

@@ -13,18 +13,18 @@ import java.lang.Thread.UncaughtExceptionHandler;
 public class CrashHandler implements UncaughtExceptionHandler {
 	private static final String TAG = "CrashHandler";
 	private static CrashHandler crashHandler;
-	private RapidApplication application;
+	private MiddleApplication application;
 	private static UncaughtExceptionHandler defaultUncaughtExceptionHandler;
 
 	/**
 	 * 创建新的实例 CrashHandler.
 	 */
 
-	public CrashHandler(RapidApplication application) {
+	public CrashHandler(MiddleApplication application) {
 		this.application = application;
 	}
 
-	public static void init(RapidApplication application) {
+	public static void init(MiddleApplication application) {
 		crashHandler = new CrashHandler(application);
 		defaultUncaughtExceptionHandler = Thread
 				.getDefaultUncaughtExceptionHandler();

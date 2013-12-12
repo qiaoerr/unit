@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import com.start.jdzchina.R;
+import com.star.middleframework.R;
 
 public class MyDialogActivity extends Activity implements OnClickListener {
 	private Context context;
@@ -47,34 +47,27 @@ public class MyDialogActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.btn_close:
+		if (v.getId() == R.id.btn_close) {
 			finish();
-			break;
-		case R.id.btn_spec_0:
+		} else if (v.getId() == R.id.btn_spec_0) {
 			intent = new Intent(context, DialogEnter0neActivity.class);
 			args = new Bundle();
 			args.putString("title", "车型介绍");
 			intent.putExtras(args);
 			startActivity(intent);
-			break;
-		case R.id.btn_spec_1:
+		} else if (v.getId() == R.id.btn_spec_1) {
 			intent = new Intent(context, DialogEnter0neActivity.class);
 			args = new Bundle();
 			args.putString("title", "性能参数");
 			intent.putExtras(args);
 			startActivity(intent);
-			break;
-		case R.id.btn_spec_2:
+		} else if (v.getId() == R.id.btn_spec_2) {
 			intent = new Intent(context, DialogEnter0neActivity.class);
 			args = new Bundle();
 			args.putString("title", "详细配置");
 			intent.putExtras(args);
 			startActivity(intent);
-			break;
-
-		default:
-			break;
+		} else {
 		}
 
 	}

@@ -9,6 +9,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.star.middleframework.MiddleApplication;
+import com.star.middleframework.R;
+
 public class ChangeProductFragment extends Fragment implements OnClickListener {
 
 	private Context context;
@@ -16,7 +19,7 @@ public class ChangeProductFragment extends Fragment implements OnClickListener {
 	private ImageView close;
 	private ImageView imageView0;
 	private ImageView imageView1;
-	private RapidApplication application;
+	private MiddleApplication application;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,7 +32,7 @@ public class ChangeProductFragment extends Fragment implements OnClickListener {
 
 	private void initData() {
 		context = getActivity();
-		application = RapidApplication.getInstance();
+		application = MiddleApplication.getInstance();
 
 	}
 
@@ -50,20 +53,15 @@ public class ChangeProductFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.goods_img0:
+		if (v.getId() == R.id.goods_img0) {
 			application.setRes_prefix("default_");
 			changeBG("default_");
 			getFragmentManager().popBackStack();
-			break;
-		case R.id.goods_img1:
+		} else if (v.getId() == R.id.goods_img1) {
 			application.setRes_prefix("s6_");
 			changeBG("s6_");
 			getFragmentManager().popBackStack();
-			break;
-
-		default:
-			break;
+		} else {
 		}
 
 	}

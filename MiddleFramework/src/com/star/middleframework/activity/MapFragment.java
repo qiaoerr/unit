@@ -41,14 +41,14 @@ import com.baidu.mapapi.search.MKSuggestionResult;
 import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.start.jdzchina.R;
-import com.start.jdzchina.RapidApplication;
-import com.start.jdzchina.model.BaseInforModel;
-import com.start.jdzchina.util.BDLocationUtil;
-import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
-import com.start.jdzchina.util.BMapUtil;
-import com.start.jdzchina.widget.LXProgressDialog;
-import com.start.jdzchina.widget.MyRouteMapView;
+import com.star.baseFramework.util.map.BDLocationUtil;
+import com.star.baseFramework.util.map.BDLocationUtil.LocationSuccessListener;
+import com.star.middleframework.MiddleApplication;
+import com.star.middleframework.R;
+import com.star.middleframework.model.BaseInforModel;
+import com.star.middleframework.util.BMapUtil;
+import com.star.middleframework.widget.LXProgressDialog;
+import com.star.middleframework.widget.MyRouteMapView;
 
 public class MapFragment extends Fragment implements OnClickListener {
 	public static final String BUS = "bus";
@@ -64,7 +64,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private ImageButton mBtnNext;
 	private TextView popupText;
 	private PopupOverlay pop;
-	private int position = 0;// 表示第一个方�?
+	private int position = 0;// 表示第一个方案
 	private View viewCache;
 	private String type = "";
 	private TransitOverlay transitOverlay;
@@ -108,9 +108,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	private void initData() {
 		context = getActivity();
-		baseInfor = RapidApplication.getInstance().getBaseInfor();
-		mMapView = RapidApplication.getInstance().getMapView();
-		progressDialog = new LXProgressDialog(context, "定位�?..");
+		baseInfor = MiddleApplication.getInstance().getBaseInfor();
+		mMapView = MiddleApplication.getInstance().getMapView();
+		progressDialog = new LXProgressDialog(context, "定位中...");
 		progressDialog.show();
 		BDLocationUtil.getLocation(context, new LocationSuccessListener() {
 
@@ -141,7 +141,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 			}
 		});
 		mkSearch = new MKSearch();
-		mkSearch.init(RapidApplication.getInstance().getmBMapManager(),
+		mkSearch.init(MiddleApplication.getInstance().getmBMapManager(),
 				new MKSearchListener() {
 					@Override
 					public void onGetWalkingRouteResult(
@@ -211,7 +211,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 			@Override
 			public void onMapMoveFinish() {
 				/**
-				 * 地图完成带动画的操作（如: animationTo()）后，此回调被触�?
+				 * 地图完成带动画的操作（如: animationTo()）后，此回调被触发
 				 */
 			}
 
@@ -223,7 +223,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 			@Override
 			public void onGetCurrentMap(Bitmap arg0) {
 				/**
-				 * 当调用过 mMapView.getCurrentMap()后，此回调会被触�?可在此保存截图至存储设备
+				 * 当调用过 mMapView.getCurrentMap()后，此回调会被触发 可在此保存截图至存储设备
 				 */
 			}
 
@@ -244,7 +244,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 				}
 			}
 		};
-		// mMapView.regMapViewListener(RapidApplication.getInstance()
+		// mMapView.regMapViewListener(MiddleApplication.getInstance()
 		// .getmBMapManager(), mapViewListener);
 	}
 
@@ -256,7 +256,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.search_result_detail_linearlayout);
 		if (mMapView == null) {
 			mMapView = new MyRouteMapView(context);
-			RapidApplication.getInstance().setMapView(mMapView);
+			MiddleApplication.getInstance().setMapView(mMapView);
 		}
 		mapContainer.addView(mMapView);
 		mMapController = mMapView.getController();
@@ -281,44 +281,36 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.pre:
-		case R.id.next:
+		if (v.getId() == R.id.pre || v.getId() == R.id.next) {
 			nodeClick(v);
-			break;
-		case R.id.navigate_style:
+		} else if (v.getId() == R.id.navigate_style) {
 			if (isShow) {
 				startAnim_hide();
 			} else {
 				startAnim_show();
 			}
-			break;
-		case R.id.bbus:
+		} else if (v.getId() == R.id.bbus) {
 			type = BUS;
 			startMKsearch(BUS);
 			startAnim_hide();
-			break;
-		case R.id.bcar:
+		} else if (v.getId() == R.id.bcar) {
 			type = DRIVER;
 			startMKsearch(DRIVER);
 			startAnim_hide();
-			break;
-		case R.id.bwalk:
+		} else if (v.getId() == R.id.bwalk) {
 			type = WALK;
 			startMKsearch(WALK);
 			startAnim_hide();
-			break;
-		default:
-			break;
+		} else {
 		}
 
 	}
 
 	private void startMKsearch(String type) {
 		if (bdLocation == null) {
-			BDLocation temp = RapidApplication.getInstance().getBdLocation();
+			BDLocation temp = MiddleApplication.getInstance().getBdLocation();
 			if (temp == null) {
-				Toast.makeText(context, "无法获取当前位置，请�?��手机网络设置",
+				Toast.makeText(context, "无法获取当前位置，请检查手机网络设置",
 						Toast.LENGTH_SHORT).show();
 				return;
 			} else {
@@ -338,7 +330,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 		} else if (type.equals(WALK)) {
 			mkSearch.walkingSearch("", start, "", end);
 		}
-		progressDialog = new LXProgressDialog(context, "搜索�?..");
+		progressDialog = new LXProgressDialog(context, "搜索中...");
 		progressDialog.show();
 	}
 
@@ -433,9 +425,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 					|| nodeIndex >= route.getNumSteps())
 				return;
 
-			// 上一个节�?
+			// 上一个节点
 			if (mBtnPre.equals(v) && nodeIndex > 0) {
-				// 索引�?
+				// 索引减
 				nodeIndex--;
 				// 移动到指定索引的坐标
 				mMapView.getController().animateTo(
@@ -446,9 +438,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 				pop.showPopup(BMapUtil.getBitmapFromView(popupText), route
 						.getStep(nodeIndex).getPoint(), 5);
 			}
-			// 下一个节�?
+			// 下一个节点
 			if (mBtnNext.equals(v) && nodeIndex < (route.getNumSteps() - 1)) {
-				// 索引�?
+				// 索引加
 				nodeIndex++;
 				// 移动到指定索引的坐标
 				mMapView.getController().animateTo(
@@ -460,14 +452,14 @@ public class MapFragment extends Fragment implements OnClickListener {
 						.getStep(nodeIndex).getPoint(), 5);
 			}
 		} else {
-			// 公交换乘使用的数据结构与其他不同，因此单独处理节点浏�?
+			// 公交换乘使用的数据结构与其他不同，因此单独处理节点浏览
 			if (nodeIndex < -1 || transitOverlay == null
 					|| nodeIndex >= transitOverlay.getAllItem().size())
 				return;
 
-			// 上一个节�?
+			// 上一个节点
 			if (mBtnPre.equals(v) && nodeIndex > 1) {
-				// 索引�?
+				// 索引减
 				nodeIndex--;
 				// 移动到指定索引的坐标
 				mMapView.getController().animateTo(
@@ -478,10 +470,10 @@ public class MapFragment extends Fragment implements OnClickListener {
 				pop.showPopup(BMapUtil.getBitmapFromView(popupText),
 						transitOverlay.getItem(nodeIndex).getPoint(), 5);
 			}
-			// 下一个节�?
+			// 下一个节点
 			if (mBtnNext.equals(v)
 					&& nodeIndex < (transitOverlay.getAllItem().size() - 2)) {
-				// 索引�?
+				// 索引加
 				nodeIndex++;
 				// 移动到指定索引的坐标
 				mMapView.getController().animateTo(

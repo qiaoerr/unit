@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.config.Constants;
+import com.star.middleframework.R;
+import com.star.middleframework.config.Constants;
 
 public class PreloadingActivity extends Activity {
 	private TextView loading;

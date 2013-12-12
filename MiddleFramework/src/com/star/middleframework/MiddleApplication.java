@@ -1,17 +1,12 @@
 package com.star.middleframework;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import com.baidu.location.BDLocation;
-import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.MKGeneralListener;
-import com.baidu.mapapi.map.MKEvent;
 import com.star.baseFramework.BaseApplication;
 import com.star.baseFramework.util.map.BDLocationUtil;
 import com.star.baseFramework.util.map.BDLocationUtil.LocationSuccessListener;
 import com.star.middleframework.config.Constants;
 import com.star.middleframework.model.BaseInforModel;
+import com.star.middleframework.widget.MyRouteMapView;
 
 /**
  * @ClassName: ExpressApplication
@@ -22,31 +17,27 @@ import com.star.middleframework.model.BaseInforModel;
  */
 
 public class MiddleApplication extends BaseApplication {
-	private static MiddleApplication expressApplication;
-	public boolean m_bKeyRight = true;
-	BMapManager mBMapManager = null;
+	private static MiddleApplication middleApplication;
 	private BDLocation bdLocation = null;
 	private MyRouteMapView mapView;
 	private String res_prefix = "default_";
 	private BaseInforModel baseInfor;
 
 	public static MiddleApplication getInstance() {
-		return expressApplication;
+		return middleApplication;
 	}
 
+	/**
+	 * 判断是否进入app就定位
+	 */
 	@Override
 	public void onCreate() {
-		expressApplication = this;
+		middleApplication = this;
 		super.onCreate();
-		showScreenInfor();
 		// CrashHandler.init(this);
-		// 判断是否开启百度地图
-		if (Constants.openBDmap) {
-			initEngineManager(this);
-		}
 		// 判断是否开启进入app即开始定位
 		if (Constants.EnterLocation) {
-			BDLocationUtil.getLocation(expressApplication,
+			BDLocationUtil.getLocation(middleApplication,
 					new LocationSuccessListener() {
 
 						@Override
@@ -55,16 +46,8 @@ public class MiddleApplication extends BaseApplication {
 						}
 					});
 		}
+		// 初始化baseinfor （待修改）
 		initBaseInfor();
-	}
-
-	private void showScreenInfor() {
-		System.out.println("densityDpi: "
-				+ this.getResources().getDisplayMetrics().densityDpi);
-		System.out.println("widthPixels: "
-				+ this.getResources().getDisplayMetrics().widthPixels);
-		System.out.println("heightPixels: "
-				+ this.getResources().getDisplayMetrics().heightPixels);
 	}
 
 	private void initBaseInfor() {
@@ -74,55 +57,8 @@ public class MiddleApplication extends BaseApplication {
 		baseInfor.setLongitude(116.30815f);
 	}
 
-	public void initEngineManager(Context context) {
-		if (mBMapManager == null) {
-			mBMapManager = new BMapManager(context);
-		}
-
-		if (!mBMapManager
-				.init(Constants.Key_baidu_map, new MyGeneralListener())) {
-			Toast.makeText(expressApplication, "BMapManager  初始化错误!",
-					Toast.LENGTH_LONG).show();
-		} else {
-			// mBMapManager.start();
-			// mapView = new MyRouteMapView(expressApplication);
-		}
-
-	}
-
-	// 常用事件监听，用来处理通常的网络错误，授权验证错误等
-	static class MyGeneralListener implements MKGeneralListener {
-
-		@Override
-		public void onGetNetworkState(int iError) {
-			if (iError == MKEvent.ERROR_NETWORK_CONNECT) {
-				Toast.makeText(expressApplication, "您的网络出错啦！",
-						Toast.LENGTH_LONG).show();
-			} else if (iError == MKEvent.ERROR_NETWORK_DATA) {
-				Toast.makeText(expressApplication, "输入正确的检索条件！",
-						Toast.LENGTH_LONG).show();
-			}
-			// ...
-		}
-
-		@Override
-		public void onGetPermissionState(int iError) {
-			if (iError == MKEvent.ERROR_PERMISSION_DENIED) {
-				// 授权Key错误：
-				Toast.makeText(expressApplication,
-						"请在 DemoApplication.java文件输入正确的授权Key！",
-						Toast.LENGTH_LONG).show();
-				expressApplication.m_bKeyRight = false;
-			}
-		}
-	}
-
 	public BDLocation getBdLocation() {
 		return bdLocation;
-	}
-
-	public BMapManager getmBMapManager() {
-		return mBMapManager;
 	}
 
 	public MyRouteMapView getMapView() {

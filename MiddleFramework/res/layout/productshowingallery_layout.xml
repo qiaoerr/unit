@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.start.jdzchina.widget.MyImageView
+    <com.star.baseFramework.widget.ImageView360Degree
         android:id="@+id/myImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

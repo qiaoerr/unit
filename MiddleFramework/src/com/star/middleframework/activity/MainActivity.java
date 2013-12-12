@@ -18,9 +18,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.RapidApplication;
-import com.start.jdzchina.widget.MyRouteMapView;
+import com.star.middleframework.MiddleApplication;
+import com.star.middleframework.R;
+import com.star.middleframework.widget.MyRouteMapView;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 	private Context context;
@@ -80,16 +80,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.switch_img:
+		if (v.getId() == R.id.switch_img) {
 			if (isExpand) {
 				closeAnim();
 			} else {
 				openAnim();
 			}
-			break;
-		default:
-			break;
+		} else {
 		}
 	}
 
@@ -130,35 +127,27 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	}
 
 	public void menuClick(View v) {
-		switch (v.getId()) {
-		case R.id.menu1:
+		if (v.getId() == R.id.menu1) {
 			closeAnim();
 			fragment = new ActivityFragment();
 			ClearBackStackAndReplace(fragment);
-			break;
-		case R.id.menu2:
+		} else if (v.getId() == R.id.menu2) {
 			closeAnim();
 			fragment = new ProductShowFragment();
 			ClearBackStackAndReplace(fragment);
-			break;
-		case R.id.menu3:
+		} else if (v.getId() == R.id.menu3) {
 			closeAnim();
 			fragment = new MapFragment();
 			ClearBackStackAndReplace(fragment);
-			break;
-		case R.id.menu4:
+		} else if (v.getId() == R.id.menu4) {
 			closeAnim();
 			fragment = new NewsListFragment();
 			ClearBackStackAndReplace(fragment);
-			break;
-		case R.id.menu5:
+		} else if (v.getId() == R.id.menu5) {
 			closeAnim();
 			fragment = new AboutFragment();
 			ClearBackStackAndReplace(fragment);
-			break;
-
-		default:
-			break;
+		} else {
 		}
 	}
 
@@ -179,13 +168,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		boolean result = fm.popBackStackImmediate();
 		if (!result) {
 			if ((System.currentTimeMillis() - exitTime) > 2000) {
-				// Toast.makeText(context, "再按�?���?��程序",
+				// Toast.makeText(context, "再按�?���?��程序",
 				// Toast.LENGTH_SHORT).show();
 				Toast toast = new Toast(context);
 				toast.setDuration(Toast.LENGTH_SHORT);
 				TextView textView = new TextView(context);
 				textView.setPadding(8, 6, 8, 6);
-				textView.setText("再按�?���?��程序");
+				textView.setText("再按�?���?��程序");
 				textView.setBackgroundColor(getResources().getColor(
 						R.color.black));
 				textView.setTextColor(getResources().getColor(R.color.white));
@@ -220,7 +209,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		/**
 		 * MapView的生命周期与Activity同步，当activity挂起时需调用MapView.onPause()
 		 */
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		MyRouteMapView mMapView = MiddleApplication.getInstance().getMapView();
 		if (mMapView != null) {
 			mMapView.onPause();
 		}
@@ -232,7 +221,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		/**
 		 * MapView的生命周期与Activity同步，当activity恢复时需调用MapView.onResume()
 		 */
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		MyRouteMapView mMapView = MiddleApplication.getInstance().getMapView();
 		if (mMapView != null) {
 			mMapView.onResume();
 		}
@@ -242,20 +231,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	@Override
 	protected void onDestroy() {
 		/**
-		 * MapView的生命周期与Activity同步，当activity�?��时需调用MapView.destroy()
+		 * MapView的生命周期与Activity同步，当activity�?��时需调用MapView.destroy()
 		 */
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		MyRouteMapView mMapView = MiddleApplication.getInstance().getMapView();
 		if (mMapView != null) {
 			mMapView.destroy();
 		}
-		RapidApplication.getInstance().setMapView(null);
+		MiddleApplication.getInstance().setMapView(null);
 		super.onDestroy();
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		MyRouteMapView mMapView = MiddleApplication.getInstance().getMapView();
 		if (mMapView != null) {
 			mMapView.onSaveInstanceState(outState);
 		}
@@ -264,7 +253,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
+		MyRouteMapView mMapView = MiddleApplication.getInstance().getMapView();
 		if (mMapView != null && savedInstanceState != null) {
 			mMapView.onRestoreInstanceState(savedInstanceState);
 		}
