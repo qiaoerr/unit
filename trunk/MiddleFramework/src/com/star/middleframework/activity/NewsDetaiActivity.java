@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.model.NewsDataModel;
+import com.star.middleframework.R;
+import com.star.middleframework.model.NewsDataModel;
 
 public class NewsDetaiActivity extends Activity {
 	private ImageView close;

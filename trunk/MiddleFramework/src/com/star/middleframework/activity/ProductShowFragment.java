@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.start.jdzchina.R;
-import com.start.jdzchina.RapidApplication;
+import com.star.middleframework.MiddleApplication;
+import com.star.middleframework.R;
 
 public class ProductShowFragment extends Fragment implements OnClickListener {
 	private Context context;
@@ -43,7 +43,7 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 	private void initData() {
 		context = getActivity();
 		fm = getFragmentManager();
-		res_prefix = RapidApplication.getInstance().getRes_prefix();
+		res_prefix = MiddleApplication.getInstance().getRes_prefix();
 	}
 
 	private void initView() {
@@ -66,35 +66,26 @@ public class ProductShowFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.one:
+		if (v.getId() == R.id.one) {
 			fragment = new ProductShowsIn360();
 			args = new Bundle();
 			args.putString("prefix", res_prefix);
 			jumpToFragment(fragment);
-			break;
-		case R.id.two:
+		} else if (v.getId() == R.id.two) {
 			fragment = new PictureStoreFragment();
 			args = new Bundle();
 			args.putString("prefix", res_prefix);
 			fragment.setArguments(args);
 			jumpToFragment(fragment);
-			break;
-		case R.id.three:
+		} else if (v.getId() == R.id.three) {
 			intent = new Intent(context, MyDialogActivity.class);
 			intent.putExtra("prefix", res_prefix);
 			startActivity(intent);
-			break;
-		case R.id.four:
-
-			break;
-		case R.id.change_product:
+		} else if (v.getId() == R.id.four) {
+		} else if (v.getId() == R.id.change_product) {
 			fragment = new ChangeProductFragment();
 			jumpToFragment(fragment);
-			break;
-
-		default:
-			break;
+		} else {
 		}
 
 	}
