@@ -19,8 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.start.jdzchina.R;
-import com.start.jdzchina.RapidApplication;
-import com.start.jdzchina.widget.MyRouteMapView;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 	private Context context;
@@ -30,14 +28,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private boolean isExpand = false;
 	private FragmentManager fm;
 	private FragmentTransaction transaction;
-	private Fragment fragment;
 	private RelativeLayout menu1;
 	private RelativeLayout menu2;
 	private RelativeLayout menu3;
 	private RelativeLayout menu4;
 	private RelativeLayout menu5;
+	private Fragment fragment1;
+	private Fragment fragment2;
+	private Fragment fragment3;
+	private Fragment fragment4;
+	private Fragment fragment5;
 	private Animation animation = null;
 	private long exitTime;
+	private Fragment[] fragments;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private void initData() {
 		fm = getSupportFragmentManager();
 		factor = getResources().getDisplayMetrics().density;
-
+		fragments = new Fragment[5];
 	}
 
 	private void initView() {
@@ -71,8 +74,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		disableMenu();
 		//
 		transaction = fm.beginTransaction();
-		ActivityFragment fragment = new ActivityFragment();
-		transaction.replace(R.id.container, fragment);
+		fragment1 = new ActivityFragment();
+		fragments[0] = fragment1;
+		transaction.replace(R.id.container, fragment1);
 		// transaction.addToBackStack(null);
 		transaction.commit();
 
@@ -133,28 +137,43 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.menu1:
 			closeAnim();
-			fragment = new ActivityFragment();
-			ClearBackStackAndReplace(fragment);
+			if (fragment1 == null) {
+				fragment1 = new ActivityFragment();
+				fragments[0] = fragment1;
+			}
+			hideOrShow(fragment1);
 			break;
 		case R.id.menu2:
 			closeAnim();
-			fragment = new ProductShowFragment();
-			ClearBackStackAndReplace(fragment);
+			if (fragment2 == null) {
+				fragment2 = new ProductShowFragment();
+				fragments[1] = fragment2;
+			}
+			hideOrShow(fragment2);
 			break;
 		case R.id.menu3:
 			closeAnim();
-			fragment = new MapFragment();
-			ClearBackStackAndReplace(fragment);
+			if (fragment3 == null) {
+				fragment3 = new MapFragment();
+				fragments[2] = fragment3;
+			}
+			hideOrShow(fragment3);
 			break;
 		case R.id.menu4:
 			closeAnim();
-			fragment = new NewsListFragment();
-			ClearBackStackAndReplace(fragment);
+			if (fragment4 == null) {
+				fragment4 = new NewsListFragment();
+				fragments[3] = fragment4;
+			}
+			hideOrShow(fragment4);
 			break;
 		case R.id.menu5:
 			closeAnim();
-			fragment = new AboutFragment();
-			ClearBackStackAndReplace(fragment);
+			if (fragment5 == null) {
+				fragment5 = new AboutFragment();
+				fragments[4] = fragment5;
+			}
+			hideOrShow(fragment5);
 			break;
 
 		default:
@@ -171,6 +190,24 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		}
 		transaction = fm.beginTransaction();
 		transaction.replace(R.id.container, fragment);
+		transaction.commitAllowingStateLoss();
+	}
+
+	private void hideOrShow(Fragment fragment) {
+		transaction = fm.beginTransaction();
+		if (!fragment.isAdded()) {
+			transaction.add(R.id.container, fragment);
+		}
+		for (int i = 0; i < fragments.length; i++) {
+			if (fragments[i] != null) {
+				if (fragments[i] != null && fragments[i] == fragment) {
+					transaction.show(fragments[i]);
+				} else {
+					transaction.hide(fragments[i]);
+				}
+			}
+		}
+		fm.popBackStack(0, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 		transaction.commitAllowingStateLoss();
 	}
 
@@ -215,58 +252,4 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		return super.dispatchTouchEvent(ev);
 	}
 
-	@Override
-	protected void onPause() {
-		/**
-		 * MapView的生命周期与Activity同步，当activity挂起时需调用MapView.onPause()
-		 */
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
-		if (mMapView != null) {
-			mMapView.onPause();
-		}
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume() {
-		/**
-		 * MapView的生命周期与Activity同步，当activity恢复时需调用MapView.onResume()
-		 */
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
-		if (mMapView != null) {
-			mMapView.onResume();
-		}
-		super.onResume();
-	}
-
-	@Override
-	protected void onDestroy() {
-		/**
-		 * MapView的生命周期与Activity同步，当activity销毁时需调用MapView.destroy()
-		 */
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
-		if (mMapView != null) {
-			mMapView.destroy();
-		}
-		RapidApplication.getInstance().setMapView(null);
-		super.onDestroy();
-	}
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
-		if (mMapView != null) {
-			mMapView.onSaveInstanceState(outState);
-		}
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
-		MyRouteMapView mMapView = RapidApplication.getInstance().getMapView();
-		if (mMapView != null && savedInstanceState != null) {
-			mMapView.onRestoreInstanceState(savedInstanceState);
-		}
-	}
 }
