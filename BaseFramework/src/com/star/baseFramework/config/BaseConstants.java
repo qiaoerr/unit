@@ -5,20 +5,22 @@ import java.io.File;
 import android.os.Environment;
 
 public class BaseConstants {
-	public static final String APP_SITE = "Star";
-
+	// 作为默认的LOG_TAG，缓存子目录等
+	public static final String APP_SITE = "baseFramework";
+	// 是否开发人员
+	public static final boolean ISCODER = true;
+	// 是否启用System.out输出日志
+	public static final boolean SYSTEM_OUT = false;
+	// 是否打印日志(日志输出开关)
+	public static final boolean DEBUG = true;
+	// 是否把日志写入SD卡
+	public static final boolean PERSISTLOG = false;
 	// 缓存SD卡主路径
 	public static final String EXTERNAL_DIR = Environment
 			.getExternalStorageDirectory()
 			+ File.separator
 			+ APP_SITE
 			+ File.separator;
-	// 是否开发人员
-	public static final boolean ISCODER = true;
-	// 是否打印日志
-	public static final boolean DEBUG = true;
-	// 是否把日志写入SD卡
-	public static final boolean PERSISTLOG = false;
 	// SD卡上log主目录
 	public static final String LOGS_DIR = EXTERNAL_DIR + "logs"
 			+ File.separator;

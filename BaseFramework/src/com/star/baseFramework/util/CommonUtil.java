@@ -95,7 +95,7 @@ public class CommonUtil {
 	}
 
 	/**
-	 * 取得scale factor
+	 * 取得缩放因子 scale factor
 	 */
 	public static float getScale(Context context) {
 		return context.getResources().getDisplayMetrics().density;
