@@ -10,17 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.star.baseFramework.model.BannerModel;
+import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.widget.BannerView;
 import com.start.jdzchina.R;
-import com.start.jdzchina.model.BannerModel;
-import com.start.jdzchina.util.CommonUtil;
-import com.start.jdzchina.widget.BannerView;
 
 public class ActivityFragment extends Fragment {
 	private Context context;
 	private View view;
 	private RelativeLayout actContainer;
 	private ArrayList<BannerModel> bannerModels;
-	private static BannerView bannerView;
+	private BannerView bannerView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,18 +44,16 @@ public class ActivityFragment extends Fragment {
 
 	private void initView() {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
-		if (bannerView == null) {
-			bannerView = new BannerView(context, bannerModels,
-					CommonUtil.getWidthPx(context),
-					CommonUtil.getHeightPx(context));
-		}
+		bannerView = new BannerView(context, bannerModels,
+				CommonUtil.getScreenWidth(context),
+				CommonUtil.getScreenHeight(context));
 		actContainer.addView(bannerView);
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		actContainer.removeView(bannerView);
+
 	}
 
 }

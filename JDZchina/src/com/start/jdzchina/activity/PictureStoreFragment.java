@@ -13,12 +13,12 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 
+import com.star.baseFramework.model.BannerModel;
+import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.widget.twoWayGridView.TwoWayGridView;
 import com.start.jdzchina.R;
 import com.start.jdzchina.RapidApplication;
 import com.start.jdzchina.adapter.PicStoresAdapter;
-import com.start.jdzchina.model.BannerModel;
-import com.start.jdzchina.util.CommonUtil;
-import com.start.jdzchina.widget.twoWayGridView.TwoWayGridView;
 
 public class PictureStoreFragment extends Fragment {
 
@@ -75,13 +75,13 @@ public class PictureStoreFragment extends Fragment {
 		// CommonUtil.getHeightPx(context) / 2);
 		// picStoreContainer.addView(bannerView);
 		PicStoresAdapter adapter = new PicStoresAdapter(pics, context,
-				CommonUtil.getHeightPx(context) / 2);
+				CommonUtil.getScreenHeight(context) / 2);
 		horizontalGridView = new TwoWayGridView(context);
 		// horizontalGridView.setBackgroundColor(Color.YELLOW);
 		// 设置picStore的长宽
 		LayoutParams params = new LayoutParams(
-				CommonUtil.getWidthPx(context) * 2 / 3,
-				CommonUtil.getHeightPx(context) / 2);
+				CommonUtil.getScreenWidth(context) * 2 / 3,
+				CommonUtil.getScreenHeight(context) / 2);
 		horizontalGridView.setLayoutParams(params);
 		horizontalGridView.setScrollingCacheEnabled(false);
 		horizontalGridView.setNumRows(2);

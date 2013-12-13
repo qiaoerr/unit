@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.star.baseFramework.util.StrUtil;
 import com.start.jdzchina.R;
-import com.start.jdzchina.util.StrUtil;
 
 public class LXProgressDialog extends Dialog {
 	private Context mContext;

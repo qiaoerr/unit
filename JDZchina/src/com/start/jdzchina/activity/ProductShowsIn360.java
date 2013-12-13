@@ -9,9 +9,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.star.baseFramework.widget.ImageView360Degree;
 import com.start.jdzchina.R;
 import com.start.jdzchina.RapidApplication;
-import com.start.jdzchina.widget.MyImageView;
 
 public class ProductShowsIn360 extends Fragment {
 
@@ -19,7 +19,7 @@ public class ProductShowsIn360 extends Fragment {
 	private View view;
 	private ImageView close;
 	private int[] imgs;
-	private MyImageView myImageView;
+	private ImageView360Degree myImageView;
 	private String res_prefix;
 
 	@Override
@@ -49,7 +49,7 @@ public class ProductShowsIn360 extends Fragment {
 				getFragmentManager().popBackStack();
 			}
 		});
-		myImageView = (MyImageView) view.findViewById(R.id.myImageView);
+		myImageView = (ImageView360Degree) view.findViewById(R.id.myImageView);
 		myImageView.setBackgroundResource(imgs[0]);
 		myImageView.setImgs(imgs);
 

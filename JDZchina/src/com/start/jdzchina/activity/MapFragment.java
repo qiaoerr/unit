@@ -15,7 +15,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,11 +40,11 @@ import com.baidu.mapapi.search.MKSuggestionResult;
 import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.star.baseFramework.util.map.BDLocationUtil;
+import com.star.baseFramework.util.map.BDLocationUtil.LocationSuccessListener;
 import com.start.jdzchina.R;
 import com.start.jdzchina.RapidApplication;
 import com.start.jdzchina.model.BaseInforModel;
-import com.start.jdzchina.util.BDLocationUtil;
-import com.start.jdzchina.util.BDLocationUtil.LocationSuccessListener;
 import com.start.jdzchina.util.BMapUtil;
 import com.start.jdzchina.widget.LXProgressDialog;
 import com.start.jdzchina.widget.MyRouteMapView;
@@ -89,7 +88,6 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private MKPlanNode start;
 	private MKPlanNode end;
 	private LinearLayout search_result_detail_linearlayout;
-	private RelativeLayout mapContainer;
 	private boolean isShow = false;
 	private TextView start_point;
 	private TextView end_point;
@@ -109,7 +107,6 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private void initData() {
 		context = getActivity();
 		baseInfor = RapidApplication.getInstance().getBaseInfor();
-		mMapView = RapidApplication.getInstance().getMapView();
 		progressDialog = new LXProgressDialog(context, "定位中...");
 		progressDialog.show();
 		BDLocationUtil.getLocation(context, new LocationSuccessListener() {
@@ -251,14 +248,9 @@ public class MapFragment extends Fragment implements OnClickListener {
 	private void initView() {
 		end_point = (TextView) view.findViewById(R.id.end_point);
 		end_point.setText(baseInfor.getAddress());
-		mapContainer = (RelativeLayout) view.findViewById(R.id.mapContainer);
 		search_result_detail_linearlayout = (LinearLayout) view
 				.findViewById(R.id.search_result_detail_linearlayout);
-		if (mMapView == null) {
-			mMapView = new MyRouteMapView(context);
-			RapidApplication.getInstance().setMapView(mMapView);
-		}
-		mapContainer.addView(mMapView);
+		mMapView = (MyRouteMapView) view.findViewById(R.id.mapView);
 		mMapController = mMapView.getController();
 		mMapController.enableClick(true);
 		mMapController.setZoom(12);
@@ -538,7 +530,6 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onPause() {
-		mapContainer.removeView(mMapView);
 		if (pop != null) {
 			pop.hidePop();
 		}
@@ -548,8 +539,7 @@ public class MapFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onDestroy() {
-		// mMapView.destroy();
-		// mMapView = null;
+		mMapView.destroy();
 		super.onDestroy();
 	}
 

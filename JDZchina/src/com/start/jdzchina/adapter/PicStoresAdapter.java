@@ -12,8 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
+import com.star.baseFramework.widget.twoWayGridView.TwoWayAbsListView.LayoutParams;
 import com.start.jdzchina.activity.BigPicTureActivity;
-import com.start.jdzchina.widget.twoWayGridView.TwoWayAbsListView.LayoutParams;
 
 public class PicStoresAdapter extends BaseAdapter {
 	private ArrayList<Integer> dataList;
