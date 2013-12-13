@@ -10,7 +10,7 @@ public class Constants extends BaseConstants {
 	public static final int NONETWORK = 1003;
 
 	// 百度地图相关
-	public static final boolean EnterLocation = true;// 进入就定位
+	public static final boolean EnterLocation = false;// 进入就定位
 	// 长宽比例配置
 	public static final float ratio_gridView = 159f / 287;// 若不加f 则值为0
 }
