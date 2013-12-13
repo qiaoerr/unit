@@ -49,6 +49,8 @@ public class PreloadingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = this;
+		// 打印输出手机信息
+		// AndroidUtil.showPhoneInfor(context);
 		setContentView(R.layout.preloading);
 		loading = (TextView) findViewById(R.id.load_prompt);
 		getData();
