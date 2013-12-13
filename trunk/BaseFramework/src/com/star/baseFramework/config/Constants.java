@@ -31,6 +31,6 @@ public class Constants {
 	public static final String IMG_DIR = EXTERNAL_DIR + "images"
 			+ File.separator;
 	// 百度地图相关
-	public static final boolean openBDmap = false;
+	public static final boolean openBDmap = true;
 	public static final String Key_baidu_map = "AB39EEB5B8081625224CB1A366F8DBDF10E5CEC2";
 }
