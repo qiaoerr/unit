@@ -2,14 +2,12 @@ package com.star.baseFramework;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
 import com.baidu.mapapi.map.MKEvent;
 import com.star.baseFramework.config.BaseConstants;
-import com.star.baseFramework.util.L;
 
 /**
  * @ClassName: BaseApplication
@@ -23,6 +21,7 @@ public class BaseApplication extends Application {
 	private static BaseApplication baseApplication;
 	public boolean m_bKeyRight = true;
 	private BMapManager mBMapManager = null;
+	private static int num = 0;
 
 	public static BaseApplication getInstance() {
 		return baseApplication;
@@ -33,9 +32,8 @@ public class BaseApplication extends Application {
 	 */
 	@Override
 	public void onCreate() {
-		baseApplication = this;
 		super.onCreate();
-		showScreenInfor();
+		baseApplication = this;
 		// CrashHandler.init(this);
 		// 判断是否开启百度地图
 		if (BaseConstants.openBDmap) {
@@ -43,37 +41,12 @@ public class BaseApplication extends Application {
 		}
 	}
 
-	private void showScreenInfor() {
-		DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
-		L.i("densityDpi: " + displayMetrics.densityDpi);
-		L.i("widthPixels: " + displayMetrics.widthPixels);
-		L.i("heightPixels: " + displayMetrics.heightPixels);
-		String phoneInfo = "Product: " + android.os.Build.PRODUCT;
-		phoneInfo += ", CPU_ABI: " + android.os.Build.CPU_ABI;
-		phoneInfo += ", TAGS: " + android.os.Build.TAGS;
-		phoneInfo += ", VERSION_CODES.BASE: "
-				+ android.os.Build.VERSION_CODES.BASE;
-		phoneInfo += ", MODEL: " + android.os.Build.MODEL;
-		phoneInfo += ", SDK: " + android.os.Build.VERSION.SDK_INT;
-		phoneInfo += ", VERSION.RELEASE: " + android.os.Build.VERSION.RELEASE;
-		phoneInfo += ", DEVICE: " + android.os.Build.DEVICE;
-		phoneInfo += ", DISPLAY: " + android.os.Build.DISPLAY;
-		phoneInfo += ", BRAND: " + android.os.Build.BRAND;
-		phoneInfo += ", BOARD: " + android.os.Build.BOARD;
-		phoneInfo += ", FINGERPRINT: " + android.os.Build.FINGERPRINT;
-		phoneInfo += ", ID: " + android.os.Build.ID;
-		phoneInfo += ", MANUFACTURER: " + android.os.Build.MANUFACTURER;
-		phoneInfo += ", USER: " + android.os.Build.USER;
-		L.i("phoneInfor:  " + phoneInfo);
-
-	}
-
 	public void initEngineManager(Context context) {
 		if (mBMapManager == null) {
 			mBMapManager = new BMapManager(context);
 		}
-		if (!mBMapManager
-				.init(BaseConstants.Key_baidu_map, new MyGeneralListener())) {
+		if (!mBMapManager.init(BaseConstants.Key_baidu_map,
+				new MyGeneralListener())) {
 			Toast.makeText(baseApplication, "BMapManager  初始化错误!",
 					Toast.LENGTH_LONG).show();
 		}

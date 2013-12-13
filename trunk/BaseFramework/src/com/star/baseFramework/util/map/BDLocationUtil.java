@@ -17,6 +17,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.star.baseFramework.util.L;
 
 /**
  * @ClassName: BDLocationUtil
@@ -85,7 +86,7 @@ public class BDLocationUtil {
 			}
 			bdLocation = location;
 			locationSuccess.dealWithLocationData(location);
-			System.out.println(sb.toString());
+			L.i(sb.toString());
 			mLocationClient.stop();
 		}
 

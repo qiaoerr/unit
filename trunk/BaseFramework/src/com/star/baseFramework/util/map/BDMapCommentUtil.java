@@ -49,6 +49,7 @@ public class BDMapCommentUtil {
 	private void init() {
 		// 初始化搜索模块，注册事件监听
 		mSearch = new MKSearch();
+
 		mSearch.init(BaseApplication.getInstance().getmBMapManager(),
 				new MKSearchListener() {
 					@Override

@@ -72,8 +72,8 @@ public class L {
 				Log.e(TAG, text);
 				break;
 			}
-			// 如果是开发人员，则在System.out中也打印日志
-			if (BaseConstants.ISCODER) {
+			// 是否在System.out中也打印日志
+			if (BaseConstants.SYSTEM_OUT) {
 				System.out.println(text);
 			}
 		}
