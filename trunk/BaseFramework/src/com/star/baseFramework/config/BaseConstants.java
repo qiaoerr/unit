@@ -4,7 +4,7 @@ import java.io.File;
 
 import android.os.Environment;
 
-public class Constants {
+public class BaseConstants {
 	public static final String APP_SITE = "Star";
 
 	// 缓存SD卡主路径

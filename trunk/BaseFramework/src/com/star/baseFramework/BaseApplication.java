@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
 import com.baidu.mapapi.map.MKEvent;
-import com.star.baseFramework.config.Constants;
+import com.star.baseFramework.config.BaseConstants;
 import com.star.baseFramework.util.L;
 
 /**
@@ -38,7 +38,7 @@ public class BaseApplication extends Application {
 		showScreenInfor();
 		// CrashHandler.init(this);
 		// 判断是否开启百度地图
-		if (Constants.openBDmap) {
+		if (BaseConstants.openBDmap) {
 			initEngineManager(baseApplication);
 		}
 	}
@@ -73,7 +73,7 @@ public class BaseApplication extends Application {
 			mBMapManager = new BMapManager(context);
 		}
 		if (!mBMapManager
-				.init(Constants.Key_baidu_map, new MyGeneralListener())) {
+				.init(BaseConstants.Key_baidu_map, new MyGeneralListener())) {
 			Toast.makeText(baseApplication, "BMapManager  初始化错误!",
 					Toast.LENGTH_LONG).show();
 		}
