@@ -14,7 +14,6 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -68,8 +67,8 @@ public class MainActivity extends Activity {
 		msp.setSpan(new ForegroundColorSpan(Color.MAGENTA), 12, 15,
 				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // 设置前景色为洋红色
 		// 设置字体背景色
-		msp.setSpan(new BackgroundColorSpan(Color.CYAN), 15, 18,
-				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // 设置背景色为青色
+		// msp.setSpan(new BackgroundColorSpan(Color.CYAN), 15, 18,
+		// Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // 设置背景色为青色
 		// 设置字体样式正常，粗体，斜体，粗斜体
 		msp.setSpan(new StyleSpan(android.graphics.Typeface.NORMAL), 18, 20,
 				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // 正常
