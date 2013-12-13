@@ -1,7 +1,8 @@
 package com.start.barbering.config;
 
+import com.star.baseFramework.config.BaseConstants;
 
-public class Constants extends com.star.baseFramework.config.Constants {
+public class Constants extends BaseConstants {
 	public static final String APP_SITE = "Star";
 	// Json返回数据标识
 	public static final int FULLDATA = 1001;
