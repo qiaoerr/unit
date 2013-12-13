@@ -22,13 +22,13 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
-import com.star.baseFramework.config.Constants;
+import com.star.baseFramework.config.BaseConstants;
 
 public class AsyncImageLoader {
 	public HashMap<String, SoftReference<Drawable>> imageCache;
 	// 线程池
 	private ExecutorService executorService = Executors.newFixedThreadPool(5);
-	public static String DIRPATH = Constants.IMG_DIR;
+	public static String DIRPATH = BaseConstants.IMG_DIR;
 	private Context mContext;
 
 	public AsyncImageLoader(Context context) {

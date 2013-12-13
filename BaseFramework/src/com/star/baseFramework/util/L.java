@@ -7,7 +7,7 @@ import java.util.Date;
 
 import android.util.Log;
 
-import com.star.baseFramework.config.Constants;
+import com.star.baseFramework.config.BaseConstants;
 
 /**
  * 日志工具类
@@ -52,9 +52,9 @@ public class L {
 		}
 		if (StrUtil.isEmpty(TAG)) {
 			// TAG未填写时，采用默认的
-			TAG = Constants.DEFAULT_LOG_TAG;
+			TAG = BaseConstants.DEFAULT_LOG_TAG;
 		}
-		if (Constants.DEBUG) {
+		if (BaseConstants.DEBUG) {
 			switch (level) {
 			case Log.VERBOSE:
 				Log.v(TAG, text);
@@ -73,11 +73,11 @@ public class L {
 				break;
 			}
 			// 如果是开发人员，则在System.out中也打印日志
-			if (Constants.ISCODER) {
+			if (BaseConstants.ISCODER) {
 				System.out.println(text);
 			}
 		}
-		if (Constants.PERSISTLOG) {
+		if (BaseConstants.PERSISTLOG) {
 			writeLog(text, level);
 		}
 
@@ -109,10 +109,10 @@ public class L {
 
 		RandomAccessFile raf = null;
 		try {
-			String fileName = Constants.LOGS_DIR + "log.txt";
+			String fileName = BaseConstants.LOGS_DIR + "log.txt";
 			File logFile = new File(fileName);
 			if (!logFile.exists()) {
-				File logs = new File(Constants.LOGS_DIR);
+				File logs = new File(BaseConstants.LOGS_DIR);
 				if (!logs.exists()) {
 					logs.mkdirs();
 				}
