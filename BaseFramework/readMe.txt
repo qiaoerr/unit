@@ -7,3 +7,7 @@ FontFitTextView   字体根据textView的宽度，自适应到合适大小的Tex
 ImageView360Degree  平面360都展示图片的组件
 PagingViewGroup     用于分页显示的ViewGroup
 NoScrollListView  NoScrollGridView   套在ScrollView中仍可完全显示
+
+Framework作为lib工程引入到主的工程项目中，但是lib工程中assets目录下
+的文件不会被打包到最后的apk文件中去。因此用到支付宝功能时要把framework
+中asserts目录下的文件拷贝到主工程中去
