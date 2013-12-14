@@ -20,12 +20,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.star.baseFrameworkC.R;
 import com.star.baseFramework.adapter.ViewPagerAdapter;
 import com.star.baseFramework.model.BannerModel;
 import com.star.baseFramework.util.AsyncImageLoader;
 import com.star.baseFramework.util.CommonUtil;
 import com.star.baseFramework.util.FileUtil;
+import com.star.baseFrameworkC.R;
 
 /**
  * 
@@ -48,8 +48,8 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	private boolean isContinue = true;
 	private AtomicInteger atomicInteger = null;
 	private int speed = 3;
-	private final static int left_bottom = 0;
-	private final static int middle_bottom = 1;
+	public final static int left_bottom = 0;
+	public final static int middle_bottom = 1;
 	private int possition = 0;
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -136,7 +136,8 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 		} else if (possition == middle_bottom) {
 			params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-			params.setMargins(0, 0, 0, 15);
+			// params.setMargins(0, 0, 0, 45);
+			viewGroup.setPadding(0, 0, 0, 25);
 		}
 
 		viewGroup.setLayoutParams(params);
