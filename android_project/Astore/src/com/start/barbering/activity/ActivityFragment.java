@@ -34,9 +34,9 @@ public class ActivityFragment extends Fragment {
 	private void initData() {
 		context = getActivity();
 		bannerModels = new ArrayList<BannerModel>();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			BannerModel model = new BannerModel(BannerModel.TYPE_LOCAL,
-					R.drawable.temp1 + i);
+					R.drawable.activity1 + i);
 			bannerModels.add(model);
 		}
 
@@ -46,7 +46,7 @@ public class ActivityFragment extends Fragment {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
 		bannerView = new BannerView(context, bannerModels,
 				CommonUtil.getScreenWidth(context),
-				CommonUtil.getScreenHeight(context));
+				CommonUtil.getScreenHeight(context), BannerView.middle_bottom);
 		actContainer.addView(bannerView);
 	}
 

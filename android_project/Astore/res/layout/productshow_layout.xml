@@ -32,7 +32,7 @@
                 android:id="@+id/one"
                 android:layout_width="39dp"
                 android:layout_height="52dp"
-                android:background="@drawable/pro_faxing"
+                android:background="@drawable/pro_right1"
                 android:visibility="visible" />
 
             <ImageView
@@ -40,7 +40,7 @@
                 android:layout_width="39dp"
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/pro_lifashi"
+                android:background="@drawable/pro_right2"
                 android:visibility="visible" />
 
             <ImageView
@@ -48,7 +48,7 @@
                 android:layout_width="39dp"
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/pro_pri"
+                android:background="@drawable/pro_right3"
                 android:visibility="visible" />
         </LinearLayout>
     </LinearLayout>

@@ -93,7 +93,7 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 
 		dataList = new ArrayList<ShowModel>();
 		// test
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 8; i++) {
 			ShowModel show = new ShowModel();
 			show.setImgResID(R.drawable.model_1 + i);
 			dataList.add(show);
