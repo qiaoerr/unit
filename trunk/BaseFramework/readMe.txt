@@ -1,3 +1,5 @@
+Widget 文件夹下的类概述
+
 slidingMenu    侧滑组件
 twoWayGridView    可水平、垂直方向上滚动的Gridview
 bannerView    像横幅一样展示图片的组件
