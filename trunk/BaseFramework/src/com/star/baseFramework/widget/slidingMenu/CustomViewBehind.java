@@ -13,7 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 import com.star.baseFramework.widget.slidingMenu.SlidingMenu.CanvasTransformer;
 
 public class CustomViewBehind extends ViewGroup {

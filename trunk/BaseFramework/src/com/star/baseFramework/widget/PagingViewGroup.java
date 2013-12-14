@@ -21,7 +21,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 
 /**
  * @ClassName: PagingViewGroup
