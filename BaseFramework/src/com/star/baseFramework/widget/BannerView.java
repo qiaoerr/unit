@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 import com.star.baseFramework.adapter.ViewPagerAdapter;
 import com.star.baseFramework.model.BannerModel;
 import com.star.baseFramework.util.AsyncImageLoader;

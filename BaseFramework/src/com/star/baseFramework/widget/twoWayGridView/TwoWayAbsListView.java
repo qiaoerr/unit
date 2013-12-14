@@ -31,7 +31,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.Scroller;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 
 /**
  * Base class that can be used to implement virtualized lists of items. A list

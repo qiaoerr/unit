@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.GridLayoutAnimationController;
 import android.widget.ListAdapter;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 
 /**
  * A view that shows items in two-dimensional scrolling grid. The items in the

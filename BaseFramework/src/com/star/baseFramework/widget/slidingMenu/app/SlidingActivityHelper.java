@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 import com.star.baseFramework.widget.slidingMenu.SlidingMenu;
 
 public class SlidingActivityHelper {

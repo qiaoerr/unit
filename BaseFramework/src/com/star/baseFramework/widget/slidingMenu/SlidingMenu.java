@@ -27,7 +27,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.star.baseFramework.R;
+import com.star.baseFrameworkC.R;
 import com.star.baseFramework.widget.slidingMenu.CustomViewAbove.OnPageChangeListener;
 
 public class SlidingMenu extends RelativeLayout {
