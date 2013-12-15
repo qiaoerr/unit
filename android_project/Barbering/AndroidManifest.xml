@@ -159,7 +159,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="fbfe883b6fda3616f8ca9df3" /> <!-- </>值来自开发者平台取得的AppKey -->
+            android:value="7fe4c76608829af71bab70d3" /> <!-- </>值来自开发者平台取得的AppKey -->
         <!-- 百度地图定位服务 -->
         <service
             android:name="com.baidu.location.f"
