@@ -26,14 +26,14 @@ import android.view.ViewGroup;
  * 
  */
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 	private ArrayList<Fragment> fragments;
 
-	public PagerAdapter(FragmentManager fm) {
+	public MyFragmentStatePagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
 
-	public PagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
+	public MyFragmentStatePagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
 		super(fm);
 		this.fragments = fragments;
 	}

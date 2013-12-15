@@ -3,54 +3,11 @@
     android:id="@+id/productShow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/greyLight"
     android:orientation="horizontal" >
 
     <android.support.v4.view.ViewPager
         android:id="@+id/myViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:id="@+id/right_tab"
-        android:layout_width="80dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0"
-        android:background="@drawable/rightb"
-        android:orientation="vertical"
-        android:visibility="visible" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="100dp"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/one"
-                android:layout_width="39dp"
-                android:layout_height="52dp"
-                android:background="@drawable/pro_right1"
-                android:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/two"
-                android:layout_width="39dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/pro_right2"
-                android:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/three"
-                android:layout_width="39dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/pro_right3"
-                android:visibility="visible" />
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

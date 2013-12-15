@@ -77,7 +77,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		fragment1 = new ActivityFragment();
 		fragments[0] = fragment1;
 		transaction.replace(R.id.container, fragment1);
-		// transaction.addToBackStack(null);
 		transaction.commit();
 
 	}

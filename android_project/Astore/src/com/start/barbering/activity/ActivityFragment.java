@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.star.baseFramework.model.BannerModel;
 import com.star.baseFramework.util.CommonUtil;
@@ -46,8 +47,9 @@ public class ActivityFragment extends Fragment {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
 		bannerView = new BannerView(context, bannerModels,
 				CommonUtil.getScreenWidth(context),
-				CommonUtil.getScreenHeight(context), BannerView.middle_bottom);
+				CommonUtil.getScreenHeight(context), BannerView.right_bottom);
 		actContainer.addView(bannerView);
+		Toast.makeText(context, "按住屏幕，可暂停左右滚动", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
