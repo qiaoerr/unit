@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
@@ -29,7 +28,6 @@ public class ProductShowFragment extends Fragment implements
 		OnPageChangeListener {
 	private Context context;
 	private View view;
-	private FragmentManager fm;
 	public static LinearLayout productShow;
 	private ViewPager myViewPager;
 	private ArrayList<RelativeLayout> views;
