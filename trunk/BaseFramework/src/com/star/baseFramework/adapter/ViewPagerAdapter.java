@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 /*用于BannerView*/
 public class ViewPagerAdapter extends PagerAdapter {
-	private ArrayList<View> views;
+	private ArrayList<? extends View> views;
 
-	public ViewPagerAdapter(ArrayList<View> views) {
+	public ViewPagerAdapter(ArrayList<? extends View> views) {
 		super();
 		this.views = views;
 	}

@@ -47,9 +47,10 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	private ViewPager viewPager;
 	private boolean isContinue = true;
 	private AtomicInteger atomicInteger = null;
-	private int speed = 3;
+	private int speed = 4;
 	public final static int left_bottom = 0;
 	public final static int middle_bottom = 1;
+	public final static int right_bottom = 2;
 	private int possition = 0;
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -136,8 +137,10 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 		} else if (possition == middle_bottom) {
 			params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-			// params.setMargins(0, 0, 0, 45);
 			viewGroup.setPadding(0, 0, 0, 25);
+		} else if (possition == right_bottom) {
+			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		}
 
 		viewGroup.setLayoutParams(params);
@@ -188,7 +191,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 				}
 			}
 		};
-		timer.schedule(task, 3000, speed * 1000);
+		timer.schedule(task, 2000, speed * 1000);
 	}
 
 	@Override
