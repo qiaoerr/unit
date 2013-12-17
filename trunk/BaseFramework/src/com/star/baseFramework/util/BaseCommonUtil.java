@@ -7,7 +7,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.DisplayMetrics;
 
-public class CommonUtil {
+public class BaseCommonUtil {
 
 	/**
 	 * 检测sdcard是否可用

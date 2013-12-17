@@ -23,7 +23,7 @@ import android.widget.TextView;
 import com.star.baseFramework.adapter.ViewPagerAdapter;
 import com.star.baseFramework.model.BannerModel;
 import com.star.baseFramework.util.AsyncImageLoader;
-import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.util.BaseCommonUtil;
 import com.star.baseFramework.util.FileUtil;
 import com.star.baseFrameworkC.R;
 
@@ -101,7 +101,7 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	private void initData() {
 		atomicInteger = new AtomicInteger(0);
 		if (bannerWidth == 0) {
-			bannerWidth = CommonUtil.getScreenWidth(context);
+			bannerWidth = BaseCommonUtil.getScreenWidth(context);
 		}
 		if (bannerHight == 0) {
 			bannerHight = bannerWidth / 2;
@@ -167,10 +167,10 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 				out.setBackgroundResource(R.drawable.slider_normal);
 			}
 			android.widget.LinearLayout.LayoutParams params_linear = new android.widget.LinearLayout.LayoutParams(
-					CommonUtil.dip2px(context, 30), CommonUtil.dip2px(context,
+					BaseCommonUtil.dip2px(context, 30), BaseCommonUtil.dip2px(context,
 							15));
 			if (i != 0) {
-				params_linear.setMargins(-CommonUtil.dip2px(context, 8), 0, 0,
+				params_linear.setMargins(-BaseCommonUtil.dip2px(context, 8), 0, 0,
 						0);
 			}
 			out.setLayoutParams(params_linear);
