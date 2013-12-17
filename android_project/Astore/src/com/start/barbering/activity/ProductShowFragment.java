@@ -18,11 +18,12 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
 import com.star.baseFramework.adapter.ViewPagerAdapter;
-import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.util.BaseCommonUtil;
 import com.start.astore.R;
 import com.start.barbering.adapter.GridViewAdapter;
 import com.start.barbering.config.Constants;
 import com.start.barbering.model.ShowModel;
+import com.start.barbering.util.CommentUtil;
 
 public class ProductShowFragment extends Fragment implements
 		OnPageChangeListener {
@@ -53,18 +54,18 @@ public class ProductShowFragment extends Fragment implements
 
 	private void initData() {
 		context = getActivity();
-		scale = CommonUtil.getScale(context);
+		scale = BaseCommonUtil.getScale(context);
 		views = new ArrayList<RelativeLayout>();
 		// 在4.0.4之前的版本中水平间距是一个和另一个之间的间距，在4.1.2及其以后的版本是一个item两边的间距之和
 		if (getSdkVersion() > 15) {
-			cellWidth = (int) (CommonUtil.getScreenWidth(context) - (column
+			cellWidth = (int) (BaseCommonUtil.getScreenWidth(context) - (column
 					* column_space + 2 * margin)
 					* scale)
 					/ column;
 			cellHight = (int) (cellWidth * Constants.ratio_gridView);
 			perPager = getPerPager();
 		} else {
-			cellWidth = (int) (CommonUtil.getScreenWidth(context) - ((column - 1)
+			cellWidth = (int) (BaseCommonUtil.getScreenWidth(context) - ((column - 1)
 					* column_space + 2 * margin)
 					* scale)
 					/ column;
@@ -73,9 +74,11 @@ public class ProductShowFragment extends Fragment implements
 		}
 		dataList = new ArrayList<ShowModel>();
 		// test
-		for (int i = 0; i < 8; i++) {
+		ArrayList<Integer> arrayList = CommentUtil.getPrefixImages(context,
+				"model_");
+		for (int i = 0; i < arrayList.size(); i++) {
 			ShowModel show = new ShowModel();
-			show.setImgResID(R.drawable.model_1 + i);
+			show.setImgResID(arrayList.get(i));
 			dataList.add(show);
 		}
 		initViewsInViewPager();
@@ -148,7 +151,7 @@ public class ProductShowFragment extends Fragment implements
 
 	private int getPerPager() {
 		return column
-				* (int) ((CommonUtil.getScreenHeight(context) / (cellHight + column_space
+				* (int) ((BaseCommonUtil.getScreenHeight(context) / (cellHight + column_space
 						* scale)));
 	}
 }

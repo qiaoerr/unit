@@ -12,9 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.star.baseFramework.model.BannerModel;
-import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.util.BaseCommonUtil;
 import com.star.baseFramework.widget.BannerView;
 import com.start.astore.R;
+import com.start.barbering.util.CommentUtil;
 
 public class ActivityFragment extends Fragment {
 	private Context context;
@@ -35,9 +36,11 @@ public class ActivityFragment extends Fragment {
 	private void initData() {
 		context = getActivity();
 		bannerModels = new ArrayList<BannerModel>();
-		for (int i = 0; i < 5; i++) {
+		ArrayList<Integer> arrayList = CommentUtil.getPrefixImages(context,
+				"activity");
+		for (int i = 0; i < arrayList.size(); i++) {
 			BannerModel model = new BannerModel(BannerModel.TYPE_LOCAL,
-					R.drawable.activity1 + i);
+					arrayList.get(i));
 			bannerModels.add(model);
 		}
 
@@ -46,8 +49,9 @@ public class ActivityFragment extends Fragment {
 	private void initView() {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
 		bannerView = new BannerView(context, bannerModels,
-				CommonUtil.getScreenWidth(context),
-				CommonUtil.getScreenHeight(context), BannerView.right_bottom);
+				BaseCommonUtil.getScreenWidth(context),
+				BaseCommonUtil.getScreenHeight(context),
+				BannerView.right_bottom);
 		actContainer.addView(bannerView);
 		Toast.makeText(context, "按住屏幕，可暂停左右滚动", Toast.LENGTH_SHORT).show();
 	}
