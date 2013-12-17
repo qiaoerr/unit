@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.star.baseFramework.model.BannerModel;
-import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.util.BaseCommonUtil;
 import com.star.baseFramework.widget.BannerView;
 import com.start.jdzchina.R;
 
@@ -45,8 +45,8 @@ public class ActivityFragment extends Fragment {
 	private void initView() {
 		actContainer = (RelativeLayout) view.findViewById(R.id.actContainer);
 		bannerView = new BannerView(context, bannerModels,
-				CommonUtil.getScreenWidth(context),
-				CommonUtil.getScreenHeight(context));
+				BaseCommonUtil.getScreenWidth(context),
+				BaseCommonUtil.getScreenHeight(context));
 		actContainer.addView(bannerView);
 	}
 
