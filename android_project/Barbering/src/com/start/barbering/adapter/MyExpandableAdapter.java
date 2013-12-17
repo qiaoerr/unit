@@ -24,7 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.util.BaseCommonUtil;
 import com.start.barbering.R;
 
 /**
@@ -124,8 +124,9 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
 		ll.setOrientation(0);
 		ImageView logo = new ImageView(context);
 		logo.setScaleType(ScaleType.FIT_XY);
-		params = new LayoutParams((int) (50 * CommonUtil.getScale(context)),
-				(int) (50 * CommonUtil.getScale(context)));
+		params = new LayoutParams(
+				(int) (50 * BaseCommonUtil.getScale(context)),
+				(int) (50 * BaseCommonUtil.getScale(context)));
 		logo.setLayoutParams(params);
 		logo.setBackgroundColor(Color.BLUE);
 		logo.setImageResource(logos[groupPosition]);
@@ -143,8 +144,9 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
 		LinearLayout ll = new LinearLayout(context);
 		ll.setOrientation(0);
 		ImageView generallogo = new ImageView(context);
-		params = new LayoutParams((int) (50 * CommonUtil.getScale(context)),
-				(int) (50 * CommonUtil.getScale(context)));
+		params = new LayoutParams(
+				(int) (50 * BaseCommonUtil.getScale(context)),
+				(int) (50 * BaseCommonUtil.getScale(context)));
 		generallogo.setLayoutParams(params);
 		generallogo
 				.setImageResource(generallogos[groupPosition][childPosition]);

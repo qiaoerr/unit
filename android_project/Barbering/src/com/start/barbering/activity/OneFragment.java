@@ -25,7 +25,7 @@ import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
-import com.star.baseFramework.util.CommonUtil;
+import com.star.baseFramework.util.BaseCommonUtil;
 import com.star.baseFramework.widget.PagingViewGroup;
 import com.start.barbering.R;
 import com.start.barbering.adapter.GridViewAdapter;
@@ -69,8 +69,8 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 
 	private void initData() {
 		context = getActivity();
-		scale = CommonUtil.getScale(context);
-		containerWidth = (int) (CommonUtil.getScreenWidth(context) - rightBarWidth
+		scale = BaseCommonUtil.getScale(context);
+		containerWidth = (int) (BaseCommonUtil.getScreenWidth(context) - rightBarWidth
 				* scale);
 		// 在4.0.4之前的版本中水平间距是一个和另一个之间的间距，在4.1.2及其以后的版本是一个item两边的间距之和
 		if (getSdkVersion() > 15) {
@@ -102,7 +102,7 @@ public class OneFragment extends Fragment implements OnItemClickListener {
 
 	private int getPerPager() {
 		return column
-				* (int) ((CommonUtil.getScreenHeight(context) - 2 * margin
+				* (int) ((BaseCommonUtil.getScreenHeight(context) - 2 * margin
 						* scale) / (cellHight + column_space * scale));
 	}
 
