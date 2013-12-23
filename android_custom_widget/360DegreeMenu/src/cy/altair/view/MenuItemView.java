@@ -8,9 +8,14 @@ import android.view.ViewGroup;
 public class MenuItemView extends ViewGroup {
 	public final static int STATUS_CLOSE = 0;
 	public final static int STATUS_OPEN = 1;
+	public final static int EXACTLY = 0;
+	public final static int UNSPECIFIED = 1;
 	private float radius;
 	private int status;
 	private Context context;
+	private int screenWidth;
+	private int modle = EXACTLY;
+	private int percentage = 5;// 决定menuItem图标的大小，值越大，menuItem图标的值越小
 
 	public MenuItemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -25,6 +30,7 @@ public class MenuItemView extends ViewGroup {
 	private void init(Context context) {
 		this.context = context;
 		this.status = STATUS_CLOSE;
+		this.screenWidth = context.getResources().getDisplayMetrics().widthPixels;
 	}
 
 	@Override
@@ -32,7 +38,15 @@ public class MenuItemView extends ViewGroup {
 		for (int index = 0; index < getChildCount(); index++) {
 			final View child = getChildAt(index);
 			// measure
-			child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+			if (modle == UNSPECIFIED) {
+				child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+			} else if (modle == EXACTLY) {
+				int widthMeasureSp = MeasureSpec.makeMeasureSpec(screenWidth
+						/ percentage, MeasureSpec.EXACTLY);
+				int heightMeasureSp = MeasureSpec.makeMeasureSpec(screenWidth
+						/ percentage, MeasureSpec.EXACTLY);
+				child.measure(widthMeasureSp, heightMeasureSp);
+			}
 		}
 
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -81,6 +95,14 @@ public class MenuItemView extends ViewGroup {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public int getModle() {
+		return modle;
+	}
+
+	public void setModle(int modle) {
+		this.modle = modle;
 	}
 
 }
