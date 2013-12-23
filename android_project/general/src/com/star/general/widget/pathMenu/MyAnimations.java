@@ -123,15 +123,12 @@ public class MyAnimations {
 	// icon放大渐变消失的动画
 	private static Animation getMaxAnimation(int durationMillis) {
 		AnimationSet animationset = new AnimationSet(true);
-
-		Animation maxAnimation = new ScaleAnimation(1.0f, 4.0f, 1.0f, 4.0f,
+		Animation maxAnimation = new ScaleAnimation(1.0f, 2.0f, 1.0f, 2.0f,
 				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
 				0.5f);
 		Animation alphaAnimation = new AlphaAnimation(1, 0);
-
 		animationset.addAnimation(maxAnimation);
 		animationset.addAnimation(alphaAnimation);
-
 		animationset.setDuration(durationMillis);
 		animationset.setFillAfter(true);
 		return animationset;

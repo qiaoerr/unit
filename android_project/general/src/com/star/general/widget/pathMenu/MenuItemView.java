@@ -11,6 +11,7 @@ public class MenuItemView extends ViewGroup {
 	private float radius;
 	private int status;
 	private Context context;
+	private int screenWidth;
 
 	public MenuItemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -25,6 +26,7 @@ public class MenuItemView extends ViewGroup {
 	private void init(Context context) {
 		this.context = context;
 		this.status = STATUS_CLOSE;
+		this.screenWidth = context.getResources().getDisplayMetrics().widthPixels;
 	}
 
 	@Override
@@ -33,6 +35,11 @@ public class MenuItemView extends ViewGroup {
 			final View child = getChildAt(index);
 			// measure
 			child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+			int widthMeasureSp = MeasureSpec.makeMeasureSpec(screenWidth / 5,
+					MeasureSpec.EXACTLY);
+			int heightMeasureSp = MeasureSpec.makeMeasureSpec(screenWidth / 5,
+					MeasureSpec.EXACTLY);
+			child.measure(widthMeasureSp, heightMeasureSp);
 		}
 
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);

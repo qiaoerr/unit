@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +20,10 @@ import com.star.general.widget.pathMenu.OnItemClickListener;
 public class MainActivity extends Activity implements OnItemClickListener,
 		OnClickListener {
 	private Context context;
-	private float factor;
 	private long exitTime;
 	private MenuItemView menuView;
 	private Toast toast;
+	private LayoutParams params;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 	}
 
 	private void initData() {
-		factor = getResources().getDisplayMetrics().density;
+
 	}
 
 	private void initView() {
@@ -49,20 +50,29 @@ public class MainActivity extends Activity implements OnItemClickListener,
 	private void setMenuItemView() {
 		ImageView item_1 = new ImageView(this);
 		item_1.setBackgroundResource(R.drawable.item_1);
+		params = new LayoutParams(20, 20);
+		item_1.setLayoutParams(params);
 		ImageView item_2 = new ImageView(this);
 		item_2.setBackgroundResource(R.drawable.item_2);
+		item_2.setLayoutParams(params);
 		ImageView item_3 = new ImageView(this);
 		item_3.setBackgroundResource(R.drawable.item_3);
+		item_3.setLayoutParams(params);
 		ImageView item_4 = new ImageView(this);
 		item_4.setBackgroundResource(R.drawable.item_4);
+		item_4.setLayoutParams(params);
 		ImageView item_5 = new ImageView(this);
 		item_5.setBackgroundResource(R.drawable.item_5);
+		item_5.setLayoutParams(params);
 		ImageView item_6 = new ImageView(this);
 		item_6.setBackgroundResource(R.drawable.item_6);
+		item_6.setLayoutParams(params);
 		ImageView item_7 = new ImageView(this);
 		item_7.setBackgroundResource(R.drawable.item_7);
+		item_7.setLayoutParams(params);
 		ImageView item_8 = new ImageView(this);
 		item_8.setBackgroundResource(R.drawable.item_8);
+		item_8.setLayoutParams(params);
 		menuView.addView(item_1);
 		menuView.addView(item_2);
 		menuView.addView(item_3);
@@ -78,7 +88,6 @@ public class MainActivity extends Activity implements OnItemClickListener,
 		int vid = v.getId();
 		switch (vid) {
 		case R.id.menuView:
-			// MyAnimations.getRotateAnimation(imgPlusLT, 0f, 270f, 300);
 			MyAnimations.startAnimations(MainActivity.this, menuView, 400);
 			break;
 		}
@@ -87,8 +96,6 @@ public class MainActivity extends Activity implements OnItemClickListener,
 	@Override
 	public void onBackPressed() {
 		if ((System.currentTimeMillis() - exitTime) > 2000) {
-			// Toast.makeText(context, "再按一次退出程序",
-			// Toast.LENGTH_SHORT).show();
 			Toast toast = new Toast(context);
 			toast.setDuration(Toast.LENGTH_SHORT);
 			TextView textView = new TextView(context);
@@ -113,7 +120,6 @@ public class MainActivity extends Activity implements OnItemClickListener,
 		} else {
 			toast.setText(item + "");
 		}
-
 		toast.show();
 
 	}
