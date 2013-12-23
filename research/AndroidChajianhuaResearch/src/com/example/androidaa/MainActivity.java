@@ -3,7 +3,6 @@ package com.example.androidaa;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,16 +37,20 @@ public class MainActivity extends Activity {
 		// imageView1.setBackgroundDrawable(new BitmapDrawable(getResources(),
 		// DrawableUtils.getBitmap(context, "test")));
 		try {
-			imageView1.setBackgroundDrawable(ImageTool.decodeDrawableFromAsset(
-					context, "test.9.png"));
-			imageView2.setBackgroundDrawable(new BitmapDrawable(getResources(),
-					ImageTool.decodeFromAsset(context, "test.9.png")));
+			// imageView1.setBackgroundDrawable(ImageTool.decodeDrawableFromAsset(
+			// context, "test.9.png"));
+			// imageView2.setBackgroundDrawable(new
+			// BitmapDrawable(getResources(),
+			// ImageTool.decodeFromAsset(context, "test.9.png")));
 			// imageView1.setImageBitmap(ImageTool.decodeFromAsset(context,
-			// "test2.png"));
+			// "test.9.png"));
+			imageView1.setImageDrawable(ImageTool.decodeDrawableFromAsset(
+					context, "test4.9.png"));
 			// imageView2.setImageDrawable(new BitmapDrawable(getResources(),
-			// ImageTool.decodeFromAsset(context, "test2.png")));
+			// ImageTool.decodeFromAsset(context, "test.9.png")));
+			imageView2.setImageBitmap(ImageTool.decodeFromAsset(context,
+					"test4.9.png"));
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 

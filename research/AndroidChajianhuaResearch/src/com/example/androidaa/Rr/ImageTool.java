@@ -25,14 +25,22 @@ public class ImageTool {
 	private static final String TEMPLE_CACHE_FOLDER = "tmp_cache";
 	private static final String TEMPLE_SHARING_IMAGE = "remotesharingimage.jpg";
 	private static final int MaxPieceSize = 51200;// 50kb
-	private static BitmapDrawable localObject;
 
-	/*解决.9.png图片的边线问题*/
+	/*如果是9.png图片，则处理9.png图片的边线问题*/
 	public static Bitmap decodeFromStream(InputStream paramInputStream)
 			throws Exception {
+
+		Bitmap bitmap = BitmapFactory.decodeStream(paramInputStream);
+		byte[] chunk = bitmap.getNinePatchChunk();
+		boolean result = NinePatch.isNinePatchChunk(chunk);
+		NinePatchDrawable patchy = new NinePatchDrawable(bitmap, chunk,
+				new Rect(), null);
+
 		Bitmap localBitmap1 = BitmapFactory.decodeStream(paramInputStream);
 		byte[] arrayOfByte = readChunk(localBitmap1);
 		boolean bool = NinePatch.isNinePatchChunk(arrayOfByte);
+		// byte[] chunk = localBitmap1.getNinePatchChunk();
+		// boolean bool = NinePatch.isNinePatchChunk(chunk);
 		if (bool) {
 			Bitmap localBitmap2 = Bitmap.createBitmap(localBitmap1, 1, 1,
 					localBitmap1.getWidth() - 2, localBitmap1.getHeight() - 2);
@@ -41,6 +49,7 @@ public class ImageTool {
 					"mNinePatchChunk");
 			localField.setAccessible(true);
 			localField.set(localBitmap2, arrayOfByte);
+			// localField.set(localBitmap2, chunk);
 			return localBitmap2;
 		}
 		return localBitmap1;
@@ -123,7 +132,7 @@ public class ImageTool {
 		Bitmap localBitmap = null;
 		if ((null != paramString) && (paramString.length() > 0)
 				&& (null != paramContext)) {
-			File localFile1 = paramContext.getDir("tmp_cache", 0);
+			File localFile1 = paramContext.getDir(TEMPLE_CACHE_FOLDER, 0);
 			String str = new StringBuilder()
 					.append(localFile1.getAbsolutePath())
 					.append(File.separator).append(TEMPLE_SHARING_IMAGE)
@@ -165,13 +174,13 @@ public class ImageTool {
 		return localBitmap;
 	}
 
-	/*用于asset目录下9.png图片的处理*/
+	/*用于asset目录下9.png图片(NinePatchDrawable)的处理*/
 	public static Drawable decodeDrawableFromAsset(Context paramContext,
 			String paramString) throws Exception {
 		Bitmap localBitmap = decodeFromAsset(paramContext, paramString);
 		if (null == localBitmap.getNinePatchChunk()) {
-			localObject = new BitmapDrawable(paramContext.getResources(),
-					localBitmap);
+			BitmapDrawable localObject = new BitmapDrawable(
+					paramContext.getResources(), localBitmap);
 			return localObject;
 		}
 		Object localObject = new Rect();
@@ -183,7 +192,7 @@ public class ImageTool {
 		return (Drawable) localNinePatchDrawable;
 	}
 
-	/*用于asset目录下非9.png图片的处理*/
+	/*用于asset目录下非9.png图片(Bitmap)的处理*/
 	public static Bitmap decodeFromAsset(Context paramContext,
 			String paramString) throws Exception {
 		InputStream localInputStream = paramContext.getAssets().open(

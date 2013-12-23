@@ -28,19 +28,19 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="260dp"
-                android:layout_height="260dp"
+                android:layout_height="560dp"
                 android:layout_marginBottom="81dp"
                 android:background="#0000aa"
-                android:scaleType="centerInside"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_launcher" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="260dp"
-                android:layout_height="260dp"
+                android:layout_height="560dp"
                 android:layout_marginBottom="81dp"
                 android:background="#0000aa"
-                android:scaleType="centerInside"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_launcher" />
 
             <ImageView
