@@ -1,0 +1,54 @@
+com.tgb.lk.ahibernate.annotation.Column -> com.tgb.lk.a.a.c:
+    java.lang.String name() -> a
+    java.lang.String type() -> b
+    int length() -> c
+com.tgb.lk.ahibernate.annotation.Id -> com.tgb.lk.a.a.a:
+com.tgb.lk.ahibernate.annotation.Table -> com.tgb.lk.a.a.b:
+    java.lang.String name() -> a
+com.tgb.lk.ahibernate.dao.impl.BaseDaoImpl -> com.tgb.lk.a.c.a.a:
+    java.lang.String TAG -> a
+    android.database.sqlite.SQLiteOpenHelper dbHelper -> b
+    java.lang.String tableName -> c
+    java.lang.String idColumn -> d
+    java.lang.Class clazz -> e
+    java.util.List allFields -> f
+    java.lang.Object get(int) -> a
+    java.util.List rawQuery(java.lang.String,java.lang.String[]) -> a
+    java.util.List find$53c09d0c(java.lang.String[],java.lang.String,java.lang.String[]) -> a
+    void getListFromCursor(java.util.List,android.database.Cursor) -> a
+    long insert$4cfd3cd7(java.lang.Object) -> a
+    void delete(int) -> b
+    void delete(java.lang.Integer[]) -> a
+    void update(java.lang.Object) -> b
+    void setContentValues(java.lang.Object,android.content.ContentValues,java.lang.String) -> a
+    java.util.List query2MapList(java.lang.String,java.lang.String[]) -> b
+    void execSql$70a742d2(java.lang.String) -> a
+com.tgb.lk.ahibernate.util.MyDBHelper -> com.tgb.lk.a.b.b:
+    java.lang.Class[] modelClasses -> a
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+com.tgb.lk.ahibernate.util.TableHelper -> com.tgb.lk.a.b.a:
+    java.util.List joinFields(java.lang.reflect.Field[],java.lang.reflect.Field[]) -> a
+com.tgb.lk.demo.MainActivity -> com.tgb.lk.demo.MainActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.tgb.lk.demo.dao.impl.StudentDaoImpl -> com.tgb.lk.demo.b.a.b:
+com.tgb.lk.demo.dao.impl.TeacherDaoImpl -> com.tgb.lk.demo.b.a.a:
+com.tgb.lk.demo.model.Person -> com.tgb.lk.demo.a.a:
+    int id -> a
+    java.lang.String name -> b
+    int age -> c
+    void setName(java.lang.String) -> a
+    void setAge(int) -> a
+    java.lang.String toString() -> toString
+com.tgb.lk.demo.model.Student -> com.tgb.lk.demo.a.c:
+    int teacherId -> a
+    java.lang.String classes -> b
+    void setTeacherId(int) -> b
+    void setClasses(java.lang.String) -> b
+    java.lang.String toString() -> toString
+com.tgb.lk.demo.model.Teacher -> com.tgb.lk.demo.a.b:
+    java.lang.String title -> a
+    void setTitle(java.lang.String) -> b
+    java.lang.String toString() -> toString
+com.tgb.lk.demo.util.DBHelper -> com.tgb.lk.demo.c.a:
+    java.lang.Class[] clazz -> a

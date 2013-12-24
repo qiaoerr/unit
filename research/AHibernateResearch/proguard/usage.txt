@@ -1,0 +1,30 @@
+com.tgb.lk.ahibernate.dao.BaseDao
+com.tgb.lk.ahibernate.dao.impl.BaseDaoImpl:
+    80:81:public BaseDaoImpl(android.database.sqlite.SQLiteOpenHelper)
+    84:84:public android.database.sqlite.SQLiteOpenHelper getDbHelper()
+    127:148:public boolean isExist(java.lang.String,java.lang.String[])
+com.tgb.lk.ahibernate.util.TableHelper:
+    private static final java.lang.String TAG
+com.tgb.lk.demo.R
+com.tgb.lk.demo.R$attr
+com.tgb.lk.demo.R$drawable
+com.tgb.lk.demo.R$layout
+com.tgb.lk.demo.R$string
+com.tgb.lk.demo.dao.StudentDao
+com.tgb.lk.demo.dao.TeacherDao
+com.tgb.lk.demo.model.Person:
+    private java.lang.String noSaveFild
+    26:26:public int getId()
+    30:31:public void setId(int)
+    34:34:public java.lang.String getName()
+    42:42:public int getAge()
+    50:50:public java.lang.String getNoSaveFild()
+    54:55:public void setNoSaveFild(java.lang.String)
+com.tgb.lk.demo.model.Student:
+    19:19:public int getTeacherId()
+    27:27:public java.lang.String getClasses()
+com.tgb.lk.demo.model.Teacher:
+    15:15:public java.lang.String getTitle()
+com.tgb.lk.demo.util.DBHelper:
+    private static final java.lang.String DBNAME
+    private static final int DBVERSION
