@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
 		arrayList.add("one2");
 		arrayList.add("one3");
 		dragSortListView = (DragSortListView) findViewById(R.id.myDragSortListView);
+		adapter = new MyAdapter();
 		dragSortListView.setAdapter(adapter);
 		dragSortListView.setDropListener(onDrop);
 		dragSortListView.setRemoveListener(onRemove);

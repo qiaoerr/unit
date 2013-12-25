@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mobeta.android.demodslv.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.dragsorttest.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/item_height"
     android:orientation="horizontal" >
@@ -28,4 +28,4 @@
         android:layout_weight="0"
         android:background="@drawable/delete_x" />
 
-</com.mobeta.android.demodslv.CheckableLinearLayout>
+</com.example.dragsorttest.CheckableLinearLayout>
