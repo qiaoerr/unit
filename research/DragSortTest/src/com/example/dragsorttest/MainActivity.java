@@ -12,12 +12,34 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.drag.DragSortListView;
+import com.example.drag.DragSortListView.RemoveListener;
 
 public class MainActivity extends Activity {
 	private DragSortListView dragSortListView;
 	private Context context;
 	ArrayList<String> arrayList;
 	private LayoutInflater inflater;
+	private MyAdapter adapter;
+	private DragSortListView.DropListener onDrop = new DragSortListView.DropListener() {
+		@Override
+		public void drop(int from, int to) {
+			if (from != to) {
+				// String item = adapter.getItem(from);
+				// adapter.remove(item);
+				// adapter.insert(item, to);
+				dragSortListView.moveCheckState(from, to);
+			}
+		}
+	};
+
+	private RemoveListener onRemove = new DragSortListView.RemoveListener() {
+		@Override
+		public void remove(int which) {
+			// String item = adapter.getItem(which);
+			// adapter.remove(item);
+			dragSortListView.removeCheckState(which);
+		}
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +47,15 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		context = this;
 		inflater = LayoutInflater.from(context);
+		arrayList = new ArrayList<String>();
+		arrayList.add("one");
+		arrayList.add("one1");
+		arrayList.add("one2");
+		arrayList.add("one3");
 		dragSortListView = (DragSortListView) findViewById(R.id.myDragSortListView);
+		dragSortListView.setAdapter(adapter);
+		dragSortListView.setDropListener(onDrop);
+		dragSortListView.setRemoveListener(onRemove);
 	}
 
 	class MyAdapter extends BaseAdapter {
