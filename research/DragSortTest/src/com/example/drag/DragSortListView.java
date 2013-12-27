@@ -2123,7 +2123,7 @@ public class DragSortListView extends ListView {
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		/*super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		// Log.d("mobeta", "onMeasure called");
 		if (mFloatView != null) {
 			if (mFloatView.isLayoutRequested()) {
@@ -2131,7 +2131,10 @@ public class DragSortListView extends ListView {
 			}
 			mFloatViewOnMeasured = true; // set to false after layout
 		}
-		mWidthMeasureSpec = widthMeasureSpec;
+		mWidthMeasureSpec = widthMeasureSpec;*/
+		int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
+				MeasureSpec.AT_MOST);
+		super.onMeasure(widthMeasureSpec, expandSpec);
 	}
 
 	@Override
