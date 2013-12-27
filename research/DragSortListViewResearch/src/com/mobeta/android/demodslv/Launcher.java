@@ -47,6 +47,7 @@ public class Launcher extends ListActivity {
 					break;
 				}
 			}
+			System.out.println(mActivities.get(0).name);
 		} catch (PackageManager.NameNotFoundException e) {
 			// Do nothing. Adapter will be empty.
 		}
