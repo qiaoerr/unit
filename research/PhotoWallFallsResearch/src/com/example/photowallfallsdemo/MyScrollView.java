@@ -196,7 +196,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 			int startIndex = page * PAGE_SIZE;
 			int endIndex = page * PAGE_SIZE + PAGE_SIZE;
 			if (startIndex < Images.imageUrls.length) {
-				Toast.makeText(getContext(), "正在加载...", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getContext(), "正在加载...", Toast.LENGTH_SHORT)
+						.show();
 				if (endIndex > Images.imageUrls.length) {
 					endIndex = Images.imageUrls.length;
 				}
@@ -207,7 +208,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 				}
 				page++;
 			} else {
-				Toast.makeText(getContext(), "已没有更多图片", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getContext(), "已没有更多图片", Toast.LENGTH_SHORT)
+						.show();
 			}
 		} else {
 			Toast.makeText(getContext(), "未发现SD卡", Toast.LENGTH_SHORT).show();
@@ -221,8 +223,10 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		for (int i = 0; i < imageViewList.size(); i++) {
 			ImageView imageView = imageViewList.get(i);
 			int borderTop = (Integer) imageView.getTag(R.string.border_top);
-			int borderBottom = (Integer) imageView.getTag(R.string.border_bottom);
-			if (borderBottom > getScrollY() && borderTop < getScrollY() + scrollViewHeight) {
+			int borderBottom = (Integer) imageView
+					.getTag(R.string.border_bottom);
+			if (borderBottom > getScrollY()
+					&& borderTop < getScrollY() + scrollViewHeight) {
 				String imageUrl = (String) imageView.getTag(R.string.image_url);
 				Bitmap bitmap = imageLoader.getBitmapFromMemoryCache(imageUrl);
 				if (bitmap != null) {
@@ -243,7 +247,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 	 * @return 有SD卡返回true，没有返回false。
 	 */
 	private boolean hasSDCard() {
-		return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+		return Environment.MEDIA_MOUNTED.equals(Environment
+				.getExternalStorageState());
 	}
 
 	/**
@@ -284,7 +289,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		protected Bitmap doInBackground(Integer... params) {
 			mItemPosition = params[0];
 			mImageUrl = Images.imageUrls[mItemPosition];
-			Bitmap imageBitmap = imageLoader.getBitmapFromMemoryCache(mImageUrl);
+			Bitmap imageBitmap = imageLoader
+					.getBitmapFromMemoryCache(mImageUrl);
 			if (imageBitmap == null) {
 				imageBitmap = loadImage(mImageUrl);
 			}
@@ -314,8 +320,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 				downloadImage(imageUrl);
 			}
 			if (imageUrl != null) {
-				Bitmap bitmap = ImageLoader.decodeSampledBitmapFromResource(imageFile.getPath(),
-						columnWidth);
+				Bitmap bitmap = ImageLoader.decodeSampledBitmapFromResource(
+						imageFile.getPath(), columnWidth);
 				if (bitmap != null) {
 					imageLoader.addBitmapToMemoryCache(imageUrl, bitmap);
 					return bitmap;
@@ -335,8 +341,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		 *            图片的高度
 		 */
 		private void addImage(Bitmap bitmap, int imageWidth, int imageHeight) {
-			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(imageWidth,
-					imageHeight);
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					imageWidth, imageHeight);
 			if (mImageView != null) {
 				mImageView.setImageBitmap(bitmap);
 			} else {
@@ -349,7 +355,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 				imageView.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						Intent intent = new Intent(getContext(), ImageDetailsActivity.class);
+						Intent intent = new Intent(getContext(),
+								ImageDetailsActivity.class);
 						intent.putExtra("image_position", mItemPosition);
 						getContext().startActivity(intent);
 					}
@@ -366,7 +373,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		 * @param imageHeight
 		 * @return 应该添加图片的一列
 		 */
-		private LinearLayout findColumnToAdd(ImageView imageView, int imageHeight) {
+		private LinearLayout findColumnToAdd(ImageView imageView,
+				int imageHeight) {
 			if (firstColumnHeight <= secondColumnHeight) {
 				if (firstColumnHeight <= thirdColumnHeight) {
 					imageView.setTag(R.string.border_top, firstColumnHeight);
@@ -382,7 +390,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 				if (secondColumnHeight <= thirdColumnHeight) {
 					imageView.setTag(R.string.border_top, secondColumnHeight);
 					secondColumnHeight += imageHeight;
-					imageView.setTag(R.string.border_bottom, secondColumnHeight);
+					imageView
+							.setTag(R.string.border_bottom, secondColumnHeight);
 					return secondColumn;
 				}
 				imageView.setTag(R.string.border_top, thirdColumnHeight);
@@ -399,7 +408,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		 *            图片的URL地址。
 		 */
 		private void downloadImage(String imageUrl) {
-			if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+			if (Environment.getExternalStorageState().equals(
+					Environment.MEDIA_MOUNTED)) {
 				Log.d("TAG", "monted sdcard");
 			} else {
 				Log.d("TAG", "has no sdcard");
@@ -444,8 +454,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 				}
 			}
 			if (imageFile != null) {
-				Bitmap bitmap = ImageLoader.decodeSampledBitmapFromResource(imageFile.getPath(),
-						columnWidth);
+				Bitmap bitmap = ImageLoader.decodeSampledBitmapFromResource(
+						imageFile.getPath(), columnWidth);
 				if (bitmap != null) {
 					imageLoader.addBitmapToMemoryCache(imageUrl, bitmap);
 				}
@@ -462,8 +472,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		private String getImagePath(String imageUrl) {
 			int lastSlashIndex = imageUrl.lastIndexOf("/");
 			String imageName = imageUrl.substring(lastSlashIndex + 1);
-			String imageDir = Environment.getExternalStorageDirectory().getPath()
-					+ "/PhotoWallFalls/";
+			String imageDir = Environment.getExternalStorageDirectory()
+					.getPath() + "/PhotoWallFalls/";
 			File file = new File(imageDir);
 			if (!file.exists()) {
 				file.mkdirs();
