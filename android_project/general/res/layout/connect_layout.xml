@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/title_bg"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:text="联系我们"
+        android:textColor="@color/title_color"
+        android:textSize="26sp" />
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:background="@drawable/bg_one"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="如果您对我们的产品或服务有任何的咨询和问题，请在此提交给总经理解答"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="姓名"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/white"
+                    android:singleLine="true"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="邮箱"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/white"
+                    android:singleLine="true"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="留言"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/white"
+                    android:gravity="top"
+                    android:maxLines="6"
+                    android:minLines="4"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.star.general.widget.ButtomBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" >
+        </com.star.general.widget.ButtomBar>
+    </RelativeLayout>
+
+</RelativeLayout>

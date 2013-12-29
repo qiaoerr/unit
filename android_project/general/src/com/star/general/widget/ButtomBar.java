@@ -43,7 +43,7 @@ public class ButtomBar extends RelativeLayout implements OnClickListener {
 		img_left = new ImageView(context);
 		img_left.setId(101);
 		img_left.setOnClickListener(this);
-		img_left.setBackgroundResource(R.drawable.bottom_return);
+		// img_left.setBackgroundResource(R.drawable.bottom_return);
 		params = new LayoutParams(screenWidth / 12, screenWidth / 12);
 		params.setMargins(screenWidth / 10, 0, 0, 0);
 		params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -54,7 +54,7 @@ public class ButtomBar extends RelativeLayout implements OnClickListener {
 		img_mid = new ImageView(context);
 		img_mid.setId(102);
 		img_mid.setOnClickListener(this);
-		img_mid.setBackgroundResource(R.drawable.bottom_share);
+		// img_mid.setBackgroundResource(R.drawable.bottom_share);
 		params = new LayoutParams(screenWidth / 12, screenWidth / 12);
 		params.setMargins(screenWidth / 10, 0, 0, 0);
 		params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -64,7 +64,7 @@ public class ButtomBar extends RelativeLayout implements OnClickListener {
 		img_right = new ImageView(context);
 		img_right.setId(103);
 		img_right.setOnClickListener(this);
-		img_right.setBackgroundResource(R.drawable.bottom_setting);
+		// img_right.setBackgroundResource(R.drawable.bottom_setting);
 		params = new LayoutParams(screenWidth / 12, screenWidth / 12);
 		params.setMargins(0, 0, screenWidth / 10, 0);
 		params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
@@ -77,14 +77,20 @@ public class ButtomBar extends RelativeLayout implements OnClickListener {
 	public void setConfig(int resId_left, int resId_mid, int resId_right,
 			OnclickListener listener) {
 		this.listener = listener;
-		if (resId_left != 0) {
+		if (resId_left > 0) {
 			img_left.setBackgroundResource(resId_left);
+		} else {
+			img_left.setVisibility(View.GONE);
 		}
-		if (resId_mid != 0) {
+		if (resId_mid > 0) {
 			img_mid.setBackgroundResource(resId_mid);
+		} else {
+			img_mid.setVisibility(View.GONE);
 		}
-		if (resId_right != 0) {
+		if (resId_right > 0) {
 			img_right.setBackgroundResource(resId_right);
+		} else {
+			img_right.setVisibility(View.GONE);
 		}
 	}
 

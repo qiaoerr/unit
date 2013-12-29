@@ -104,7 +104,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.star.general.activity.ConnextActivity"
+            android:name="com.star.general.activity.ConnectActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity

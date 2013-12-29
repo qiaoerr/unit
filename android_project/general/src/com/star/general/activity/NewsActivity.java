@@ -57,28 +57,28 @@ public class NewsActivity extends Activity implements OnItemClickListener {
 		screenWidth = BaseCommonUtil.getScreenWidth(context);
 		// 添加本地数据
 		News news1 = new News();
-		news1.setTitle("嗨，我正在使用星火客");
-		news1.setDetail("嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！嗨，我正在使用星火客户端，赶快来试试吧！！");
+		news1.setTitle("Joico嘉珂细节发型席卷暖冬");
+		news1.setDetail("Joico嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬");
 		news.add(news1);
 		News news2 = new News();
-		news2.setTitle("2");
-		news2.setDetail("2");
+		news2.setTitle("Joico嘉珂细节发型席卷暖冬");
+		news2.setDetail("Joico嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬");
 		news.add(news2);
 		News news3 = new News();
-		news3.setTitle("3");
-		news3.setDetail("3");
+		news3.setTitle("Joico嘉珂细节发型席卷暖冬");
+		news3.setDetail("Joico嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬");
 		news.add(news3);
 		News news4 = new News();
-		news4.setTitle("4");
-		news4.setDetail("4");
+		news4.setTitle("Joico嘉珂细节发型席卷暖冬");
+		news4.setDetail("Joico嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬");
 		news.add(news4);
 		News news5 = new News();
-		news5.setTitle("5");
-		news5.setDetail("5");
+		news5.setTitle("Joico嘉珂细节发型席卷暖冬");
+		news5.setDetail("Joico嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬");
 		news.add(news5);
 		News news6 = new News();
-		news6.setTitle("6");
-		news6.setDetail("6");
+		news6.setTitle("Joico嘉珂细节发型席卷暖冬");
+		news6.setDetail("Joico嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬嘉珂细节发型席卷暖冬");
 		news.add(news6);
 
 	}
@@ -111,7 +111,9 @@ public class NewsActivity extends Activity implements OnItemClickListener {
 
 					@Override
 					public void rightClick() {
-
+						Intent intent = new Intent(context,
+								SettingActivity.class);
+						startActivity(intent);
 					}
 
 					@Override

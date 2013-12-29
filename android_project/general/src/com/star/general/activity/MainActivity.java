@@ -107,36 +107,30 @@ public class MainActivity extends Activity implements OnItemClickListener,
 
 	@Override
 	public void onclick(int item) {
-		/*if (toast == null) {
-			toast = Toast.makeText(MainActivity.this, "" + item, 1);
-		} else {
-			toast.setText(item + "");
-		}
-		toast.show();*/
 		switch (item) {
 		case 0:
 			jumpToActivity(NewsActivity.class);
 			break;
 		case 1:
-
+			jumpToActivity(WorksActivity.class);
 			break;
 		case 2:
-
+			jumpToActivity(AboutActivity.class);
 			break;
 		case 3:
-
+			jumpToActivity(TalentActivity.class);
 			break;
 		case 4:
-
+			jumpToActivity(MapActivity.class);
 			break;
 		case 5:
-
+			jumpToActivity(ConnectActivity.class);
 			break;
 		case 6:
-
+			jumpToActivity(ProjectActivity.class);
 			break;
 		case 7:
-
+			jumpToActivity(PriceActivity.class);
 			break;
 
 		default:
@@ -145,7 +139,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 
 	}
 
-	private void jumpToActivity(final Class<NewsActivity> clazz) {
+	private void jumpToActivity(final Class<? extends Activity> clazz) {
 		Runnable runnable = new Runnable() {
 			@Override
 			public void run() {

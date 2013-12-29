@@ -11,7 +11,7 @@
         android:background="@drawable/title_bg"
         android:gravity="center"
         android:paddingTop="20dp"
-        android:text="沙龙简介"
+        android:text="项目总览"
         android:textColor="@color/title_color"
         android:textSize="26sp" />
 

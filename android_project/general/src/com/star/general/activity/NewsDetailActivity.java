@@ -78,7 +78,7 @@ public class NewsDetailActivity extends Activity {
 		TextView title_textView = new TextView(context);
 		title_textView.setMaxLines(2);
 		android.widget.LinearLayout.LayoutParams params_linear = new android.widget.LinearLayout.LayoutParams(
-				-1, screenWidth / 6);
+				-1, screenWidth / 5);
 		params_linear.setMargins(screenWidth / 14, 0, screenWidth / 14, 0);
 		title_textView.setLayoutParams(params_linear);
 		title_textView.setGravity(Gravity.CENTER);
@@ -111,7 +111,9 @@ public class NewsDetailActivity extends Activity {
 
 					@Override
 					public void rightClick() {
-
+						Intent intent = new Intent(context,
+								SettingActivity.class);
+						startActivity(intent);
 					}
 
 					@Override
