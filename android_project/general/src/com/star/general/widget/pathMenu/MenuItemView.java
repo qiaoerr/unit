@@ -34,7 +34,6 @@ public class MenuItemView extends ViewGroup {
 		for (int index = 0; index < getChildCount(); index++) {
 			final View child = getChildAt(index);
 			// measure
-			child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
 			int widthMeasureSp = MeasureSpec.makeMeasureSpec(screenWidth / 5,
 					MeasureSpec.EXACTLY);
 			int heightMeasureSp = MeasureSpec.makeMeasureSpec(screenWidth / 5,
