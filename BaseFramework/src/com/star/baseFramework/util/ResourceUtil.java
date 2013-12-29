@@ -8,7 +8,9 @@ import android.content.Context;
 import com.star.baseFrameworkC.R;
 
 public class ResourceUtil {
-	/*获取prefix开头的资源图片*/
+	/**
+	 * 获取prefix开头的资源图片 注意：只能获取baseFramework下的图片
+	 */
 	public static ArrayList<Integer> getPrefixImages(Context context,
 			String prefix) {
 		ArrayList<Integer> imgResourceIds = new ArrayList<Integer>();

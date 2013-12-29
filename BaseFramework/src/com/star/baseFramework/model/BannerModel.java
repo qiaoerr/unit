@@ -11,12 +11,7 @@ public class BannerModel implements Serializable {
 	private int type;
 	private int imgResourceId;
 
-	public BannerModel(int type) {
-		super();
-		this.type = type;
-	}
-
-	public BannerModel(String imgUrl, int type) {
+	public BannerModel(int type, String imgUrl) {
 		super();
 		this.imgUrl = imgUrl;
 		this.type = type;
