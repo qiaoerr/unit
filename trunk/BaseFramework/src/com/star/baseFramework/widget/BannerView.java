@@ -93,6 +93,9 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 	}
 
 	private void init() {
+		if (bannerModels.size() <= 0) {
+			return;
+		}
 		initData();
 		initView();
 		startMove();
@@ -167,14 +170,21 @@ public class BannerView extends RelativeLayout implements OnPageChangeListener {
 				out.setBackgroundResource(R.drawable.slider_normal);
 			}
 			android.widget.LinearLayout.LayoutParams params_linear = new android.widget.LinearLayout.LayoutParams(
-					BaseCommonUtil.dip2px(context, 30), BaseCommonUtil.dip2px(context,
-							15));
+					BaseCommonUtil.dip2px(context, 30), BaseCommonUtil.dip2px(
+							context, 15));
 			if (i != 0) {
-				params_linear.setMargins(-BaseCommonUtil.dip2px(context, 8), 0, 0,
-						0);
+				params_linear.setMargins(-BaseCommonUtil.dip2px(context, 8), 0,
+						0, 0);
 			}
 			out.setLayoutParams(params_linear);
 			viewGroup.addView(out);
+		}
+	}
+
+	/*隐藏indexViewGroup*/
+	public void hideIndex() {
+		if (viewGroup != null) {
+			viewGroup.setVisibility(View.GONE);
 		}
 	}
 
