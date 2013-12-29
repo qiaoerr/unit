@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="title_color">#666600</color>
+    <color name="divider_color">#CCC333</color>
     <color name="bg5PG">#fbfbfb</color>
     <color name="greyLight">#f7f7f7</color>
     <color name="sortList">#006600</color>

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.json.JSONObject;
 
-public class NewsDataModel implements Serializable {
+public class News implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String title;
 	private String detail;
@@ -12,11 +12,11 @@ public class NewsDataModel implements Serializable {
 	private String imgUrl;
 	private String[] imgUrls;
 
-	public NewsDataModel() {
+	public News() {
 		super();
 	}
 
-	public NewsDataModel(JSONObject json) {
+	public News(JSONObject json) {
 		super();
 		this.title = json.optString("title");
 		this.detail = json.optString("detail");

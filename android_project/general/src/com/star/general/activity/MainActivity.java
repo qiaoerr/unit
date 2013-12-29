@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,6 +22,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 		OnClickListener {
 	private Context context;
 	private long exitTime;
+	private Handler handler;
 	private MenuItemView menuView;
 	private Toast toast;
 
@@ -34,7 +36,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 	}
 
 	private void initData() {
-
+		handler = new Handler();
 	}
 
 	private void initView() {
@@ -143,8 +145,15 @@ public class MainActivity extends Activity implements OnItemClickListener,
 
 	}
 
-	private void jumpToActivity(Class<NewsActivity> clazz) {
-		Intent intent = new Intent(context, clazz);
-		startActivity(intent);
+	private void jumpToActivity(final Class<NewsActivity> clazz) {
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				Intent intent = new Intent(context, clazz);
+				startActivity(intent);
+
+			}
+		};
+		handler.postDelayed(runnable, 500);
 	}
 }

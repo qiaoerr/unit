@@ -7,8 +7,7 @@ import android.content.Context;
 
 import com.star.general.R;
 
-public class CommentUtil {
-
+public class ResourceUtil {
 	/*获取prefix开头的资源图片*/
 	public static ArrayList<Integer> getPrefixImages(Context context,
 			String prefix) {
