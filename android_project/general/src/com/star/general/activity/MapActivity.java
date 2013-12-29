@@ -25,7 +25,6 @@ public class MapActivity extends Activity {
 	private LayoutParams params;
 	private ButtomBar buttomBar;
 	private float scale;
-	private float ratio = 94f / 294;
 	private MapController mMapController;
 	private MapView mapView;
 
