@@ -122,43 +122,6 @@ public class PriceActivity extends Activity {
 		linearLayout.addView(catatwo_textView);
 		// item
 		listDetailItem(linearLayout, cataTwo);
-		/*for (int i = 0; i < cataTwo.size(); i++) {
-			RelativeLayout rel = new RelativeLayout(context);
-			linearLayout.addView(rel);
-			TextView serviceName = new TextView(context);
-			params = new LayoutParams(-2, -2);
-			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-			serviceName.setLayoutParams(params);
-			serviceName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-			serviceName.setPadding((int) (10 * scale), (int) (10 * scale),
-					(int) (10 * scale), (int) (10 * scale));
-			serviceName.setTextColor(context.getResources().getColor(
-					R.color.black));
-			rel.addView(serviceName);
-			serviceName.setText(cataTwo.get(i).getServiceName());
-			TextView price_text = new TextView(context);
-			params = new LayoutParams(-2, -2);
-			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			price_text.setLayoutParams(params);
-			price_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-			price_text.setPadding((int) (10 * scale), (int) (10 * scale),
-					(int) (10 * scale), (int) (10 * scale));
-			price_text.setTextColor(context.getResources()
-					.getColor(R.color.red));
-			price_text.setText(cataTwo.get(i).getServicePrice());
-			rel.addView(price_text);
-			if (i != cataTwo.size() - 1) {
-				// view
-				View view = new View(context);
-				params_linear = new android.widget.LinearLayout.LayoutParams(
-						-1, 1);
-				params_linear.setMargins(10, 0, 10, 0);
-				view.setLayoutParams(params_linear);
-				view.setBackgroundColor(context.getResources().getColor(
-						R.color.divider_color));
-				linearLayout.addView(view);
-			}
-		}*/
 		// buttomBar
 		buttomBar = new ButtomBar(context);
 		buttomBar.setConfig(R.drawable.bottom_return, R.drawable.bottom_share,
