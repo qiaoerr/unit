@@ -31,6 +31,10 @@ public class PriceActivity extends Activity {
 	private float scale;
 	private ArrayList<ServicePrice> cataOne;
 	private ArrayList<ServicePrice> cataTwo;
+	private ArrayList<ServicePrice> cataThree;
+	private ArrayList<ServicePrice> cataFour;
+	private ArrayList<ServicePrice> cataFive;
+	private ArrayList<ServicePrice> cataSix;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,10 @@ public class PriceActivity extends Activity {
 		screenWidth = BaseCommonUtil.getScreenWidth(context);
 		cataOne = new ArrayList<ServicePrice>();
 		cataTwo = new ArrayList<ServicePrice>();
+		cataThree = new ArrayList<ServicePrice>();
+		cataFour = new ArrayList<ServicePrice>();
+		cataFive = new ArrayList<ServicePrice>();
+		cataSix = new ArrayList<ServicePrice>();
 		// testData
 		ServicePrice tem = new ServicePrice();
 		tem.setServiceName("创意总监");
@@ -62,6 +70,7 @@ public class PriceActivity extends Activity {
 		tem = new ServicePrice();
 		tem.setServiceName("日本梦特蓓妮烫发");
 		tem.setServicePrice("￥580");
+		//
 		cataTwo.add(tem);
 		tem = new ServicePrice();
 		tem.setServiceName("德国施华蔻烫发");
@@ -75,6 +84,20 @@ public class PriceActivity extends Activity {
 		tem.setServiceName("美琪丝烫发");
 		tem.setServicePrice("￥430");
 		cataTwo.add(tem);
+		//
+		cataThree.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("德国施华蔻烫发");
+		tem.setServicePrice("￥530");
+		cataThree.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("巴黎欧莱雅烫发");
+		tem.setServicePrice("￥480");
+		cataThree.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("美琪丝烫发");
+		tem.setServicePrice("￥430");
+		cataThree.add(tem);
 	}
 
 	private void initView() {
@@ -89,70 +112,17 @@ public class PriceActivity extends Activity {
 		linearLayout.setOrientation(LinearLayout.VERTICAL);
 		scrollView.addView(linearLayout);
 		// cataone_textView
-		TextView cataone_textView = new TextView(context);
-		cataone_textView.setBackgroundColor(context.getResources().getColor(
-				R.color.grey));
-		android.widget.LinearLayout.LayoutParams params_linear = new android.widget.LinearLayout.LayoutParams(
-				-1, -2);
-		cataone_textView.setLayoutParams(params_linear);
-		cataone_textView.setPadding((int) (10 * scale), (int) (5 * scale),
-				(int) (10 * scale), (int) (5 * scale));
-		cataone_textView.setTextColor(Color.BLACK);
-		cataone_textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-		cataone_textView.setText("洗吹剪");
+		android.widget.LinearLayout.LayoutParams params_linear;
+		TextView cataone_textView = getCataTextview("洗吹剪");
 		linearLayout.addView(cataone_textView);
 		// item
-		for (int i = 0; i < cataOne.size(); i++) {
-			RelativeLayout rel = new RelativeLayout(context);
-			linearLayout.addView(rel);
-			TextView serviceName = new TextView(context);
-			params = new LayoutParams(-2, -2);
-			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-			serviceName.setLayoutParams(params);
-			serviceName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-			serviceName.setPadding((int) (10 * scale), (int) (10 * scale),
-					(int) (10 * scale), (int) (10 * scale));
-			serviceName.setTextColor(context.getResources().getColor(
-					R.color.black));
-			rel.addView(serviceName);
-			serviceName.setText(cataOne.get(i).getServiceName());
-			TextView price_text = new TextView(context);
-			params = new LayoutParams(-2, -2);
-			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			price_text.setLayoutParams(params);
-			price_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-			price_text.setPadding((int) (10 * scale), (int) (10 * scale),
-					(int) (10 * scale), (int) (10 * scale));
-			price_text.setTextColor(context.getResources()
-					.getColor(R.color.red));
-			price_text.setText(cataOne.get(i).getServicePrice());
-			rel.addView(price_text);
-			if (i != cataOne.size() - 1) {
-				// view
-				View view = new View(context);
-				params_linear = new android.widget.LinearLayout.LayoutParams(
-						-1, 1);
-				params_linear.setMargins(10, 0, 10, 0);
-				view.setLayoutParams(params_linear);
-				view.setBackgroundColor(context.getResources().getColor(
-						R.color.divider_color));
-				linearLayout.addView(view);
-			}
-		}
+		listDetailItem(linearLayout, cataOne);
 		// catatwo_textView
-		TextView catatwo_textView = new TextView(context);
-		catatwo_textView.setBackgroundColor(context.getResources().getColor(
-				R.color.grey));
-		params_linear = new android.widget.LinearLayout.LayoutParams(-1, -2);
-		catatwo_textView.setLayoutParams(params_linear);
-		catatwo_textView.setPadding((int) (10 * scale), (int) (5 * scale),
-				(int) (10 * scale), (int) (5 * scale));
-		catatwo_textView.setTextColor(Color.BLACK);
-		catatwo_textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-		catatwo_textView.setText("烫发");
+		TextView catatwo_textView = getCataTextview("烫发");
 		linearLayout.addView(catatwo_textView);
 		// item
-		for (int i = 0; i < cataTwo.size(); i++) {
+		listDetailItem(linearLayout, cataTwo);
+		/*for (int i = 0; i < cataTwo.size(); i++) {
 			RelativeLayout rel = new RelativeLayout(context);
 			linearLayout.addView(rel);
 			TextView serviceName = new TextView(context);
@@ -188,7 +158,7 @@ public class PriceActivity extends Activity {
 						R.color.divider_color));
 				linearLayout.addView(view);
 			}
-		}
+		}*/
 		// buttomBar
 		buttomBar = new ButtomBar(context);
 		buttomBar.setConfig(R.drawable.bottom_return, R.drawable.bottom_share,
@@ -217,6 +187,63 @@ public class PriceActivity extends Activity {
 		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		buttomBar.setLayoutParams(params);
 		container.addView(buttomBar);
+	}
+
+	private void listDetailItem(LinearLayout linearLayout,
+			ArrayList<ServicePrice> dataList) {
+		android.widget.LinearLayout.LayoutParams params_linear;
+		for (int i = 0; i < dataList.size(); i++) {
+			RelativeLayout rel = new RelativeLayout(context);
+			linearLayout.addView(rel);
+			TextView serviceName = new TextView(context);
+			params = new LayoutParams(-2, -2);
+			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+			serviceName.setLayoutParams(params);
+			serviceName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			serviceName.setPadding((int) (10 * scale), (int) (10 * scale),
+					(int) (10 * scale), (int) (10 * scale));
+			serviceName.setTextColor(context.getResources().getColor(
+					R.color.black));
+			rel.addView(serviceName);
+			serviceName.setText(dataList.get(i).getServiceName());
+			TextView price_text = new TextView(context);
+			params = new LayoutParams(-2, -2);
+			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+			price_text.setLayoutParams(params);
+			price_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			price_text.setPadding((int) (10 * scale), (int) (10 * scale),
+					(int) (10 * scale), (int) (10 * scale));
+			price_text.setTextColor(context.getResources()
+					.getColor(R.color.red));
+			price_text.setText(dataList.get(i).getServicePrice());
+			rel.addView(price_text);
+			if (i != dataList.size() - 1) {
+				// view
+				View view = new View(context);
+				params_linear = new android.widget.LinearLayout.LayoutParams(
+						-1, 1);
+				params_linear.setMargins(10, 0, 10, 0);
+				view.setLayoutParams(params_linear);
+				view.setBackgroundColor(context.getResources().getColor(
+						R.color.divider_color));
+				linearLayout.addView(view);
+			}
+		}
+	}
+
+	private TextView getCataTextview(String cataString) {
+		TextView textView = new TextView(context);
+		textView.setBackgroundColor(context.getResources().getColor(
+				R.color.grey));
+		android.widget.LinearLayout.LayoutParams params_linear = new android.widget.LinearLayout.LayoutParams(
+				-1, -2);
+		textView.setLayoutParams(params_linear);
+		textView.setPadding((int) (10 * scale), (int) (5 * scale),
+				(int) (10 * scale), (int) (5 * scale));
+		textView.setTextColor(Color.BLACK);
+		textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+		textView.setText(cataString);
+		return textView;
 	}
 
 	// 分享

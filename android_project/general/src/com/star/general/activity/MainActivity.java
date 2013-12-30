@@ -76,6 +76,18 @@ public class MainActivity extends Activity implements OnItemClickListener,
 	}
 
 	@Override
+	protected void onResume() {
+		super.onResume();
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				menuView.performClick();
+			}
+		};
+		handler.postDelayed(runnable, 500);
+	}
+
+	@Override
 	public void onClick(View v) {
 		int vid = v.getId();
 		switch (vid) {
