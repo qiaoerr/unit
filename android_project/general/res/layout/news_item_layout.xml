@@ -12,6 +12,6 @@
         android:singleLine="true"
         android:text="testdata"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

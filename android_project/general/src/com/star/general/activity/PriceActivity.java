@@ -67,10 +67,10 @@ public class PriceActivity extends Activity {
 		tem.setServiceName("高级发型师");
 		tem.setServicePrice("￥50");
 		cataOne.add(tem);
+		//
 		tem = new ServicePrice();
 		tem.setServiceName("日本梦特蓓妮烫发");
 		tem.setServicePrice("￥580");
-		//
 		cataTwo.add(tem);
 		tem = new ServicePrice();
 		tem.setServiceName("德国施华蔻烫发");
@@ -85,26 +85,77 @@ public class PriceActivity extends Activity {
 		tem.setServicePrice("￥430");
 		cataTwo.add(tem);
 		//
-		cataThree.add(tem);
 		tem = new ServicePrice();
-		tem.setServiceName("德国施华蔻烫发");
-		tem.setServicePrice("￥530");
-		cataThree.add(tem);
-		tem = new ServicePrice();
-		tem.setServiceName("巴黎欧莱雅烫发");
+		tem.setServiceName("日本梦特蓓妮染发");
 		tem.setServicePrice("￥480");
 		cataThree.add(tem);
 		tem = new ServicePrice();
-		tem.setServiceName("美琪丝烫发");
+		tem.setServiceName("德国施华蔻染发");
 		tem.setServicePrice("￥430");
 		cataThree.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("巴黎欧莱雅染发");
+		tem.setServicePrice("￥380");
+		cataThree.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("美琪丝染发");
+		tem.setServicePrice("￥330");
+		cataThree.add(tem);
+		//
+		tem = new ServicePrice();
+		tem.setServiceName("海旎头部SPA");
+		tem.setServicePrice("￥398");
+		cataFour.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("丝泉家庭护理");
+		tem.setServicePrice("￥298");
+		cataFour.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("思雅专业护理");
+		tem.setServicePrice("￥330");
+		cataFour.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("卡诗专业头皮护理");
+		tem.setServicePrice("￥380");
+		cataFour.add(tem);
+		//
+		tem = new ServicePrice();
+		tem.setServiceName("手部护理");
+		tem.setServicePrice("￥70");
+		cataFive.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("美甲");
+		tem.setServicePrice("￥58");
+		cataFive.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("盘发造型");
+		tem.setServicePrice("￥50");
+		cataFive.add(tem);
+		//
+		cataSix.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("罗瑞塔发蜡2.5");
+		tem.setServicePrice("￥198");
+		cataSix.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("罗瑞塔发蜡4.0");
+		tem.setServicePrice("￥298");
+		cataSix.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("罗瑞塔发蜡6.5");
+		tem.setServicePrice("￥398");
+		cataSix.add(tem);
+		tem = new ServicePrice();
+		tem.setServiceName("碧若丝强力定型喷雾");
+		tem.setServicePrice("￥168");
+		cataSix.add(tem);
 	}
 
 	private void initView() {
 		container = (RelativeLayout) findViewById(R.id.container);
 		ScrollView scrollView = new ScrollView(context);
 		params = new LayoutParams(-1, -1);
-		params.setMargins(screenWidth / 17, 0, screenWidth / 17, 0);
+		params.setMargins(screenWidth / 18, 0, screenWidth / 18, 0);
 		params.addRule(RelativeLayout.ABOVE, 10002);
 		scrollView.setLayoutParams(params);
 		container.addView(scrollView);
@@ -112,7 +163,6 @@ public class PriceActivity extends Activity {
 		linearLayout.setOrientation(LinearLayout.VERTICAL);
 		scrollView.addView(linearLayout);
 		// cataone_textView
-		android.widget.LinearLayout.LayoutParams params_linear;
 		TextView cataone_textView = getCataTextview("洗吹剪");
 		linearLayout.addView(cataone_textView);
 		// item
@@ -122,6 +172,26 @@ public class PriceActivity extends Activity {
 		linearLayout.addView(catatwo_textView);
 		// item
 		listDetailItem(linearLayout, cataTwo);
+		// cataThree_textView
+		TextView cataThree_textView = getCataTextview("染发");
+		linearLayout.addView(cataThree_textView);
+		// item
+		listDetailItem(linearLayout, cataThree);
+		// cataFour_textView
+		TextView cataFour_textView = getCataTextview("护理");
+		linearLayout.addView(cataFour_textView);
+		// item
+		listDetailItem(linearLayout, cataFour);
+		// catafive_textView
+		TextView catafive_textView = getCataTextview("其他");
+		linearLayout.addView(catafive_textView);
+		// item
+		listDetailItem(linearLayout, cataFive);
+		// cataSix_textView
+		TextView cataSix_textView = getCataTextview("外卖");
+		linearLayout.addView(cataSix_textView);
+		// item
+		listDetailItem(linearLayout, cataSix);
 		// buttomBar
 		buttomBar = new ButtomBar(context);
 		buttomBar.setConfig(R.drawable.bottom_return, R.drawable.bottom_share,
