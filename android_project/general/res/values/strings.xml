@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">美容理发</string>
+    <string name="app_name">美发指南</string>
     <string name="Salon_profile">    XX美发沙龙，京城最具人气的专业美发沙龙。众多明星和潮人聚集于此。店面装修豪华，细节修饰典雅。内设VIP独享空间，让您尽显尊贵。中级潮流体验，至真时尚前沿，诚邀并期待您的莅临。</string>
 
     <string-array name="level">
