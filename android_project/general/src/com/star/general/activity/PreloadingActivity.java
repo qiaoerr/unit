@@ -60,7 +60,7 @@ public class PreloadingActivity extends Activity {
 
 	private void getData() {
 		// 获取后台数据
-		handler.sendEmptyMessageDelayed(Constants.FULLDATA, 2000);
+		handler.sendEmptyMessageDelayed(Constants.FULLDATA, 4000);
 	}
 
 	@Override
