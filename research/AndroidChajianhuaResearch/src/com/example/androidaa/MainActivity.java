@@ -1,5 +1,7 @@
 package com.example.androidaa;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +25,16 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		context = this;
+		try {
+			Runtime.getRuntime().exec("pm install /sdcard/app.apk", null, null)
+					.waitFor();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		initView();
 	}
 
