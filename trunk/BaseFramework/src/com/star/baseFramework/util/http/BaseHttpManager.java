@@ -104,18 +104,21 @@ public class BaseHttpManager {
 				String param = URLEncodedUtils.format(list, CODE);
 				url = url + "?" + param;
 				HttpGet get = new HttpGet(url);
+				// 可以通过http请求的user-agent 来区分ios和android 系统
+				get.setHeader("user-agent", "android");
 				request = get;
 				L.d("http", "url=" + url);
 				/*post方式*/
 			} else if (method.equals(HTTP_POST)) {
 				HttpPost post = new HttpPost(url);
-				request = post;
+				post.setHeader("user-agent", "android");
 				// 客户端提交给服务器文本内容的编码方式 是URL编码
 				post.setHeader("Content-Type",
 						"application/x-www-form-urlencoded");
 				HttpEntity entity = new UrlEncodedFormEntity(list, CODE);
 				// 将参数填入POST Entity中
 				post.setEntity(entity);
+				request = post;
 				L.d("http",
 						"url=" + url + "?" + URLEncodedUtils.format(list, CODE));
 			} else if (method.equals("DELETE")) {
