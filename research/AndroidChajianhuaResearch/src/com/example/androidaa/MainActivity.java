@@ -58,16 +58,19 @@ public class MainActivity extends Activity {
 			// "test.9.png"));
 			imageView1.setImageDrawable(ImageTool.decodeDrawableFromAsset(
 					context, "test4.9.png"));
+			// imageView1.setImageResource(R.drawable.test4);
 			// imageView2.setImageDrawable(new BitmapDrawable(getResources(),
 			// ImageTool.decodeFromAsset(context, "test.9.png")));
 			imageView2.setImageBitmap(ImageTool.decodeFromAsset(context,
 					"test4.9.png"));
+			// imageView2.setImageResource(R.drawable.test4);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 
 		try {
 			imageView3.setImageBitmap(DrawableUtils.getBitmap("psb.png"));
+			// imageView3.setImageResource(R.drawable.test4);
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
