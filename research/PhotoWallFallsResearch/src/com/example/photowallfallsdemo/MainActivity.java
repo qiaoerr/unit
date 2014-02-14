@@ -1,8 +1,8 @@
 package com.example.photowallfallsdemo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
-import android.app.Activity;
 
 public class MainActivity extends Activity {
 
