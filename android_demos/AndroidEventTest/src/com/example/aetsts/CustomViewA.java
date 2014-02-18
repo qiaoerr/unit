@@ -50,7 +50,7 @@ public class CustomViewA extends Button {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				System.out.println("onTouch===CustomViewA===onTouch");
-				return false;
+				return false;// 此处如果返回true,则后续的onTouchEvent方法不会被调用。
 			}
 		});
 	}
