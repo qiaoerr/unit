@@ -95,6 +95,7 @@ public class PagingViewGroup extends ViewGroup {
 			for (int i = 0; i < getChildCount(); i++) {
 				View child = getChildAt(i);
 				int childHight = child.getMeasuredHeight();
+				// System.out.println("childHight: " + childHight);//
 				child.layout(0, childTop, child.getMeasuredWidth(), childTop
 						+ childHight);
 				childTop += childHight;
@@ -126,24 +127,25 @@ public class PagingViewGroup extends ViewGroup {
 		if (orientation == HORIZONTAL) {
 			int dx = getWidth() * index - getScrollX();
 			scroller.startScroll(getScrollX(), 0, dx, 0, Math.abs(dx) * 2);
-			computeScroll();
 		} else {
-			int dy = getHeight() * index - getScrollY();
+			final int dy = getHeight() * index - getScrollY();
 			scroller.startScroll(0, getScrollY(), 0, dy, Math.abs(dy) * 2);
-			computeScroll();
 		}
+		computeScroll();// 注意scroller.startScroll方法不会触发computeScroll()方法，需要手动调用
 	}
 
 	@Override
 	public void computeScroll() {
+		// System.out.println("computeScroll()方法");
 		super.computeScroll();
 		if (scroller.computeScrollOffset()) {
 			scrollTo(scroller.getCurrX(), scroller.getCurrY());
-			invalidate();
+			invalidate();// 让computeScroll()方法不断的调用,不加上则computeScroll()方法只调用一次。
 		}
 
 	}
 
+	/*(event.getX()，event.getY())左上角的坐标为（0,0）,右下角的最大*/
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		velocityTracker.addMovement(event);
@@ -161,11 +163,11 @@ public class PagingViewGroup extends ViewGroup {
 		case MotionEvent.ACTION_MOVE:
 			if (orientation == HORIZONTAL) {
 				int deltaX = (int) (mLastMotionX - x);
-				scrollBy(deltaX, 0);
+				scrollBy(deltaX, 0);// the view will be invalidated
 			}
 			if (orientation == VERTICAL) {
 				int deltaY = (int) (mLastMotionY - y);
-				scrollBy(0, deltaY);
+				scrollBy(0, deltaY);// the view will be invalidated
 			}
 			mLastMotionX = x;
 			mLastMotionY = y;
@@ -203,6 +205,7 @@ public class PagingViewGroup extends ViewGroup {
 		return true;
 	}
 
+	/*返回true,则viewGroup拦截事件向它的childrenView传递，ViewGroup本身的onTouchEvent方法得以调用*/
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		if (state == STATE_SCROLLING) {

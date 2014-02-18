@@ -8,10 +8,10 @@
     <com.yao_guet.PagingViewGroup
         android:id="@+id/ScrollLayoutTest"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="450dp"
         android:layout_centerInParent="true"
         android:background="#0000aa"
-        app:oriention="horizontal" >
+        app:oriention="vertical" >
     </com.yao_guet.PagingViewGroup>
 
 </RelativeLayout>
