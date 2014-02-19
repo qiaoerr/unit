@@ -160,6 +160,8 @@ public class ZoomImageView extends View {
 			// 分别获取到ZoomImageView的宽度和高度
 			width = getWidth();
 			height = getHeight();
+			System.out.println("width: " + width);
+			System.out.println("height: " + height);
 		}
 	}
 
@@ -170,6 +172,8 @@ public class ZoomImageView extends View {
 		} else {
 			getParent().requestDisallowInterceptTouchEvent(true);
 		}
+		event.getActionIndex();
+		event.getAction();
 		switch (event.getActionMasked()) {
 		case MotionEvent.ACTION_POINTER_DOWN:
 			if (event.getPointerCount() == 2) {

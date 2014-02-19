@@ -129,6 +129,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 			// 如果当前的滚动位置和上次相同，表示已停止滚动
 			if (scrollY == lastScrollY) {
 				// 当滚动的最底部，并且当前没有正在下载的任务时，开始加载下一页的图片
+				// System.out.println("scrollLayout.getHeight(): "
+				// + scrollLayout.getHeight());
 				if (scrollViewHeight + scrollY >= scrollLayout.getHeight()
 						&& taskCollection.isEmpty()) {
 					myScrollView.loadMoreImages();
@@ -187,6 +189,7 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 			Message message = new Message();
 			message.obj = this;
 			handler.sendMessageDelayed(message, 5);
+			// System.out.println("scrollViewHeight: " + getHeight());
 		}
 		return false;
 	}
@@ -223,6 +226,7 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 	 * 遍历imageViewList中的每张图片，对图片的可见性进行检查，如果图片已经离开屏幕可见范围，则将图片替换成一张空图。
 	 */
 	public void checkVisibility() {
+		System.out.println("imageViewList.size(): " + imageViewList.size());
 		for (int i = 0; i < imageViewList.size(); i++) {
 			ImageView imageView = imageViewList.get(i);
 			int borderTop = (Integer) imageView.getTag(R.string.border_top);
@@ -282,7 +286,6 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		/**
 		 * 将可重复使用的ImageView传入
 		 * 
-		 * @param imageView
 		 */
 		public LoadImageTask(ImageView imageView) {
 			mImageView = imageView;
@@ -466,7 +469,7 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		}
 
 		/**
-		 * 获取图片的本地存储路径。
+		 * 获取图片的本地存储路径。(将Url转换为在SD卡上存储的文件的路径（文件的绝对路径）)
 		 * 
 		 * @param imageUrl
 		 *            图片的URL地址。
