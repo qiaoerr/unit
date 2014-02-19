@@ -136,10 +136,9 @@ public class PagingViewGroup extends ViewGroup {
 
 	@Override
 	public void computeScroll() {
-		System.out.println("computeScroll()方法");
+		// System.out.println("computeScroll()方法");
 		super.computeScroll();
 		if (scroller.computeScrollOffset()) {
-			System.out.println("scroller.getCurrY(): " + scroller.getCurrY());
 			scrollTo(scroller.getCurrX(), scroller.getCurrY());
 			/*让computeScroll()方法不断的调用,不加上则computeScroll()方法只调用一次。*/
 			invalidate();
