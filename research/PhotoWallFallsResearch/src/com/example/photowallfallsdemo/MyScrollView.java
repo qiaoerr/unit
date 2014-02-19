@@ -125,6 +125,7 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 		public void handleMessage(android.os.Message msg) {
 			MyScrollView myScrollView = (MyScrollView) msg.obj;
 			int scrollY = myScrollView.getScrollY();
+			System.out.println("scrollYscrollY: " + scrollY);
 			// 如果当前的滚动位置和上次相同，表示已停止滚动
 			if (scrollY == lastScrollY) {
 				// 当滚动的最底部，并且当前没有正在下载的任务时，开始加载下一页的图片
@@ -177,6 +178,8 @@ public class MyScrollView extends ScrollView implements OnTouchListener {
 
 	/**
 	 * 监听用户的触屏事件，如果用户手指离开屏幕则开始进行滚动检测。
+	 * 注意MyScrollView调用onTouch方法的情形：MyScrollView继承自ScrollView
+	 * ，当滚动的时候，MyScrollView会 拦截事件向其childrenView传递。MyScrollView的onTouch方法被调动。
 	 */
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
