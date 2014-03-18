@@ -31,7 +31,8 @@ public class ReferenceTest {
 		// SoftReference<A> sr = new SoftReference<A>(a);
 		WeakReference<A> sr = new WeakReference<A>(a);
 		a = null;// 变量a对对象a不再有强引用关系。 对象a的引用计数减1
-		// arrayList = null;// 把数组arrayList置空，数组arrayList对对象a不再有强引用关系，对象a的引用计数减1
+		// a = new A();// 变量a指向另外一个对象，之前创建的对象的引用计数减1
+		arrayList = null;// 把数组arrayList置空，数组arrayList对对象a不再有强引用关系，对象a的引用计数减1
 		System.gc();
 		// for (int j = 0; j < arrayList.size(); j++) {
 		// System.out.println(arrayList.get(j).str);
