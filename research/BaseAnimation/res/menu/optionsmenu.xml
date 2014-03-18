@@ -14,10 +14,10 @@
     <item
         android:id="@+id/menu_share"
         android:orderInCategory="1"
-        android:showAsAction="always|withText|"
+        android:showAsAction="collapseActionView"
         android:title="分享"/>
-    
-<!-- 计算器菜单开始 -->    
+
+    <!-- 计算器菜单开始 -->
     <item
         android:id="@+id/changeInput"
         android:title="切换输入"/>
@@ -27,5 +27,6 @@
     <item
         android:id="@+id/exit"
         android:title="退出"/>
-<!-- 计算器菜单结束 -->   
+    <!-- 计算器菜单结束 -->
+
 </menu>
