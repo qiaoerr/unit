@@ -1,20 +1,13 @@
 package com.duguang.baseanimation.ui.custom;
 
-import com.duguang.baseanimation.R;
-import com.duguang.baseanimation.ui.MainActivity;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.Interpolator;
@@ -22,10 +15,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
+import com.duguang.baseanimation.R;
+
 /**
  * zaker自定义效果页面
+ * 
  * @author Administrator
- *
+ * 
  */
 public class PullDoorView extends RelativeLayout {
 
@@ -74,8 +70,6 @@ public class PullDoorView extends RelativeLayout {
 		mScreenHeigh = dm.heightPixels;
 		mScreenWidth = dm.widthPixels;
 
-		// 这里你一定要设置成透明背景,不然会影响你看到底层布局
-		this.setBackgroundColor(Color.argb(0, 0, 0, 0));
 		mImgView = new ImageView(mContext);
 		mImgView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT));
@@ -101,14 +95,31 @@ public class PullDoorView extends RelativeLayout {
 	}
 
 	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		super.dispatchTouchEvent(ev);
+		int action = ev.getAction();
+		switch (action) {
+		case MotionEvent.ACTION_DOWN:
+			return false;
+		default:
+			return true;
+		}
+	}
+
+	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		int action = event.getAction();
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
 			mLastDownY = (int) event.getY();
+			System.out
+					.println("ACTION_DOWNACTION_DOWNACTION_DOWNACTION_DOWNACTION_DOWN");
 			System.err.println("ACTION_DOWN=" + mLastDownY);
 			return true;
+			// break;
 		case MotionEvent.ACTION_MOVE:
+			System.out
+					.println("ACTION_MOVEACTION_MOVEACTION_MOVEACTION_MOVEACTION_MOVE");
 			mCurryY = (int) event.getY();
 			System.err.println("ACTION_MOVE=" + mCurryY);
 			mDelY = mCurryY - mLastDownY;
@@ -120,25 +131,25 @@ public class PullDoorView extends RelativeLayout {
 
 			break;
 		case MotionEvent.ACTION_UP:
+			System.out
+					.println("ACTION_UPACTION_UPACTION_UPACTION_UPACTION_UPACTION_UPACTION_UP");
 			mCurryY = (int) event.getY();
 			mDelY = mCurryY - mLastDownY;
 			if (mDelY < 0) {
 
 				if (Math.abs(mDelY) > mScreenHeigh / 2) {
-
 					// 向上滑动超过半个屏幕高的时候 开启向上消失动画
 					startBounceAnim(this.getScrollY(), mScreenHeigh, 450);
 					mCloseFlag = true;
 				} else {
 					// 向上滑动未超过半个屏幕高的时候 开启向下弹动动画
 					startBounceAnim(this.getScrollY(), -this.getScrollY(), 1000);
-
 				}
 			}
-
 			break;
 		}
 		return super.onTouchEvent(event);
+
 	}
 
 	@Override

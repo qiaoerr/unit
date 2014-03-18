@@ -24,7 +24,6 @@ import com.duguang.baseanimation.ui.customview.CustomViewMainActivity;
 import com.duguang.baseanimation.ui.flip.FlipMainActivity;
 import com.duguang.baseanimation.ui.imitate.ImitateMainActivity;
 import com.duguang.baseanimation.ui.listivew.ListViewMani;
-import com.duguang.baseanimation.ui.listivew.refresh.RefreshMainActivity;
 import com.duguang.baseanimation.ui.nineold.NineOldMani;
 import com.duguang.baseanimation.ui.property.PropertyAnimationActivity;
 import com.duguang.baseanimation.ui.splash.SplashMainActivity;
@@ -51,8 +50,6 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 	private ListView listView_animation;
 	private ArrayAdapter<String> itemAdapter;
 	private TextView tvHint;
-
-
 
 	@Override
 	public void setView() {
@@ -177,13 +174,14 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 		}
 
 	}
-	
+
 	/**
 	 * 切换Activity
+	 * 
 	 * @param class1
 	 */
-	public void startIntent(Class class1){
-		Intent intent = new Intent(MainActivity.this,class1);
+	public void startIntent(Class class1) {
+		Intent intent = new Intent(MainActivity.this, class1);
 		startActivity(intent);
 	}
 

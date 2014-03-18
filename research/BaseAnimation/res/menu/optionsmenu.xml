@@ -14,7 +14,7 @@
     <item
         android:id="@+id/menu_share"
         android:orderInCategory="1"
-        android:showAsAction="collapseActionView"
+        android:showAsAction="always|withText"
         android:title="分享"/>
 
     <!-- 计算器菜单开始 -->

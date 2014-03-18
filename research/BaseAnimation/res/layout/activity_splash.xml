@@ -11,8 +11,7 @@
     <com.duguang.baseanimation.ui.custom.PullDoorView
         android:id="@+id/myImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ddd" >
+        android:layout_height="match_parent" >
 
         <TextView
             android:id="@+id/tv_hint"
