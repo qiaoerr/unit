@@ -19,10 +19,6 @@ public class SoftReferenceTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// String str = new String("hello");
-		// ReferenceQueue<String> rq = new ReferenceQueue<String>();
-		// WeakReference<String> wf = new WeakReference<String>(str, rq);
-		// rq.poll();
 		A a = new A();
 		a.str = "Hello, reference";
 		SoftReference<A> sr = new SoftReference<A>(a);
