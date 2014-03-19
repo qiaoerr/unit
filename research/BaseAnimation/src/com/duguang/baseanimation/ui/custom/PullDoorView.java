@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -95,56 +94,34 @@ public class PullDoorView extends RelativeLayout {
 	}
 
 	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
-		super.dispatchTouchEvent(ev);
-		int action = ev.getAction();
-		switch (action) {
-		case MotionEvent.ACTION_DOWN:
-			return false;
-		default:
-			return true;
-		}
-	}
-
-	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		int action = event.getAction();
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
 			mLastDownY = (int) event.getY();
-			System.out
-					.println("ACTION_DOWNACTION_DOWNACTION_DOWNACTION_DOWNACTION_DOWN");
-			System.err.println("ACTION_DOWN=" + mLastDownY);
+			if (!mScroller.isFinished()) {
+				mScroller.abortAnimation();
+			}
 			return true;
 			// break;
 		case MotionEvent.ACTION_MOVE:
-			System.out
-					.println("ACTION_MOVEACTION_MOVEACTION_MOVEACTION_MOVEACTION_MOVE");
 			mCurryY = (int) event.getY();
-			System.err.println("ACTION_MOVE=" + mCurryY);
 			mDelY = mCurryY - mLastDownY;
 			// 只准上滑有效
 			if (mDelY < 0) {
-				scrollTo(0, -mDelY);
+				scrollBy(0, -mDelY);
 			}
-			System.err.println("-------------  " + mDelY);
-
+			mLastDownY = (int) event.getY();
 			break;
 		case MotionEvent.ACTION_UP:
-			System.out
-					.println("ACTION_UPACTION_UPACTION_UPACTION_UPACTION_UPACTION_UPACTION_UP");
-			mCurryY = (int) event.getY();
-			mDelY = mCurryY - mLastDownY;
-			if (mDelY < 0) {
-
-				if (Math.abs(mDelY) > mScreenHeigh / 2) {
-					// 向上滑动超过半个屏幕高的时候 开启向上消失动画
-					startBounceAnim(this.getScrollY(), mScreenHeigh, 450);
-					mCloseFlag = true;
-				} else {
-					// 向上滑动未超过半个屏幕高的时候 开启向下弹动动画
-					startBounceAnim(this.getScrollY(), -this.getScrollY(), 1000);
-				}
+			if (Math.abs(this.getScrollY()) > mScreenHeigh / 2) {
+				// 向上滑动超过半个屏幕高的时候 开启向上消失动画
+				startBounceAnim(this.getScrollY(),
+						mScreenHeigh - this.getScrollY(), 450);
+				mCloseFlag = true;
+			} else {
+				// 向上滑动未超过半个屏幕高的时候 开启向下弹动动画
+				startBounceAnim(this.getScrollY(), -this.getScrollY(), 1000);
 			}
 			break;
 		}
@@ -157,9 +134,6 @@ public class PullDoorView extends RelativeLayout {
 
 		if (mScroller.computeScrollOffset()) {
 			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-			Log.i("scroller", "getCurrX()= " + mScroller.getCurrX()
-					+ "     getCurrY()=" + mScroller.getCurrY()
-					+ "  getFinalY() =  " + mScroller.getFinalY());
 			// 不要忘记更新界面
 			postInvalidate();
 		} else {

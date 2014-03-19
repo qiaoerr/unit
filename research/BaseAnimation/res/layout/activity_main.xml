@@ -14,15 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="7" >
-        
     </ListView>
 
     <RelativeLayout
         android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-         android:layout_weight="1">
-
+        android:layout_weight="1" >
     </RelativeLayout>
 
 </LinearLayout>
