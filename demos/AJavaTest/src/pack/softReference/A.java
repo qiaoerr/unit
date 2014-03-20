@@ -9,7 +9,7 @@
   @version V1.0
  */
 
-package referencetest;
+package pack.softReference;
 
 /**
  * @ClassName: A

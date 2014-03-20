@@ -9,7 +9,7 @@
   @version V1.0
  */
 
-package compare;
+package pack.comparator;
 
 /**
  * @ClassName: Person

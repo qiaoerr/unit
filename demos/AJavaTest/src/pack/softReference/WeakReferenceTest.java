@@ -9,7 +9,7 @@
   @version V1.0
  */
 
-package referencetest;
+package pack.softReference;
 
 import java.lang.ref.WeakReference;
 
