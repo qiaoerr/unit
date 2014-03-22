@@ -14,18 +14,18 @@
         android:id="@+id/holder"
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:background="@drawable/delete_holder_bg">
+        android:background="@drawable/delete_holder_bg"
+        android:clickable="true" >
 
         <TextView
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/delete_icon_normal"
             android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/delete_icon_normal"
             android:gravity="center"
-            android:textColor="@color/floralwhite"
-            android:text="删除" />
+            android:text="删除"
+            android:textColor="@color/floralwhite" />
     </RelativeLayout>
 
 </merge>
