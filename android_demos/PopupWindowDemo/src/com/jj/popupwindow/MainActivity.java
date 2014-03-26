@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
 	private LinearLayout layout;
 	private ListView listView;
 	private String[] title = { "全部", "我的微博", "周边", "智能排版", "同学" };
+	private int offsetX;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,8 @@ public class MainActivity extends Activity {
 				System.out.println("button.getTop(): " + button.getTop()
 						+ " button.getBottom(): " + button.getBottom());
 				int x = getResources().getDisplayMetrics().widthPixels / 4;
+				int width = button.getWidth();
+				offsetX = (getResources().getDisplayMetrics().widthPixels / 2 - width) / 2;
 				showPopupWindow(x, y);
 			}
 		});
@@ -68,8 +71,9 @@ public class MainActivity extends Activity {
 		// popupWindow.setOutsideTouchable(false);
 		popupWindow.setFocusable(true);
 		popupWindow.setWindowLayoutMode(0, 0);
-		// showAsDropDown会把里面的view作为参照物，所以要那满屏幕parent
-		// popupWindow.showAsDropDown(findViewById(R.id.tv_title), x, 10);
+		// showAsDropDown会把里面的view作为参照物
+		// popupWindow.showAsDropDown(findViewById(R.id.tv_title), -offsetX,
+		// 10);
 		popupWindow.showAtLocation(findViewById(R.id.main), Gravity.LEFT
 				| Gravity.TOP, x, y);// 需要指定Gravity，默认情况是center.
 
