@@ -46,8 +46,12 @@ public class AppConfig {
 
 	public final static String SAVE_IMAGE_PATH = "save_image_path";
 	@SuppressLint("NewApi")
-	public final static String DEFAULT_SAVE_IMAGE_PATH = Environment.getExternalStorageDirectory()+ File.separator+ "OSChina"+ File.separator;
-			
+	public final static String DEFAULT_SAVE_IMAGE_PATH = Environment
+			.getExternalStorageDirectory()
+			+ File.separator
+			+ "OSChina"
+			+ File.separator;
+
 	private Context mContext;
 	private AccessInfo accessInfo = null;
 	private static AppConfig appConfig;
@@ -164,7 +168,6 @@ public class AppConfig {
 			File dirConf = mContext.getDir(APP_CONFIG, Context.MODE_PRIVATE);
 			File conf = new File(dirConf, APP_CONFIG);
 			fos = new FileOutputStream(conf);
-
 			p.store(fos, null);
 			fos.flush();
 		} catch (Exception e) {
