@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
 		popupWindow.setHeight(300);
 		// popupWindow.setOutsideTouchable(false);
 		popupWindow.setFocusable(true);
-		popupWindow.setWindowLayoutMode(0, 0);
+		// popupWindow.setWindowLayoutMode(0, 0);
 		// showAsDropDown会把里面的view作为参照物
 		// popupWindow.showAsDropDown(findViewById(R.id.tv_title), -offsetX,
 		// 10);
