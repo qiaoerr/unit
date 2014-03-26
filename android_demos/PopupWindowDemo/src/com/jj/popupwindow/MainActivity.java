@@ -2,7 +2,6 @@ package com.jj.popupwindow;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -46,7 +45,7 @@ public class MainActivity extends Activity {
 						+ (int) (25 * getResources().getDisplayMetrics().density);
 				System.out.println("button.getTop(): " + button.getTop()
 						+ " button.getBottom(): " + button.getBottom());
-				int x = getWindowManager().getDefaultDisplay().getWidth() / 4;
+				int x = getResources().getDisplayMetrics().widthPixels / 4;
 				showPopupWindow(x, y);
 			}
 		});
@@ -61,14 +60,14 @@ public class MainActivity extends Activity {
 				R.layout.text, R.id.tv_text, title));
 
 		popupWindow = new PopupWindow(MainActivity.this);
-		popupWindow.setBackgroundDrawable(new BitmapDrawable());
+		popupWindow.setContentView(layout);
+		// popupWindow.setBackgroundDrawable(new BitmapDrawable());
 		popupWindow
-				.setWidth(getWindowManager().getDefaultDisplay().getWidth() / 2);
+				.setWidth(getResources().getDisplayMetrics().widthPixels / 2);
 		popupWindow.setHeight(300);
-		popupWindow.setOutsideTouchable(true);
+		// popupWindow.setOutsideTouchable(false);
 		popupWindow.setFocusable(true);
 		popupWindow.setWindowLayoutMode(0, 0);
-		popupWindow.setContentView(layout);
 		// showAsDropDown会把里面的view作为参照物，所以要那满屏幕parent
 		// popupWindow.showAsDropDown(findViewById(R.id.tv_title), x, 10);
 		popupWindow.showAtLocation(findViewById(R.id.main), Gravity.LEFT
@@ -80,6 +79,7 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				button.setText(title[arg2]);
+				button.invalidate();
 				popupWindow.dismiss();
 				popupWindow = null;
 			}
