@@ -19,13 +19,13 @@ public class C extends Activity {
 		context = this;
 		onclick = (Button) findViewById(R.id.onclick);
 		onclick.setText("C");
-		if (isTaskRoot()) {
+		/*if (isTaskRoot()) {
 			System.out.println("moveTaskToBack(false);");
 			moveTaskToBack(false);
 		} else {
 			System.out.println("moveTaskToBack(true);");
 			moveTaskToBack(true);
-		}
+		}*/
 	}
 
 	public void next(View view) {

@@ -22,19 +22,21 @@ public class D extends Activity {
 		onclick = (Button) findViewById(R.id.onclick);
 		info = (Button) findViewById(R.id.info);
 		onclick.setText("D");
-		if (isTaskRoot()) {
+		/*if (isTaskRoot()) {
 			System.out.println("moveTaskToBack(false);");
 			moveTaskToBack(false);
 		} else {
 			System.out.println("moveTaskToBack(true);");
 			moveTaskToBack(true);
-		}
+		}*/
 
 	}
 
 	public void next(View view) {
 		Intent intent = new Intent(context, D.class);
 		intent.putExtra("info", "activity" + i++);
+		// 在所有flag与launchMode中，只有FLAG_ACTIVITY_SINGLE_TOP 等同singleTop ，
+		// 而且如果manifest和intent中都设置了activity的该启动模式，则intent中设置的优先级高。
 		intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
