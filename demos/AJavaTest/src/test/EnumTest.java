@@ -25,7 +25,7 @@ public class EnumTest {
 	public static void main(String[] args) {
 		System.out.println(EnumTest.MyEnum.afdsaf.getValue());
 		System.out.println(EnumTest.MyEnum.bfads.getValue());
-		// 枚举对象只create一次（经过上面第一次的创建，MyEnum相当于EnumTest的成员属性字段了）
+		// MyEnum的枚举对象不会再次create
 		System.out.println(EnumTest.MyEnum.afdsaf.getValue());
 		System.out.println(EnumTest.MyEnum.bfads.getValue());
 
