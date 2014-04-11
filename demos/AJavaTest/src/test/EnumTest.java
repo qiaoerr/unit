@@ -23,12 +23,20 @@ package test;
 public class EnumTest {
 
 	public static void main(String[] args) {
-		System.out.println(MyEnum.afdsaf.getValue());
+		System.out.println(EnumTest.MyEnum.afdsaf.getValue());
+		System.out.println(EnumTest.MyEnum.bfads.getValue());
+		// 枚举对象只create一次（经过上面第一次的创建，MyEnum相当于EnumTest的成员属性字段了）
+		System.out.println(EnumTest.MyEnum.afdsaf.getValue());
+		System.out.println(EnumTest.MyEnum.bfads.getValue());
 
 	}
 
+	/* 枚举也可以象一般的类一样添加方法和属性,你可以为它添加静态和非静态的属性或方法,
+	 这一切都象你在一般的类中做的那样. */
 	public enum MyEnum {
-		afdsaf(1), bfads(2), cfas(4);
+		// 枚举列表必须写在最前面，否则编译出错
+		// 通过括号赋值,必须有带参构造器
+		afdsaf(2), bfads;
 		private final int value;
 
 		public int getValue() {
@@ -36,7 +44,13 @@ public class EnumTest {
 		}
 
 		private MyEnum(int v) {
+			System.out.println("create");
 			this.value = v;
+		}
+
+		private MyEnum() {
+			this.value = 1;
+			System.out.println("create");
 		}
 	}
 }
