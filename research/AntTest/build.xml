@@ -90,22 +90,22 @@
     <import file="${sdk.dir}/tools/ant/build.xml" />
     <!--    start -->
     
-<property name="has.keystore" value="true"/>                 <!-- 打包是否需要签名 -->
+    <property name="has.keystore" value="true"/>                 <!-- 打包是否需要签名 -->
 
-<property name="has.password" value="true"/>                 <!-- 签名是否需要密码 -->
+    <property name="has.password" value="true"/>                 <!-- 签名是否需要密码 -->
 
-<property file="project.properties"/>                        <!-- 加载sdk version -->
+    <property file="project.properties"/>                        <!-- 加载sdk version -->
 
-<property name="key.store" value="star.keystore"/>            <!-- 签名文件位置，build.xml同目录下 -->
+    <property name="key.store" value="star.keystore"/>            <!-- 签名文件位置，build.xml同目录下 -->
 
-<property name="key.alias" value="star"/>                 <!-- 签名标识 -->
+    <property name="key.alias" value="star"/>                 <!-- 签名标识 -->
 
-<property name="key.store.password" value="19871221"/>       <!-- 签名的密码 -->
+    <property name="key.store.password" value="19871221"/>       <!-- 签名的密码 -->
 
-<property name="key.alias.password" value="19871221"/>       <!-- 签名的密码 -->
+    <property name="key.alias.password" value="19871221"/>       <!-- 签名的密码 -->
 
-<property name="proguard.enabled" value="false"/>            <!-- 是否混淆 -->
+    <property name="proguard.enabled" value="false"/>            <!-- 是否混淆 -->
 
-<property name="proguard.config" value="proguard.cfg"/>      <!-- 混淆文件位置,build.xml同目录 -->
+    <property name="proguard.config" value="proguard.cfg"/>      <!-- 混淆文件位置,build.xml同目录 -->
     
 </project>
