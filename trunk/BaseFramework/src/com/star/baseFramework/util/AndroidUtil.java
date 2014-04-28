@@ -268,4 +268,20 @@ public class AndroidUtil {
 			return "获取包名失败";
 		}
 	}
+
+	/**
+	 * 
+	 * 检测该包名所对应的应用是否存在(安装)
+	 */
+	public static boolean checkInstall(Context context, String packageName) {
+		if (packageName == null || "".equals(packageName))
+			return false;
+		try {
+			context.getPackageManager().getPackageInfo(packageName, 0);
+			return true;
+		} catch (NameNotFoundException e) {
+			return false;
+		}
+	}
+
 }
