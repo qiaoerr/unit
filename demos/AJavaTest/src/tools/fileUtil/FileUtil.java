@@ -10,7 +10,7 @@
  * @version V1.0
  */
 
-package tools;
+package tools.fileUtil;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
