@@ -18,34 +18,30 @@ public class FormatDemo {
 	 *    %            前缀或后缀                数字乘以100并显示为百分数
 	 *    ‰            前缀或后缀                数字乘以1000并显示为百分数
 	 *    
-
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		format1("###,###.###", 111222.34567);
+		format1("###,###.###", 111222.34567);//111,222.346
 		// 前边不够补0 后边多余四舍五入 不够补0
-		format1("000,000.000", 11222.34567);
-		format1("###,###.###￥", 111222.34567);
-		format1("000,000.000￥", 11222.34567);
+		format1("000,000.000", 11222.34567);//011,222.346
+		format1("###,###.###￥", 111222.34567);//111,222.346￥
+		format1("000,000.000￥", 11222.34567);//011,222.346￥
 		// 百分之多少
-		format1("##.###%", 0.345678);
+		format1("##.###%", 0.345678);//34.568%
 		// 百分之多少
-		format1("00.###%", 0.0345678);
+		format1("00.###%", 0.0345678);//03.457%
 		// 千分之多少
-		format1("###.###‰", 0.345678);
-
+		format1("###.###‰", 0.345678);//345.678‰
 		// 指数形式
 		DecimalFormat df1 = new DecimalFormat();
 		// 用下这个东西applypattern
-		df1.applyPattern("0.000E0000");
-		System.out.println(df1.format(111222.34567));
+		df1.applyPattern("0.000E0000"); 
+		System.out.println(df1.format(111222.34567));//1.112E0005
 	}
-
+	
 	static void format1(String pattern, double value) {
-
 		// 声明一个DecimalFormat对象
 		DecimalFormat df = new DecimalFormat(pattern);
-
 		String str = df.format(value);
 		System.out.println("使用" + pattern + "样式格式化：" + value + " 得到：" + str);
 	}
