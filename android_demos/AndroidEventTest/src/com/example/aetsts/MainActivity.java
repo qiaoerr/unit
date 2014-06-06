@@ -18,24 +18,24 @@ public class MainActivity extends Activity {
 	@Override
 	public void onUserInteraction() {
 
-		System.out.println("onUserInteraction");
+		System.out.println("Activity-onUserInteraction");
 		// super.onUserInteraction();
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		System.out.println("onTouchEvent");
+		System.out.println("Activity-onTouchEvent");
 		bool = super.onTouchEvent(event);
-		System.out.println("onTouchEvent " + bool);
+		System.out.println("Activity-onTouchEvent " + bool);
 		return bool;
 	}
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		System.out.println("dispatchTouchEvent");
+		System.out.println("Activity-dispatchTouchEvent");
 		System.out.println(ev.getAction());
 		bool = super.dispatchTouchEvent(ev);
-		System.out.println("dispatchTouchEvent " + bool);
+		System.out.println("Activity-dispatchTouchEvent " + bool);
 		return bool;
 		// 此方法不管是true or false 后续的MotionEvent都会触发进行。重写此方法的目的一般用来获取MotionEvent
 		// ev中的信息
