@@ -56,14 +56,22 @@ public class MenuItemView extends ViewGroup {
 				childView.setVisibility(View.GONE);
 				int width = childView.getMeasuredWidth();
 				int height = childView.getMeasuredHeight();
-				int x = getMeasuredWidth()
+				/*int x = getMeasuredWidth()
 						/ 2
 						- (int) (MyAnimations.dip2px(context, radius) * Math
 								.cos(Math.toRadians(i * (360 / count) + 90)));
 				int y = getMeasuredHeight()
 						/ 2
 						- (int) (MyAnimations.dip2px(context, radius) * Math
-								.sin(Math.toRadians(i * (360 / count) + 90)));
+								.sin(Math.toRadians(i * (360 / count) + 90)));*/
+				int x = getMeasuredWidth()
+						/ 2
+						- (int) (radius * Math.cos(Math.toRadians(i
+								* (360 / count) + 90)));
+				int y = getMeasuredHeight()
+						/ 2
+						- (int) (radius * Math.sin(Math.toRadians(i
+								* (360 / count) + 90)));
 				childView.layout(x - width / 2, y - height / 2, x + width / 2,
 						y + height / 2);
 				if (i == 0) {

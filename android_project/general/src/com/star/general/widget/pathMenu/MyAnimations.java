@@ -30,11 +30,11 @@ public class MyAnimations {
 			final View childView = view.getChildAt(i);
 			int count = view.getChildCount();
 			childView.setVisibility(View.VISIBLE);
-			float x = (int) (MyAnimations.dip2px(context, view.getRadius()) * Math
-					.cos(Math.toRadians(i * (360 / count) + 90)));
+			float x = (int) (view.getRadius() * Math.cos(Math.toRadians(i
+					* (360 / count) + 90)));
 
-			float y = (int) (MyAnimations.dip2px(context, view.getRadius()) * Math
-					.sin(Math.toRadians(i * (360 / count) + 90)));
+			float y = (int) (view.getRadius() * Math.sin(Math.toRadians(i
+					* (360 / count) + 90)));
 			AnimationSet as = new AnimationSet(true);
 			Animation animation = null;
 			// to open
