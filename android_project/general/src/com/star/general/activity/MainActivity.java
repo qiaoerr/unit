@@ -43,7 +43,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 		// 获得对象
 		menuView = (MenuItemView) findViewById(R.id.menuView);
 		// 设置半径
-		menuView.setRadius(BaseCommonUtil.getScreenWidth(context) / 4.5f);
+		menuView.setRadius(BaseCommonUtil.getScreenWidth(context) / 3.0f);
 		menuView.setOnClickListener(this);
 		setMenuItemView();
 	}
