@@ -150,7 +150,7 @@ public class PagingViewGroup extends ViewGroup {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		velocityTracker.addMovement(event);
-		velocityTracker.computeCurrentVelocity(1000);
+		velocityTracker.computeCurrentVelocity(1000);// 1000毫秒内移动的pix
 		float x = event.getX();
 		float y = event.getY();
 		switch (event.getAction()) {
