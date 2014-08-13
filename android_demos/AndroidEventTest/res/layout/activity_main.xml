@@ -2,39 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
     <com.example.aetsts.CustomViewGroupA
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
         android:layout_centerInParent="true"
         android:background="#00aa00" >
 
         <com.example.aetsts.CustomViewA
-            android:layout_width="260dp"
-            android:layout_height="260dp"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
             android:layout_centerInParent="true"
             android:background="#0000aa"
-            android:clickable="false" />
+            android:clickable="false"
+            android:visibility="gone" />
     </com.example.aetsts.CustomViewGroupA>
 
     <com.example.aetsts.CustomViewGroupB
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerInParent="true"
         android:background="#aaaa00"
         android:visibility="visible" >
 
         <com.example.aetsts.CustomViewB
-            android:layout_width="260dp"
-            android:layout_height="260dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:background="#aa00aa"
-            android:clickable="false" />
+            android:clickable="false"
+            android:text="View_B"
+            android:visibility="visible" />
     </com.example.aetsts.CustomViewGroupB>
 
 </RelativeLayout>
