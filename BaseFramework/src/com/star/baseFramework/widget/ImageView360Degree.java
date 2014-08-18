@@ -26,7 +26,6 @@ public class ImageView360Degree extends ImageView {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		System.out.println("event.getX():" + event.getX());
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			coordinationX_start = event.getX();
 		} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
@@ -36,18 +35,8 @@ public class ImageView360Degree extends ImageView {
 			}
 		}
 		int tem = (int) (move_distance / threshold);
-		switch (tem) {
-		case 1:
-			index += tem;
-			this.setBackgroundResource(imgs[index % imgs.length]);
-			break;
-		case -1:
-			index += tem;
-			this.setBackgroundResource(imgs[index % imgs.length]);
-			break;
-		default:
-			break;
-		}
+		index += tem;
+		this.setBackgroundResource(imgs[index % imgs.length]);
 		return true;
 	}
 
