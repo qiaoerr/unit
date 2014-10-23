@@ -17,14 +17,14 @@ public class ExcelToArrary {
 		ArrayList<String> proArray = new ArrayList<String>();
 		TreeMap<String, ArrayList<String>> map = new TreeMap<String, ArrayList<String>>();
 		try {
-			InputStream in = ExcelToArrary.class.getResourceAsStream("excel.txt");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			InputStream in = ExcelToArrary.class
+					.getResourceAsStream("excel.txt");
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(in));
 			String str = null;
 			while ((str = reader.readLine()) != null) {
-				// System.out.println(str);
 				str = str.trim();
 				String[] strs = str.split("	");
-				// System.out.println(str + "   " + strs.length);
 				if (strs.length == 2) {
 					arrayList = new ArrayList<String>();
 					arrayList.add(strs[1]);
