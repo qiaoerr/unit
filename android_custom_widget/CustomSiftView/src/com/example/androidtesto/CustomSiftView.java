@@ -139,6 +139,7 @@ public class CustomSiftView extends RelativeLayout implements AnimationListener,
 			dataLists.add(i, datas[i]);
 		}
 		fillViewData();
+		setListBackView();
 	}
 
 	/**
@@ -162,14 +163,41 @@ public class CustomSiftView extends RelativeLayout implements AnimationListener,
 	 * @throws Exception
 	 * @Description: 设置下拉list的背景
 	 */
-	public void setListBackView(int... resourceId) {
-		if (resourceId.length < eleNum) {
-			try {
-				throw new Exception("setListBackView 方法设置的数据有误");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	private void setListBackView() {
+		switch (eleNum) {
+		case 6:
+			setListBackView(R.drawable.soft_left, R.drawable.soft_second_sec,
+					R.drawable.soft_second, R.drawable.soft_third, R.drawable.soft_third_thi,
+					R.drawable.soft_right);
+			break;
+		case 5:
+			setListBackView(R.drawable.soft_left, R.drawable.soft_second_sec,
+					R.drawable.soft_middle, R.drawable.soft_third_thi, R.drawable.soft_right);
+			break;
+		case 4:
+			setListBackView(R.drawable.soft_left, R.drawable.soft_second, R.drawable.soft_third,
+					R.drawable.soft_right);
+			break;
+		case 3:
+			setListBackView(R.drawable.soft_left, R.drawable.soft_middle, R.drawable.soft_right);
+			break;
+		case 2:
+			setListBackView(R.drawable.soft_left, R.drawable.soft_right);
+			break;
+		case 1:
+			setListBackView(R.drawable.soft_middle);
+			break;
+		default:
+			break;
 		}
+
+	}
+
+	/**
+	 * @throws Exception
+	 * @Description: 设置下拉list的背景
+	 */
+	private void setListBackView(int... resourceId) {
 		for (int i = 0; i < resourceId.length; i++) {
 			if (i >= eleNum) {
 				break;

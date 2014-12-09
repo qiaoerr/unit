@@ -43,10 +43,16 @@ public class MainActivity extends Activity {
 		for (int i = 0; i < 8; i++) {
 			datas4.add(new SiftSoftItem("tab4" + i));
 		}
-		customSiftView.setData(datas1, datas2, datas3, datas4);
-		customSiftView.setListBackView(R.drawable.soft_left, R.drawable.soft_second,
-				R.drawable.soft_third, R.drawable.soft_right);
-		customSiftView.setTabContent("one", "two", "three", "four");
+		ArrayList<SiftSoftItem> datas5 = new ArrayList<SiftSoftItem>();
+		for (int i = 0; i < 8; i++) {
+			datas5.add(new SiftSoftItem("tab5" + i));
+		}
+		ArrayList<SiftSoftItem> datas6 = new ArrayList<SiftSoftItem>();
+		for (int i = 0; i < 8; i++) {
+			datas6.add(new SiftSoftItem("tab6" + i));
+		}
+		customSiftView.setData(datas1, datas2, datas3, datas4, datas5, datas6);
+		customSiftView.setTabContent("one", "two", "three", "four", "five", "six");
 		customSiftView.setMaskView(findViewById(R.id.over_view));
 		customSiftView.setTabShowRule(new TabShowRule() {
 
