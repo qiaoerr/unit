@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customsift="http://schemas.android.com/apk/res/com.example.androidtesto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <View
+        android:id="@+id/virtual"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <View
+        android:id="@+id/over_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/virtual"
+        android:background="#333333"
+        android:clickable="true"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:onClick="func"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/iv_image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_image"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo"
+        android:visibility="visible" />
+
+    <com.example.androidtesto.CustomSiftView
+        android:id="@+id/customSiftView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        customsift:eleNum="4" />
+
+</RelativeLayout>
