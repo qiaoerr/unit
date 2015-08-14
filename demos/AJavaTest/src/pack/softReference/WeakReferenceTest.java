@@ -22,7 +22,7 @@ public class WeakReferenceTest {
 		A a = new A();
 		a.str = "Hello, reference";
 		WeakReference<A> weak = new WeakReference<A>(a);
-		a = null;
+		a = null;// 注意此行代码a已经被赋空，否则后面System.gc()时，a的引用计数不为0，不会被销毁回收。
 		int i = 0;
 		while (weak.get() != null) {
 			System.out.println(String.format(

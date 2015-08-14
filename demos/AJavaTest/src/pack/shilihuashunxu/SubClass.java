@@ -1,7 +1,11 @@
 package pack.shilihuashunxu;
 
 public class SubClass extends Base {
-	static int i = -1;
+	public static int i = -1;
+
+	public SubClass() {
+		super();
+	}
 
 	public static void main(String[] args) {
 		Base b = new SubClass();

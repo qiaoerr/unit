@@ -11,7 +11,7 @@ public class Base {
 		System.out.println("BaseµÄ·½·¨i=" + i);
 	}
 
-	Base() {
+	public Base() {
 		method();
 	}
 }
