@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config>
+	<className>
+	designMode.create.factory.factoryMethod.DatabaseLoggerFactory
+	</className>
+</config>
