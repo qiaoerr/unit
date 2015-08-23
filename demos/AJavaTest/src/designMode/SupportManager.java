@@ -3,9 +3,10 @@ package designMode;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class SupportManager<T> {
-	SortedMap<String, String> map;
+	SortedMap<String, String> map = new TreeMap<String, String>();
 	T defaultWork;
 	Class<T> interWork;
 
