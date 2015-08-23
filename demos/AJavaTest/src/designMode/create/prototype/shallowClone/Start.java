@@ -12,10 +12,12 @@ public class Start {
 		// System.out.println(student.getAge());
 		Student clone = student.clone();
 		student.setName("jim");
+		// student.setAge(12);
 		System.out.println(clone);
 		System.out.println(clone.getName());
 		System.out.println(student.getName());
 		// System.out.println(clone.getAge());
+		// System.out.println(student.getAge());
 
 	}
 

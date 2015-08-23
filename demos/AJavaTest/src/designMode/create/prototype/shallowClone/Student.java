@@ -9,7 +9,8 @@ public class Student implements Cloneable {
 	}
 
 	public void setName(String name) {
-		this.name.delete(0, name.length() + 1);
+		this.name.delete(0, this.name.length());
+		// this.name.setLength(0);// 相当于将StringBuffer清空
 		this.name.append(name);
 	}
 

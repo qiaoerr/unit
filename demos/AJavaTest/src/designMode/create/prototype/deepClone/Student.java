@@ -8,7 +8,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Student implements Cloneable, Serializable {
-	private static final long serialVersionUID = -7655597722391426052L;
+
+	private static final long serialVersionUID = 1L;
 	private StringBuffer name = new StringBuffer("lily");
 	private int age = 19;
 
